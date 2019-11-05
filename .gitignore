@@ -1,3 +1,5 @@
 # sphinx build
 .vscode
 .DS_Store
+build/
+docx.log
