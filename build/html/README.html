@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>项目结构 &#8212; sphinx template alpha documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Sphinx Template" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Sphinx Template</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="https://www.sphinx-doc.org/en/master/usage/configuration.html">Sphinx Configurations</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Sphinx Template <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">项目结构</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#github-pages">Github Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Travis CI</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">章节 <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">项目结构</a><ul>
+<li><a class="reference internal" href="#github-pages">Github Pages</a></li>
+<li><a class="reference internal" href="#id2">Travis CI</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="index.html" title="Previous Chapter: Sphinx Template"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Sphinx Template</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <a class="reference external image-reference" href="https://travis-ci.com/renkeju/sphinx-template"><img alt="https://travis-ci.com/renkeju/sphinx-template.svg?branch=master" src="https://travis-ci.com/renkeju/sphinx-template.svg?branch=master" /></a>
+<div class="section" id="id1">
+<h1>项目结构<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li><p>克隆模版并去掉模版中的历史记录</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/renkeju/gitbook-template l2tp-usage-guide
+<span class="nb">cd</span> l2tp-usage-guide <span class="o">&amp;&amp;</span> rm -rf .git
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>修改模版</p></li>
+</ol>
+<blockquote>
+<div><ul>
+<li><p>.travis.yml</p>
+<ul class="simple">
+<li><p>recipients: 修改为你个人邮件地址</p></li>
+<li><p>REF: 修改为你的 github 项目地址</p></li>
+</ul>
+</li>
+<li><p>source/conf.py</p>
+<p>修改 sphinx 相应配置，可以参考此文档 <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/configuration.html">Sphinx Configuration</a> 配置文件</p>
+</li>
+<li><p>CNAME</p>
+<p>如果你不需要指定自己使用的域名，可以删除这个文件。</p>
+<p>如果需要请在 DNS 服务供应商中使用 CNAME 方式将 gitbook.renkeju.com 指向 renkeju.github.com</p>
+</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>在 github 上创建新项目</p></li>
+</ol>
+<blockquote>
+<div><p>比如我对新仓库命名为 l2tp-usage-guide</p>
+<img alt="_images/create_a_new_repository.png" src="_images/create_a_new_repository.png" />
+<p>把修改好的模版 push 到新的仓库</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;# l2tp-usage-guide&quot;</span> &gt; README.md
+git init
+git add .
+git commit -m <span class="s2">&quot;first commit&quot;</span>
+git remote add origin git@github.com:renkeju/l2tp-usage-guide.git
+git push -u origin master
+</pre></div>
+</div>
+</div></blockquote>
+<div class="section" id="github-pages">
+<h2>Github Pages<a class="headerlink" href="#github-pages" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>新建 gh-pages 分支:</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout -b gh-pages
+git push origin gh-pages
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>在项目 Settings -&gt; GitHub Pages 开启 Github Pages 服务:</p></li>
+</ol>
+<blockquote>
+<div><img alt="_images/github_pages_settings.png" src="_images/github_pages_settings.png" />
+</div></blockquote>
+</div>
+<div class="section" id="id2">
+<h2>Travis CI<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>给刚刚在 github 上创建的项目 l2tp-usage-guide 开启 <a class="reference external" href="https://github.com/marketplace/travis-ci">Travis CI</a> 服务：</p></li>
+</ol>
+<blockquote>
+<div><img alt="_images/travis_ci_repositories.png" src="_images/travis_ci_repositories.png" />
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>在 <a class="reference external" href="https://github.com/settings/tokens">Github Settings Tokens</a> 里申请 token 让 Travis 有权修改这个项目：</p></li>
+</ol>
+<blockquote>
+<div><img alt="_images/github_presonal_access_tokens_scopes.png" src="_images/github_presonal_access_tokens_scopes.png" />
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>然后选择 repo，点击生成按钮:</p></li>
+</ol>
+<blockquote>
+<div><img alt="_images/github_presonal_access_tokens.png" src="_images/github_presonal_access_tokens.png" />
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>复制生成的 token，填写在 Travis 的设置-全局变量中，并且取名为 TOKEN:</p></li>
+</ol>
+<blockquote>
+<div><img alt="_images/Travis_CI_Token.png" src="_images/Travis_CI_Token.png" />
+</div></blockquote>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019, renkeju.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
