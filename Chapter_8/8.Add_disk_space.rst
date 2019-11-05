@@ -1,0 +1,8 @@
+*******************
+第八章 添加磁盘空间
+*******************
+
+.. include:: /Chapter_8/8.1.Add_a_new_disk.rst
+.. include:: /Chapter_8/8.2.Split_disk_space.rst
+.. include:: /Chapter_8/8.3.Create_file_system.rst
+.. include:: /Chapter_8/8.4.Use_LVM.rst

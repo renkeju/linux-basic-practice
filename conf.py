@@ -15,12 +15,11 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-import sphinx_bootstrap_theme
-
+import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
 
-project = 'sphinx template'
+project = 'linux basic practice'
 copyright = '2019, renkeju'
 author = 'renkeju'
 
@@ -39,8 +38,7 @@ release = 'alpha'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = [
-]
+extensions = []
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -75,85 +73,12 @@ pygments_style = 'sphinx'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'bootstrap'
-html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
+html_theme = 'sphinx_rtd_theme'
 html_show_sourcelink = False
 
 # (Optional) Logo. Should be small enough to fit the navbar (ideally 24x24).
 # Path should be relative to the ``_static`` files directory.
 #html_logo = "my_logo.png"
-
-# Theme options are theme-specific and customize the look and feel of a
-# theme further.
-html_theme_options = {
-    # Navigation bar title. (Default: ``project`` value)
-    'navbar_title': "Sphinx Template",
-
-    # Tab name for entire site. (Default: "Site")
-    'navbar_site_name': "Sphinx Template",
-
-    # A list of tuples containing pages or urls to link to.
-    # Valid tuples should be in the following forms:
-    #    (name, page)                 # a link to a page
-    #    (name, "/aa/bb", 1)          # a link to an arbitrary relative url
-    #    (name, "http://example.com", True) # arbitrary absolute url
-    # Note the "1" or "True" value above as the third argument to indicate
-    # an arbitrary url.
-    'navbar_links': [
-        ("Sphinx Configurations", "https://www.sphinx-doc.org/en/master/usage/configuration.html", True),
-    ],
-
-    # Render the next and previous page links in navbar. (Default: true)
-    'navbar_sidebarrel': True,
-
-    # Render the current pages TOC in the navbar. (Default: true)
-    'navbar_pagenav': True,
-
-    # Tab name for the current pages TOC. (Default: "Page")
-    'navbar_pagenav_name': "章节",
-
-    # Global TOC depth for "site" navbar tab. (Default: 1)
-    # Switching to -1 shows all levels.
-    'globaltoc_depth': 2,
-
-    # Include hidden TOCs in Site navbar?
-    #
-    # Note: If this is "false", you cannot have mixed ``:hidden:`` and
-    # non-hidden ``toctree`` directives in the same page, or else the build
-    # will break.
-    #
-    # Values: "true" (default) or "false"
-    'globaltoc_includehidden': "true",
-
-    # HTML navbar class (Default: "navbar") to attach to <div> element.
-    # For black navbar, do "navbar navbar-inverse"
-    'navbar_class': "navbar navbar-inverse",
-
-    # Fix navigation bar to top of page?
-    # Values: "true" (default) or "false"
-    'navbar_fixed_top': "true",
-
-    # Location of link to source.
-    # Options are "nav" (default), "footer" or anything else to exclude.
-    'source_link_position': "nav",
-
-    # Bootswatch (http://bootswatch.com/) theme.
-    #
-    # Options are nothing (default) or the name of a valid theme
-    # such as "cosmo" or "sandstone".
-    #
-    # The set of valid themes depend on the version of Bootstrap
-    # that's used (the next config option).
-    #
-    # Currently, the supported themes are:
-    # - Bootstrap 2: https://bootswatch.com/2
-    # - Bootstrap 3: https://bootswatch.com/3
-    'bootswatch_theme': "cosmo",
-
-    # Choose Bootstrap version.
-    # Values: "3" (default) or "2" (in quotes)
-    'bootstrap_version': "3",
-}
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -180,7 +105,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'sphinx templatedoc'
+htmlhelp_basename = 'linux basic practicedoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -207,7 +132,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'sphinx template.tex', 'sphinx template Documentation',
+    (master_doc, 'linux basic practice.tex', 'linux basic practice Documentation',
      'renkeju', 'manual'),
 ]
 
@@ -217,7 +142,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'sphinx template', 'sphinx template Documentation',
+    (master_doc, 'linux basic practice', 'linux basic practice Documentation',
      [author], 1)
 ]
 
@@ -228,7 +153,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'sphinx template', 'sphinx template Documentation',
-     author, 'sphinx template', 'One line description of project.',
+    (master_doc, 'linux basic practice', 'linux basic practice Documentation',
+     author, 'linux basic practice', 'One line description of project.',
      'Miscellaneous'),
 ]
