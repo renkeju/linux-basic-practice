@@ -38,7 +38,9 @@ release = 'alpha'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = []
+extensions = [
+    'docxbuilder'
+]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -156,4 +158,12 @@ texinfo_documents = [
     (master_doc, 'linux basic practice', 'linux basic practice Documentation',
      author, 'linux basic practice', 'One line description of project.',
      'Miscellaneous'),
+]
+
+docx_documents = [
+    ('index', '《Linux基础实践入门》.docx', {
+         'title': project,
+         'creator': author,
+         'subject': 'A manual of docxbuilder',
+     }, True),
 ]
