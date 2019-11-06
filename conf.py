@@ -14,7 +14,6 @@
 #
 import os
 import sys
-import sphinx_rtd_theme
 import datetime
 sys.path.insert(0, os.path.abspath('.'))
 
@@ -41,7 +40,6 @@ release = 'alpha'
 # ones.
 extensions = [
     'docxbuilder',
-    'sphinx_rtd_theme',
     'sphinx.ext.autodoc',
     'sphinx.ext.graphviz',
     'sphinx.ext.mathjax',
