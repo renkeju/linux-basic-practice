@@ -23,11 +23,3 @@
    Chapter_9/9.Management_network
    Chapter_10/10.System_maintenance
    Chapter_11/11.security_strategy
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
