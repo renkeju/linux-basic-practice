@@ -1,9 +1,0 @@
-****************************
-第九章 管理网络
-****************************
-
-.. include:: /Chapter_9/9.1.Network_profile.rst
-.. include:: /Chapter_9/9.2.Use_NetworkManager.rst
-.. include:: /Chapter_9/9.3.Command_to_manage_and_view_network_status.rst
-.. include:: /Chapter_9/9.4.Routing.rst
-.. include:: /Chapter_9/9.5.Making_an_Ethernet_bridge.rst

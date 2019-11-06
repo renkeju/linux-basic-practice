@@ -12,10 +12,11 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+import os
+import sys
 import sphinx_rtd_theme
+import datetime
+sys.path.insert(0, os.path.abspath('.'))
 
 # -- Project information -----------------------------------------------------
 
@@ -39,7 +40,10 @@ release = 'alpha'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'docxbuilder'
+    'docxbuilder',
+    'sphinx.ext.autodoc',
+    'sphinx.ext.graphviz',
+    'sphinx.ext.mathjax',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -160,10 +164,25 @@ texinfo_documents = [
      'Miscellaneous'),
 ]
 
+
+# -- Options for Office Docx output ----------------------------------------------
 docx_documents = [
-    ('index', '《Linux基础实践入门》.docx', {
+    (master_doc, 'linux basic practice.docx', {
          'title': project,
          'creator': author,
-         'subject': 'A manual of docxbuilder',
+         'subject': 'A document of Sphinx Docxbuilder extension',
+         'created': '2019-08-04',
+         'keywords': ['Sphinx', 'Docxbuilder', 'Office Word'],
+         'publishDate': datetime.date.today(),
+         'version': release,
      }, True),
 ]
+
+docx_pagebreak_before_file = 1
+docx_table_options = {'row_splittable': False}
+docx_coverpage = False
+
+autodoc_member_order = 'bysource'
+math_number_all = True
+numfig = True
+numfig_secnum_depth = 2
