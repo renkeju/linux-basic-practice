@@ -6,6 +6,9 @@
 《Linux 基础实践入门》
 ===========================================
 
+.. image:: https://travis-ci.com/renkeju/linux-basic-practice.svg?branch=master
+    :target: https://travis-ci.com/renkeju/linux-basic-practice
+
 .. toctree::
    :maxdepth: 3
 
@@ -20,4 +23,11 @@
    Chapter_9/9.Management_network
    Chapter_10/10.System_maintenance
    Chapter_11/11.security_strategy
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
 
