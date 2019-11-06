@@ -3,11 +3,11 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Sphinx Template
+《Linux 基础实践入门》
 ===========================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    Chapter_1/1.Linux_overview
    Chapter_2/2.Use_a_virtualized_environment
