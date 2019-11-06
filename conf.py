@@ -20,7 +20,7 @@ sys.path.insert(0, os.path.abspath('.'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'linux basic practice'
+project = '《Linux 基础实践入门》'
 copyright = '2019, renkeju'
 author = 'renkeju'
 
@@ -41,6 +41,7 @@ release = 'alpha'
 # ones.
 extensions = [
     'docxbuilder',
+    'sphinx_rtd_theme',
     'sphinx.ext.autodoc',
     'sphinx.ext.graphviz',
     'sphinx.ext.mathjax',
@@ -63,7 +64,7 @@ master_doc = 'index'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = 'zh_CN'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -79,12 +80,13 @@ pygments_style = 'sphinx'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'sphinx_rtd_theme'
+# html_theme = 'sphinx_rtd_theme'
+html_theme = 'alabaster'
 html_show_sourcelink = False
 
 # (Optional) Logo. Should be small enough to fit the navbar (ideally 24x24).
 # Path should be relative to the ``_static`` files directory.
-#html_logo = "my_logo.png"
+html_logo = "_static/linux.png"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -111,7 +113,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'linux basic practicedoc'
+htmlhelp_basename = 'linux basic practice'
 
 
 # -- Options for LaTeX output ------------------------------------------------
