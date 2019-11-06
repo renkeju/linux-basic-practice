@@ -1,8 +1,0 @@
-************************
-第四章 文件管理
-************************
-
-.. include:: /Chapter_4/4.1.Linux_directory_structure.rst
-.. include:: /Chapter_4/4.2.Manage_files_and_directories.rst
-.. include:: /Chapter_4/4.3.Flexible_use_of_permissions.rst
-.. include:: /Chapter_4/4.4.Edit_files_using_the_vi_editor.rst

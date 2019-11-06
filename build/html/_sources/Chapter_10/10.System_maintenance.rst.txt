@@ -1,9 +1,0 @@
-********************
-第十章 系统维护
-********************
-
-.. include:: /Chapter_10/10.1.Command_to_manage_and_view_system_status.rst
-.. include:: /Chapter_10/10.2.Unable_to_login.rst
-.. include:: /Chapter_10/10.3.Unable_to_connect_to_the_network.rst
-.. include:: /Chapter_10/10.4.Application_response_slows_down.rst
-.. include:: /Chapter_10/10.5.File_and_file_system.rst

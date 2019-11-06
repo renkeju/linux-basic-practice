@@ -1,7 +1,0 @@
-***************************
-第六章 执行脚本与任务
-***************************
-
-.. include:: /Chapter_6/6.1.Shell_script_execution_method.rst
-.. include:: /Chapter_6/6.2.Job_scheduling.rst
-.. include:: /Chapter_6/6.3.Automated_management_operations.rst

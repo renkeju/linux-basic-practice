@@ -1,9 +1,0 @@
-**************************
-第十一章 安全策略
-**************************
-
-.. include:: /Chapter_11/11.1.Cognitive_attack_and_defense.rst
-.. include:: /Chapter_11/11.2.Encrypted_data_and_user_host_authentication.rst
-.. include:: /Chapter_11/11.3.Secure_access_via_ssh.rst
-.. include:: /Chapter_11/11.4.Restrict_access_through_a_firewall.rst
-.. include:: /Chapter_11/11.5.Learn_about_security-related_software.rst
