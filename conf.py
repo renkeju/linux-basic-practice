@@ -43,6 +43,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.graphviz',
     'sphinx.ext.mathjax',
+    'sphinxcontrib.excel_table',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -90,7 +91,10 @@ html_logo = "_static/linux.png"
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-# html_theme_options = {}
+html_theme_options = {
+    "page_width": "1300px",
+    "sidebar_width": "300px",
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

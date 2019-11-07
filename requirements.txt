@@ -1,2 +1,3 @@
 Sphinx==2.2.1
 docxbuilder==1.1.5
+sphinxcontrib-excel-table==1.0.8

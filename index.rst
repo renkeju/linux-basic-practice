@@ -9,6 +9,10 @@
 .. image:: https://travis-ci.com/renkeju/linux-basic-practice.svg?branch=master
     :target: https://travis-ci.com/renkeju/linux-basic-practice
 
+
+.. excel-table::
+   :file: /excel/schedule.xlsx
+
 .. toctree::
    :maxdepth: 3
 
