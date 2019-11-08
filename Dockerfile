@@ -1,4 +1,4 @@
-FROM python:3.7
+FROM python:3.7 as sphinx
 
 WORKDIR /usr/src/app
 
@@ -7,4 +7,10 @@ RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple --no-cache-dir -r re
 
 COPY . .
 
-CMD ['/bin/bash', 'entrypoint.sh']
+CMD ['sphinx-build', '-nW', '-b', 'html', '-d', 'build/doctrees', '.', 'build/html']
+
+FROM nginx:latest
+
+COPY --from=sphinx /usr/src/app/build/html /usr/share/nginx/html/linux
+
+CMD ["nginx", "-g", "daemon off;"]
