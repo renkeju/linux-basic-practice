@@ -35,21 +35,84 @@
 <h1>第七章 系统与应用程序管理<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="section" id="centos">
 <h2>7.1 CentOS 安装包管理<a class="headerlink" href="#centos" title="永久链接至标题">¶</a></h2>
+<div class="section" id="rpm">
+<h3>管理 RPM 包<a class="headerlink" href="#rpm" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id2">
+<h3>使用 rpm 命令<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="yum">
+<h3>使用 yum 命令<a class="headerlink" href="#yum" title="永久链接至标题">¶</a></h3>
+</div>
 </div>
 <div class="section" id="ubuntu">
 <h2>7.2 Ubuntu 安装包管理<a class="headerlink" href="#ubuntu" title="永久链接至标题">¶</a></h2>
-</div>
-<div class="section" id="id2">
-<h2>7.3 管理进程<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="dpkg">
+<h3>管理 dpkg 包<a class="headerlink" href="#dpkg" title="永久链接至标题">¶</a></h3>
 </div>
 <div class="section" id="id3">
-<h2>7.4 数据备份与恢复<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h3>使用 dpkg 命令<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="apt">
+<h3>使用 apt 命令<a class="headerlink" href="#apt" title="永久链接至标题">¶</a></h3>
+</div>
 </div>
 <div class="section" id="id4">
-<h2>7.5 日志的收集与查看<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
-</div>
+<h2>7.3 管理进程<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <div class="section" id="id5">
-<h2>7.6 调整系统时间<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<h3>监视进程<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id6">
+<h3>进程优先级<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id7">
+<h3>作业管理<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id8">
+<h3>通过信号控制进程<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>7.4 数据备份与恢复<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id10">
+<h3>管理归档文件<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id11">
+<h3>数据的备份与恢复<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id12">
+<h3>转发备份文件<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id13">
+<h2>7.5 日志的收集与查看<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id14">
+<h3>日志文件<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="rsyslog">
+<h3>使用 rsyslog 收集与管理日志<a class="headerlink" href="#rsyslog" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id15">
+<h3>日志文件轮询<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="systemd-journald">
+<h3>使用 systemd-journald 收集与管理日志<a class="headerlink" href="#systemd-journald" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id16">
+<h2>7.6 调整系统时间<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id17">
+<h3>系统时钟<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id18">
+<h3>硬件时钟<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="ntp">
+<h3>NTP<a class="headerlink" href="#ntp" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id19">
+<h3>设定系统时钟时间<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h3>
+</div>
 </div>
 </div>
 
@@ -82,12 +145,45 @@
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_5/5.User_Management.html">第五章 用户管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_6/6.Execute_scripts_and_tasks.html">第六章 执行脚本与任务</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">第七章 系统与应用程序管理</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#centos">7.1 CentOS 安装包管理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ubuntu">7.2 Ubuntu 安装包管理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">7.3 管理进程</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">7.4 数据备份与恢复</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">7.5 日志的收集与查看</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">7.6 调整系统时间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#centos">7.1 CentOS 安装包管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rpm">管理 RPM 包</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">使用 rpm 命令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#yum">使用 yum 命令</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ubuntu">7.2 Ubuntu 安装包管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dpkg">管理 dpkg 包</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">使用 dpkg 命令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#apt">使用 apt 命令</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">7.3 管理进程</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">监视进程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">进程优先级</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">作业管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">通过信号控制进程</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">7.4 数据备份与恢复</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id10">管理归档文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">数据的备份与恢复</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">转发备份文件</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id13">7.5 日志的收集与查看</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id14">日志文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rsyslog">使用 rsyslog 收集与管理日志</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">日志文件轮询</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#systemd-journald">使用 systemd-journald 收集与管理日志</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">7.6 调整系统时间</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id17">系统时钟</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">硬件时钟</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ntp">NTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">设定系统时钟时间</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_8/8.Add_disk_space.html">第八章 添加磁盘空间</a></li>

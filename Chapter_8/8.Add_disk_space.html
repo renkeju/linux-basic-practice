@@ -35,15 +35,57 @@
 <h1>第八章 添加磁盘空间<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="section" id="id2">
 <h2>8.1 添加新磁盘<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-</div>
 <div class="section" id="id3">
-<h2>8.2 拆分磁盘空间<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h3>分区<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
 </div>
 <div class="section" id="id4">
-<h2>8.3 创建文件系统<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<h3>设备文件<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>8.2 拆分磁盘空间<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="mbr-gpt">
+<h3>MBR 与 GPT<a class="headerlink" href="#mbr-gpt" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id6">
+<h3>分区管理工具<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>8.3 创建文件系统<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id8">
+<h3>创建文件系统<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="xfs">
+<h3>xfs<a class="headerlink" href="#xfs" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="ext2ext3ext4">
+<h3>ext2ext3ext4<a class="headerlink" href="#ext2ext3ext4" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id9">
+<h3>挂载<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id10">
+<h3>管理交换空间<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id11">
+<h3>文件系统相关命令<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id12">
+<h3>检查不匹配的文件系统<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+</div>
 </div>
 <div class="section" id="lvm">
 <h2>8.4 使用 LVM<a class="headerlink" href="#lvm" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id13">
+<h3>认识 LVM<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id14">
+<h3>对物理卷与逻辑卷进行管理<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id15">
+<h3>逻辑卷的扩缩容<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
+</div>
 </div>
 </div>
 
@@ -77,10 +119,32 @@
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_6/6.Execute_scripts_and_tasks.html">第六章 执行脚本与任务</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_7/7.System_and_application_management.html">第七章 系统与应用程序管理</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">第八章 添加磁盘空间</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">8.1 添加新磁盘</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">8.2 拆分磁盘空间</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">8.3 创建文件系统</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lvm">8.4 使用 LVM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">8.1 添加新磁盘</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">分区</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">设备文件</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">8.2 拆分磁盘空间</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mbr-gpt">MBR 与 GPT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">分区管理工具</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">8.3 创建文件系统</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">创建文件系统</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#xfs">xfs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ext2ext3ext4">ext2ext3ext4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">挂载</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">管理交换空间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">文件系统相关命令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">检查不匹配的文件系统</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#lvm">8.4 使用 LVM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id13">认识 LVM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">对物理卷与逻辑卷进行管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">逻辑卷的扩缩容</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_9/9.Management_network.html">第九章 管理网络</a></li>

@@ -35,18 +35,60 @@
 <h1>第九章 管理网络<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="section" id="id2">
 <h2>9.1 网络配置文件<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3>数据包与配置文件<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id4">
+<h3>网络配置文件<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="nic-network-interface-card">
+<h3>NIC（Network Interface Card）的命令<a class="headerlink" href="#nic-network-interface-card" title="永久链接至标题">¶</a></h3>
+</div>
 </div>
 <div class="section" id="networkmanager">
 <h2>9.2 使用 NetworkManager<a class="headerlink" href="#networkmanager" title="永久链接至标题">¶</a></h2>
-</div>
-<div class="section" id="id3">
-<h2>9.3 管理与查看网络状态的命令<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-</div>
-<div class="section" id="id4">
-<h2>9.4 路由<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
-</div>
 <div class="section" id="id5">
-<h2>9.5 制作以太网桥<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<h3>通过 NetworkManager 管理网络<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id6">
+<h3>网络接口管理<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>9.3 管理与查看网络状态的命令<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id8">
+<h3>监控网络的基本命令<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id9">
+<h3>管理网络的基本命令<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>9.4 路由<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id11">
+<h3>管理路由<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id12">
+<h3>转发<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id13">
+<h3>显示路由路径<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id14">
+<h2>9.5 制作以太网桥<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id15">
+<h3>认识网桥<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="networkmanager-systemd-network">
+<h3>了解 NetworkManager 与 systemd-network<a class="headerlink" href="#networkmanager-systemd-network" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id16">
+<h3>设置 NetworkManager<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="systemd-networkd-systemd-networkd-netplan">
+<h3>设置 systemd-networkd 及 systemd-networkd+netplan<a class="headerlink" href="#systemd-networkd-systemd-networkd-netplan" title="永久链接至标题">¶</a></h3>
+</div>
 </div>
 </div>
 
@@ -81,11 +123,35 @@
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_7/7.System_and_application_management.html">第七章 系统与应用程序管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_8/8.Add_disk_space.html">第八章 添加磁盘空间</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">第九章 管理网络</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">9.1 网络配置文件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#networkmanager">9.2 使用 NetworkManager</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">9.3 管理与查看网络状态的命令</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">9.4 路由</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">9.5 制作以太网桥</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">9.1 网络配置文件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">数据包与配置文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">网络配置文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nic-network-interface-card">NIC（Network Interface Card）的命令</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#networkmanager">9.2 使用 NetworkManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">通过 NetworkManager 管理网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">网络接口管理</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">9.3 管理与查看网络状态的命令</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">监控网络的基本命令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">管理网络的基本命令</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">9.4 路由</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id11">管理路由</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">转发</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">显示路由路径</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">9.5 制作以太网桥</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id15">认识网桥</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#networkmanager-systemd-network">了解 NetworkManager 与 systemd-network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">设置 NetworkManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#systemd-networkd-systemd-networkd-netplan">设置 systemd-networkd 及 systemd-networkd+netplan</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_10/10.System_maintenance.html">第十章 系统维护</a></li>
