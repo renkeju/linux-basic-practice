@@ -185,8 +185,3 @@ docx_documents = [
 docx_pagebreak_before_file = 1
 docx_table_options = {'row_splittable': False}
 docx_coverpage = False
-
-autodoc_member_order = 'bysource'
-math_number_all = True
-numfig = True
-numfig_secnum_depth = 2
