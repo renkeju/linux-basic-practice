@@ -33,6 +33,27 @@
 <h1>1.3 安装 CentOS<a class="headerlink" href="#centos" title="永久链接至标题">¶</a></h1>
 <div class="section" id="id1">
 <h2>从安装介质入手<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>.iso是电脑上光盘镜像（CD Mirror）的存储格式之一，因为其是根据ISO-9660有关CD-ROM文件系统标准存储的文件，所以通常在电脑中以后缀.iso命名，俗称iso镜像文件。它形式上只有一个文件，可以真实反映光盘的内容，可由刻录软件或者镜像文件制作工具创建。.iso和我们熟识的.zip压缩包非常类似，在windows环境下，我们可以将计算机中的文件、文件夹通过WinRAR压缩成为.zip压缩包，而刻录软件（如UItraISO）则可以将光盘中的文件、文件夹“压缩“成为.iso文件（用提取也许更为合适，因为前后两者大小几乎相同）。尽管.iso文件也可以通过WinRAR进行解压，但是对于的特殊.iso文件这样的操作会使得其失去其特殊功能。像系统光盘刻录成的.iso文件（如Windows安装光盘），通过WinRAR解压则会使其失去安装系统的功能，普通数据类文件“压缩“成的.iso文件，如音频，视频，文档，通过WinRAR解压并没有影响。</p>
+<p>常见的刻录软件有 UltraISO 软碟通、PowerISO 和 balenaEtcher 等。UltraISO 与 PowerISO 可以免费试用，但是试用更高级的功能需要付费，而 balenaEtcher 则是开源软件，可以免费试用。所以这里我们演示如何通过 balenaEtcher 制作一个 CentOS 启动U盘。</p>
+<ol class="arabic simple">
+<li><p>首先打开网址 <a class="reference external" href="https://www.balena.io/etcher/">https://www.balena.io/etcher/</a>：</p></li>
+</ol>
+<blockquote>
+<div><img alt="../_images/balenaEtcher_website.png" src="../_images/balenaEtcher_website.png" />
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>选择当前操作系统相关下载，下面以 Windows 操作系统举例：</p></li>
+</ol>
+<blockquote>
+<div><img alt="../_images/balenaEtcher_platform.png" src="../_images/balenaEtcher_platform.png" />
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>Installer 为安装版本，在Windows系统中有注册表注入，Portable 为免安装便携版本。请根据自己的需求进行选择下载。</p>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>进行安装：</p></li>
+</ol>
 </div>
 <div class="section" id="id2">
 <h2>系统安装过程<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
@@ -66,7 +87,6 @@
 
 <h3>导航</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../schedule.html">进度</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1.Linux_overview.html">第一章 Linux 概述</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_2/2.Use_a_virtualized_environment.html">第二章 使用虚拟环境</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_3/3.Linux_start_and_stop.html">第三章 Linux 的启动与停止</a></li>
