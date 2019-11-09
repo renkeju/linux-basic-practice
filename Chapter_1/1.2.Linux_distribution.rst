@@ -3,18 +3,45 @@
 =====================
 
 
-认识 Linux 系统发行版本
+认识 Linux 发行版
 ----------------------------
 
-常见 Linux 系统发行版本市场份额
+Linux 发行版是为一般用户预先集成好的 Linux 操作系统及各种应用软件。一般用户不需要重新编译，在直接安装之后，只需要小幅度修改配置就可以使用，通常以软件包管理系统来进行应用软件的管理。Linux 发行版通常包含了图形桌面环境、办公包、多媒体播放器等应用软件。
+
+由于大多数软件包是自由软件和开源软件，所以 Linux 发行版的形式多种多样——从功能齐全的桌面系统以及服务器系统到小型系统（通常在嵌入式设备，或者启动软盘）。除了一些定制软件（如安装和配置工具），发行版通常只是将特定的应用软件安装在一堆函数库和内核上，以满足特定用户的需求。
+
+这些发行版可以分为商业发行版，比如 Ubuntu（Canonical 公司）、Fedora（Red Hat）、openSUSE（Novell）；和社区发行版，他们由自由软件社区提供支持，如 Debian 和 Gentoo。 
+
+常见 Linux 发行版本市场份额
 --------------------------------
 
-常见 Linux 系统发行版本人气
+DistroWatch是全球唯一提供足够Linux发行版信息的网站，有一定的权威性，我们访问 https://distrowatch.com/dwres.php?resource=popularity 可以查看当前世界各种Linux发行版市场份额的排名。
+
+.. image:: /_images/Chapter_1/Linux_distribution_share.png
+
+推荐的 Linux 发行版
 ------------------------------
 
-常见 Linux 系统发行版本中桌面环境
---------------------------------------
+国内，乃至是全世界的Linux用户所最熟悉、最耳闻能详的发行版想必就是Red Hat了。早期的Red Hat版本已停止技术支持，最后一版是 Red Hat 9.0。于是，目前Red Hat分为两个系列：由RedHat公司提供收费技术支持和更新的Red Hat Enterprise Linux，以及由社区开发的免费的Fedora Core。CentOS是来自于Red Hat Enterprise Linux(RHEL)依照开放源代码规定发布的源代码所编译而成。由于出自同样的源代码，因此有些要求高度稳定性的服务器以CentOS替代商业版的Red Hat Enterprise Linux使用。两者的不同在于CentOS并不包含封闭源代码软件。CentOS 对上游代码的主要修改是为了移除不能自由使用的商标。2014年，CentOS宣布与Red Hat合作，但CentOS将会在新的委员会下继续运作，并不受RHEL的影响。
 
-常见 Linux 系统发行版本安装所需要的硬件配置
+Ubuntu基于Debian发行版和GNOME桌面环境，与Debian的不同在于它每6个月会发布一个新版本（即每年的四月与十月），每2年发布一个LTS长期支持版本。 普通的桌面版可以获得发布后18个月内的支持，标为LTS（长期支持）的桌面版可以获得更长时间的支持。例如，Ubuntu 8.04 LTS（代号Hardy Heron），其桌面应用系列可以获得为期3年的技术支持，服务器版可以获得为期5年的技术支持。
+
+下面这张图片可以看到各种 Linux 发行版的时间线：
+
+.. image:: https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg
+
+本书推荐使用 CentOS 与 Ubuntu 这两种 Linux 发行版，原因如下:
+
+1. CentOS 与 Ubuntu 的官方文档完善。网络用户群体基数大，遇到问题在互联网中非常容易搜索到相关的解决方案。
+2. CentOS 与 Ubuntu Linux 发型版非常容易获得。我们从官方或者一些国内镜像站点（清华大学镜像站、上海交通大学镜像站、中国科技大学镜像站等）都可以下载到 CentOS 与 Ubuntu 各种 Linux 发行版的相关介质。
+3. CentOS 与 Ubuntu 应用范围广，具有一定代表性。国内的互联网公司服务器中多采用 CentOS 或 Ubuntu 作为操作系统。学会使用 CentOS 或 Ubuntu，在以后的工作中可以快速融入企业的工作环境，也可以触类旁通，其他的 Linux 发行版也可以快速掌握。
+
+Linux 发行版安装所需要的硬件配置
 ---------------------------------------------
 
+.. csv-table:: 推荐配置
+   :header: "Linux 发行版", "CPU", "内存", "硬盘存储空间", "外部设备", "网络"
+   :widths: 25, 25, 20, 20, 20, 15
+
+        "Ubuntu 18.04.3 LTS", "双核2 GHz处理器或更高", "2 GB 系统内存", "25 GB磁盘存储空间", "支持DVD光驱或USB口安装", "互联网接入"
+        "CentOS 8 1905", "双核2 GHz处理器或更高", "2 GB 系统内存", "20 GB磁盘存储空间", "支持DVD光驱或USB口安装", "互联网接入"

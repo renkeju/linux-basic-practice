@@ -12,7 +12,6 @@
 .. toctree::
    :maxdepth: 3
 
-   schedule 
    Chapter_1/1.Linux_overview
    Chapter_2/2.Use_a_virtualized_environment
    Chapter_3/3.Linux_start_and_stop
