@@ -26,11 +26,9 @@ DistroWatch是全球唯一提供足够Linux发行版信息的网站，有一定�
 
 Ubuntu基于Debian发行版和GNOME桌面环境，与Debian的不同在于它每6个月会发布一个新版本（即每年的四月与十月），每2年发布一个LTS长期支持版本。 普通的桌面版可以获得发布后18个月内的支持，标为LTS（长期支持）的桌面版可以获得更长时间的支持。例如，Ubuntu 8.04 LTS（代号Hardy Heron），其桌面应用系列可以获得为期3年的技术支持，服务器版可以获得为期5年的技术支持。
 
-下面这张图片可以看到各种 Linux 发行版的时间线：
+通过这个网址 https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg 可以看到各种 Linux 发行版的时间线。
 
-.. image:: https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg
-
-本书推荐使用 CentOS 与 Ubuntu 这两种 Linux 发行版，原因如下:
+本书推荐使用 CentOS 与 Ubuntu 这两种 Linux 发行版:
 
 1. CentOS 与 Ubuntu 的官方文档完善。网络用户群体基数大，遇到问题在互联网中非常容易搜索到相关的解决方案。
 2. CentOS 与 Ubuntu Linux 发型版非常容易获得。我们从官方或者一些国内镜像站点（清华大学镜像站、上海交通大学镜像站、中国科技大学镜像站等）都可以下载到 CentOS 与 Ubuntu 各种 Linux 发行版的相关介质。

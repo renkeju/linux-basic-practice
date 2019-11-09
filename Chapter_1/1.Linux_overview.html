@@ -71,8 +71,8 @@
 <h3>推荐的 Linux 发行版<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
 <p>国内，乃至是全世界的Linux用户所最熟悉、最耳闻能详的发行版想必就是Red Hat了。早期的Red Hat版本已停止技术支持，最后一版是 Red Hat 9.0。于是，目前Red Hat分为两个系列：由RedHat公司提供收费技术支持和更新的Red Hat Enterprise Linux，以及由社区开发的免费的Fedora Core。CentOS是来自于Red Hat Enterprise Linux(RHEL)依照开放源代码规定发布的源代码所编译而成。由于出自同样的源代码，因此有些要求高度稳定性的服务器以CentOS替代商业版的Red Hat Enterprise Linux使用。两者的不同在于CentOS并不包含封闭源代码软件。CentOS 对上游代码的主要修改是为了移除不能自由使用的商标。2014年，CentOS宣布与Red Hat合作，但CentOS将会在新的委员会下继续运作，并不受RHEL的影响。</p>
 <p>Ubuntu基于Debian发行版和GNOME桌面环境，与Debian的不同在于它每6个月会发布一个新版本（即每年的四月与十月），每2年发布一个LTS长期支持版本。 普通的桌面版可以获得发布后18个月内的支持，标为LTS（长期支持）的桌面版可以获得更长时间的支持。例如，Ubuntu 8.04 LTS（代号Hardy Heron），其桌面应用系列可以获得为期3年的技术支持，服务器版可以获得为期5年的技术支持。</p>
-<p>下面这张图片可以看到各种 Linux 发行版的时间线：</p>
-<img alt="https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg" src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg" /><p>本书推荐使用 CentOS 与 Ubuntu 这两种 Linux 发行版，原因如下:</p>
+<p>通过这个网址 <a class="reference external" href="https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg">https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg</a> 可以看到各种 Linux 发行版的时间线。</p>
+<p>本书推荐使用 CentOS 与 Ubuntu 这两种 Linux 发行版:</p>
 <ol class="arabic simple">
 <li><p>CentOS 与 Ubuntu 的官方文档完善。网络用户群体基数大，遇到问题在互联网中非常容易搜索到相关的解决方案。</p></li>
 <li><p>CentOS 与 Ubuntu Linux 发型版非常容易获得。我们从官方或者一些国内镜像站点（清华大学镜像站、上海交通大学镜像站、中国科技大学镜像站等）都可以下载到 CentOS 与 Ubuntu 各种 Linux 发行版的相关介质。</p></li>
@@ -136,6 +136,7 @@
 </ol>
 <blockquote>
 <div><img alt="../_images/balenaEtcher_platform.png" src="../_images/balenaEtcher_platform.png" />
+<p>下载完成后安装 balenaEtcher。</p>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
 <p>Installer 为安装版本，在Windows系统中有注册表注入，Portable 为免安装便携版本。请根据自己的需求进行选择下载。</p>
@@ -144,6 +145,22 @@
 <ol class="arabic simple" start="3">
 <li><p>进行安装：</p></li>
 </ol>
+<blockquote>
+<div><p>点击“我同意”进行安装。</p>
+<img alt="../_images/balenaEtcher_install.PNG" src="../_images/balenaEtcher_install.PNG" />
+<p>安装完成后，点击桌面图标“balenaEtcher”可以看到如下界面：</p>
+<img alt="../_images/balenaEtcher_window.PNG" src="../_images/balenaEtcher_window.PNG" />
+</div></blockquote>
+<p>当我们安装完成刻录工具之后，需要准备一个U盘，并且下载好需要刻录的.iso文件。我们可以去CentOS 官方网站获取 .iso 文件，也可以通过国内镜像站获取 .iso 文件。这里我提供国内清华大学镜像站 CentOS 8 1905 下载链接 <a class="reference external" href="https://mirrors.tuna.tsinghua.edu.cn/centos/8/isos/x86_64/">https://mirrors.tuna.tsinghua.edu.cn/centos/8/isos/x86_64/</a>。点击以 .iso 后缀结尾的文件链接即可下载到本地。</p>
+<ol class="arabic simple" start="4">
+<li><p>进行刻录</p></li>
+</ol>
+<blockquote>
+<div><p>点击 “Select image” 选择需要刻录的 .iso 文件：</p>
+<p>点击 “Select target” 选择存储介质：</p>
+<p>点击 “Flash！” 进行刻录：</p>
+</div></blockquote>
+<p>至此，我们就制作完成了一个 CentOS 系统可引导安装U盘。</p>
 </div>
 <div class="section" id="id11">
 <h3>系统安装过程<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
