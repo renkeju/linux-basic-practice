@@ -18,6 +18,8 @@ Linux 发行版是为一般用户预先集成好的 Linux 操作系统及各种�
 DistroWatch是全球唯一提供足够Linux发行版信息的网站，有一定的权威性，我们访问 https://distrowatch.com/dwres.php?resource=popularity 可以查看当前世界各种Linux发行版市场份额的排名。
 
 .. image:: /_images/Chapter_1/Linux_distribution_share.png
+   :scale: 100%
+   :align: center
 
 推荐的 Linux 发行版
 ------------------------------
