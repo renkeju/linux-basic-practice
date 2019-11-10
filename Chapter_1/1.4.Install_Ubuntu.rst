@@ -93,7 +93,11 @@
 登录
 ---------
 
-此时我们已经完成了 Ubuntu 18.04 Linux 系统的安装，下面我们登录 Ubuntu Linux 系统。首先我们会看到 Ubuntu Linux 的启动选项：
+此时我们已经完成了 Ubuntu 18.04 Linux 系统的安装，下面我们登录 Ubuntu Linux 系统。
 
+.. image:: /_images/Chapter_1/Ubuntu/tty.png
 
+在终端中输入用户名和密码：
+
+.. image:: /_images/Chapter_1/Ubuntu/login.png
 

@@ -12,10 +12,13 @@
 1. 首先打开网址 https://www.balena.io/etcher/：
 
   .. image:: /_images/Chapter_1/balenaEtcher_website.png
+    :scale: 80%
+    :align: center
 
 2. 选择当前操作系统相关下载，下面以 Windows 操作系统举例：
 
   .. image:: /_images/Chapter_1/balenaEtcher_platform.png
+    :align: center
 
   下载完成后安装 balenaEtcher。
 
@@ -26,10 +29,13 @@
   点击“我同意”进行安装。
 
   .. image:: /_images/Chapter_1/balenaEtcher_install.PNG
+    :align: center
 
   安装完成后，点击桌面图标“balenaEtcher”可以看到如下界面：
 
   .. image:: /_images/Chapter_1/balenaEtcher_window.PNG
+    :scale: 80%
+    :align: center
 
 当我们安装完成刻录工具之后，需要准备一个U盘，并且下载好需要刻录的.iso文件。我们可以去CentOS 官方网站获取 .iso 文件，也可以通过国内镜像站获取 .iso 文件。这里我提供国内清华大学镜像站 CentOS 8 1905 下载链接 https://mirrors.tuna.tsinghua.edu.cn/centos/8/isos/x86_64/。点击以 .iso 后缀结尾的文件链接即可下载到本地。
 
@@ -38,24 +44,36 @@
   点击 “Select image” 选择需要刻录的 .iso 文件：
 
   .. image:: /_images/Chapter_1/balenaEtcher_window.PNG
-
-  .. image:: /_images/Chapter_1/balenaEtcher_select_image.PNG
+    :scale: 80%
+    :align: center
 
   点击 “Select target” 选择存储介质：
 
   .. image:: /_images/Chapter_1/balebaEtcher_select_target.PNG
+    :scale: 80%
+    :align: center
 
   点击 “Flash！” 进行刻录：
 
   .. image:: /_images/Chapter_1/balenaEtcher_flash_1.PNG
+    :scale: 80%
+    :align: center
 
   .. image:: /_images/Chapter_1/balenaEtcher_flash_2.PNG
+    :scale: 80%
+    :align: center
 
   .. image:: /_images/Chapter_1/balenaEtcher_flash_3.PNG
+    :scale: 80%
+    :align: center
 
   .. image:: /_images/Chapter_1/balenaEtcher_flash_4.PNG
+    :scale: 80%
+    :align: center
 
   .. image:: /_images/Chapter_1/balenaEtcher_flash_5.PNG
+    :scale: 80%
+    :align: center
 
 至此，我们就制作完成了一个 CentOS 系统引导安装U盘。
 
@@ -82,66 +100,83 @@
 进入BIOS后，我们需要更改启动引导顺序，下面通过最常见的 Phoenix BIOS 举例：
 
 .. image:: /_images/Chapter_1/BIOS/BIOS_view.png
+  :align: center
 
 看到BIOS界面后使用键盘的“←→”左右键切换到 Boot 选项：
 
 .. image:: /_images/Chapter_1/BIOS/BIOS_Boot.png
+  :align: center
 
 然后使用“+-”加减键更改启动顺序，我们应该将U盘放置在第一位。确认后按 F10 快捷键保存并退出，之后进入 CentOS 安装界面。
 
 .. image:: /_images/Chapter_1/CentOS/CentOS_8_Install_select.png
+  :align: center
 
 在安装界面可以看到三个界面，使用键盘“↑↓”上下键可以切换，我们选择“Install CentOS Linux 8.0.1905”：
 
 .. image:: /_images/Chapter_1/CentOS/select_Install_CentOS_8.0.1905.png
+  :align: center
 
 之后将会进入系统引导：
 
 .. image:: /_images/Chapter_1/CentOS/system_boot.png
+  :align: center
 
 引导完成后可以看到语言选择界面，这里选择简体中文进行后续的安装：
 
 .. image:: /_images/Chapter_1/CentOS/choois_language.png
+  :align: center
 
 点击继续后进入安装信息摘要，在这个界面我们可以对 CentOS 系统安装指定配置：
 
 .. image:: /_images/Chapter_1/CentOS/install_summary.png
+  :align: center
 
 在“可视化”这一栏中，我们可以看到“键盘”、“语言支持”和“时间和日期”，刚才我们已经选择了语言为简体中文，所以这里我们只需修改时区即可，时区建议修改为 “亚洲/上海”：
 
 .. image:: /_images/Chapter_1/CentOS/change_timezone.png
+  :align: center
 
 时区配置完成后，点击完成按钮，退回到安装信息摘要界面，在“软件”这一栏中，我们可以看到“安装源”和“软件选择”，安装源默认为“本地安装”，所以不需要进行修改。在“软件选择”的选项中，默认安装为“带有 GUI 的服务器”，也就是带有图形界面。建议更改为“最小化安装”：
 
 .. image:: /_images/Chapter_1/CentOS/GUI_server.png
+  :align: center
 
 .. image:: /_images/Chapter_1/CentOS/mini_install.png
+  :align: center
 
 “软件选择”配置完成后，点击完成按钮，退回到安装信息摘要界面，在“系统”这一栏中，我们需要修改“安装目的地”和“网络和主机名”。先来修改“安装目的地”:
 
 .. image:: /_images/Chapter_1/CentOS/install_disk_target.png
+  :align: center
 
 如果显示的磁盘空间为空闲，你并不需要做更多的设置。但是如果你的磁盘中已经安装过其他的操作系统或是部分空间被占用，则需要进行一些调整。如下，这个主机中的磁盘已经安装过了 CentOS 7 系统，没有多余的空闲空间，此时需要释放磁盘空间以便安装 CentOS 8。
 
 .. image:: /_images/Chapter_1/CentOS/no_free_disk.png
+  :align: center
 
 更改“存储配置”为“自定义”，然后点击“完成”按钮，进入磁盘空间手动分区配置界面：
 
 .. image:: /_images/Chapter_1/CentOS/change_storage_configuration.png
+  :align: center
 
 .. image:: /_images/Chapter_1/CentOS/manual_partition.png
+  :align: center
 
 点击 “**CentOS Linux 7.7.1908 for x86_64**”，查看已有分区：
 
 .. image:: /_images/Chapter_1/CentOS/view_existing_partitions.png
+  :align: center
 
 选则“/”根分区，并点击下方“-”号，删除已有分区,如果你也想同时删除“/”根分区下的所有其他分区，在“删除仅由 CentOS Linux 7.7.1908 for x86_64 使用的文件系统”前勾选后点击“删除”按钮即可：
 
 .. image:: /_images/Chapter_1/CentOS/delete_existing_partitions.png
+  :align: center
 
 此时已经删除了所有分区，我们点击“点击这里自动创建它们”可以创建新的分区供安装 CentOS 8 系统使用：
 
 .. image:: /_images/Chapter_1/CentOS/all_free_disk.png
+  :align: center
 
 .. image:: /_images/Chapter_1/CentOS/new_partitions.png
 
