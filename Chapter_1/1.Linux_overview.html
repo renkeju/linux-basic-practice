@@ -81,8 +81,8 @@
 </div>
 <div class="section" id="id9">
 <h3>Linux 发行版安装所需要的硬件配置<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
-<table class="colwidths-given docutils align-default" id="id24">
-<caption><span class="caption-text">推荐配置</span><a class="headerlink" href="#id24" title="永久链接至表格">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id23">
+<caption><span class="caption-text">推荐配置</span><a class="headerlink" href="#id23" title="永久链接至表格">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 20%" />
@@ -123,7 +123,7 @@
 <h2>1.3 安装 CentOS<a class="headerlink" href="#centos" title="永久链接至标题">¶</a></h2>
 <div class="section" id="id10">
 <h3>从安装介质入手<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
-<p>.iso是电脑上光盘镜像（CD Mirror）的存储格式之一，因为其是根据ISO-9660有关CD-ROM文件系统标准存储的文件，所以通常在电脑中以后缀.iso命名，俗称iso镜像文件。它形式上只有一个文件，可以真实反映光盘的内容，可由刻录软件或者镜像文件制作工具创建。.iso和我们熟识的.zip压缩包非常类似，在windows环境下，我们可以将计算机中的文件、文件夹通过WinRAR压缩成为.zip压缩包，而刻录软件（如UItraISO）则可以将光盘中的文件、文件夹“压缩“成为.iso文件（用提取也许更为合适，因为前后两者大小几乎相同）。尽管.iso文件也可以通过WinRAR进行解压，但是对于的特殊.iso文件这样的操作会使得其失去其特殊功能。像系统光盘刻录成的.iso文件（如Windows安装光盘），通过WinRAR解压则会使其失去安装系统的功能，普通数据类文件“压缩“成的.iso文件，如音频，视频，文档，通过WinRAR解压并没有影响。</p>
+<p>.iso是电脑上光盘镜像”, “CD Mirror”的存储格式之一，因为其是根据ISO-9660有关CD-ROM文件系统标准存储的文件，所以通常在电脑中以后缀.iso命名，俗称iso镜像文件。它形式上只有一个文件，可以真实反映光盘的内容，可由刻录软件或者镜像文件制作工具创建。.iso和我们熟识的.zip压缩包非常类似，在windows环境下，我们可以将计算机中的文件、文件夹通过WinRAR压缩成为.zip压缩包，而刻录软件”, “如UItraISO”则可以将光盘中的文件、文件夹“压缩“成为.iso文件”, “用提取也许更为合适，因为前后两者大小几乎相同”。尽管.iso文件也可以通过WinRAR进行解压，但是对于的特殊.iso文件这样的操作会使得其失去其特殊功能。像系统光盘刻录成的.iso文件”, “如Windows安装光盘”，通过WinRAR解压则会使其失去安装系统的功能，普通数据类文件“压缩“成的.iso文件，如音频，视频，文档，通过WinRAR解压并没有影响。</p>
 <p>常见的刻录软件有 UltraISO 软碟通、PowerISO 和 balenaEtcher 等。UltraISO 与 PowerISO 可以免费试用，但是试用更高级的功能需要付费，而 balenaEtcher 则是开源软件，可以免费试用。所以这里我们演示如何通过 balenaEtcher 制作一个 CentOS 系统引导安装U盘。</p>
 <ol class="arabic simple">
 <li><p>首先打开网址 <a class="reference external" href="https://www.balena.io/etcher/">https://www.balena.io/etcher/</a>：</p></li>
@@ -157,55 +157,179 @@
 </ol>
 <blockquote>
 <div><p>点击 “Select image” 选择需要刻录的 .iso 文件：</p>
+<img alt="../_images/balenaEtcher_window.PNG" src="../_images/balenaEtcher_window.PNG" />
+<img alt="../_images/balenaEtcher_select_image.PNG" src="../_images/balenaEtcher_select_image.PNG" />
 <p>点击 “Select target” 选择存储介质：</p>
+<img alt="../_images/balebaEtcher_select_target.PNG" src="../_images/balebaEtcher_select_target.PNG" />
 <p>点击 “Flash！” 进行刻录：</p>
+<img alt="../_images/balenaEtcher_flash_1.PNG" src="../_images/balenaEtcher_flash_1.PNG" />
+<img alt="../_images/balenaEtcher_flash_2.PNG" src="../_images/balenaEtcher_flash_2.PNG" />
+<img alt="../_images/balenaEtcher_flash_3.PNG" src="../_images/balenaEtcher_flash_3.PNG" />
+<img alt="../_images/balenaEtcher_flash_4.PNG" src="../_images/balenaEtcher_flash_4.PNG" />
+<img alt="../_images/balenaEtcher_flash_5.PNG" src="../_images/balenaEtcher_flash_5.PNG" />
 </div></blockquote>
 <p>至此，我们就制作完成了一个 CentOS 系统引导安装U盘。</p>
 </div>
 <div class="section" id="id11">
 <h3>系统安装过程<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<p>将我们制作好的 CentOS 系统引导安装U盘插入服务器、台式机或笔记本，按下电源键后，请根据下表提供的常用快捷键进入 BIOS：</p>
+<table class="colwidths-given docutils align-default" id="id24">
+<caption><span class="caption-text">品牌台式机以及笔记本电脑进入BIOS按键</span><a class="headerlink" href="#id24" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 63%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>品牌</p></th>
+<th class="head"><p>按键</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ibm/thinkpad</p></td>
+<td><p>冷开机按f1，部分新型号可以在重新启动时启动按f1</p></td>
+</tr>
+<tr class="row-odd"><td><p>惠普 HP</p></td>
+<td><p>启动和重新启动时按f2或者F10</p></td>
+</tr>
+<tr class="row-even"><td><p>索尼 Sony</p></td>
+<td><p>启动和重新启动时按f2</p></td>
+</tr>
+<tr class="row-odd"><td><p>戴尔 Dell</p></td>
+<td><p>启动和重新启动时按f2</p></td>
+</tr>
+<tr class="row-even"><td><p>宏碁 Acer</p></td>
+<td><p>启动和重新启动时按f2</p></td>
+</tr>
+<tr class="row-odd"><td><p>东芝 Toshiba</p></td>
+<td><p>冷开机时按esc然后按f1</p></td>
+</tr>
+<tr class="row-even"><td><p>富士通 fujitsu</p></td>
+<td><p>启动和重新启动时按f2</p></td>
+</tr>
+<tr class="row-odd"><td><p>三星 Samsung</p></td>
+<td><p>启动和重新时按f2</p></td>
+</tr>
+<tr class="row-even"><td><p>联想 Lenovo</p></td>
+<td><p>启动时按F2或Fn+F2，部分机型需关机时按Novo恢复键</p></td>
+</tr>
+<tr class="row-odd"><td><p>华硕 Asus</p></td>
+<td><p>启动时按F2</p></td>
+</tr>
+</tbody>
+</table>
+<p>进入BIOS后，我们需要更改启动引导顺序，下面通过最常见的 Phoenix BIOS 举例：</p>
+<img alt="../_images/BIOS_view.png" src="../_images/BIOS_view.png" />
+<p>看到BIOS界面后使用键盘的“←→”左右键切换到 Boot 选项：</p>
+<img alt="../_images/BIOS_Boot.png" src="../_images/BIOS_Boot.png" />
+<p>然后使用“+-”加减键更改启动顺序，我们应该将U盘放置在第一位。确认后按 F10 快捷键保存并退出，之后进入 CentOS 安装界面。</p>
+<img alt="../_images/CentOS_8_Install_select.png" src="../_images/CentOS_8_Install_select.png" />
+<p>在安装界面可以看到三个界面，使用键盘“↑↓”上下键可以切换，我们选择“Install CentOS Linux 8.0.1905”：</p>
+<img alt="../_images/select_Install_CentOS_8.0.1905.png" src="../_images/select_Install_CentOS_8.0.1905.png" />
+<p>之后将会进入系统引导：</p>
+<img alt="../_images/system_boot.png" src="../_images/system_boot.png" />
+<p>引导完成后可以看到语言选择界面，这里选择简体中文进行后续的安装：</p>
+<img alt="../_images/choois_language.png" src="../_images/choois_language.png" />
+<p>点击继续后进入安装信息摘要，在这个界面我们可以对 CentOS 系统安装指定配置：</p>
+<img alt="../_images/install_summary.png" src="../_images/install_summary.png" />
+<p>在“可视化”这一栏中，我们可以看到“键盘”、“语言支持”和“时间和日期”，刚才我们已经选择了语言为简体中文，所以这里我们只需修改时区即可，时区建议修改为 “亚洲/上海”：</p>
+<img alt="../_images/change_timezone.png" src="../_images/change_timezone.png" />
+<p>时区配置完成后，点击完成按钮，退回到安装信息摘要界面，在“软件”这一栏中，我们可以看到“安装源”和“软件选择”，安装源默认为“本地安装”，所以不需要进行修改。在“软件选择”的选项中，默认安装为“带有 GUI 的服务器”，也就是带有图形界面。建议更改为“最小化安装”：</p>
+<img alt="../_images/GUI_server.png" src="../_images/GUI_server.png" />
+<img alt="../_images/mini_install.png" src="../_images/mini_install.png" />
+<p>“软件选择”配置完成后，点击完成按钮，退回到安装信息摘要界面，在“系统”这一栏中，我们需要修改“安装目的地”和“网络和主机名”。先来修改“安装目的地”:</p>
+<img alt="../_images/install_disk_target.png" src="../_images/install_disk_target.png" />
+<p>如果显示的磁盘空间为空闲，你并不需要做更多的设置。但是如果你的磁盘中已经安装过其他的操作系统或是部分空间被占用，则需要进行一些调整。如下，这个主机中的磁盘已经安装过了 CentOS 7 系统，没有多余的空闲空间，此时需要释放磁盘空间以便安装 CentOS 8。</p>
+<img alt="../_images/no_free_disk.png" src="../_images/no_free_disk.png" />
+<p>更改“存储配置”为“自定义”，然后点击“完成”按钮，进入磁盘空间手动分区配置界面：</p>
+<img alt="../_images/change_storage_configuration.png" src="../_images/change_storage_configuration.png" />
+<img alt="../_images/manual_partition.png" src="../_images/manual_partition.png" />
+<p>点击 “<strong>CentOS Linux 7.7.1908 for x86_64</strong>”，查看已有分区：</p>
+<img alt="../_images/view_existing_partitions.png" src="../_images/view_existing_partitions.png" />
+<p>选则“/”根分区，并点击下方“-”号，删除已有分区,如果你也想同时删除“/”根分区下的所有其他分区，在“删除仅由 CentOS Linux 7.7.1908 for x86_64 使用的文件系统”前勾选后点击“删除”按钮即可：</p>
+<img alt="../_images/delete_existing_partitions.png" src="../_images/delete_existing_partitions.png" />
+<p>此时已经删除了所有分区，我们点击“点击这里自动创建它们”可以创建新的分区供安装 CentOS 8 系统使用：</p>
+<img alt="../_images/all_free_disk.png" src="../_images/all_free_disk.png" />
+<img alt="../_images/new_partitions.png" src="../_images/new_partitions.png" />
+<p>注意！之前的所有配置此时还并未生效，但当我们点击“完成”按钮后就会列出就会执行删除旧的分区并生成新的分区的更改摘要，最后点击“接受更改”按钮执行操作：</p>
+<img alt="../_images/partitions_summary_of_change.png" src="../_images/partitions_summary_of_change.png" />
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>删除已有操作系统的分区，原有数据不可恢复。如有重要数据，请确认备份后再进行操作！</p>
+</div>
+<p>“安装目的地”配置完成后我们返回到“安装信息摘要”界面，继续配置“网络和主机名”：</p>
+<img alt="../_images/view_network_and_hostname.png" src="../_images/view_network_and_hostname.png" />
+<p>在“网络和主机名”的界面可以看到设备的物理网卡列表与主机名称，物理网卡默认是关闭的，主机名称默认为“<strong>localhost.localdomain</strong>”。我们点击网卡右侧按钮启动网卡：</p>
+<img alt="../_images/enable_nic.png" src="../_images/enable_nic.png" />
+<p>点击“完成”按钮退回到“安装信息摘要”界面，检查所有配置项：</p>
+<img alt="../_images/all_configuration_is_done.png" src="../_images/all_configuration_is_done.png" />
+<p>检查后确认没有问题，点击“开始安装”按钮进行系统安装：</p>
+<img alt="../_images/configuration_and_install.png" src="../_images/configuration_and_install.png" />
+<p>在系统按照刚才的配置进行安装的同时，你需要对系统设置登录密码，密码有“根密码”与“创建用户”。设置“根密码”就是对 <em>root</em> 用户设置密码。</p>
+<img alt="../_images/root_password.png" src="../_images/root_password.png" />
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>根密码就相当与在 Windows 主机中对默认最该权限用户 “Administrator” 密码。根用户 root 具有系统最高权限，建议设置的密码具有一定的复杂度。</p>
+</div>
+<p>用户密码可以在系统安装完成后再进行设定，也可以此时设定：</p>
+<img alt="../_images/setup_root_password.png" src="../_images/setup_root_password.png" />
+<p>从系统安全角度来讲，建议尽量避免使用 <em>root</em> 用户登录设备：</p>
+<img alt="../_images/setup_user_and_password.png" src="../_images/setup_user_and_password.png" />
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>为了方便管理，我们也可以将新建的用户提权为管理员，在登录系统后，使用 <code class="docutils literal notranslate"><span class="pre">sudo</span></code> 命令此用户权限等同与 <em>root</em> 用户。</p>
+</div>
+<p>当进度条完成后，我们点击“重启系统”按钮即可进入CentOS系统：</p>
+<img alt="../_images/loading.png" src="../_images/loading.png" />
+<img alt="../_images/reboot.png" src="../_images/reboot.png" />
 </div>
 <div class="section" id="id12">
 <h3>登录<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<p>此时我们已经完成了 CentOS 8 Linux 系统的安装，下面我们登录 CentOS Linux 系统使用。首先我们会看到 CentOS Linux 的启动选项：</p>
+<img alt="../_images/startup_item.png" src="../_images/startup_item.png" />
+<p>有时当我们更新了系统内核之后，系统中会有多个内核。我们在启动时指定内核版本启动系统。在上面示例中第一二个选项都是选择从那个Linux内核启动系统，第三个选项是系统设置，类似与Windows的维护模式。一般默认为最上方的选项进入系统，在系统启动后，我们可以看到一个黑色的窗口中有白色的字符：</p>
+<img alt="../_images/tty.png" src="../_images/tty.png" />
+<p>按照我们安装系统时指定的用户名和密码登录：</p>
+<img alt="../_images/login.png" src="../_images/login.png" />
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>在 Linux 终端中登录密码并不会打印出“*”星号。这里和 Windows 登录有所不同。</p>
 </div>
-<div class="section" id="id13">
-<h3>终端操作<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
 </div>
 </div>
 <div class="section" id="ubuntu">
 <h2>1.4 安装 Ubuntu<a class="headerlink" href="#ubuntu" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id13">
+<h3>从安装介质入手<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+</div>
 <div class="section" id="id14">
-<h3>从安装介质入手<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+<h3>系统安装过程<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
 </div>
 <div class="section" id="id15">
-<h3>系统安装过程<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
+<h3>登录<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
 </div>
 <div class="section" id="id16">
-<h3>登录<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h3>
+<h3>终端操作<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h3>
+</div>
 </div>
 <div class="section" id="id17">
-<h3>终端操作<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
-</div>
-</div>
+<h2>1.5 系统的初始化设定<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h2>
 <div class="section" id="id18">
-<h2>1.5 系统的初始化设定<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h2>
-<div class="section" id="id19">
-<h3>CentOS 的初始设定<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h3>
+<h3>CentOS 的初始设定<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h3>
 </div>
-<div class="section" id="id20">
-<h3>Ubuntu 的初始设定<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id19">
+<h3>Ubuntu 的初始设定<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h3>
 </div>
 </div>
 <div class="section" id="ssh">
 <h2>1.6 通过 SSH 远程登录<a class="headerlink" href="#ssh" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id20">
+<h3>了解远程登录<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h3>
+</div>
 <div class="section" id="id21">
-<h3>了解远程登录<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h3>
+<h3>如何启动 SSH 服务<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h3>
 </div>
 <div class="section" id="id22">
-<h3>如何启动 SSH 服务<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h3>
-</div>
-<div class="section" id="id23">
-<h3>通过 SSH 对系统进行远程管理<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h3>
+<h3>通过 SSH 对系统进行远程管理<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h3>
 </div>
 </div>
 </div>
@@ -249,25 +373,24 @@
 <li class="toctree-l3"><a class="reference internal" href="#id10">从安装介质入手</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id11">系统安装过程</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id12">登录</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id13">终端操作</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#ubuntu">1.4 安装 Ubuntu</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id14">从安装介质入手</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id15">系统安装过程</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id16">登录</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id17">终端操作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">从安装介质入手</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">系统安装过程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">登录</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">终端操作</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id18">1.5 系统的初始化设定</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id19">CentOS 的初始设定</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id20">Ubuntu 的初始设定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id17">1.5 系统的初始化设定</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id18">CentOS 的初始设定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">Ubuntu 的初始设定</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#ssh">1.6 通过 SSH 远程登录</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id21">了解远程登录</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id22">如何启动 SSH 服务</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id23">通过 SSH 对系统进行远程管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">了解远程登录</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id21">如何启动 SSH 服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">通过 SSH 对系统进行远程管理</a></li>
 </ul>
 </li>
 </ul>
