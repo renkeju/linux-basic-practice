@@ -81,8 +81,8 @@
 </div>
 <div class="section" id="id9">
 <h3>Linux 发行版安装所需要的硬件配置<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
-<table class="colwidths-given docutils align-default" id="id23">
-<caption><span class="caption-text">推荐配置</span><a class="headerlink" href="#id23" title="永久链接至表格">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id22">
+<caption><span class="caption-text">推荐配置</span><a class="headerlink" href="#id22" title="永久链接至表格">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 20%" />
@@ -173,8 +173,8 @@
 <div class="section" id="id11">
 <h3>系统安装过程<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
 <p>将我们制作好的 CentOS 系统引导安装U盘插入服务器、台式机或笔记本，按下电源键后，请根据下表提供的常用快捷键进入 BIOS：</p>
-<table class="colwidths-given docutils align-default" id="id24">
-<caption><span class="caption-text">品牌台式机以及笔记本电脑进入BIOS按键</span><a class="headerlink" href="#id24" title="永久链接至表格">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id23">
+<caption><span class="caption-text">品牌台式机以及笔记本电脑进入BIOS按键</span><a class="headerlink" href="#id23" title="永久链接至表格">¶</a></caption>
 <colgroup>
 <col style="width: 38%" />
 <col style="width: 63%" />
@@ -300,36 +300,111 @@
 <h2>1.4 安装 Ubuntu<a class="headerlink" href="#ubuntu" title="永久链接至标题">¶</a></h2>
 <div class="section" id="id13">
 <h3>从安装介质入手<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<p>在 “安装 CentOS” 章节中我们已经学习了如何通过 .iso 文件制作一个引导安装U盘。Ubuntu 与 CentOS 引导安装U盘制作方式类似。</p>
+<p>我们可以在清华大学镜像站 <a class="reference external" href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/bionic/">https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/bionic/</a> 链接中下载我们需要 .iso 文件。Ubuntu 的版本分为两类：live-server 为服务器版本，desktop 为桌面版本。这里我们选择 live-server 服务器版本。</p>
 </div>
 <div class="section" id="id14">
 <h3>系统安装过程<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+<p>将制作好的 Ubuntu 引导安装U盘插入服务器、台式机或笔记本，按下电源键后，进入 BIOS 修改启动引导顺序。</p>
+<p>进入安装界面后，选择语言，Ubuntu Server 版系统安装界面并不支持简体中文，所以这里选择英文：</p>
+<img alt="../_images/choose_language.png" src="../_images/choose_language.png" />
+<p>配置键盘型号，这里还是选择英文键盘：</p>
+<img alt="../_images/keyboard_configuration.png" src="../_images/keyboard_configuration.png" />
+<p>配置网络，如果你的设备所在的网络环境中有 DHCP，则或自动获取到 IP 地址，若没有，可以手动配置IP地址：</p>
+<ul>
+<li><p>DHCP 自动分配 IP 地址</p>
+<img alt="../_images/network_connections.png" src="../_images/network_connections.png" />
+</li>
+<li><p>手动配置 IP 地址</p>
+<ol class="arabic simple">
+<li><p>选择网卡</p></li>
+</ol>
+<blockquote>
+<div><img alt="../_images/network_connections_dhcp_change_static.png" src="../_images/network_connections_dhcp_change_static.png" />
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>修改 DHCP 获取为手动配置静态地址</p></li>
+</ol>
+<blockquote>
+<div><img alt="../_images/network_connections_manual.png" src="../_images/network_connections_manual.png" />
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>配置IP地址相关信息</p></li>
+</ol>
+<blockquote>
+<div><img alt="../_images/network_connections_setup_static_address.png" src="../_images/network_connections_setup_static_address.png" />
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>静态地址配置完成</p></li>
+</ol>
+<blockquote>
+<div><img alt="../_images/network_connections_static.png" src="../_images/network_connections_static.png" />
+</div></blockquote>
+</li>
+</ul>
+<p>配置代理，当网络访问软件源的网络可达性不佳时，我们可以设置代理来提高系统访问软件源的网络速度，在中国有很多的镜像站，所以这里代理配置可以跳过：</p>
+<img alt="../_images/configure_proxy.png" src="../_images/configure_proxy.png" />
+<p>配置 ubuntu 镜像源地址，在中国 Ubuntu 有镜像站，所以这里使用默认即可：</p>
+<img alt="../_images/configure_ubuntu_archive_mirror.png" src="../_images/configure_ubuntu_archive_mirror.png" />
+<p>配置文件系统：</p>
+<ol class="arabic simple">
+<li><p>选择使用整个磁盘</p></li>
+</ol>
+<blockquote>
+<div><img alt="../_images/filesystem_setup_01.png" src="../_images/filesystem_setup_01.png" />
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>选择磁盘进行安装</p></li>
+</ol>
+<blockquote>
+<div><img alt="../_images/filesystem_setup_02.png" src="../_images/filesystem_setup_02.png" />
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>查看文进系统摘要</p></li>
+</ol>
+<blockquote>
+<div><img alt="../_images/filesystem_setup_03.png" src="../_images/filesystem_setup_03.png" />
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>确认销毁操作</p></li>
+</ol>
+<blockquote>
+<div><img alt="../_images/filesystem_setup_04.png" src="../_images/filesystem_setup_04.png" />
+</div></blockquote>
+<p>配置账号信息。Ubuntu 默认不设置 <em>root</em> 用户密码，系统安装完成后可以在系统内对 <em>root</em> 用户设置密码。此处新创建的用户具有管理员权限：</p>
+<img alt="../_images/profile_setup.png" src="../_images/profile_setup.png" />
+<p>启动 SSH 服务。建议开启 SSH 服务，方便后面对服务器进行远程登录管理：</p>
+<img alt="../_images/ssh_setup.png" src="../_images/ssh_setup.png" />
+<p>安装系统：</p>
+<img alt="../_images/install_system_01.png" src="../_images/install_system_01.png" />
+<img alt="../_images/install_system_02.png" src="../_images/install_system_02.png" />
+<p>系统安装完成后，需要按 Ehter 键确认重启系统：</p>
+<img alt="../_images/reboot_enter.png" src="../_images/reboot_enter.png" />
 </div>
 <div class="section" id="id15">
 <h3>登录<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
+<p>此时我们已经完成了 Ubuntu 18.04 Linux 系统的安装，下面我们登录 Ubuntu Linux 系统。首先我们会看到 Ubuntu Linux 的启动选项：</p>
+</div>
 </div>
 <div class="section" id="id16">
-<h3>终端操作<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h3>
-</div>
-</div>
+<h2>1.5 系统的初始化设定<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h2>
 <div class="section" id="id17">
-<h2>1.5 系统的初始化设定<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h2>
-<div class="section" id="id18">
-<h3>CentOS 的初始设定<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h3>
+<h3>CentOS 的初始设定<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
 </div>
-<div class="section" id="id19">
-<h3>Ubuntu 的初始设定<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id18">
+<h3>Ubuntu 的初始设定<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h3>
 </div>
 </div>
 <div class="section" id="ssh">
 <h2>1.6 通过 SSH 远程登录<a class="headerlink" href="#ssh" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id19">
+<h3>了解远程登录<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h3>
+</div>
 <div class="section" id="id20">
-<h3>了解远程登录<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h3>
+<h3>如何启动 SSH 服务<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h3>
 </div>
 <div class="section" id="id21">
-<h3>如何启动 SSH 服务<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h3>
-</div>
-<div class="section" id="id22">
-<h3>通过 SSH 对系统进行远程管理<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h3>
+<h3>通过 SSH 对系统进行远程管理<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h3>
 </div>
 </div>
 </div>
@@ -379,18 +454,17 @@
 <li class="toctree-l3"><a class="reference internal" href="#id13">从安装介质入手</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id14">系统安装过程</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id15">登录</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id16">终端操作</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id17">1.5 系统的初始化设定</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id18">CentOS 的初始设定</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id19">Ubuntu 的初始设定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">1.5 系统的初始化设定</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id17">CentOS 的初始设定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">Ubuntu 的初始设定</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#ssh">1.6 通过 SSH 远程登录</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id20">了解远程登录</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id21">如何启动 SSH 服务</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id22">通过 SSH 对系统进行远程管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">了解远程登录</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">如何启动 SSH 服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id21">通过 SSH 对系统进行远程管理</a></li>
 </ul>
 </li>
 </ul>

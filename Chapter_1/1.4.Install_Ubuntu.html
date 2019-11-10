@@ -33,15 +33,90 @@
 <h1>1.4 安装 Ubuntu<a class="headerlink" href="#ubuntu" title="永久链接至标题">¶</a></h1>
 <div class="section" id="id1">
 <h2>从安装介质入手<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>在 “安装 CentOS” 章节中我们已经学习了如何通过 .iso 文件制作一个引导安装U盘。Ubuntu 与 CentOS 引导安装U盘制作方式类似。</p>
+<p>我们可以在清华大学镜像站 <a class="reference external" href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/bionic/">https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/bionic/</a> 链接中下载我们需要 .iso 文件。Ubuntu 的版本分为两类：live-server 为服务器版本，desktop 为桌面版本。这里我们选择 live-server 服务器版本。</p>
 </div>
 <div class="section" id="id2">
 <h2>系统安装过程<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>将制作好的 Ubuntu 引导安装U盘插入服务器、台式机或笔记本，按下电源键后，进入 BIOS 修改启动引导顺序。</p>
+<p>进入安装界面后，选择语言，Ubuntu Server 版系统安装界面并不支持简体中文，所以这里选择英文：</p>
+<img alt="../_images/choose_language.png" src="../_images/choose_language.png" />
+<p>配置键盘型号，这里还是选择英文键盘：</p>
+<img alt="../_images/keyboard_configuration.png" src="../_images/keyboard_configuration.png" />
+<p>配置网络，如果你的设备所在的网络环境中有 DHCP，则或自动获取到 IP 地址，若没有，可以手动配置IP地址：</p>
+<ul>
+<li><p>DHCP 自动分配 IP 地址</p>
+<img alt="../_images/network_connections.png" src="../_images/network_connections.png" />
+</li>
+<li><p>手动配置 IP 地址</p>
+<ol class="arabic simple">
+<li><p>选择网卡</p></li>
+</ol>
+<blockquote>
+<div><img alt="../_images/network_connections_dhcp_change_static.png" src="../_images/network_connections_dhcp_change_static.png" />
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>修改 DHCP 获取为手动配置静态地址</p></li>
+</ol>
+<blockquote>
+<div><img alt="../_images/network_connections_manual.png" src="../_images/network_connections_manual.png" />
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>配置IP地址相关信息</p></li>
+</ol>
+<blockquote>
+<div><img alt="../_images/network_connections_setup_static_address.png" src="../_images/network_connections_setup_static_address.png" />
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>静态地址配置完成</p></li>
+</ol>
+<blockquote>
+<div><img alt="../_images/network_connections_static.png" src="../_images/network_connections_static.png" />
+</div></blockquote>
+</li>
+</ul>
+<p>配置代理，当网络访问软件源的网络可达性不佳时，我们可以设置代理来提高系统访问软件源的网络速度，在中国有很多的镜像站，所以这里代理配置可以跳过：</p>
+<img alt="../_images/configure_proxy.png" src="../_images/configure_proxy.png" />
+<p>配置 ubuntu 镜像源地址，在中国 Ubuntu 有镜像站，所以这里使用默认即可：</p>
+<img alt="../_images/configure_ubuntu_archive_mirror.png" src="../_images/configure_ubuntu_archive_mirror.png" />
+<p>配置文件系统：</p>
+<ol class="arabic simple">
+<li><p>选择使用整个磁盘</p></li>
+</ol>
+<blockquote>
+<div><img alt="../_images/filesystem_setup_01.png" src="../_images/filesystem_setup_01.png" />
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>选择磁盘进行安装</p></li>
+</ol>
+<blockquote>
+<div><img alt="../_images/filesystem_setup_02.png" src="../_images/filesystem_setup_02.png" />
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>查看文进系统摘要</p></li>
+</ol>
+<blockquote>
+<div><img alt="../_images/filesystem_setup_03.png" src="../_images/filesystem_setup_03.png" />
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>确认销毁操作</p></li>
+</ol>
+<blockquote>
+<div><img alt="../_images/filesystem_setup_04.png" src="../_images/filesystem_setup_04.png" />
+</div></blockquote>
+<p>配置账号信息。Ubuntu 默认不设置 <em>root</em> 用户密码，系统安装完成后可以在系统内对 <em>root</em> 用户设置密码。此处新创建的用户具有管理员权限：</p>
+<img alt="../_images/profile_setup.png" src="../_images/profile_setup.png" />
+<p>启动 SSH 服务。建议开启 SSH 服务，方便后面对服务器进行远程登录管理：</p>
+<img alt="../_images/ssh_setup.png" src="../_images/ssh_setup.png" />
+<p>安装系统：</p>
+<img alt="../_images/install_system_01.png" src="../_images/install_system_01.png" />
+<img alt="../_images/install_system_02.png" src="../_images/install_system_02.png" />
+<p>系统安装完成后，需要按 Ehter 键确认重启系统：</p>
+<img alt="../_images/reboot_enter.png" src="../_images/reboot_enter.png" />
 </div>
 <div class="section" id="id3">
 <h2>登录<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-</div>
-<div class="section" id="id4">
-<h2>终端操作<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>此时我们已经完成了 Ubuntu 18.04 Linux 系统的安装，下面我们登录 Ubuntu Linux 系统。首先我们会看到 Ubuntu Linux 的启动选项：</p>
 </div>
 </div>
 
