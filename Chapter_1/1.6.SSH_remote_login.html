@@ -31,67 +31,6 @@
             
   <div class="section" id="ssh">
 <h1>1.6 通过 SSH 远程登录<a class="headerlink" href="#ssh" title="永久链接至标题">¶</a></h1>
-<div class="section" id="id1">
-<h2>了解远程登录<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
-<p>SSH(Secure Shell)安全外壳协议是一种加密的网络传输协议，可在不安全的网络中为网络服务提供安全的传输环境。SSH 通过在网络中创建安全隧道来实现 SSH 客户端与服务端之间的连接。任何网络服务都可以通过 SSH 实现安全传输，SSH 最常见的用途是远程登录系统，人们通常利用 SSH 来传输命令行界面和远程执行命令。目前 SSH 使用率最高的使用场景是 Linux 系统。</p>
-<p>在安装完成 CentOS 或 Ubuntu 系统之后，它们默认都是开启 SSH 服务，虽然我们也可以在终端中对服务器进行操作，但是服务器一般都是托管在数据中心，使用终端我们并不能非常方便的管理到服务器。通过 SSH 服务我们可以通过网络远程控制服务器，对服务器进行操作，这会大大提高我们的管理多台设备的效率。</p>
-<p>我们在终端中可以使用命令 <code class="docutils literal notranslate"><span class="pre">w</span></code> 查看当前使用终端或SSH登录的用户信息，如下：</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ w
-<span class="m">19</span>:04:58 up  <span class="m">2</span>:06,  <span class="m">2</span> users,  load average: <span class="m">0</span>.00, <span class="m">0</span>.00, <span class="m">0</span>.00
-USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
-root     tty1     -                <span class="m">17</span>:08   <span class="m">12</span>:24   <span class="m">0</span>.03s  <span class="m">0</span>.03s -bash
-renkeju  pts/0    <span class="m">192</span>.168.0.2      <span class="m">18</span>:52    <span class="m">1</span>.00s  <span class="m">0</span>.04s  <span class="m">0</span>.01s w
-</pre></div>
-</div>
-<p>从打印的内容中我们可以看到了 “TTY”，“TTY”列出了 “tty1” 和 “pts/0”，“tty0” 表示第一个物理终端，“pts/0”表示第一个虚拟终端。</p>
-</div>
-<div class="section" id="id2">
-<h2>如何启动 SSH 服务<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-<p>使用命令 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">status</span> <span class="pre">sshd</span></code> 查看 SSH 服务状态:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl status sshd
-● sshd.service - OpenSSH server daemon
-Loaded: loaded <span class="o">(</span>/usr/lib/systemd/system/sshd.service<span class="p">;</span> enabled<span class="p">;</span> vendor preset: enabled<span class="o">)</span>
-Active: active <span class="o">(</span>running<span class="o">)</span> since Sun <span class="m">2019</span>-11-10 <span class="m">16</span>:58:14 CST<span class="p">;</span> 1h 55min ago
-    Docs: man:sshd<span class="o">(</span><span class="m">8</span><span class="o">)</span>
-        man:sshd_config<span class="o">(</span><span class="m">5</span><span class="o">)</span>
-Main PID: <span class="m">977</span> <span class="o">(</span>sshd<span class="o">)</span>
-    Tasks: <span class="m">1</span> <span class="o">(</span>limit: <span class="m">10981</span><span class="o">)</span>
-Memory: <span class="m">5</span>.2M
-CGroup: /system.slice/sshd.service
-        └─977 /usr/sbin/sshd -D -oCiphers<span class="o">=</span>aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes256-cbc,aes128-gcm@openssh.com,aes128&gt;
-
-11月 <span class="m">10</span> <span class="m">16</span>:58:14 localhost.localdomain systemd<span class="o">[</span><span class="m">1</span><span class="o">]</span>: Starting OpenSSH server daemon...
-11月 <span class="m">10</span> <span class="m">16</span>:58:14 localhost.localdomain sshd<span class="o">[</span><span class="m">977</span><span class="o">]</span>: Server listening on <span class="m">0</span>.0.0.0 port <span class="m">22</span>.
-11月 <span class="m">10</span> <span class="m">16</span>:58:14 localhost.localdomain sshd<span class="o">[</span><span class="m">977</span><span class="o">]</span>: Server listening on :: port <span class="m">22</span>.
-11月 <span class="m">10</span> <span class="m">16</span>:58:14 localhost.localdomain systemd<span class="o">[</span><span class="m">1</span><span class="o">]</span>: Started OpenSSH server daemon.
-11月 <span class="m">10</span> <span class="m">18</span>:52:58 localhost.localdomain sshd<span class="o">[</span><span class="m">1811</span><span class="o">]</span>: Accepted password <span class="k">for</span> renkeju from <span class="m">192</span>.168.0.2 port <span class="m">47296</span> ssh2
-...省略...
-</pre></div>
-</div>
-<p>我们可以看到 <strong>OpenSSH Server</strong> 在运行中且开机自启动。如果 SSH 服务器没有启动，我们可以使用命令 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">sshd</span></code> 启动 SSH 服务。</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl start sshd
-</pre></div>
-</div>
-<p>然后在使用命令 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">status</span> <span class="pre">sshd</span></code> 查看 SSH 服务状态。</p>
-</div>
-<div class="section" id="id3">
-<h2>使用 SSH 客户端对系统进行远程管理<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<p>刚才我们查看服务器中 SSH 服务的状态，如何连接SSH服务呢？我们需要使用 SSH 客户端连接 SSH 服务端，一般在 Linux 系统中都默认安装了 SSH 客户端，但是在 Windows 平台中，SSH 客户端默认是没有开启或安装的。在互联网上也有非常多的SSH客户端软件可以使用，它们除了提供 ssh 客户端的功能之外，还集成一些其他的功能，选择一款好的 SSH 管理软件不但容易使用，对于工作效率的提升也非常明显。常见的SSH客户端软件有 PuTTY、Xshell和SecureCRT 等，这里主要介绍 PuTTY 的使用。</p>
-<p>我们打开网址 <a class="reference external" href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html</a> 下载 PuTTY 软件安装包。下面我们安装 PuTTY：</p>
-<img alt="../_images/PuTTY_install.PNG" src="../_images/PuTTY_install.PNG" />
-<img alt="../_images/PuTTY_install_02.PNG" src="../_images/PuTTY_install_02.PNG" />
-<img alt="../_images/PuTTY_install_03.PNG" src="../_images/PuTTY_install_03.PNG" />
-<img alt="../_images/PuTTY_install_04.PNG" src="../_images/PuTTY_install_04.PNG" />
-<p>运行 PuTTY 就可以看到如下界面：</p>
-<img alt="../_images/PuTTY_view.PNG" src="../_images/PuTTY_view.PNG" />
-<p>在“<strong>Host Name(or IP Address)</strong>” 框内输入服务器的 IP
-或主机名，选择SSH协议，SSH 协议默认端口为22，如果你修改了 SSH 协议的端口号，记得修改此处端口号。如果希望把这次的输入保存起来，方便以后再次登录，可以在“<strong>Saved Sessions</strong>”框内输入会话保存的名称，比如“Web Server”，之后点击保存即可。</p>
-<img alt="../_images/PuTTY_login_01.PNG" src="../_images/PuTTY_login_01.PNG" />
-<p>最后点下面的 “Open” 按钮，输入正确的用户名和口令，就可以登录服务器了。首次登录一台主机时会看到这个安全告警的对话框：</p>
-<img alt="../_images/PuTTY_Security_Alert.PNG" src="../_images/PuTTY_Security_Alert.PNG" />
-<p>这是要告诉你登录的主机密钥指纹，点“是”就保存起来，以后就不会再弹出这个窗口，然后就正常登录。点击“否”不保存，下次登录还会弹出这个对话框，但是也可以正常登录。点击“取消”则取消此次登录。</p>
-<img alt="../_images/PuTTY_login_02.PNG" src="../_images/PuTTY_login_02.PNG" />
-</div>
 </div>
 
 

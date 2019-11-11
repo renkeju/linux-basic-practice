@@ -34,438 +34,114 @@
   <div class="section" id="linux">
 <h1>第一章 Linux 概述<a class="headerlink" href="#linux" title="永久链接至标题">¶</a></h1>
 <div class="section" id="id1">
-<h2>1.1 认识 Linux<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<h2>1.1 Linux 发行版<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <div class="section" id="id2">
-<h3>什么是 Linux<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
-<p>在我们的日常生活中，我们可能已经在使用各种各样的操作系统了。比如桌面操作系统 Windows、MacOS等，手机操作系统 Android、iOS 等。Linux 从严格意义上来说并不是一种操作系统，而是内核（kernel）。比如我们刚刚所提到的手机操作系统 Android 使用的就是 Linux 内核。虽然我们在日常生活中很难听到或见到 Linux，但是只要深入了解后就能发现 Linux 在我们的生活中无处不在。Linux 广泛应用在嵌入式系统上，如手机、平板电脑、路由器、电视和电子游戏机等。</p>
-<p>Linux 内核是由林纳斯.托瓦兹在1991年10月5日首次发布。Linux 内核遵循 GNU 通过公共许可证（GPL），任何个人和机构都可以自由使用 Linux 的所有底层源代码，也可以自由的修改和发布。所以一些组织、团体、公司或者个人制作并发行了各种不同的Liunx发行版，也就是我们所说的“Linux 操作系统”，而Linux内核主要作为Linux发行版的一部分来使用。较为知名的Linux发行版本有Debian、Ubuntu、Fedora、RadHat、openSUSE 和 CentOS 等。</p>
-<p>Linux 最初是作为支持 Inter x86 架构的个人电脑的一个自由操作系统。当前 Linux 已经被移植到更多的计算机硬件平台，远远超出其他任何操作系统。Linux 可以运行在服务器和其他大型平台之上，如大型计算机和超级计算机。世界上最快的前10名超级电脑运行都是基于 Linux 内核的操作系统。世界上500个最快的超级计算机90%以上运行 Linux 发行版或变种。</p>
-<p>在超级计算机、工作站或服务器上运行的 Linux 发行版在大多数情况下并不需要图形桌面界面，使用者或运维管理员只需要通过终端来使用操作系统。在个人主机或笔记本中，我们不一定需要 Linux 发行版为我们提供一个图形桌面界面来管理和使用操作系统。又因为 Linux 内核的开放性，可供我们使用的图形桌面界面有很多，如 GNOME、MATE、KED Plasma、Xfce 和 LXDE 等。所以各种 Linux 发行版也为我们提供了包含了各种不同图形桌面界面与开放软件的版本。</p>
-<p>在 Windows 系统中，我们安装了各种各种的软件来帮助我们办公或者娱乐。在 Linux 系统中也有相对应的自由软件，比如发送邮件使用的 Mozilla Thunderbird，办公使用的 LibreOffice、OpenOffice、金山 WPS等，浏览器有 Google Chrome、Mozilla Firefox等。如果你想通过 Linux 系统来办公或者娱乐而非运行一个公共服务，也是完全可行的。</p>
-</div>
+<h3>理解操作系统<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>现在在我们的日常生活中，软件为我们提供了各种各样的功能。比如发送邮件、访问Web网站、编辑视频或音频、编辑文档文件和管理日程安排等等。</p>
+<p>这些软件无一例外都需要使用硬件（构成计算机的组件），其本身结构就非常复杂。另外，计算机硬件分为很多种类，其功能和性能也不尽相同。</p>
+<p>操作系统（以下简称“OS”）更有效的利用硬件的功能，使多个开发者更容易开发应用程序。提供基础功能软件，让许多用户能够轻松的使用计算机。</p>
+<p>优秀的操作系统提高了开发人员的开发效率，使用户能够花费更少的精力学习使用所需的功能。</p>
+<p>代表的OS有Linux、Microsoft Windows、macOS等。</p>
+<div class="section" id="os">
+<h4>OS的作用<a class="headerlink" href="#os" title="永久链接至标题">¶</a></h4>
+<img alt="../_images/1-1-1.OS的作用.png" class="align-center" src="../_images/1-1-1.OS的作用.png" />
 <div class="section" id="id3">
-<h3>如何学习 Linux<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
-<p>在上一个小节我们提到了很多 Linux 发行版。首先我们需要明确一个方向，就是找到一个适合我们学习的 Linux 发行版。本书的目的是为让大家了解一些在 Linux 系统中的基础操作，比如如何创建一个文件、分配一块磁盘空间，编辑一个配置文件等，这些基础操作通常都是在终端中完成的，在 Linux 系统中运行图形界面也会让计算机有额外的开销。建议初学者尽量选择最小化安装，只要可以访问终端即可。在 Linux 系统中，我们一定要习惯以命令的方式执行操作，养成良好的操作习惯。Linux 系统是由各种文件组成的操作系统，精髓在于各种可执行文件（命令），无论图形桌面发展如何，命令行操作方式永远都是不变的。</p>
-<p>Linux 系统中的命令有很多抽象的概念和理论，如果我们只是死记硬背下了各种命令，并不理解其中的概念和理论，当我们遇到问题往往还是会束手无策。我们应该在理解概念和理论的基础上，通过大量的实践来帮助我们对所学习到的命令所包含的概念和理论加以论证，这样我们才可以在不同的 Linux 发行版中做到触类旁通，举一反三。</p>
+<h5>OS的作用<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h5>
+<p>OS由一组具有多个角色的程序组成。内核提供最基础的操作系统功能。管理所有硬件方面的信息，包括CPU利用率、内存管理、外部设备管理、机箱管理和硬件中断。程序员和用户可以利用内核提供的服务来利用硬件资源。</p>
 </div>
 <div class="section" id="id4">
-<h3>Linux 的商业应用<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
-<p>在商业中，它活跃于各种领域，服务器软件、开发、安全、工作流、协同、电子商务、大数据、云和多媒体等等。Linux 系统上可以运行非常丰富的且质量优秀的开放软件，企业可以通过开放软件可以快速、低廉的构建服务，参与丰富且瞬息万变的市场竞争，且无须考虑商业软件的版权问题。所以很多企业和公司更倾向于使用 Linux 系统。</p>
-<p>由于Linux系统开放源代码，功能强大、可靠、稳定性强、灵活而且具有极大的伸缩性，再加上它广泛支持大量的微处理体系结构、硬件设备、图形支持和通信协议，因此，在嵌入式应用的领域里，从因特网设备（路由器、交换机、防火墙，负载均衡器）到专用的控制系统（自动售货机，手机，PDA，各种家用电器），Linux操作系统都有很广阔的应用市场。特别是经过这几年的发展，它已经成功地跻身于主流嵌入式开发平台。</p>
+<h5>应用程序种类<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h5>
+<p>用户程序是指针对特定的用途而创建的软件，具体取决您的用途。使用操作系统的功能进行操作。应用程序一般都是OS中包含的程序包组，它是由程序供应商打包在一起，通过委托开发或自行开发等制作和发布的。</p>
 </div>
 </div>
 <div class="section" id="id5">
-<h2>1.2 Linux 的发行版本<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<h4>Linux操作系统构成<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h4>
+<p>Linux操作系统由Linux内核、库和用户控制平台组成。</p>
+<img alt="../_images/1-1-2.Linux操作系统构成.png" class="align-center" src="../_images/1-1-2.Linux操作系统构成.png" />
 <div class="section" id="id6">
-<h3>认识 Linux 发行版<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
-<p>Linux 发行版是为一般用户预先集成好的 Linux 操作系统及各种应用软件。一般用户不需要重新编译，在直接安装之后，只需要小幅度修改配置就可以使用，通常以软件包管理系统来进行应用软件的管理。Linux 发行版通常包含了图形桌面环境、办公包、多媒体播放器等应用软件。</p>
-<p>由于大多数软件包是自由软件和开源软件，所以 Linux 发行版的形式多种多样——从功能齐全的桌面系统以及服务器系统到小型系统（通常在嵌入式设备，或者启动软盘）。除了一些定制软件（如安装和配置工具），发行版通常只是将特定的应用软件安装在一堆函数库和内核上，以满足特定用户的需求。</p>
-<p>这些发行版可以分为商业发行版，比如 Ubuntu（Canonical 公司）、Fedora（Red Hat）、openSUSE（Novell）；和社区发行版，他们由自由软件社区提供支持，如 Debian 和 Gentoo。</p>
+<h5>Linux 内核<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h5>
+<p>Linux系统的内核，它是为OS提供最基本功能的程序。CPU的管理、内存的管理、进程管理等等。OS的启动是从Linux内核被读取到引导系统开始的。</p>
 </div>
 <div class="section" id="id7">
-<h3>常见 Linux 发行版本市场份额<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
-<p>DistroWatch是全球唯一提供足够Linux发行版信息的网站，有一定的权威性，我们访问 <a class="reference external" href="https://distrowatch.com/dwres.php?resource=popularity">https://distrowatch.com/dwres.php?resource=popularity</a> 可以查看当前世界各种Linux发行版市场份额的排名。</p>
-<a class="reference internal image-reference" href="../_images/Linux_distribution_share.png"><img alt="../_images/Linux_distribution_share.png" class="align-center" src="../_images/Linux_distribution_share.png" style="width: 1022.0px; height: 444.0px;" /></a>
+<h5>低功耗双模块<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h5>
+<p>在系统启动后，根据需要从磁盘读取到内核地址空间的内核模块。与各种厂商不同的网络硬件相对应的驱动器（控制硬件的程序）等，作为低功耗双模块来提供。</p>
 </div>
 <div class="section" id="id8">
-<h3>推荐的 Linux 发行版<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
-<p>国内，乃至是全世界的Linux用户所最熟悉、最耳闻能详的发行版想必就是Red Hat了。早期的Red Hat版本已停止技术支持，最后一版是 Red Hat 9.0。于是，目前Red Hat分为两个系列：由RedHat公司提供收费技术支持和更新的Red Hat Enterprise Linux，以及由社区开发的免费的Fedora Core。CentOS是来自于Red Hat Enterprise Linux(RHEL)依照开放源代码规定发布的源代码所编译而成。由于出自同样的源代码，因此有些要求高度稳定性的服务器以CentOS替代商业版的Red Hat Enterprise Linux使用。两者的不同在于CentOS并不包含封闭源代码软件。CentOS 对上游代码的主要修改是为了移除不能自由使用的商标。2014年，CentOS宣布与Red Hat合作，但CentOS将会在新的委员会下继续运作，并不受RHEL的影响。</p>
-<p>Ubuntu基于Debian发行版和GNOME桌面环境，与Debian的不同在于它每6个月会发布一个新版本（即每年的四月与十月），每2年发布一个LTS长期支持版本。 普通的桌面版可以获得发布后18个月内的支持，标为LTS（长期支持）的桌面版可以获得更长时间的支持。例如，Ubuntu 8.04 LTS（代号Hardy Heron），其桌面应用系列可以获得为期3年的技术支持，服务器版可以获得为期5年的技术支持。</p>
-<p>通过这个网址 <a class="reference external" href="https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg">https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg</a> 可以看到各种 Linux 发行版的时间线。</p>
-<p>本书推荐使用 CentOS 与 Ubuntu 这两种 Linux 发行版:</p>
-<ol class="arabic simple">
-<li><p>CentOS 与 Ubuntu 的官方文档完善。网络用户群体基数大，遇到问题在互联网中非常容易搜索到相关的解决方案。</p></li>
-<li><p>CentOS 与 Ubuntu Linux 发型版非常容易获得。我们从官方或者一些国内镜像站点（清华大学镜像站、上海交通大学镜像站、中国科技大学镜像站等）都可以下载到 CentOS 与 Ubuntu 各种 Linux 发行版的相关介质。</p></li>
-<li><p>CentOS 与 Ubuntu 应用范围广，具有一定代表性。国内的互联网公司服务器中多采用 CentOS 或 Ubuntu 作为操作系统。学会使用 CentOS 或 Ubuntu，在以后的工作中可以快速融入企业的工作环境，也可以触类旁通，其他的 Linux 发行版也可以快速掌握。</p></li>
-</ol>
+<h5>库<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h5>
+<p>库作为开发程序时所需函数的素材的程序。在 Linux 中，提供了GNU开发的库，以及X.Org开发的X库。</p>
+</div>
+<div class="section" id="x-windows-system">
+<h5>X Windows System<a class="headerlink" href="#x-windows-system" title="永久链接至标题">¶</a></h5>
+<p>提供了由X.Org开发的X服务和X客户端构成的X Window System软件。在X Window System 上，桌面环境以统一的设计和操作作为基础，提供了菜单、图标和后退回台窗口等。</p>
 </div>
 <div class="section" id="id9">
-<h3>Linux 发行版安装所需要的硬件配置<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
-<table class="colwidths-given docutils align-default" id="id22">
-<caption><span class="caption-text">推荐配置</span><a class="headerlink" href="#id22" title="永久链接至表格">¶</a></caption>
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 12%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Linux 发行版</p></th>
-<th class="head"><p>CPU</p></th>
-<th class="head"><p>内存</p></th>
-<th class="head"><p>硬盘存储空间</p></th>
-<th class="head"><p>外部设备</p></th>
-<th class="head"><p>网络</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Ubuntu 18.04.3 LTS</p></td>
-<td><p>双核2 GHz处理器或更高</p></td>
-<td><p>2 GB 系统内存</p></td>
-<td><p>25 GB磁盘存储空间</p></td>
-<td><p>支持DVD光驱或USB口安装</p></td>
-<td><p>互联网接入</p></td>
-</tr>
-<tr class="row-odd"><td><p>CentOS 8 1905</p></td>
-<td><p>双核2 GHz处理器或更高</p></td>
-<td><p>2 GB 系统内存</p></td>
-<td><p>20 GB磁盘存储空间</p></td>
-<td><p>支持DVD光驱或USB口安装</p></td>
-<td><p>互联网接入</p></td>
-</tr>
-</tbody>
-</table>
+<h5>程序开发环境<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h5>
+<p>作为解释程序，可以提供Bash、Python、Perl语言等，作为编译器，可以提供C、C++、Java开发环境等。</p>
 </div>
-</div>
-<div class="section" id="centos">
-<h2>1.3 安装 CentOS<a class="headerlink" href="#centos" title="永久链接至标题">¶</a></h2>
 <div class="section" id="id10">
-<h3>从安装介质入手<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
-<p>.iso是电脑上光盘镜像”, “CD Mirror”的存储格式之一，因为其是根据ISO-9660有关CD-ROM文件系统标准存储的文件，所以通常在电脑中以后缀.iso命名，俗称iso镜像文件。它形式上只有一个文件，可以真实反映光盘的内容，可由刻录软件或者镜像文件制作工具创建。.iso和我们熟识的.zip压缩包非常类似，在windows环境下，我们可以将计算机中的文件、文件夹通过WinRAR压缩成为.zip压缩包，而刻录软件”, “如UItraISO”则可以将光盘中的文件、文件夹“压缩“成为.iso文件”, “用提取也许更为合适，因为前后两者大小几乎相同”。尽管.iso文件也可以通过WinRAR进行解压，但是对于的特殊.iso文件这样的操作会使得其失去其特殊功能。像系统光盘刻录成的.iso文件”, “如Windows安装光盘”，通过WinRAR解压则会使其失去安装系统的功能，普通数据类文件“压缩“成的.iso文件，如音频，视频，文档，通过WinRAR解压并没有影响。</p>
-<p>常见的刻录软件有 UltraISO 软碟通、PowerISO 和 balenaEtcher 等。UltraISO 与 PowerISO 可以免费试用，但是试用更高级的功能需要付费，而 balenaEtcher 则是开源软件，可以免费试用。所以这里我们演示如何通过 balenaEtcher 制作一个 CentOS 系统引导安装U盘。</p>
-<ol class="arabic simple">
-<li><p>首先打开网址 <a class="reference external" href="https://www.balena.io/etcher/">https://www.balena.io/etcher/</a>：</p></li>
-</ol>
-<blockquote>
-<div><a class="reference internal image-reference" href="../_images/balenaEtcher_website.png"><img alt="../_images/balenaEtcher_website.png" class="align-center" src="../_images/balenaEtcher_website.png" style="width: 1008.8000000000001px; height: 525.6px;" /></a>
-</div></blockquote>
-<ol class="arabic simple" start="2">
-<li><p>选择当前操作系统相关下载，下面以 Windows 操作系统举例：</p></li>
-</ol>
-<blockquote>
-<div><img alt="../_images/balenaEtcher_platform.png" class="align-center" src="../_images/balenaEtcher_platform.png" />
-<p>下载完成后安装 balenaEtcher。</p>
-<div class="admonition note">
-<p class="admonition-title">注解</p>
-<p>Installer 为安装版本，在Windows系统中有注册表注入，Portable 为免安装便携版本。请根据自己的需求进行选择下载。</p>
-</div>
-</div></blockquote>
-<ol class="arabic simple" start="3">
-<li><p>进行安装：</p></li>
-</ol>
-<blockquote>
-<div><p>点击“我同意”进行安装。</p>
-<img alt="../_images/balenaEtcher_install.PNG" class="align-center" src="../_images/balenaEtcher_install.PNG" />
-<p>安装完成后，点击桌面图标“balenaEtcher”可以看到如下界面：</p>
-<a class="reference internal image-reference" href="../_images/balenaEtcher_window.PNG"><img alt="../_images/balenaEtcher_window.PNG" class="align-center" src="../_images/balenaEtcher_window.PNG" style="width: 636.8000000000001px; height: 382.40000000000003px;" /></a>
-</div></blockquote>
-<p>当我们安装完成刻录工具之后，需要准备一个U盘，并且下载好需要刻录的.iso文件。我们可以去CentOS 官方网站获取 .iso 文件，也可以通过国内镜像站获取 .iso 文件。这里我提供国内清华大学镜像站 CentOS 8 1905 下载链接 <a class="reference external" href="https://mirrors.tuna.tsinghua.edu.cn/centos/8/isos/x86_64/">https://mirrors.tuna.tsinghua.edu.cn/centos/8/isos/x86_64/</a>。点击以 .iso 后缀结尾的文件链接即可下载到本地。</p>
-<ol class="arabic simple" start="4">
-<li><p>进行刻录</p></li>
-</ol>
-<blockquote>
-<div><p>点击 “Select image” 选择需要刻录的 .iso 文件：</p>
-<a class="reference internal image-reference" href="../_images/balenaEtcher_window.PNG"><img alt="../_images/balenaEtcher_window.PNG" class="align-center" src="../_images/balenaEtcher_window.PNG" style="width: 636.8000000000001px; height: 382.40000000000003px;" /></a>
-<p>点击 “Select target” 选择存储介质：</p>
-<a class="reference internal image-reference" href="../_images/balebaEtcher_select_target.PNG"><img alt="../_images/balebaEtcher_select_target.PNG" class="align-center" src="../_images/balebaEtcher_select_target.PNG" style="width: 636.8000000000001px; height: 382.40000000000003px;" /></a>
-<p>点击 “Flash！” 进行刻录：</p>
-<a class="reference internal image-reference" href="../_images/balenaEtcher_flash_1.PNG"><img alt="../_images/balenaEtcher_flash_1.PNG" class="align-center" src="../_images/balenaEtcher_flash_1.PNG" style="width: 636.8000000000001px; height: 382.40000000000003px;" /></a>
-<a class="reference internal image-reference" href="../_images/balenaEtcher_flash_2.PNG"><img alt="../_images/balenaEtcher_flash_2.PNG" class="align-center" src="../_images/balenaEtcher_flash_2.PNG" style="width: 636.8000000000001px; height: 382.40000000000003px;" /></a>
-<a class="reference internal image-reference" href="../_images/balenaEtcher_flash_3.PNG"><img alt="../_images/balenaEtcher_flash_3.PNG" class="align-center" src="../_images/balenaEtcher_flash_3.PNG" style="width: 636.8000000000001px; height: 382.40000000000003px;" /></a>
-<a class="reference internal image-reference" href="../_images/balenaEtcher_flash_4.PNG"><img alt="../_images/balenaEtcher_flash_4.PNG" class="align-center" src="../_images/balenaEtcher_flash_4.PNG" style="width: 636.8000000000001px; height: 382.40000000000003px;" /></a>
-<a class="reference internal image-reference" href="../_images/balenaEtcher_flash_5.PNG"><img alt="../_images/balenaEtcher_flash_5.PNG" class="align-center" src="../_images/balenaEtcher_flash_5.PNG" style="width: 636.8000000000001px; height: 382.40000000000003px;" /></a>
-</div></blockquote>
-<p>至此，我们就制作完成了一个 CentOS 系统引导安装U盘。</p>
+<h5>服务程序<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h5>
+<p>在Linux上可以提供各种常驻服务。例如，有ssh交换通讯的程序、提供打印机服务的程序等。</p>
 </div>
 <div class="section" id="id11">
-<h3>系统安装过程<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
-<p>将我们制作好的 CentOS 系统引导安装U盘插入服务器、台式机或笔记本，按下电源键后，请根据下表提供的常用快捷键进入 BIOS：</p>
-<table class="colwidths-given docutils align-default" id="id23">
-<caption><span class="caption-text">品牌台式机以及笔记本电脑进入BIOS按键</span><a class="headerlink" href="#id23" title="永久链接至表格">¶</a></caption>
-<colgroup>
-<col style="width: 38%" />
-<col style="width: 63%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>品牌</p></th>
-<th class="head"><p>按键</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>ibm/thinkpad</p></td>
-<td><p>冷开机按f1，部分新型号可以在重新启动时启动按f1</p></td>
-</tr>
-<tr class="row-odd"><td><p>惠普 HP</p></td>
-<td><p>启动和重新启动时按f2或者F10</p></td>
-</tr>
-<tr class="row-even"><td><p>索尼 Sony</p></td>
-<td><p>启动和重新启动时按f2</p></td>
-</tr>
-<tr class="row-odd"><td><p>戴尔 Dell</p></td>
-<td><p>启动和重新启动时按f2</p></td>
-</tr>
-<tr class="row-even"><td><p>宏碁 Acer</p></td>
-<td><p>启动和重新启动时按f2</p></td>
-</tr>
-<tr class="row-odd"><td><p>东芝 Toshiba</p></td>
-<td><p>冷开机时按esc然后按f1</p></td>
-</tr>
-<tr class="row-even"><td><p>富士通 fujitsu</p></td>
-<td><p>启动和重新启动时按f2</p></td>
-</tr>
-<tr class="row-odd"><td><p>三星 Samsung</p></td>
-<td><p>启动和重新时按f2</p></td>
-</tr>
-<tr class="row-even"><td><p>联想 Lenovo</p></td>
-<td><p>启动时按F2或Fn+F2，部分机型需关机时按Novo恢复键</p></td>
-</tr>
-<tr class="row-odd"><td><p>华硕 Asus</p></td>
-<td><p>启动时按F2</p></td>
-</tr>
-</tbody>
-</table>
-<p>进入BIOS后，我们需要更改启动引导顺序，下面通过最常见的 Phoenix BIOS 举例：</p>
-<img alt="../_images/BIOS_view.png" class="align-center" src="../_images/BIOS_view.png" />
-<p>看到BIOS界面后使用键盘的“←→”左右键切换到 Boot 选项：</p>
-<img alt="../_images/BIOS_Boot.png" class="align-center" src="../_images/BIOS_Boot.png" />
-<p>然后使用“+-”加减键更改启动顺序，我们应该将U盘放置在第一位。确认后按 F10 快捷键保存并退出，之后进入 CentOS 安装界面。</p>
-<img alt="../_images/CentOS_8_Install_select.png" class="align-center" src="../_images/CentOS_8_Install_select.png" />
-<p>在安装界面可以看到三个界面，使用键盘“↑↓”上下键可以切换，我们选择“Install CentOS Linux 8.0.1905”：</p>
-<img alt="../_images/select_Install_CentOS_8.0.1905.png" class="align-center" src="../_images/select_Install_CentOS_8.0.1905.png" />
-<p>之后将会进入系统引导：</p>
-<img alt="../_images/system_boot.png" class="align-center" src="../_images/system_boot.png" />
-<p>引导完成后可以看到语言选择界面，这里选择简体中文进行后续的安装：</p>
-<img alt="../_images/choois_language.png" class="align-center" src="../_images/choois_language.png" />
-<p>点击继续后进入安装信息摘要，在这个界面我们可以对 CentOS 系统安装指定配置：</p>
-<img alt="../_images/install_summary.png" class="align-center" src="../_images/install_summary.png" />
-<p>在“可视化”这一栏中，我们可以看到“键盘”、“语言支持”和“时间和日期”，刚才我们已经选择了语言为简体中文，所以这里我们只需修改时区即可，时区建议修改为 “亚洲/上海”：</p>
-<img alt="../_images/change_timezone.png" class="align-center" src="../_images/change_timezone.png" />
-<p>时区配置完成后，点击完成按钮，退回到安装信息摘要界面，在“软件”这一栏中，我们可以看到“安装源”和“软件选择”，安装源默认为“本地安装”，所以不需要进行修改。在“软件选择”的选项中，默认安装为“带有 GUI 的服务器”，也就是带有图形界面。建议更改为“最小化安装”：</p>
-<img alt="../_images/GUI_server.png" class="align-center" src="../_images/GUI_server.png" />
-<img alt="../_images/mini_install.png" class="align-center" src="../_images/mini_install.png" />
-<p>“软件选择”配置完成后，点击完成按钮，退回到安装信息摘要界面，在“系统”这一栏中，我们需要修改“安装目的地”和“网络和主机名”。先来修改“安装目的地”:</p>
-<img alt="../_images/install_disk_target.png" class="align-center" src="../_images/install_disk_target.png" />
-<p>如果显示的磁盘空间为空闲，你并不需要做更多的设置。但是如果你的磁盘中已经安装过其他的操作系统或是部分空间被占用，则需要进行一些调整。如下，这个主机中的磁盘已经安装过了 CentOS 7 系统，没有多余的空闲空间，此时需要释放磁盘空间以便安装 CentOS 8。</p>
-<img alt="../_images/no_free_disk.png" class="align-center" src="../_images/no_free_disk.png" />
-<p>更改“存储配置”为“自定义”，然后点击“完成”按钮，进入磁盘空间手动分区配置界面：</p>
-<img alt="../_images/change_storage_configuration.png" class="align-center" src="../_images/change_storage_configuration.png" />
-<img alt="../_images/manual_partition.png" class="align-center" src="../_images/manual_partition.png" />
-<p>点击 “<strong>CentOS Linux 7.7.1908 for x86_64</strong>”，查看已有分区：</p>
-<img alt="../_images/view_existing_partitions.png" class="align-center" src="../_images/view_existing_partitions.png" />
-<p>选则“/”根分区，并点击下方“-”号，删除已有分区,如果你也想同时删除“/”根分区下的所有其他分区，在“删除仅由 CentOS Linux 7.7.1908 for x86_64 使用的文件系统”前勾选后点击“删除”按钮即可：</p>
-<img alt="../_images/delete_existing_partitions.png" class="align-center" src="../_images/delete_existing_partitions.png" />
-<p>此时已经删除了所有分区，我们点击“点击这里自动创建它们”可以创建新的分区供安装 CentOS 8 系统使用：</p>
-<img alt="../_images/all_free_disk.png" class="align-center" src="../_images/all_free_disk.png" />
-<img alt="../_images/new_partitions.png" src="../_images/new_partitions.png" />
-<p>注意！之前的所有配置此时还并未生效，但当我们点击“完成”按钮后就会列出就会执行删除旧的分区并生成新的分区的更改摘要，最后点击“接受更改”按钮执行操作：</p>
-<img alt="../_images/partitions_summary_of_change.png" src="../_images/partitions_summary_of_change.png" />
-<div class="admonition attention">
-<p class="admonition-title">注意</p>
-<p>删除已有操作系统的分区，原有数据不可恢复。如有重要数据，请确认备份后再进行操作！</p>
+<h5>命令、实用程序<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h5>
+<p>在桌面环境中，有提供文字处理和表格计算等办公工具（LibreOffice），具有高级功能图形软件（GIMP）、Web浏览器、邮件工具、系统管理工具等。另外，还提供了一般用户命令和用户管理、网络管理、数据库管理的管理命令等。</p>
 </div>
-<p>“安装目的地”配置完成后我们返回到“安装信息摘要”界面，继续配置“网络和主机名”：</p>
-<img alt="../_images/view_network_and_hostname.png" src="../_images/view_network_and_hostname.png" />
-<p>在“网络和主机名”的界面可以看到设备的物理网卡列表与主机名称，物理网卡默认是关闭的，主机名称默认为“<strong>localhost.localdomain</strong>”。我们点击网卡右侧按钮启动网卡：</p>
-<img alt="../_images/enable_nic.png" src="../_images/enable_nic.png" />
-<p>点击“完成”按钮退回到“安装信息摘要”界面，检查所有配置项：</p>
-<img alt="../_images/all_configuration_is_done.png" src="../_images/all_configuration_is_done.png" />
-<p>检查后确认没有问题，点击“开始安装”按钮进行系统安装：</p>
-<img alt="../_images/configuration_and_install.png" src="../_images/configuration_and_install.png" />
-<p>在系统按照刚才的配置进行安装的同时，你需要对系统设置登录密码，密码有“根密码”与“创建用户”。设置“根密码”就是对 <em>root</em> 用户设置密码。</p>
-<img alt="../_images/root_password.png" src="../_images/root_password.png" />
-<div class="admonition note">
-<p class="admonition-title">注解</p>
-<p>根密码就相当与在 Windows 主机中对默认最该权限用户 “Administrator” 密码。根用户 root 具有系统最高权限，建议设置的密码具有一定的复杂度。</p>
 </div>
-<p>用户密码可以在系统安装完成后再进行设定，也可以此时设定：</p>
-<img alt="../_images/setup_root_password.png" src="../_images/setup_root_password.png" />
-<p>从系统安全角度来讲，建议尽量避免使用 <em>root</em> 用户登录设备：</p>
-<img alt="../_images/setup_user_and_password.png" src="../_images/setup_user_and_password.png" />
-<div class="admonition note">
-<p class="admonition-title">注解</p>
-<p>为了方便管理，我们也可以将新建的用户提权为管理员，在登录系统后，使用 <code class="docutils literal notranslate"><span class="pre">sudo</span></code> 命令此用户权限等同与 <em>root</em> 用户。</p>
-</div>
-<p>当进度条完成后，我们点击“重启系统”按钮即可进入CentOS系统：</p>
-<img alt="../_images/loading.png" src="../_images/loading.png" />
-<img alt="../_images/reboot.png" src="../_images/reboot.png" />
 </div>
 <div class="section" id="id12">
-<h3>登录<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
-<p>此时我们已经完成了 CentOS 8 Linux 系统的安装，下面我们登录 CentOS Linux 系统使用。首先我们会看到 CentOS Linux 的启动选项：</p>
-<img alt="../_images/startup_item.png" src="../_images/startup_item.png" />
-<p>有时当我们更新了系统内核之后，系统中会有多个内核。我们在启动时指定内核版本启动系统。在上面示例中第一二个选项都是选择从那个Linux内核启动系统，第三个选项是系统设置，类似与Windows的维护模式。一般默认为最上方的选项进入系统，在系统启动后，我们可以看到一个黑色的窗口中有白色的字符：</p>
-<img alt="../_images/tty.png" src="../_images/tty.png" />
-<p>按照我们安装系统时指定的用户名和密码登录：</p>
-<img alt="../_images/login.png" src="../_images/login.png" />
-<div class="admonition attention">
-<p class="admonition-title">注意</p>
-<p>在 Linux 终端中登录密码并不会打印出“*”星号。这里和 Windows 登录有所不同。</p>
-</div>
-</div>
-</div>
-<div class="section" id="ubuntu">
-<h2>1.4 安装 Ubuntu<a class="headerlink" href="#ubuntu" title="永久链接至标题">¶</a></h2>
+<h3>什么是发行版<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<p>1991年，自李纳斯.托瓦兹在网上公开了第一版Linux内核以来，Linux内核就通过互联网吸引了许多开发人员参与并发展壮大。</p>
+<p>除了Linux内核，还需要从源代码通过比较生成可执行文件，程序可使用的程序库，用户接口的Shell，需要许多软件才能将Linux作为完整的OS运行，包括从Shell启动的命令、工具，以及将它们安装到磁盘的安装程序。</p>
+<p>集成这些软件，作为OS运行并发布（Distribute）的软件被称为**发行版**(Distribution或Distro)。</p>
+<p>Linux操作系统有免费软件和开源软件组成。</p>
 <div class="section" id="id13">
-<h3>从安装介质入手<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
-<p>在 “安装 CentOS” 章节中我们已经学习了如何通过 .iso 文件制作一个引导安装U盘。Ubuntu 与 CentOS 引导安装U盘制作方式类似。</p>
-<p>我们可以在清华大学镜像站 <a class="reference external" href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/bionic/">https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/bionic/</a> 链接中下载我们需要 .iso 文件。Ubuntu 的版本分为两类：live-server 为服务器版本，desktop 为桌面版本。这里我们选择 live-server 服务器版本。</p>
+<h4>自由软件<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h4>
+<p>在GNU GPL（通用公共许可证）下分发的软件称为“自由软件”，该软件由GNU GPL（通用公共许可证）编写的。GPL的主要内容包括：</p>
+<ul class="simple">
+<li><p>二进制（执行程序。如果要发布编译和生成源代码），则该源代码也必须公开。</p></li>
+<li><p>可自由开发、变更、发布和使用</p></li>
+<li><p>以GPL发布的软件为基础进行开发和变更的软件必须基于GPL进行发布</p></li>
+</ul>
+<p>GPL的这一独特规定保证了您可以重复分发以共享和发展软件。大多数配置Linux的主要软件是在GPL下分发的免费软件。</p>
+<img alt="../_images/1-1-3.自由软件.png" class="align-center" src="../_images/1-1-3.自由软件.png" />
 </div>
 <div class="section" id="id14">
-<h3>系统安装过程<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
-<p>将制作好的 Ubuntu 引导安装U盘插入服务器、台式机或笔记本，按下电源键后，进入 BIOS 修改启动引导顺序。</p>
-<p>进入安装界面后，选择语言，Ubuntu Server 版系统安装界面并不支持简体中文，所以这里选择英文：</p>
-<img alt="../_images/choose_language.png" src="../_images/choose_language.png" />
-<p>配置键盘型号，这里还是选择英文键盘：</p>
-<img alt="../_images/keyboard_configuration.png" src="../_images/keyboard_configuration.png" />
-<p>配置网络，如果你的设备所在的网络环境中有 DHCP，则或自动获取到 IP 地址，若没有，可以手动配置IP地址：</p>
-<ul>
-<li><p>DHCP 自动分配 IP 地址</p>
-<img alt="../_images/network_connections.png" src="../_images/network_connections.png" />
-</li>
-<li><p>手动配置 IP 地址</p>
-<ol class="arabic simple">
-<li><p>选择网卡</p></li>
-</ol>
-<blockquote>
-<div><img alt="../_images/network_connections_dhcp_change_static.png" src="../_images/network_connections_dhcp_change_static.png" />
-</div></blockquote>
-<ol class="arabic simple" start="2">
-<li><p>修改 DHCP 获取为手动配置静态地址</p></li>
-</ol>
-<blockquote>
-<div><img alt="../_images/network_connections_manual.png" src="../_images/network_connections_manual.png" />
-</div></blockquote>
-<ol class="arabic simple" start="3">
-<li><p>配置IP地址相关信息</p></li>
-</ol>
-<blockquote>
-<div><img alt="../_images/network_connections_setup_static_address.png" src="../_images/network_connections_setup_static_address.png" />
-</div></blockquote>
-<ol class="arabic simple" start="4">
-<li><p>静态地址配置完成</p></li>
-</ol>
-<blockquote>
-<div><img alt="../_images/network_connections_static.png" src="../_images/network_connections_static.png" />
-</div></blockquote>
-</li>
+<h4>开源软件<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h4>
+<p>源代码公开，重新分发自由的软件一般被称为“开源软件”。在开源倡议（Open Source Initiative：OSI）中，根据“开发源代码定义”（The Open Source Definition：OSD），规定了开放代码的主要条件如下：</p>
+<ul class="simple">
+<li><p>允许重新分发</p></li>
+<li><p>和编译的程序一起公开源代码</p></li>
+<li><p>改变后的软件，与改变前分配一样的许可证</p></li>
 </ul>
-<p>配置代理，当网络访问软件源的网络可达性不佳时，我们可以设置代理来提高系统访问软件源的网络速度，在中国有很多的镜像站，所以这里代理配置可以跳过：</p>
-<img alt="../_images/configure_proxy.png" src="../_images/configure_proxy.png" />
-<p>配置 ubuntu 镜像源地址，在中国 Ubuntu 有镜像站，所以这里使用默认即可：</p>
-<img alt="../_images/configure_ubuntu_archive_mirror.png" src="../_images/configure_ubuntu_archive_mirror.png" />
-<p>配置文件系统：</p>
-<ol class="arabic simple">
-<li><p>选择使用整个磁盘</p></li>
-</ol>
-<blockquote>
-<div><img alt="../_images/filesystem_setup_01.png" src="../_images/filesystem_setup_01.png" />
-</div></blockquote>
-<ol class="arabic simple" start="2">
-<li><p>选择磁盘进行安装</p></li>
-</ol>
-<blockquote>
-<div><img alt="../_images/filesystem_setup_02.png" src="../_images/filesystem_setup_02.png" />
-</div></blockquote>
-<ol class="arabic simple" start="3">
-<li><p>查看文进系统摘要</p></li>
-</ol>
-<blockquote>
-<div><img alt="../_images/filesystem_setup_03.png" src="../_images/filesystem_setup_03.png" />
-</div></blockquote>
-<ol class="arabic simple" start="4">
-<li><p>确认销毁操作</p></li>
-</ol>
-<blockquote>
-<div><img alt="../_images/filesystem_setup_04.png" src="../_images/filesystem_setup_04.png" />
-</div></blockquote>
-<p>配置账号信息。Ubuntu 默认不设置 <em>root</em> 用户密码，系统安装完成后可以在系统内对 <em>root</em> 用户设置密码。此处新创建的用户具有管理员权限：</p>
-<img alt="../_images/profile_setup.png" src="../_images/profile_setup.png" />
-<p>启动 SSH 服务。建议开启 SSH 服务，方便后面对服务器进行远程登录管理：</p>
-<img alt="../_images/ssh_setup.png" src="../_images/ssh_setup.png" />
-<p>安装系统：</p>
-<img alt="../_images/install_system_01.png" src="../_images/install_system_01.png" />
-<img alt="../_images/install_system_02.png" src="../_images/install_system_02.png" />
-<p>系统安装完成后，需要按 Ehter 键确认重启系统：</p>
-<img alt="../_images/reboot_enter.png" src="../_images/reboot_enter.png" />
+<p>这样，开源软件GPL规定变更了“GPL发布的软件为基础开发、软件一定必须在GPL的基础上发布”这样的项目。</p>
+<p>如果您修改了在开源许可证中分发的软件，您也可以通过其他许可证分发。在某些情况下，对于想要隐藏源代码的公司来说，这是一个易于采用的许可。</p>
+<p>X.Org开发的X Window System软件为“MIT许可证”，Mozilla组织开发的Web浏览器Firefox为“MPL（Mozilla Public License）”，构成Linux的一部分软件都已开放形式发布。</p>
+<img alt="../_images/1-1-4.开源软件.png" class="align-center" src="../_images/1-1-4.开源软件.png" />
 </div>
 <div class="section" id="id15">
-<h3>登录<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
-<p>此时我们已经完成了 Ubuntu 18.04 Linux 系统的安装，下面我们登录 Ubuntu Linux 系统。</p>
-<img alt="../_images/tty1.png" src="../_images/tty1.png" />
-<p>在终端中输入用户名和密码：</p>
-<img alt="../_images/login1.png" src="../_images/login1.png" />
+<h4>程序再造软件<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h4>
+<p>程序再造软件是在不允许分发的情况下修改或复制的软件。发布者只提供信息，不公开源代码。一般情况下，得到程序再造软件是收费的。Microsoft Windows和在其上运行的收费软件是程序再造软件。</p>
+<p>在一部分Linux发行版中，有时会包含程序再造软件。如果擅自将原程序软件复制散布，恐怕会涉及到著作权，所以需要注意。</p>
+<img alt="../_images/1-1-5.程序再造软件.png" class="align-center" src="../_images/1-1-5.程序再造软件.png" />
+<p>这样，Linux的软件是通过免费软件和开源软件的许可证发布的，因此可以自由地进行重新发布和变更。因此，现在有RedHat Enterprise Linux(RHEL)、CentOS（RHEL下游发行版）、Ubuntu、Debian/GNU Linux等数百种发行版。</p>
+<p>用户可以考虑自己的喜好和使用目的，从中选择合适的版本。这也是Linux最大的特征之一。</p>
+</div>
 </div>
 </div>
 <div class="section" id="id16">
-<h2>1.5 系统的初始化设定<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h2>
+<h2>1.2 Linux 的发行版本<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="centos">
+<h2>1.3 安装 CentOS<a class="headerlink" href="#centos" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="ubuntu">
+<h2>1.4 安装 Ubuntu<a class="headerlink" href="#ubuntu" title="永久链接至标题">¶</a></h2>
+</div>
 <div class="section" id="id17">
-<h3>CentOS 的初始设定<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
-<ul class="simple">
-<li><p>修改主机名称</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo hostnamectl set-hostname centos.local
-</pre></div>
-</div>
-</div>
-<div class="section" id="id18">
-<h3>Ubuntu 的初始设定<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h3>
-</div>
+<h2>1.5 系统的初始化设定<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h2>
 </div>
 <div class="section" id="ssh">
 <h2>1.6 通过 SSH 远程登录<a class="headerlink" href="#ssh" title="永久链接至标题">¶</a></h2>
-<div class="section" id="id19">
-<h3>了解远程登录<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h3>
-<p>SSH(Secure Shell)安全外壳协议是一种加密的网络传输协议，可在不安全的网络中为网络服务提供安全的传输环境。SSH 通过在网络中创建安全隧道来实现 SSH 客户端与服务端之间的连接。任何网络服务都可以通过 SSH 实现安全传输，SSH 最常见的用途是远程登录系统，人们通常利用 SSH 来传输命令行界面和远程执行命令。目前 SSH 使用率最高的使用场景是 Linux 系统。</p>
-<p>在安装完成 CentOS 或 Ubuntu 系统之后，它们默认都是开启 SSH 服务，虽然我们也可以在终端中对服务器进行操作，但是服务器一般都是托管在数据中心，使用终端我们并不能非常方便的管理到服务器。通过 SSH 服务我们可以通过网络远程控制服务器，对服务器进行操作，这会大大提高我们的管理多台设备的效率。</p>
-<p>我们在终端中可以使用命令 <code class="docutils literal notranslate"><span class="pre">w</span></code> 查看当前使用终端或SSH登录的用户信息，如下：</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ w
-<span class="m">19</span>:04:58 up  <span class="m">2</span>:06,  <span class="m">2</span> users,  load average: <span class="m">0</span>.00, <span class="m">0</span>.00, <span class="m">0</span>.00
-USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
-root     tty1     -                <span class="m">17</span>:08   <span class="m">12</span>:24   <span class="m">0</span>.03s  <span class="m">0</span>.03s -bash
-renkeju  pts/0    <span class="m">192</span>.168.0.2      <span class="m">18</span>:52    <span class="m">1</span>.00s  <span class="m">0</span>.04s  <span class="m">0</span>.01s w
-</pre></div>
-</div>
-<p>从打印的内容中我们可以看到了 “TTY”，“TTY”列出了 “tty1” 和 “pts/0”，“tty0” 表示第一个物理终端，“pts/0”表示第一个虚拟终端。</p>
-</div>
-<div class="section" id="id20">
-<h3>如何启动 SSH 服务<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h3>
-<p>使用命令 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">status</span> <span class="pre">sshd</span></code> 查看 SSH 服务状态:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl status sshd
-● sshd.service - OpenSSH server daemon
-Loaded: loaded <span class="o">(</span>/usr/lib/systemd/system/sshd.service<span class="p">;</span> enabled<span class="p">;</span> vendor preset: enabled<span class="o">)</span>
-Active: active <span class="o">(</span>running<span class="o">)</span> since Sun <span class="m">2019</span>-11-10 <span class="m">16</span>:58:14 CST<span class="p">;</span> 1h 55min ago
-    Docs: man:sshd<span class="o">(</span><span class="m">8</span><span class="o">)</span>
-        man:sshd_config<span class="o">(</span><span class="m">5</span><span class="o">)</span>
-Main PID: <span class="m">977</span> <span class="o">(</span>sshd<span class="o">)</span>
-    Tasks: <span class="m">1</span> <span class="o">(</span>limit: <span class="m">10981</span><span class="o">)</span>
-Memory: <span class="m">5</span>.2M
-CGroup: /system.slice/sshd.service
-        └─977 /usr/sbin/sshd -D -oCiphers<span class="o">=</span>aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes256-cbc,aes128-gcm@openssh.com,aes128&gt;
-
-11月 <span class="m">10</span> <span class="m">16</span>:58:14 localhost.localdomain systemd<span class="o">[</span><span class="m">1</span><span class="o">]</span>: Starting OpenSSH server daemon...
-11月 <span class="m">10</span> <span class="m">16</span>:58:14 localhost.localdomain sshd<span class="o">[</span><span class="m">977</span><span class="o">]</span>: Server listening on <span class="m">0</span>.0.0.0 port <span class="m">22</span>.
-11月 <span class="m">10</span> <span class="m">16</span>:58:14 localhost.localdomain sshd<span class="o">[</span><span class="m">977</span><span class="o">]</span>: Server listening on :: port <span class="m">22</span>.
-11月 <span class="m">10</span> <span class="m">16</span>:58:14 localhost.localdomain systemd<span class="o">[</span><span class="m">1</span><span class="o">]</span>: Started OpenSSH server daemon.
-11月 <span class="m">10</span> <span class="m">18</span>:52:58 localhost.localdomain sshd<span class="o">[</span><span class="m">1811</span><span class="o">]</span>: Accepted password <span class="k">for</span> renkeju from <span class="m">192</span>.168.0.2 port <span class="m">47296</span> ssh2
-...省略...
-</pre></div>
-</div>
-<p>我们可以看到 <strong>OpenSSH Server</strong> 在运行中且开机自启动。如果 SSH 服务器没有启动，我们可以使用命令 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">sshd</span></code> 启动 SSH 服务。</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl start sshd
-</pre></div>
-</div>
-<p>然后在使用命令 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">status</span> <span class="pre">sshd</span></code> 查看 SSH 服务状态。</p>
-</div>
-<div class="section" id="id21">
-<h3>使用 SSH 客户端对系统进行远程管理<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h3>
-<p>刚才我们查看服务器中 SSH 服务的状态，如何连接SSH服务呢？我们需要使用 SSH 客户端连接 SSH 服务端，一般在 Linux 系统中都默认安装了 SSH 客户端，但是在 Windows 平台中，SSH 客户端默认是没有开启或安装的。在互联网上也有非常多的SSH客户端软件可以使用，它们除了提供 ssh 客户端的功能之外，还集成一些其他的功能，选择一款好的 SSH 管理软件不但容易使用，对于工作效率的提升也非常明显。常见的SSH客户端软件有 PuTTY、Xshell和SecureCRT 等，这里主要介绍 PuTTY 的使用。</p>
-<p>我们打开网址 <a class="reference external" href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html</a> 下载 PuTTY 软件安装包。下面我们安装 PuTTY：</p>
-<img alt="../_images/PuTTY_install.PNG" src="../_images/PuTTY_install.PNG" />
-<img alt="../_images/PuTTY_install_02.PNG" src="../_images/PuTTY_install_02.PNG" />
-<img alt="../_images/PuTTY_install_03.PNG" src="../_images/PuTTY_install_03.PNG" />
-<img alt="../_images/PuTTY_install_04.PNG" src="../_images/PuTTY_install_04.PNG" />
-<p>运行 PuTTY 就可以看到如下界面：</p>
-<img alt="../_images/PuTTY_view.PNG" src="../_images/PuTTY_view.PNG" />
-<p>在“<strong>Host Name(or IP Address)</strong>” 框内输入服务器的 IP
-或主机名，选择SSH协议，SSH 协议默认端口为22，如果你修改了 SSH 协议的端口号，记得修改此处端口号。如果希望把这次的输入保存起来，方便以后再次登录，可以在“<strong>Saved Sessions</strong>”框内输入会话保存的名称，比如“Web Server”，之后点击保存即可。</p>
-<img alt="../_images/PuTTY_login_01.PNG" src="../_images/PuTTY_login_01.PNG" />
-<p>最后点下面的 “Open” 按钮，输入正确的用户名和口令，就可以登录服务器了。首次登录一台主机时会看到这个安全告警的对话框：</p>
-<img alt="../_images/PuTTY_Security_Alert.PNG" src="../_images/PuTTY_Security_Alert.PNG" />
-<p>这是要告诉你登录的主机密钥指纹，点“是”就保存起来，以后就不会再弹出这个窗口，然后就正常登录。点击“否”不保存，下次登录还会弹出这个对话框，但是也可以正常登录。点击“取消”则取消此次登录。</p>
-<img alt="../_images/PuTTY_login_02.PNG" src="../_images/PuTTY_login_02.PNG" />
-</div>
 </div>
 </div>
 
@@ -491,42 +167,16 @@ CGroup: /system.slice/sshd.service
 <h3>导航</h3>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">第一章 Linux 概述</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">1.1 认识 Linux</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">什么是 Linux</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">如何学习 Linux</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Linux 的商业应用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">1.1 Linux 发行版</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">理解操作系统</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">什么是发行版</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">1.2 Linux 的发行版本</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id6">认识 Linux 发行版</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">常见 Linux 发行版本市场份额</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id8">推荐的 Linux 发行版</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id9">Linux 发行版安装所需要的硬件配置</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#centos">1.3 安装 CentOS</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id10">从安装介质入手</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id11">系统安装过程</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id12">登录</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#ubuntu">1.4 安装 Ubuntu</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id13">从安装介质入手</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id14">系统安装过程</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id15">登录</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#id16">1.5 系统的初始化设定</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id17">CentOS 的初始设定</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id18">Ubuntu 的初始设定</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#ssh">1.6 通过 SSH 远程登录</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id19">了解远程登录</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id20">如何启动 SSH 服务</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id21">使用 SSH 客户端对系统进行远程管理</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">1.2 Linux 的发行版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#centos">1.3 安装 CentOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ubuntu">1.4 安装 Ubuntu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id17">1.5 系统的初始化设定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ssh">1.6 通过 SSH 远程登录</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_2/2.Use_a_virtualized_environment.html">第二章 使用虚拟环境</a></li>

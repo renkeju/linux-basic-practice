@@ -31,68 +31,6 @@
             
   <div class="section" id="linux">
 <h1>1.2 Linux 的发行版本<a class="headerlink" href="#linux" title="永久链接至标题">¶</a></h1>
-<div class="section" id="id1">
-<h2>认识 Linux 发行版<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
-<p>Linux 发行版是为一般用户预先集成好的 Linux 操作系统及各种应用软件。一般用户不需要重新编译，在直接安装之后，只需要小幅度修改配置就可以使用，通常以软件包管理系统来进行应用软件的管理。Linux 发行版通常包含了图形桌面环境、办公包、多媒体播放器等应用软件。</p>
-<p>由于大多数软件包是自由软件和开源软件，所以 Linux 发行版的形式多种多样——从功能齐全的桌面系统以及服务器系统到小型系统（通常在嵌入式设备，或者启动软盘）。除了一些定制软件（如安装和配置工具），发行版通常只是将特定的应用软件安装在一堆函数库和内核上，以满足特定用户的需求。</p>
-<p>这些发行版可以分为商业发行版，比如 Ubuntu（Canonical 公司）、Fedora（Red Hat）、openSUSE（Novell）；和社区发行版，他们由自由软件社区提供支持，如 Debian 和 Gentoo。</p>
-</div>
-<div class="section" id="id2">
-<h2>常见 Linux 发行版本市场份额<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-<p>DistroWatch是全球唯一提供足够Linux发行版信息的网站，有一定的权威性，我们访问 <a class="reference external" href="https://distrowatch.com/dwres.php?resource=popularity">https://distrowatch.com/dwres.php?resource=popularity</a> 可以查看当前世界各种Linux发行版市场份额的排名。</p>
-<a class="reference internal image-reference" href="../_images/Linux_distribution_share.png"><img alt="../_images/Linux_distribution_share.png" class="align-center" src="../_images/Linux_distribution_share.png" style="width: 1022.0px; height: 444.0px;" /></a>
-</div>
-<div class="section" id="id3">
-<h2>推荐的 Linux 发行版<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<p>国内，乃至是全世界的Linux用户所最熟悉、最耳闻能详的发行版想必就是Red Hat了。早期的Red Hat版本已停止技术支持，最后一版是 Red Hat 9.0。于是，目前Red Hat分为两个系列：由RedHat公司提供收费技术支持和更新的Red Hat Enterprise Linux，以及由社区开发的免费的Fedora Core。CentOS是来自于Red Hat Enterprise Linux(RHEL)依照开放源代码规定发布的源代码所编译而成。由于出自同样的源代码，因此有些要求高度稳定性的服务器以CentOS替代商业版的Red Hat Enterprise Linux使用。两者的不同在于CentOS并不包含封闭源代码软件。CentOS 对上游代码的主要修改是为了移除不能自由使用的商标。2014年，CentOS宣布与Red Hat合作，但CentOS将会在新的委员会下继续运作，并不受RHEL的影响。</p>
-<p>Ubuntu基于Debian发行版和GNOME桌面环境，与Debian的不同在于它每6个月会发布一个新版本（即每年的四月与十月），每2年发布一个LTS长期支持版本。 普通的桌面版可以获得发布后18个月内的支持，标为LTS（长期支持）的桌面版可以获得更长时间的支持。例如，Ubuntu 8.04 LTS（代号Hardy Heron），其桌面应用系列可以获得为期3年的技术支持，服务器版可以获得为期5年的技术支持。</p>
-<p>通过这个网址 <a class="reference external" href="https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg">https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg</a> 可以看到各种 Linux 发行版的时间线。</p>
-<p>本书推荐使用 CentOS 与 Ubuntu 这两种 Linux 发行版:</p>
-<ol class="arabic simple">
-<li><p>CentOS 与 Ubuntu 的官方文档完善。网络用户群体基数大，遇到问题在互联网中非常容易搜索到相关的解决方案。</p></li>
-<li><p>CentOS 与 Ubuntu Linux 发型版非常容易获得。我们从官方或者一些国内镜像站点（清华大学镜像站、上海交通大学镜像站、中国科技大学镜像站等）都可以下载到 CentOS 与 Ubuntu 各种 Linux 发行版的相关介质。</p></li>
-<li><p>CentOS 与 Ubuntu 应用范围广，具有一定代表性。国内的互联网公司服务器中多采用 CentOS 或 Ubuntu 作为操作系统。学会使用 CentOS 或 Ubuntu，在以后的工作中可以快速融入企业的工作环境，也可以触类旁通，其他的 Linux 发行版也可以快速掌握。</p></li>
-</ol>
-</div>
-<div class="section" id="id4">
-<h2>Linux 发行版安装所需要的硬件配置<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
-<table class="colwidths-given docutils align-default" id="id5">
-<caption><span class="caption-text">推荐配置</span><a class="headerlink" href="#id5" title="永久链接至表格">¶</a></caption>
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 12%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Linux 发行版</p></th>
-<th class="head"><p>CPU</p></th>
-<th class="head"><p>内存</p></th>
-<th class="head"><p>硬盘存储空间</p></th>
-<th class="head"><p>外部设备</p></th>
-<th class="head"><p>网络</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Ubuntu 18.04.3 LTS</p></td>
-<td><p>双核2 GHz处理器或更高</p></td>
-<td><p>2 GB 系统内存</p></td>
-<td><p>25 GB磁盘存储空间</p></td>
-<td><p>支持DVD光驱或USB口安装</p></td>
-<td><p>互联网接入</p></td>
-</tr>
-<tr class="row-odd"><td><p>CentOS 8 1905</p></td>
-<td><p>双核2 GHz处理器或更高</p></td>
-<td><p>2 GB 系统内存</p></td>
-<td><p>20 GB磁盘存储空间</p></td>
-<td><p>支持DVD光驱或USB口安装</p></td>
-<td><p>互联网接入</p></td>
-</tr>
-</tbody>
-</table>
-</div>
 </div>
 
 
