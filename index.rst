@@ -10,13 +10,3 @@
    :maxdepth: 3
 
    Chapter_1/1.Linux_overview
-   Chapter_2/2.Use_a_virtualized_environment
-   Chapter_3/3.Linux_start_and_stop
-   Chapter_4/4.Filesystem_management
-   Chapter_5/5.User_Management
-   Chapter_6/6.Execute_scripts_and_tasks
-   Chapter_7/7.System_and_application_management
-   Chapter_8/8.Add_disk_space
-   Chapter_9/9.Management_network
-   Chapter_10/10.System_maintenance
-   Chapter_11/11.security_strategy
