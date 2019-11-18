@@ -16,7 +16,6 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="第二章 使用虚拟环境" href="../Chapter_2/2.Use_a_virtualized_environment.html" />
     <link rel="prev" title="《Linux 基础实践入门》" href="../index.html" />
 <link rel="stylesheet" type="text/css" href="../_static/handsontable.full.min.css">
 <script src="../_static/handsontable.full.min.js"></script>
@@ -161,9 +160,8 @@
 <p>Linux发行版可以根据其用途粗略分类为服务器和台式机，面向个人和面向企业。</p>
 <img alt="../_images/1-1-7.按用途分类的Linux发行版.png" class="align-center" src="../_images/1-1-7.按用途分类的Linux发行版.png" />
 </div>
-</div>
 <div class="section" id="id7">
-<h3>发行版份额<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<h4>发行版份额<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
 <p>在这里对各发行版的使用状况、以及Web服务器的市场占有率、开发平台的份额、云实例的份额为例进行介绍。</p>
 <ul>
 <li><p>Web服务器</p>
@@ -186,7 +184,7 @@
 </ul>
 </div>
 <div class="section" id="id8">
-<h3>发行版人气度<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<h4>发行版人气度<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
 <p>在记载了Linux发行版等开源操作系统信息的网站DistroWatch（<a class="reference external" href="https://distrowatch.com">https://distrowatch.com</a>）中，可以看到为Linux发行版进行人气度排序的网页，面向个人配置的Linux Mint、elementary OS、Manjaro Linux等长久的排在了前几位。</p>
 <img alt="../_images/1-1-11.DistroWatch.com2019年11月各linux发行版本人气度.png" class="align-center" src="../_images/1-1-11.DistroWatch.com2019年11月各linux发行版本人气度.png" />
 <div class="admonition note">
@@ -195,7 +193,7 @@
 </div>
 </div>
 <div class="section" id="id9">
-<h3>发行版种类<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<h4>发行版种类<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h4>
 <p>我们可以将主要发行版分为企业用户、一般用户（RedHat系）、普通用户（Ubuntu/Debian）、通用用户（专有软件包管理分发）来介绍其特性。</p>
 <ul>
 <li><p>面向企业的发行版</p>
@@ -425,6 +423,7 @@
 <p>滚动发布版本不是发行版的版本号，而是按每个单独的程序包版本进行管理，它可以随时更新软件包。滚动发布的Linux发型版可以从官方网站下载定期更新的发行版安装镜像。</p>
 </div>
 </div>
+</div>
 <div class="section" id="id10">
 <h3>主要桌面环境<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
 <p>个发行版本的最大不同之一是采用的桌面环境配置不同，桌面环境的外观和操作方式不同。此外，每个桌面环境都有自己的模拟终端，您可以在其中运行Linux命令来执行操作系统的操作和管理。</p>
@@ -537,11 +536,20 @@
 <img alt="../_images/1-1-23.tty_windows.png" class="align-center" src="../_images/1-1-23.tty_windows.png" />
 </div>
 </div>
-<div class="section" id="id11">
-<h2>1.2 Linux 的发行版本<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
-</div>
 <div class="section" id="centos">
-<h2>1.3 安装 CentOS<a class="headerlink" href="#centos" title="永久链接至标题">¶</a></h2>
+<h2>1.2 安装 CentOS<a class="headerlink" href="#centos" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id11">
+<h3>获取安装介质<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<p>要安装CentOS，请从官方网站上的列出的镜像网站链接处下载ISO镜像文件。CentOS官方网站的URL请参照以下内容：</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p><strong>CentOS官方网站</strong>：<a class="reference external" href="https://centos.org">https://centos.org</a></p>
+</div>
+<img alt="../_images/1-2-1.CentOS官方网站.png" class="align-center" src="../_images/1-2-1.CentOS官方网站.png" />
+<p>在官方网站上单击“Get CentOS Now”按钮。</p>
+<img alt="../_images/1-2-2.CentOS种类.png" class="align-center" src="../_images/1-2-2.CentOS种类.png" />
+<p>CentOS根据不同的使用目的，提供不同的镜像下载。另外不同镜像初期安装的程序包也不相同。您可以在安装完成后添加或删除程序包，以确保使用不同的镜像也同样可以构建相同的环境。</p>
+</div>
 </div>
 <div class="section" id="ubuntu">
 <h2>1.4 安装 Ubuntu<a class="headerlink" href="#ubuntu" title="永久链接至标题">¶</a></h2>
@@ -580,30 +588,19 @@
 <li class="toctree-l3"><a class="reference internal" href="#id2">操作系统</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id3">Linux系统</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id4">Linux发行版</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">发行版份额</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id8">发行版人气度</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id9">发行版种类</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id10">主要桌面环境</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#guicui">GUI和CUI操作</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id11">1.2 Linux 的发行版本</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#centos">1.3 安装 CentOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#centos">1.2 安装 CentOS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id11">获取安装介质</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#ubuntu">1.4 安装 Ubuntu</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id12">1.5 系统的初始化设定</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ssh">1.6 通过 SSH 远程登录</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_2/2.Use_a_virtualized_environment.html">第二章 使用虚拟环境</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_3/3.Linux_start_and_stop.html">第三章 Linux 的启动与停止</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_4/4.Filesystem_management.html">第四章 文件管理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_5/5.User_Management.html">第五章 用户管理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_6/6.Execute_scripts_and_tasks.html">第六章 执行脚本与任务</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_7/7.System_and_application_management.html">第七章 系统与应用程序管理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_8/8.Add_disk_space.html">第八章 添加磁盘空间</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_9/9.Management_network.html">第九章 管理网络</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_10/10.System_maintenance.html">第十章 系统维护</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_11/11.security_strategy.html">第十一章 安全策略</a></li>
 </ul>
 
 <div class="relations">
@@ -611,7 +608,6 @@
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="../index.html" title="上一章">《Linux 基础实践入门》</a></li>
-      <li>Next: <a href="../Chapter_2/2.Use_a_virtualized_environment.html" title="下一章">第二章 使用虚拟环境</a></li>
   </ul></li>
 </ul>
 </div>

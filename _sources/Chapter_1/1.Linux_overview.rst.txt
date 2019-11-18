@@ -3,8 +3,7 @@
 *****************
 
 .. include:: /Chapter_1/1.1.Learn_about_linux.rst
-.. include:: /Chapter_1/1.2.Linux_distribution.rst
-.. include:: /Chapter_1/1.3.Install_CentOS.rst
-.. include:: /Chapter_1/1.4.Install_Ubuntu.rst
+.. include:: /Chapter_1/1.2.Install_CentOS.rst
+.. include:: /Chapter_1/1.3.Install_Ubuntu.rst
 .. include:: /Chapter_1/1.5.System_initial_setting.rst
 .. include:: /Chapter_1/1.6.SSH_remote_login.rst

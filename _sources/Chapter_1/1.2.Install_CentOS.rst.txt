@@ -1,0 +1,21 @@
+======================
+1.2 安装 CentOS
+======================
+
+获取安装介质
+----------------------
+
+要安装CentOS，请从官方网站上的列出的镜像网站链接处下载ISO镜像文件。CentOS官方网站的URL请参照以下内容：
+
+.. note:: **CentOS官方网站**：https://centos.org
+
+.. image:: /_images/Chapter_1/1-2/1-2-1.CentOS官方网站.png
+     :align: center
+
+在官方网站上单击“Get CentOS Now”按钮。
+
+.. image:: /_images/Chapter_1/1-2/1-2-2.CentOS种类.png
+     :align: center
+
+CentOS根据不同的使用目的，提供不同的镜像下载。另外不同镜像初期安装的程序包也不相同。您可以在安装完成后添加或删除程序包，以确保使用不同的镜像也同样可以构建相同的环境。
+
