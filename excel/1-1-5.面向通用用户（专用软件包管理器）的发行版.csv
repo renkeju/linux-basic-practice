@@ -1,0 +1,4 @@
+发行版,最新版本,最新版本发布日期,标准文件系统,特征
+Gentoo Linux,-,滚动发布,Protage,开发商：Gentoo Foundation1. 不属于RedHat系也不属于Debian/Ubuntu系的独立发行版2. 软件不是二进制代码，而是需要通过源代码进行安装3. 软件包管理系统Portage使用脚本编译源代码和安装软件包4. 其用途是可以面向各种用途进行定制。
+Arch Linux,-,滚动发布,pacman,开发商：Aaron Griffin，其他1. 不属于RedHat系也不属于Debian/Ubuntu系的独立发行版2. 简便轻量3. 使用安装ISO镜像进行安装操作，手动进行分区、文件系统的初始化和分类、安装包、编辑和配置文件。4. 包管理器是ArchLinux独有的pacman5. 命令行界面（Command Line Interface）6. 也可以从存储库中安装桌面环境
+Manjaro,-,滚动发布,pacman,开发商：Manjaro团队1. 基于ArchLinux的一般用户对用户友好的发行

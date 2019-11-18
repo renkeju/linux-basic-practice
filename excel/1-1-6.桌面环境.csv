@@ -1,0 +1,9 @@
+桌面环境,模拟终端,可使用的Linux发行版,特征
+GNOME,gnome-terminal,大多数发行版，如CentOS和Ubuntu,开发商：GNOME项目1. GNOME最新版本为GNOME32. 在GNOME3中，将GNOME2中提供的GNOME Panel替换为GNOME-shell作为用户的图形界面，在操作性和设计上发生了很大的变化。3. GNOME-Shell被设计成适用于鼠标和键盘操作的大型的桌面PC，和使用键盘、鼠标、触控板外接屏幕操作的小型移动PC。4. GNOME3可以在登录时选择GNOME会话
+KDE,Konsole,openSUSE、Ubuntu、CentOS等,开发商：KDE项目1. 正式名称为K Desktop Environment2. 使用QT工具包开发的桌面环境3. 和GNOME一样，KDE可以在很多发行版中使用。
+Xfce,xfce4-terminal,Ubuntu、CentOS等,开发商：Xfce项目1. 专为需要快速、轻便的桌面环境的用户而设计
+LXDE,lxterminal,Ubuntu、Debian、Fedora等,开发商：LXDE团队1. Lightweight X11 Desktop Environment2. 为配置较低的PC设计的轻型桌面环境3. 适用于配置较低老旧PC和轻薄笔记本，使用GTK工具包开发的桌面环境
+LXQt,qterminal,openSUSE、Fedora等,开发商：LXQt团队1. 与LXDE有相似的设计目标，使用QT工具包开发的桌面环境
+Cinnamon,gnome-terminal,Mint、CentOS、Ubuntu等,开发商：Linux Mint团队1. 从GNOME3的GNOME-Shell衍生出的桌面环境2. 虽然是专为Linux Mint开发的桌面环境，但是现在可以在多个Linux发行版中使用3. 外观与操作性与GNOME2相似
+MATE,mate-terminal,CentOS、Ubuntu等,开发商：MATE团队1. MATE是继承GNOME2的桌面环境2. 虽然GNOME项目停止了对GNOME2的开发，但MATE继续支持GNOME2开发3. 名字来源与南美的马特茶
+Pantheon,pantheon-terminal,elementary OS,开发商：elementary公司1. elementary OS的桌面环境2. 具有设计美观和操作简洁的特征3. 基于GNOME软件组件构建而成

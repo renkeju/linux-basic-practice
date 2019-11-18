@@ -1,0 +1,3 @@
+发行版,最新版本,最新版本发布日期,包管理器,标准文件系统,标准桌面环境,特征
+RedHat Enterprise Linux,8,2019年5月,dnf,xfs,GNOME3,开发商：RedHat公司1. 可以使用其他桌面环境，如KED、Xfce2. 通过dnf命令使用存储库中的更新3. dnf为新一代的rpm软件包管理器。dnf包管理器克服了dnf包管理器的一些瓶颈，提升了包括用户体验，内存占用，依赖分析，运行速度等多方面的内容。
+SUSE Linux Enterprise Server,15,2018年7月,yum,Btrfs,GNOME3,开发商：EQT公司1. 在ISO镜像中，除了服务器版本之外，还有SUSE Linux Enterprise Desktop2. SUSE可以使用专有的GUI管理工具YaST3. 通过SUSE独立的zypper命令（而非yum命令）更新存储库

@@ -6,9 +6,6 @@
 《Linux 基础实践入门》
 ===========================================
 
-.. image:: https://travis-ci.com/renkeju/linux-basic-practice.svg?branch=master
-    :target: https://travis-ci.com/renkeju/linux-basic-practice
-
 .. toctree::
    :maxdepth: 3
 

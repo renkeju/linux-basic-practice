@@ -1,0 +1,5 @@
+发行版,最新版本,最新版本发布日期,标准文件系统,标准桌面环境,特征
+CentOS,8.0,2019年9月,xfs,GNOME3,开发商：CentOS项目1. RedHat Enterprise Linux(RHEL)的复刻版本2. 在RedHat公司的支持下，以RHEL为基础，除去了RedHat公司的Logo，开发CentOS项目。
+Scientific Linux,7.7,2019年8月,xfs,GNOME3,开发商：CERN、Fermilab1. RedHat Enterprise Linux(RHEL)的复刻版本2. 以RHEL的源代码为基础，除去了RedHat公司的Logo，CERN和Fermilab共同开发。
+Fedora,31,2019年10月,ext4,GNOME3,开发商：Fedora项目1. RHEL的开发版2. 桌面环境还可以使用KDE、Xfce、MATE、Cinnamon、LXQt、LXDE和SOAS。
+openSUSE,leap 15.1,2019年5月,Btrfs,安装时进行选择,开发商：openSUSE项目1. openSUSE项目从2015年开始发行两种配置、Leap和Tumbleweed2. Tumbleweed作为SLES的开发版本滚动更新，Leap是一个SLES作为基础发行。

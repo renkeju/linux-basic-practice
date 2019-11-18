@@ -1,0 +1,3 @@
+发行版,最新版本,最新版本发布日期,标准文件系统,标准桌面环境,特征
+Ubuntu,19.04,2019年10月,ext4,GNOME3,开发商：Ubuntu项目1. Canonical公司提供的Ubuntu项目以DebianGNU/Linux为基础进行开发2. 通常每6个月发行一个新版本，支持周期为9个月，LTS（Long Term Support）是每两年发行一次，支持周期为5年。3. 桌面环境可以使用KDE、Xfce、LXDE和MATE。
+DebianGNU/Linux,10,2019年7月,ext4,安装时选择,开发商：Debian项目1. 开发者遵循Debian社群契约及Debian自由软件指导方针，定义了开发Debian的基本承诺。2. 尊重GNU项目的精神，积极采用GNU开发的软件。3. 系统名称不是“Linux”而是“GNU/Linux”，发行版名称为“DebianGNU/Linux”。4. 软件包管理器dpkg于1994年有Debian项目的成员开发并发布。5. 在安装过程中，可以选择的桌面环境有：GNOME、Xfce、KDE、Cinnamon、MATE和LXDE
