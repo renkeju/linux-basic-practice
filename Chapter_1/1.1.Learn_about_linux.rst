@@ -7,11 +7,11 @@
 
 现在在我们的日常生活中，各种各样的软件为我们提供了丰富的功能。比如发送邮件、浏览网页、编辑视频或音频、编辑文档文件和管理日程安排等等。
 
-这些软件都需要运行在计算机硬件（CPU、内存、硬盘、显卡、键盘和鼠标等）上。计算机结构非常复杂，而且计算机硬件分为很多种类，其功能也各不相同。
+计算机硬件分为很多种类，比如CPU、内存和硬盘等，而且其功能也各不相同。对于普通用户来说，计算机的结构非常复杂。普通用户并不具备直接操作计算硬件的能力，需要由程序来帮助普通用户使用计算机的硬件。
 
-操作系统（以下简称“OS”）主要作用就是有效的利用各种硬件的功能与性能，使开发者或计算机操作者更容易开发应用程序或使用软件。但OS只提供运行硬件的基础功能，软件开发者可以在操作系统之上开发出各种功能丰富且易于使用的软件，让普通用户能够轻松的使用计算机来工作。
+操作系统（以下简称“OS”）主要作用就是有效的利用各种硬件的功能与性能，使开发者或计算机操作者更容易开发应用程序或使用软件。但OS只提供运行硬件的基础功能，软件开发者可以在OS之上开发出各种功能丰富且易于使用的软件，让普通用户能够轻松的使用计算机来工作。
 
-优秀的操作系统提高了开发人员的开发效率，同样也使得用户能够花费更少的精力学习使用所需的功能。
+优秀的OS提高了开发人员的开发效率，同样也使得用户能够花费更少的精力学习使用所需的功能。
 
 目前常见的OS代表有Linux、Microsoft Windows、macOS等。
 
@@ -21,7 +21,7 @@
 
 - OS的作用
 
-  OS由内核提供最基础的操作系统功能，再加以一些具有各种功能的程序组成。内核可以管理所有硬件方面的资源调用，其包括利用CPU、管理内存、管理外部设备、管理机箱和中断硬件等。内核提供了各种各样的接口和库为开发者使用，所以开发者可以通过程序操作内核，而普通用户可以通过程序提供的服务来调用硬件资源。
+  OS由内核提供最基础的操作系统的功能，再加以一些具有各种功能的程序组成。内核可以管理所有硬件方面的资源调用，其包括利用CPU、管理内存、管理外部设备、管理机箱和中断硬件等。内核提供了各种各样的接口和库为开发者使用，所以开发者可以通过程序操作内核，而普通用户可以通过程序提供的服务来调用硬件资源。
 
 - 应用程序种类
 
@@ -165,6 +165,7 @@ Linux发行版可以根据其用途粗略分类为服务器和台式机，面向
 
   .. image:: /_images/Chapter_1/1-1/1-1-8.Web服务器市场占有率.png
        :align: center
+       :width: 600px
 
   .. note:: W3Techs.com的调查是根据亚马逊的子公司Alexa Internet公司的Web流量的统计信息为基础进行分析。
 
@@ -176,6 +177,7 @@ Linux发行版可以根据其用途粗略分类为服务器和台式机，面向
 
   .. image:: /_images/Chapter_1/1-1/1-1-9.OpenStack平台份额.png
        :align: center
+       :width: 600px
 
 * 公有云实例份额
 
@@ -191,6 +193,7 @@ Linux发行版可以根据其用途粗略分类为服务器和台式机，面向
 
 .. image:: /_images/Chapter_1/1-1/1-1-11.DistroWatch.com2019年11月各linux发行版本人气度.png
      :align: center
+     :width: 600px
 
 .. note:: DistroWatch.com通过对使用同一IP地址访问Linux发行版网站每天的点击量进行排名统计。
 
@@ -307,15 +310,19 @@ Linux发行版可以根据其用途粗略分类为服务器和台式机，面向
 
 .. image:: /_images/Chapter_1/1-1/1-1-12.elementaryos.jpg
      :align: center
+     :width: 600px
 
 .. image:: /_images/Chapter_1/1-1/1-1-13.linuxmate.png
      :align: center
+     :width: 600px
 
 .. image:: /_images/Chapter_1/1-1/1-1-14.ubuntu.jpg
      :align: center
+     :width: 600px
 
 .. image:: /_images/Chapter_1/1-1/1-1-15.CentOS.png
      :align: center
+     :width: 600px
 
 +----------+-------------------+--------------------------------+-----------------------------------------------------------------------------------------------------------------+
 | 桌面环境 |      模拟终端     |       可使用的Linux发行版      |                                                       特征                                                      |
@@ -379,26 +386,34 @@ GUI和CUI操作
 
 .. image:: /_images/Chapter_1/1-1/1-1-16.gnome-control-center_user-accounts.png
      :align: center
+     :width: 600px
 
 .. image:: /_images/Chapter_1/1-1/1-1-17.gnome-control-center_network.png
      :align: center
+     :width: 600px
 
 .. image:: /_images/Chapter_1/1-1/1-1-18.gnome-monitor.png
      :align: center
+     :width: 600px
 
 .. image:: /_images/Chapter_1/1-1/1-1-19.terminal_show_user.png
      :align: center
+     :width: 600px
 
 .. image:: /_images/Chapter_1/1-1/1-1-20.terminal_show_network.png
      :align: center
+     :width: 600px
 
 .. image:: /_images/Chapter_1/1-1/1-1-21.terminal_show_top.png
      :align: center
+     :width: 600px
 
 对于服务器（如DNS、Web或邮件），通常不需要安装桌面环境，或者安装了桌面环境也不使用。原因是当您通过网络管理设备时，您的桌面环境必定会增加网络传输的流量，而且也会消耗一定的性能。所以使用GCI来管理操作系统可以省去繁琐的操作流程与节省流量。
 
 .. image:: /_images/Chapter_1/1-1/1-1-22.terminal_shell_command.png
      :align: center
+     :width: 600px
 
 .. image:: /_images/Chapter_1/1-1/1-1-23.tty_windows.png
      :align: center
+     :width: 600px
