@@ -18,6 +18,7 @@
 .. image:: /_images/Chapter_1/1-1/1-1-1.OS的构成.png
      :align: center
      :alt: "1-1-1 OS的构成"
+     :width: 500px
 
 - OS的作用
 
@@ -165,7 +166,7 @@ Linux发行版可以根据其用途粗略分类为服务器和台式机，面向
 
   .. image:: /_images/Chapter_1/1-1/1-1-8.Web服务器市场占有率.png
        :align: center
-       :width: 600px
+       :width: 400px
 
   .. note:: W3Techs.com的调查是根据亚马逊的子公司Alexa Internet公司的Web流量的统计信息为基础进行分析。
 
@@ -177,7 +178,7 @@ Linux发行版可以根据其用途粗略分类为服务器和台式机，面向
 
   .. image:: /_images/Chapter_1/1-1/1-1-9.OpenStack平台份额.png
        :align: center
-       :width: 600px
+       :width: 400px
 
 * 公有云实例份额
 
@@ -185,6 +186,7 @@ Linux发行版可以根据其用途粗略分类为服务器和台式机，面向
 
   .. image:: /_images/Chapter_1/1-1/1-1-10.EC2实例市场占有率.png
        :align: center
+       :width: 400px
 
 发行版人气度
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -193,7 +195,7 @@ Linux发行版可以根据其用途粗略分类为服务器和台式机，面向
 
 .. image:: /_images/Chapter_1/1-1/1-1-11.DistroWatch.com2019年11月各linux发行版本人气度.png
      :align: center
-     :width: 600px
+     :width: 400px
 
 .. note:: DistroWatch.com通过对使用同一IP地址访问Linux发行版网站每天的点击量进行排名统计。
 
@@ -310,19 +312,19 @@ Linux发行版可以根据其用途粗略分类为服务器和台式机，面向
 
 .. image:: /_images/Chapter_1/1-1/1-1-12.elementaryos.jpg
      :align: center
-     :width: 600px
-
-.. image:: /_images/Chapter_1/1-1/1-1-13.linuxmate.png
-     :align: center
-     :width: 600px
-
-.. image:: /_images/Chapter_1/1-1/1-1-14.ubuntu.jpg
-     :align: center
-     :width: 600px
+     :width: 250px
 
 .. image:: /_images/Chapter_1/1-1/1-1-15.CentOS.png
      :align: center
-     :width: 600px
+     :width: 250px
+
+.. image:: /_images/Chapter_1/1-1/1-1-13.linuxmate.png
+     :align: center
+     :width: 250px
+
+.. image:: /_images/Chapter_1/1-1/1-1-14.ubuntu.jpg    
+     :align: center
+     :width: 250px
 
 +----------+-------------------+--------------------------------+-----------------------------------------------------------------------------------------------------------------+
 | 桌面环境 |      模拟终端     |       可使用的Linux发行版      |                                                       特征                                                      |
@@ -386,34 +388,34 @@ GUI和CUI操作
 
 .. image:: /_images/Chapter_1/1-1/1-1-16.gnome-control-center_user-accounts.png
      :align: center
-     :width: 600px
-
-.. image:: /_images/Chapter_1/1-1/1-1-17.gnome-control-center_network.png
-     :align: center
-     :width: 600px
-
-.. image:: /_images/Chapter_1/1-1/1-1-18.gnome-monitor.png
-     :align: center
-     :width: 600px
+     :width: 250px
 
 .. image:: /_images/Chapter_1/1-1/1-1-19.terminal_show_user.png
      :align: center
-     :width: 600px
+     :width: 250px
+
+.. image:: /_images/Chapter_1/1-1/1-1-17.gnome-control-center_network.png
+     :align: center
+     :width: 250px
 
 .. image:: /_images/Chapter_1/1-1/1-1-20.terminal_show_network.png
      :align: center
-     :width: 600px
+     :width: 250px
+
+.. image:: /_images/Chapter_1/1-1/1-1-18.gnome-monitor.png
+     :align: center
+     :width: 250px
 
 .. image:: /_images/Chapter_1/1-1/1-1-21.terminal_show_top.png
      :align: center
-     :width: 600px
+     :width: 250px
 
 对于服务器（如DNS、Web或邮件），通常不需要安装桌面环境，或者安装了桌面环境也不使用。原因是当您通过网络管理设备时，您的桌面环境必定会增加网络传输的流量，而且也会消耗一定的性能。所以使用GCI来管理操作系统可以省去繁琐的操作流程与节省流量。
 
 .. image:: /_images/Chapter_1/1-1/1-1-22.terminal_shell_command.png
      :align: center
-     :width: 600px
+     :width: 250px
 
 .. image:: /_images/Chapter_1/1-1/1-1-23.tty_windows.png
      :align: center
-     :width: 600px
+     :width: 250px

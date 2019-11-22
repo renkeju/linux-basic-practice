@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <title>1.4 安装 Ubuntu &#8212; 《Linux 基础实践入门》 alpha 文档</title>
+    <title>1.3 安装 Ubuntu &#8212; 《Linux 基础实践入门》 alpha 文档</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -30,7 +30,154 @@
           <div class="body" role="main">
             
   <div class="section" id="ubuntu">
-<h1>1.4 安装 Ubuntu<a class="headerlink" href="#ubuntu" title="永久链接至标题">¶</a></h1>
+<h1>1.3 安装 Ubuntu<a class="headerlink" href="#ubuntu" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>获取安装介质<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>如果你需要安装Ubuntu，请从官方网站上的列出的镜像网站链接处下载ISO镜像文件。Ubuntu官方网站的URL请参照以下内容：</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>Ubuntu 的官方网站：<a class="reference external" href="https://www.ubuntu.com">https://www.ubuntu.com</a></p>
+</div>
+<a class="reference internal image-reference" href="../_images/1-3-1.Ubuntu官方网站.png"><img alt="../_images/1-3-1.Ubuntu官方网站.png" class="align-center" src="../_images/1-3-1.Ubuntu官方网站.png" style="width: 600px;" /></a>
+<p>Ubuntu的安装与CentOS等RedHat系Linux发行版的安装不同，它是通过复制被压缩的专用读取文件系统SquashFS文件的内容来进行安装的。因此，不需要在安装中选择部署目标，只要从官方网站的【Download】菜单中寻找ISO镜像种类的连接，根据部署目标（也有服务器版本的）选择进行下载。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 21%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>种类</p></th>
+<th class="head"><p>部署目标</p></th>
+<th class="head"><p>补充</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>台式机</p></td>
+<td><p>使用标准配置安装</p></td>
+<td><p>面向一般用户，通过GUI安装；安装GNOME做桌面环境</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务器</p></td>
+<td><p>使用最小配置安装</p></td>
+<td><p>面向服务器用途，通过CUI安装；在安装过程中选择服务器所需软件</p></td>
+</tr>
+</tbody>
+</table>
+<p>在本书中，使用“桌面”（Ubuntu Desktop）。下面详细说明使用“ubuntu-18.04-desktop-amd64.iso”的安装过程。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>目前 Ubuntu 的版本每六个月更新一次（本书使用的是“18.04”）。另外，要使用“Ubuntu-18.04-desktop”，最低配置需要2GB的内存。其他硬件条件请参考下方URL：
+<a class="reference external" href="https://www.ubuntu.com/download/desktop">https://www.ubuntu.com/download/desktop</a></p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>安装顺序<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>本书采用系统安装程序提供的默认安装，在每个章节都会提出需要附加的软件包和设置。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>需要使用VMware Workstations或Virtual Box在虚拟环境中安装Ubuntu时，请参照本书第十一章。</p>
+</div>
+<ol class="arabic">
+<li><p>启动安装程序</p>
+<blockquote>
+<div><p>从下载的ISO镜像文件中启动安装程序。首先，选择要在安装程序中显示的语言。现在，在安装界面左侧栏中选择【中文（简体）】。</p>
+<p>当显示内容为简体中文时，单击【安装Ubuntu】。</p>
+<a class="reference internal image-reference" href="../_images/1-3-2.欢迎.png"><img alt="../_images/1-3-2.欢迎.png" class="align-center" src="../_images/1-3-2.欢迎.png" style="width: 400px;" /></a>
+</div></blockquote>
+</li>
+<li><p>选择键盘布局</p>
+<blockquote>
+<div><p>在键盘布局的界面中，选择当前输入使用的键盘类型。这里选择【中文】。</p>
+<a class="reference internal image-reference" href="../_images/1-3-3.键盘布局.png"><img alt="../_images/1-3-3.键盘布局.png" class="align-center" src="../_images/1-3-3.键盘布局.png" style="width: 400px;" /></a>
+</div></blockquote>
+</li>
+<li><p>选择要安装的程序</p>
+<blockquote>
+<div><p>在【更新和其他软件】的界面中，选择【正常安装】。【正常安装】中包含办公程序包组和其他方便使用的软件。</p>
+<a class="reference internal image-reference" href="../_images/1-3-6.更新和其他软件.png"><img alt="../_images/1-3-6.更新和其他软件.png" class="align-center" src="../_images/1-3-6.更新和其他软件.png" style="width: 400px;" /></a>
+</div></blockquote>
+</li>
+<li><p>选择安装类型</p>
+<blockquote>
+<div><p>在【安装类型】界面中，选择【清除整个磁盘并安装Ubuntu】，然后单击界面右下角的【安装】。</p>
+<p>此选择将会自动配置分区。</p>
+<a class="reference internal image-reference" href="../_images/1-3-4.安装类型.png"><img alt="../_images/1-3-4.安装类型.png" class="align-center" src="../_images/1-3-4.安装类型.png" style="width: 400px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>分区的详细内容，请参照第七章。</p>
+</div>
+<p>当显示“要在磁盘上更改写入吗？”的确认界面时，单击【继续】。</p>
+<a class="reference internal image-reference" href="../_images/1-3-5.将改动写入磁盘.png"><img alt="../_images/1-3-5.将改动写入磁盘.png" class="align-center" src="../_images/1-3-5.将改动写入磁盘.png" style="width: 400px;" /></a>
+</div></blockquote>
+</li>
+<li><p>确认时区</p>
+<blockquote>
+<div><p>如果界面显示“你在什么地方？”，输入地区，单击【继续】。在这里选择地区为【Shanghai】。</p>
+<a class="reference internal image-reference" href="../_images/1-3-7.你在什么地方.png"><img alt="../_images/1-3-7.你在什么地方.png" class="align-center" src="../_images/1-3-7.你在什么地方.png" style="width: 400px;" /></a>
+</div></blockquote>
+</li>
+<li><p>设置普通用户</p>
+<blockquote>
+<div><p>在Ubuntu中root用户是禁止登录的，所以我们创建一个普通用户来进行登录。</p>
+<p>在本书中，普通用户的用户名设置为“ubuntu”，有关普通用户设置的详细信息，请参考下方的表格。输入后，点击【继续】。</p>
+<a class="reference internal image-reference" href="../_images/1-3-8.你是谁.png"><img alt="../_images/1-3-8.你是谁.png" class="align-center" src="../_images/1-3-8.你是谁.png" style="width: 400px;" /></a>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 63%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>设置</p></th>
+<th class="head"><p>内容</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>你的名字</p></td>
+<td><p>ubuntu</p></td>
+</tr>
+<tr class="row-odd"><td><p>主机名称</p></td>
+<td><p>ubuntu.localdomain</p></td>
+</tr>
+<tr class="row-even"><td><p>输入用户名</p></td>
+<td><p>ubuntu</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入密码</p></td>
+<td><p>Linuxbasic2019</p></td>
+</tr>
+<tr class="row-even"><td><p>确认密码</p></td>
+<td><p>Linuxbasic2019</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+<li><p>安装完成</p>
+<blockquote>
+<div><p>当显示【完成安装】是，界面右下角会显示【现在重启】。单击【现在重启】，重新启动系统。</p>
+<a class="reference internal image-reference" href="../_images/1-3-9.完成安装.png"><img alt="../_images/1-3-9.完成安装.png" class="align-center" src="../_images/1-3-9.完成安装.png" style="width: 400px;" /></a>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h2>登陆<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>登录到您创建的普通用户“ubuntu”，以便查看和更新系统信息。</p>
+<p>要使用普通用户“Ubuntu”登录，选择“ubuntu”，然后输入密码。在本书中，“ubuntu”用户的密码为“Linuxbasic2019”。输入后，单击【登录】。</p>
+<a class="reference internal image-reference" href="../_images/1-3-11普通用户登录.png"><img alt="../_images/1-3-11普通用户登录.png" class="align-center" src="../_images/1-3-11普通用户登录.png" style="width: 400px;" /></a>
+<ul class="simple">
+<li><p>用户名：ubuntu</p></li>
+<li><p>密码：Linuxbasic2019</p></li>
+</ul>
+<p>登陆后会显示初始设定画面。在本书中，不进行特殊的设定，请点击【下一步】或【完成】进入桌面。</p>
+<a class="reference internal image-reference" href="../_images/1-3-12.欢迎01.png"><img alt="../_images/1-3-12.欢迎01.png" class="align-center" src="../_images/1-3-12.欢迎01.png" style="width: 250px;" /></a>
+<a class="reference internal image-reference" href="../_images/1-3-13.欢迎02.png"><img alt="../_images/1-3-13.欢迎02.png" class="align-center" src="../_images/1-3-13.欢迎02.png" style="width: 250px;" /></a>
+<a class="reference internal image-reference" href="../_images/1-3-14.欢迎03.png"><img alt="../_images/1-3-14.欢迎03.png" class="align-center" src="../_images/1-3-14.欢迎03.png" style="width: 250px;" /></a>
+<a class="reference internal image-reference" href="../_images/1-3-15.欢迎04.png"><img alt="../_images/1-3-15.欢迎04.png" class="align-center" src="../_images/1-3-15.欢迎04.png" style="width: 250px;" /></a>
+<p>显示【软件更新器】的界面。如果想要立即进行更新，请选择【立即安装】。在本书中，选择【稍后提醒】。</p>
+<a class="reference internal image-reference" href="../_images/1-3-16.软件更新器.png"><img alt="../_images/1-3-16.软件更新器.png" class="align-center" src="../_images/1-3-16.软件更新器.png" style="width: 400px;" /></a>
+<p>出现桌面界面时，Ubuntu已经完成安装。</p>
+<a class="reference internal image-reference" href="../_images/1-3-17.桌面.png"><img alt="../_images/1-3-17.桌面.png" class="align-center" src="../_images/1-3-17.桌面.png" style="width: 400px;" /></a>
+</div>
 </div>
 
 
