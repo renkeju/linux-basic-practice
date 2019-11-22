@@ -1,0 +1,4 @@
+选项,概要
+Install CentOS 8,安装程序在不检查介质的情况下启动。该选择可缩短启动时间。
+Test this media & install CentOS 8,默认选择。在安装启动时对媒体进行检查，使用[Esc]键可以结束检查。
+Troubleshooting,故障恢复。在已经安装的磁盘出现了异常的情况下，使用“Rescuea CentOS 8 system”对系统和内存进行检查。

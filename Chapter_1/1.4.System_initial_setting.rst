@@ -1,0 +1,341 @@
+===========================
+1.4 系统的初始化设定
+===========================
+
+CentOS的初始化配置
+---------------------------------
+
+如果您希望在基础安装的CentOS上更好的工作，需要进行如下的操作。
+
+* 查看已安装包信息
+* 进行更新
+* 确认SELinux的状态并关闭
+* 确认防火墙的状态并关闭
+
+另外，后面的操作都是在命令行中进行说明，请启动虚拟终端。
+
+从CentOS上方导航栏左侧点击活动，进入启动器界面，在左侧启动栏中找到终端图标，然后单击启动虚拟终端。
+
+.. image:: /_images/Chapter_1/1-4/1-4-1.启动器界面.png
+    :align: center
+    :width: 400px
+
+* 查看已安装包信息
+
+    在安装CentOS时，本书选择“带GUI的服务器”作为选择软件。这是根据使用目的功能组合的包组之一。
+
+    .. note:: 有关包的详细信息，请参考第六章。
+
+    如果要显示包组的列表，执行`dnf groups list`即可。
+
+    .. code-block:: none
+
+        # dnf group list
+        上次元数据过期检查：0:53:31 前，执行于 2019年11月17日 星期日 00时22分49秒。
+        可用环境组：
+        服务器
+        最小安装
+        工作站
+        虚拟化主机
+        定制操作系统
+        已安装的环境组：
+        带 GUI 的服务器
+        已安装组：
+        容器管理
+        无头系统管理
+        可用组：
+        .NET 核心开发
+        RPM 开发工具
+        智能卡支持
+        开发工具
+        图形管理工具
+        ...省略...
+
+
+    要查看每个包组中包含哪些软件包，请在命令`dnf group info`命令中指定包组的名称。
+
+    .. code-block:: none
+
+        # dnf groups info "带 GUI 的服务器"
+        上次元数据过期检查：0:55:58 前，执行于 2019年11月17日 星期日 00时22分49秒。
+        环境组：带 GUI 的服务器
+        描述：集成的易于管理的带有图形界面的服务器
+        no group 'dns-server' from environment 'graphical-server-environment'
+        必选软件包组：
+        Common NetworkManager submodules
+        Container Management
+        Core
+        Fonts
+        GNOME
+        Guest Desktop Agents
+        Hardware Monitoring Utilities
+        Hardware Support
+        ...省略...
+        可选软件包组：
+        Basic Web Server
+        Debugging Tools
+        FTP Server
+        File and Storage Server
+        Guest Agents
+        Infiniband Support
+        Mail Server
+        ...省略...
+
+* 进行更新
+
+    CentOS经常进行软件包的故障分析和功能改进，这些更新的软件包都是通过存储库提供的。通过存储库更新软件包可以使用`dnf update`命令。命令执行后将会注册存储库信息与当前已安装的软件包进行比较并校验差异，然后下载并安装需要更新的软件包。
+
+    .. note:: 有关存储库的更多信息，请参考第六章。
+
+    `dnf update` 运行后会出现是否安装的确认信息，如果确认安装请输入`Y`或`y`。当所需更新的安装包安装完成后，将会显示“已完成”的信息。这样更新就结束了。
+
+    .. code-block:: none
+
+        # dnf update 
+        上次元数据过期检查：1:05:12 前，执行于 2019年11月17日 星期日 00时22分49秒。
+        依赖关系解决。
+        ====================================================================================================
+        软件包                          架构   版本                                        仓库       大小
+        ====================================================================================================
+        Installing:
+        kernel                          x86_64 4.18.0-80.11.2.el8_0                        BaseOS    424 k
+        kernel-core                     x86_64 4.18.0-80.11.2.el8_0                        BaseOS     24 M
+        kernel-modules                  x86_64 4.18.0-80.11.2.el8_0                        BaseOS     20 M
+        Upgrading:
+        ...省略...
+        完毕！
+
+* 确认SELinux的状态并关闭
+
+    SELinux是具有对安全管理者以外的用户不能变更的强制的访问控制方式和对每个进程的文件等资源的访问进行限制的Type Enforcement，以及限制包括root在内的所有用户的角色的卷库访问控制和功能。
+
+    应为可以加强系统的安全性，所以在互联网中的服务器运用方面有好处，但是在可以信赖的内部网络环境中的使用、以及作为开发环境和测试环境使用时，也有关闭的情况。在这里，将介绍关闭SELinux的一种方法。
+
+    SELinux具有以下三种状态：
+
+    +-------------+-------------------------------------+
+    | SELinux状态 | 说明                                |
+    +=============+=====================================+
+    | enforcing   | 生效状态                            |
+    +-------------+-------------------------------------+
+    | permissive  | 无效状态，但SELinux日志处于记录状态 |
+    +-------------+-------------------------------------+
+    | disabled    | 无效状                              |
+    +-------------+-------------------------------------+
+
+
+    要检查SELinux当前的状态，请执行`genenforce`命令。要确认更详细的信息，请执行`sestatus`命令。
+
+    .. code-block:: none
+
+        # getenforce ←查看SELinux当前状态
+        Enforcing    ←SELinux生效
+        # sestatus   ←查看SELinux更详细的内容
+        SELinux status:                 enabled
+        SELinuxfs mount:                /sys/fs/selinux
+        SELinux root directory:         /etc/selinux
+        Loaded policy name:             targeted
+        Current mode:                   enforcing
+        Mode from config file:          enforcing
+        Policy MLS status:              enabled
+        Policy deny_unknown status:     allowed
+        Memory protection checking:     actual (secure)
+        Max kernel policy version:      31
+
+    要禁用SELinux，请执行以下的操作：
+
+    * 临时禁用
+
+        如果需要临时（在系统重启前生效）禁用SELinux，在`setenforce`命令后追加`0`。
+
+        .. code-block:: none
+
+            # getenforce ←查看SELinux当前状态
+            Enforcing    ←SELinux生效
+            # setenforce 0  ←关闭SELinux
+            # getenforce    ←查看SELinux当前状态
+            Permissive   ←SELinux关闭
+
+    * 永久禁用
+
+        如果需要永久禁用SELinux，在`/etc/selinux/config`文件中的以“SELINUX”开头的所在行中将“enforcing”修改为“permissive”或“disabled”并重启系统。在下面的示例中，您已经将配置文件中“permissive”修改为“disabled”。更改后，通过`reboot`命令重启系统。
+
+        请注意，在这个示例中，通过vi编辑器来编辑文件。
+
+        .. note:: 有关vi命令的内容，请参考第三章。
+
+        .. code-block:: none
+
+            # vi /etc/selinux/config
+            ...以下为vi编辑器显示内容...
+            # This file controls the state of SELinux on the system.
+            # SELINUX= can take one of these three values:
+            #     enforcing - SELinux security policy is enforced.
+            #     permissive - SELinux prints warnings instead of enforcing.
+            #     disabled - No SELinux policy is loaded.
+            #SELINUX=enforcing ←注释此行，在行首添加#号
+            SELINUX=disabled   ←添加此行
+            # SELINUXTYPE= can take one of these three values:
+            #     targeted - Targeted processes are protected,
+            #     minimum - Modification of targeted policy. Only selected processes are protected. 
+            #     mls - Multi Level Security protection.
+            SELINUXTYPE=targeted
+            ...编辑结束...
+            # reboot
+
+* 确认防火墙状态并关闭
+
+    防火墙是组织来自网络的未经授权的访问机制。在导入时，只允许访问特定的端口号。
+
+    互联网上的服务器操作等是必须的功能，但与SELinux一样，在作为可靠的内部网络的使用、开发环境和测试环境中使用时，您可能需要禁用该选项。本节介绍如何禁用防火墙。
+
+    Linux的防火墙功能是由内核模块Netfilter提供的。从CentOS6到CentOS7为止的设定使用程序是iptables。CentOS8中则使用的是nftables。nftables是新的数据包分类框架，新的linux防火墙管理程序，旨在替代现存的 {ip,ip6,arp,eb}_tables。它拥有一些高级的类似编程语言的能力，例如定义变量和包含外部文件，即拥有使用额外脚本的能力。CentOS8同样可以使用firewalld管理防火墙。
+
+    > firewalld 提供了多个不同的安全强度设置模板，称为“区域”，通过选择符合您要连接的网络的可靠性的区域，可以方便的设置。有关firewalld更多的信息，请参考第十章。
+
+    现在的防火墙的状态，使用firewalld命令确认。默认情况下，只允许cockpit、ssh和DHCPv6客户端。
+
+    .. code-block:: none
+
+        # firewall-cmd --list-service --zone=public
+        cockpit dhcpv6-client ssh
+
+
+    要停止防火墙，请运行systemctl命令。
+
+    .. code-block:: none
+
+        # systemctl stop firewalld.service 
+        # firewall-cmd --list-service --zone=public ←检查防火墙
+        FirewallD is not running
+
+
+    运行上述命令，您可以停止运行防火墙，但在重启系统后，firewalld将自动启动。要避免重启后防火墙自动启动，请执行以下命令：
+
+    .. code-block:: none
+
+        # systemctl disable firewalld.service 
+        Removed /etc/systemd/system/multi-user.target.wants/firewalld.service.
+        Removed /etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service.
+
+Ubuntu初始化设定
+--------------------------
+
+在使用Ubuntu的基础上，记载了是要做好的工作。进行操作如下：
+
+* 确认已安装包的信息
+* 进行更新
+* 确认AppArmor的运行状态
+* 检查防火墙的状态
+
+另外，为了在命令行中说明后面的操作，先启动虚拟终端。
+
+在Ubuntu的桌面上，点击【显示应用程序】图标，滚动表所示的图标一览表，选择【终端】。
+
+.. image:: /_images/Chapter_1/1-4/1-4-2.显示应用程序.png
+    :align: center
+    :width: 400px
+
+.. image:: /_images/Chapter_1/1-4/1-4-3.图标一览表.png
+    :align: center
+    :width: 400px
+
+* 确认已安装包的信息
+
+    要查看系统中已经安装的所有软件包，请使用dpkg命令。
+
+    .. note:: 有关包的详细信息，请参考第六章。
+
+    .. code-block:: none
+
+        # dpkg -l | more
+        期望状态=未知(u)/安装(i)/删除(r)/清除(p)/保持(h)
+        | 状态=未安装(n)/已安装(i)/仅存配置(c)/仅解压缩(U)/配置失败(F)/不完全安装(H)/触发器等待(W)/触发器未决(T)
+        |/ 错误?=(无)/须重装(R) (状态，错误：大写=故障)
+        ||/ 名称                                       版本                                         体系结构     描述
+        +++-==========================================-============================================-============-===============================================================================
+        ii  accountsservice                            0.6.45-1ubuntu1                              amd64        query and manipulate user account information
+        ii  acl                                        2.2.52-3build1                               amd64        Access control list utilities
+        ii  acpi-support                               0.142                                        amd64        scripts for handling many ACPI events
+        ii  acpid                                      1:2.0.28-1ubuntu1                            amd64        Advanced Configuration and Power Interface event daemon
+        ii  adduser                                    3.116ubuntu1                                 all          add and remove users and groups
+        ii  adium-theme-ubuntu                         0.3.4-0ubuntu4                               all          Adium message style for Ubuntu
+        ii  adwaita-icon-theme                         3.28.0-1ubuntu1                              all          default icon theme of GNOME (small subset)
+        ii  aisleriot                                  1:3.22.5-1                                   amd64        GNOME solitaire card game collection
+        ...省略...
+
+* 进行更新
+
+    Ubuntu经常进行故障修复和功能改善，它们是通过存储库提供的。首先更新在本地管理的包索引后，更新session。
+
+    .. note:: 关于存储库的更多信息，请参考第六章。
+
+    运行`sudo apt update`命令可以更新本地软件包索引。运行时，将显示可更新的软件包的数量。
+
+    .. code-block:: none
+
+        $ sudo apt update 
+        [sudo] ubuntu 的密码： 
+        命中:1 http://cn.archive.ubuntu.com/ubuntu bionic InRelease
+        获取:2 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]                         
+        获取:3 http://cn.archive.ubuntu.com/ubuntu bionic-updates InRelease
+        ...省略...
+        获取:19 http://cn.archive.ubuntu.com/ubuntu bionic-backports/universe amd64 DEP-11 Metadata [7,976 B]        
+        已下载 1,950 kB，耗时 14秒 (136 kB/s)                                                                        
+        正在读取软件包列表... 完成
+        正在分析软件包的依赖关系树       
+        正在读取状态信息... 完成       
+        有 209 个软件包可以升级。请执行 ‘apt list --upgradable’ 来查看它们。
+
+    然后执行`sudo apt upgrade`命令进行软件包的升级更新。在安装前会出现“是否安装”的确认提示，确认安装请输入“Y”或“y”。这样更新就结束了。
+
+    .. code-block:: none
+
+        $ sudo apt upgrade 
+        正在读取软件包列表... 完成
+        正在分析软件包的依赖关系树       
+        正在读取状态信息... 完成       
+        正在计算更新... 完成
+        下列【新】软件包将被安装：
+        ...省略...
+        升级了 209 个软件包，新安装了 5 个软件包，要卸载 0 个软件包，有 0 个软件包未被升级。
+        需要下载 225 MB/386 MB 的归档。
+        解压缩后会消耗 332 MB 的额外空间。
+        您希望继续执行吗？ [Y/n] y   ←输入【y】
+        ...省略...
+
+
+* 确认AppArmor状态
+
+    在Ubuntu中，AppArmor比SELinux更容易设置，以增强系统的安全性。以程序为单位进行强制访问控制。
+
+    要进行AppArmor的状态确认，运行systemctl命令。从以下的执行结果可知启动中（Active）。本书将保持有效。
+
+    .. code-block:: none
+
+        $ systemctl status apparmor.service
+        ● apparmor.service - AppArmor initialization
+        Loaded: loaded (/lib/systemd/system/apparmor.service; enabled; vendor preset: enabled)
+        Active: active (exited) since Sun 2019-11-17 13:34:04 CST; 2h 26min ago
+            Docs: man:apparmor(7)
+                http://wiki.apparmor.net/
+        Main PID: 433 (code=exited, status=0/SUCCESS)
+            Tasks: 0 (limit: 4646)
+        CGroup: /system.slice/apparmor.service
+        ...忽略...
+
+
+* 确认防火墙状态
+
+    在Ubuntu中，安装时不包含firewalld，如果要使用，请运行`apt install firewalld`命令进行安装。默认情况下，提供了一个名为“ufw”（Uncomplicate FireWall）的命令。
+
+    要查看防火墙的当前状态，请运行`sudo ufw status`命令。在下面的执行结果中，您可以看到它处于非互动状态（已停止）。本文档将保持非活动状态。
+
+    .. code-block:: none
+
+        $ sudo ufw status
+        状态：不活动
+
+    .. note:: 有关ufw命令的详细信息，请参考第十章。
+
+    

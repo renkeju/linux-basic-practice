@@ -1,0 +1,4 @@
+SELinux状态,说明
+enforcing,生效状态
+permissive,无效状态，但SELinux日志处于记录状态
+disabled,无效状

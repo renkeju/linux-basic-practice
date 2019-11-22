@@ -1,0 +1,3 @@
+种类,使用目的,补充
+CentOS Linux DVD ISO,标准配置安装,标准安装镜像中用户可根据用途构建各种类型的配置
+CentOS Stream DVD ISO,滚动更新配置安装,CentOS Stream是一个滚动发行的发行版，它跟踪Red Hat Enterprise Linux（RHEL）开发之前的情况，它位于Fedora Linux和RHEL之间的中间位置
