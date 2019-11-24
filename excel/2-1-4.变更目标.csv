@@ -1,0 +1,4 @@
+变更目标,systemctl isolate命令,init命令
+变更为graphical.targer,systemctl isolate graphical.target,init 5
+变更为multi-user.targer,systemctl isolate multi-user.target,init 3
+变更为rescue.targer,systemctl isolate rescue.target,init 1

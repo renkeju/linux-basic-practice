@@ -1,0 +1,11 @@
+目录和配置文件,BIOS,UEFI,说明
+/boot/grub2/,○,○,配置文件和模块所在的目录
+/boot/grub2/grub.cfg,○,○,配置文件。grub2-install生成的/boot/efi/EFI/centos/grubx64.efi也参照此文件
+/boot/grub2/i386-pc/,○,—,此目录静态或动态链接到core.img的模块所在的目录。core.img也在此目录生成
+/usr/lib/grub/i386-pc/,○,—,模块所在的目录。在执行grub2-install命令时，在此目录下面的模块将复制到/boot/grub2/i386-pc/目录下
+/boot/grub2/x86_64-efi/,—,○,grubx64.efi中存放静态或动态链接的模块的目录。core.efi再此处生成并复制到/boot/efi/EFI/centos/grubx86.efi中
+/usr/lib/grub/x86_64-efi/,—,○,模块所在的目录。在执行grub2-install时，下面的模块将复制到/boot/grub2/x86_64-efi/目录下
+/boot/efi/EFI/centos/,—,○,配置文件和引导加载程序所在的目录
+/boot/efi/EFI/centos/grub.cfg,—,○,配置文件。从grub2-efi安装包中安装的/boot/efi/centos/grubx64.efi
+/etc/grub.d/,○,○,设定了配置文件grub.cfg生成时执行的脚本的数据库。其目录下的shell脚本参照/etc/default/grub文件中的变量进行设定，生成grub.cfg在下面的章节中进行讲解
+/etc/default/grub,○,○,在生成配置文件grub.cfg时，设定从/etc/grub.d/下的脚本引用的变量的值

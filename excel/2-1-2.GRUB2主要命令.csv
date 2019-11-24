@@ -1,0 +1,7 @@
+GRUB2命令（CentOS）,GRUB2命令（Ubuntu）,BIOS,UEFI,说明
+insmod,insmod,○,○,模块的动态加载
+set,set,○,○,参数的设定
+linux,linux,○,○,以16位后路模式启动Intel架构的内核。内核随后转换为保护模式
+initrd,initrd,○,○,在使用linux命令启动内核时，指定内核使用initramfs
+linuxefi,—,—,○,将UEFI参数传递到内核，启动内核
+initrdefi,—,—,○,用linuxefi命令启动内核时，指定内核使用initramfs

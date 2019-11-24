@@ -1,0 +1,7 @@
+目标,说明,SysV级别
+default.target,系统启动时的默认目标，系统在这个目标中启动，通常指向multi-user.target或graphical.target的链接,—
+sysinit.target,进行系统启动时初期阶段设置目标,—
+rescue.target,发生故障时或维护时管理者使用的目标。管理员输入root密码进行登录，然后进行维护工作,1
+basic.target,在系统启动时进行基本设定的目标,—
+multi.target,基于字符命令的多用户的目标,3
+graphical.target,设置图形界面的目标,5
