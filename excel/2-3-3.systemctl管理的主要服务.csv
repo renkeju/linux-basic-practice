@@ -1,0 +1,8 @@
+服务,说明
+udisks2,磁盘自动挂载服务
+gdm,GDM显示管理器
+lightdm,LightDM显示管理器
+NetworkManager,NetworkManager服务
+sshd,SSH服务
+postfix,Postfix邮件服务
+httpd,HTTP Web服务

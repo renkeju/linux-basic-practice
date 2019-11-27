@@ -1,0 +1,4 @@
+选项,说明
+ExecStart,指定启动程序的命令加上必要的参数且使用绝对路径。例如httpd.service，ExecStart=/usr/bin/httpd $OPTIONS -DFOREGROUND
+ExecReload,在绝对路径中指定用于重新加载配置文件的命令。例如httpd.service，ExecReload=/usr/sbin/httpd $OPTIONS -k graceful
+ExecStop,指定停止程序的命令加上必要的参数且使用绝对路径。例如httpd.service，ExecStop=/bin/kill -WINCH ${MAINPID}

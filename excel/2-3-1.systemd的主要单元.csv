@@ -1,0 +1,8 @@
+单元,说明
+service,服务的启动和停止
+socket,用于接收服务启动的套接字
+device,用于服务启动的设备检测
+mount,安装文件系统
+automount,自动安装文件系统
+swap,设置交换分区
+target,单元的组合
