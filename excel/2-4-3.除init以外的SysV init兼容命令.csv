@@ -1,0 +1,7 @@
+命令,说明
+shutdown,停止计算机，关闭电源，重新启动
+telinit,更改运行级别
+halt,停止计算机
+poweroff,关闭计算机的电源
+reboot,重新启动计算机
+runlevel,显示前一个和现在的运行水平

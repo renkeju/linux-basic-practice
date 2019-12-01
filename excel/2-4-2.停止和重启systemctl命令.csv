@@ -1,0 +1,4 @@
+操作,命令（指定目标）,命令（仅使用子命令）,SysV init 兼容命令
+停止,systemctl isolate halt.target,systemctl halt,halt
+关闭电源,systemctl isolate poweroff.target,systemctl poweroff,poweroff、init 0
+重启,systemctl isolate reboot.target,systemctl reboot,reboot、init 6

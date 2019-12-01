@@ -1,0 +1,4 @@
+目标,说明,SysV级别
+halt.target,停止,—
+poweroff.target,关闭电源,0
+reboot.target,重启,6

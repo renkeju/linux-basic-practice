@@ -1,0 +1,8 @@
+选项,说明
+-H、--halt,停止计算机
+-P、--poweroff,关闭计算机的电源（缺省）
+-r、--reboot,重启计算机
+-h,与--poweroff相同，除非指定了--halt
+-k,不执行halt、poweroff、reboot，只发送wall信息
+--no-wall,在halt、poweroff和reboot执行前不发送wall消息
+-c,取消关闭

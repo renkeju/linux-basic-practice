@@ -1,0 +1,5 @@
+选项,说明
+--halt,halt、poweroff、reboot在任何情况下都关机
+-p、--poweroff,halt、poweroff、reboot在任何情况下都关闭电源
+--reboot,halt、poweroff、reboot在任何情况下都重启
+-f、--force,不调用systemd，立即执行
