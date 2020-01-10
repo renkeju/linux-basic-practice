@@ -1,0 +1,123 @@
+===================================
+3.1 了解Linux目录结构
+===================================
+
+树状结构与各目录的作用
+------------------------------------
+
+FHS（Filesystem Hierarchy Sttandard）是规定目录结构标准的规范。在多数Linux发行版中，都以FHS为基础进行目录和文件的配置。
+
+在FHS中，除了定义目录名称之外，还规定了各目录的作用、包含的文件的种类、文件的配置等。因此，通过理解FHS中提倡的规范目录结构，可以掌握Linux中常用的必要的文件所在位置，新建的配置文件的放置位置。
+
+此外，在FHS中，可以通过“可共享”(Shareable)、“不可共享”(Unshareable)、“静态”(Static)或“可变更”（Variable）来分配要放置文件的目录。
+
+.. csv-table:: 文件的分类
+   :widths: 15 35
+   :header: "分类", "说明"
+
+   "可共享", "可通过网络共享的文件，例如应用程序、库等"
+   "不可共享", "无法通过网络共享的文件，例如锁定文件等"
+   "静态", "除了系统管理员的操作，其他操作不能变更的文件。例如二进制命令、库、文档等"
+   "可变更", "系统运行中可变更的文件，例如日志文件、登录用户的信息文件、锁定文件等"
+
+.. csv-table:: 目录示例
+    :widths: 15 20 20
+    :header: "", "可共享", "不可共享"
+
+    "静态", "/usr /opt", "/etc /boot"
+    "可变更", "/var/mail /var/spool/news", "/var/run /var/lock"
+
+例如，/var作为系统运行中的文件可被更新、追加、删除的目录。在/var/mail目录下，每个用户都相对应有一个文件。另外，/var/lock 是为了在文件的读写等过程中进行排他控制而指定使用的目录。
+
+FHS是以根(/)为起点的单一的树状结构目录，“/”下配置了与目录相对应的目录层级。
+
+.. image:: /_images/Chapter_3/文件的树状结构.png
+    :align: center
+
+主要的目录和租用如下表所示：
+
+.. csv-table:: 目录和作用
+    :widths: 15, 35
+    :header: "目录", "作用"
+
+    "/", "相当于文件系统定点的目录"
+    "/bin", "一般用户、管理者使用的命令（可执行二进制文件）所在目录"
+    "/dev", "放置设备配置文件的目录，此目录下的文件由系统引导时检查连接的设备并自动创建"
+    "/etc", "用于管理系统的配置文件和各种软件的配置文件的目录"
+    "/lib", "为/bin和/sbin目录下的命令和程序提供可利用的库的目录"
+    "/lib/modules", "存放内核模块配置的目录"
+    "/media", "数据目录，如CD/DVD"
+    "/opt", "在Linux安装完成后，此目录可以部署额外安装的软件包（软件）"
+    "/proc", "该目录存储运行内核和进程保留的信息，由于是虚拟文件系统，所以文件并不存在"
+    "/root", "root用户的主目录"
+    "/sbin", "该目录主要存放由系统管理员使用的命令，但根据额外选项一般用户也可以使用"
+    "/tmp", "配置应用程序或用户使用的临时文件目录"
+    "/var", "该目录存放在系统运行中各种程序配置发生变化的文件"
+    "/var/log", "该目录存放系统或程序的日志文件"
+    "/boot", "该目录存放系统启动时需要的引导加载程序相关的文件和内核镜像"
+    "/usr", "该目录存放用户共享的数据，例如应用程序、库、命令等"
+    "/usr/bin", "该目录存放一般用户、管理者使用的命令"
+    "/usr/lib", "该目录存放各种命令使用的库"
+    "/usr/sbin", "该目录存放仅系统管理员可使用的命令"
+    "/home", "一般用户的主目录"
+
+要查看文件系统中的目录详细信息，请运行“man hier”命令。有关man命令的信息，请参考下面的内容：
+
+.. code-block:: none
+
+    # man hier
+    HIER(7)                             Linux Programmer's Manual                            HIER(7)
+
+    NAME
+        hier - description of the filesystem hierarchy
+
+    DESCRIPTION
+        A typical Linux system has, among others, the following directories:
+
+        /      This is the root directory.  This is where the whole tree starts.
+
+        /bin   This  directory  contains executable programs which are needed in single user mode
+                and to bring the system up or repair it.
+
+        /boot  Contains static files for the boot loader.  This directory holds  only  the  files
+                which  are  needed  during  the boot process.  The map installer and configuration
+                files should go to /sbin and /etc.  The operating system kernel (initrd for  exam‐
+                ple) must be located in either / or /boot.
+
+        /dev   Special or device files, which refer to physical devices.  See mknod(1).
+
+        /etc   Contains configuration files which are local to the machine.  Some larger software
+                packages, like X11, can have their own subdirectories below /etc.  Site-wide  con‐
+                figuration files may be placed here or in /usr/etc.  Nevertheless, programs should
+                always look for these files in /etc and you may have  links  for  these  files  to
+                /usr/etc.
+    
+    ...省略...
+
+当显示文件的保存位置时，目录和其下面的目录之间，通常是使用“/”（斜杠）进行划分。例如在图 3-1-1 中，var目录下的log目录下的messages文件，其保存位置表示为“/var/log/messages”。
+
+另外，将表示这样的文件位置的信息称为路径。
+
+命令提示符
+-------------------
+
+登录到Linux的用户将位于目录结构中的当前用户的主目录位置。然后，用户就可以使用命令执行某些操作。您可以在屏幕上的命令提示符中查看您当前所在的路径。例如，以下示例将提示您登录的是CentOS主机：
+
+``[用户名@主机名 当前位置的提示符号]``
+
+如果你使用root用户登录：
+
+.. code-block:: none
+
+    [root@centos ~]# 
+
+如果你使用centos用户登录：
+
+.. code-block:: none
+
+    [centos@centos ~]$ 
+
+在“@”符号前是当前用户名，“@”符号后是当前的主机名称，一般主机名称后都会有“~”符号表示当前路径位于当前用户的主目录。
+
+主目录是分配给各用户的作业空间。虽然用户可以在自己的主目录可以随意的读写文件，但是在其他用户的主目录中，只要没有被其他用户赋予权限，就不能进行读写文件。但是，由于root用户具有管理员权限，只有它可以在所有用户的主目录进行读写。
+
