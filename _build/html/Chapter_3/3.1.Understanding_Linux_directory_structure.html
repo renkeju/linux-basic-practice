@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>3.1 了解Linux目录结构 &#8212; 《Linux 基础实践入门》 alpha 文档</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+<link rel="stylesheet" type="text/css" href="../_static/handsontable.full.min.css">
+<script src="../_static/handsontable.full.min.js"></script>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="linux">
+<h1>3.1 了解Linux目录结构<a class="headerlink" href="#linux" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>树状结构与各目录的作用<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>FHS（Filesystem Hierarchy Sttandard）是规定目录结构标准的规范。在多数Linux发行版中，都以FHS为基础进行目录和文件的配置。</p>
+<p>在FHS中，除了定义目录名称之外，还规定了各目录的作用、包含的文件的种类、文件的配置等。因此，通过理解FHS中提倡的规范目录结构，可以掌握Linux中常用的必要的文件所在位置，新建的配置文件的放置位置。</p>
+<p>此外，在FHS中，可以通过“可共享”(Shareable)、“不可共享”(Unshareable)、“静态”(Static)或“可变更”（Variable）来分配要放置文件的目录。</p>
+<table class="colwidths-given docutils align-default" id="id3">
+<caption><span class="caption-text">文件的分类</span><a class="headerlink" href="#id3" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>分类</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>可共享</p></td>
+<td><p>可通过网络共享的文件，例如应用程序、库等</p></td>
+</tr>
+<tr class="row-odd"><td><p>不可共享</p></td>
+<td><p>无法通过网络共享的文件，例如锁定文件等</p></td>
+</tr>
+<tr class="row-even"><td><p>静态</p></td>
+<td><p>除了系统管理员的操作，其他操作不能变更的文件。例如二进制命令、库、文档等</p></td>
+</tr>
+<tr class="row-odd"><td><p>可变更</p></td>
+<td><p>系统运行中可变更的文件，例如日志文件、登录用户的信息文件、锁定文件等</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id4">
+<caption><span class="caption-text">目录示例</span><a class="headerlink" href="#id4" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 36%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>可共享</p></th>
+<th class="head"><p>不可共享</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>静态</p></td>
+<td><p>/usr /opt</p></td>
+<td><p>/etc /boot</p></td>
+</tr>
+<tr class="row-odd"><td><p>可变更</p></td>
+<td><p>/var/mail /var/spool/news</p></td>
+<td><p>/var/run /var/lock</p></td>
+</tr>
+</tbody>
+</table>
+<p>例如，/var作为系统运行中的文件可被更新、追加、删除的目录。在/var/mail目录下，每个用户都相对应有一个文件。另外，/var/lock 是为了在文件的读写等过程中进行排他控制而指定使用的目录。</p>
+<p>FHS是以根(/)为起点的单一的树状结构目录，“/”下配置了与目录相对应的目录层级。</p>
+<img alt="../_images/文件的树状结构.png" class="align-center" src="../_images/文件的树状结构.png" />
+<p>主要的目录和租用如下表所示：</p>
+<table class="colwidths-given docutils align-default" id="id5">
+<caption><span class="caption-text">目录和作用</span><a class="headerlink" href="#id5" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>目录</p></th>
+<th class="head"><p>作用</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>/</p></td>
+<td><p>相当于文件系统定点的目录</p></td>
+</tr>
+<tr class="row-odd"><td><p>/bin</p></td>
+<td><p>一般用户、管理者使用的命令（可执行二进制文件）所在目录</p></td>
+</tr>
+<tr class="row-even"><td><p>/dev</p></td>
+<td><p>放置设备配置文件的目录，此目录下的文件由系统引导时检查连接的设备并自动创建</p></td>
+</tr>
+<tr class="row-odd"><td><p>/etc</p></td>
+<td><p>用于管理系统的配置文件和各种软件的配置文件的目录</p></td>
+</tr>
+<tr class="row-even"><td><p>/lib</p></td>
+<td><p>为/bin和/sbin目录下的命令和程序提供可利用的库的目录</p></td>
+</tr>
+<tr class="row-odd"><td><p>/lib/modules</p></td>
+<td><p>存放内核模块配置的目录</p></td>
+</tr>
+<tr class="row-even"><td><p>/media</p></td>
+<td><p>数据目录，如CD/DVD</p></td>
+</tr>
+<tr class="row-odd"><td><p>/opt</p></td>
+<td><p>在Linux安装完成后，此目录可以部署额外安装的软件包（软件）</p></td>
+</tr>
+<tr class="row-even"><td><p>/proc</p></td>
+<td><p>该目录存储运行内核和进程保留的信息，由于是虚拟文件系统，所以文件并不存在</p></td>
+</tr>
+<tr class="row-odd"><td><p>/root</p></td>
+<td><p>root用户的主目录</p></td>
+</tr>
+<tr class="row-even"><td><p>/sbin</p></td>
+<td><p>该目录主要存放由系统管理员使用的命令，但根据额外选项一般用户也可以使用</p></td>
+</tr>
+<tr class="row-odd"><td><p>/tmp</p></td>
+<td><p>配置应用程序或用户使用的临时文件目录</p></td>
+</tr>
+<tr class="row-even"><td><p>/var</p></td>
+<td><p>该目录存放在系统运行中各种程序配置发生变化的文件</p></td>
+</tr>
+<tr class="row-odd"><td><p>/var/log</p></td>
+<td><p>该目录存放系统或程序的日志文件</p></td>
+</tr>
+<tr class="row-even"><td><p>/boot</p></td>
+<td><p>该目录存放系统启动时需要的引导加载程序相关的文件和内核镜像</p></td>
+</tr>
+<tr class="row-odd"><td><p>/usr</p></td>
+<td><p>该目录存放用户共享的数据，例如应用程序、库、命令等</p></td>
+</tr>
+<tr class="row-even"><td><p>/usr/bin</p></td>
+<td><p>该目录存放一般用户、管理者使用的命令</p></td>
+</tr>
+<tr class="row-odd"><td><p>/usr/lib</p></td>
+<td><p>该目录存放各种命令使用的库</p></td>
+</tr>
+<tr class="row-even"><td><p>/usr/sbin</p></td>
+<td><p>该目录存放仅系统管理员可使用的命令</p></td>
+</tr>
+<tr class="row-odd"><td><p>/home</p></td>
+<td><p>一般用户的主目录</p></td>
+</tr>
+</tbody>
+</table>
+<p>要查看文件系统中的目录详细信息，请运行“man hier”命令。有关man命令的信息，请参考下面的内容：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># man hier
+HIER(7)                             Linux Programmer&#39;s Manual                            HIER(7)
+
+NAME
+    hier - description of the filesystem hierarchy
+
+DESCRIPTION
+    A typical Linux system has, among others, the following directories:
+
+    /      This is the root directory.  This is where the whole tree starts.
+
+    /bin   This  directory  contains executable programs which are needed in single user mode
+            and to bring the system up or repair it.
+
+    /boot  Contains static files for the boot loader.  This directory holds  only  the  files
+            which  are  needed  during  the boot process.  The map installer and configuration
+            files should go to /sbin and /etc.  The operating system kernel (initrd for  exam‐
+            ple) must be located in either / or /boot.
+
+    /dev   Special or device files, which refer to physical devices.  See mknod(1).
+
+    /etc   Contains configuration files which are local to the machine.  Some larger software
+            packages, like X11, can have their own subdirectories below /etc.  Site-wide  con‐
+            figuration files may be placed here or in /usr/etc.  Nevertheless, programs should
+            always look for these files in /etc and you may have  links  for  these  files  to
+            /usr/etc.
+
+...省略...
+</pre></div>
+</div>
+<p>当显示文件的保存位置时，目录和其下面的目录之间，通常是使用“/”（斜杠）进行划分。例如在图 3-1-1 中，var目录下的log目录下的messages文件，其保存位置表示为“/var/log/messages”。</p>
+<p>另外，将表示这样的文件位置的信息称为路径。</p>
+</div>
+<div class="section" id="id2">
+<h2>命令提示符<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>登录到Linux的用户将位于目录结构中的当前用户的主目录位置。然后，用户就可以使用命令执行某些操作。您可以在屏幕上的命令提示符中查看您当前所在的路径。例如，以下示例将提示您登录的是CentOS主机：</p>
+<p><code class="docutils literal notranslate"><span class="pre">[用户名&#64;主机名</span> <span class="pre">当前位置的提示符号]</span></code></p>
+<p>如果你使用root用户登录：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[root@centos ~]#
+</pre></div>
+</div>
+<p>如果你使用centos用户登录：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[centos@centos ~]$
+</pre></div>
+</div>
+<p>在“&#64;”符号前是当前用户名，“&#64;”符号后是当前的主机名称，一般主机名称后都会有“~”符号表示当前路径位于当前用户的主目录。</p>
+<p>主目录是分配给各用户的作业空间。虽然用户可以在自己的主目录可以随意的读写文件，但是在其他用户的主目录中，只要没有被其他用户赋予权限，就不能进行读写文件。但是，由于root用户具有管理员权限，只有它可以在所有用户的主目录进行读写。</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/linux.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="../index.html">《Linux 基础实践入门》</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_1/1.Linux_overview.html">第一章 Linux 概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_2/2.start_and_stop_linux.html">第二章 Linux的启动和停止</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, renkeju.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
