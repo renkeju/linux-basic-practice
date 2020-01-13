@@ -20,7 +20,7 @@ BIOS/UEFI
 
 PC接入电源后，BIOS或UEFI读取Linux的GRUB2引导加载器并启动。
 
-这几年几乎所有PC都采用了UEFI，BOIS和UEFI在GRUB2启动后的处理记录是不相同的。
+这几年几乎所有PC都采用了UEFI，BOIS和UEFI在GRUB2启动后的处理过程是不相同的。
 
 * BIOS
 
@@ -28,7 +28,7 @@ PC接入电源后，BIOS或UEFI读取Linux的GRUB2引导加载器并启动。
 
 * UEFI
 
-    EFI(Extensible Fiemware Interface)是BIOS的标准固件，但其扩展了功能，包括支持高容量磁盘（GPT: GUID Partition Table）、强化安全性（Secure Boot）、通过网络进行远程诊断等。它由Intel公司开发，现在被Unified EFI Forum管理。名称也变更为UEFI(Unified Extensible Fiemware Interface)，但UEFI和EFI可以理解为具有相同含义的词汇。
+    EFI(Extensible Firmware Interface)是BIOS的标准固件，但其扩展了功能，包括支持高容量磁盘（GPT: GUID Partition Table）、强化安全性（Secure Boot）、通过网络进行远程诊断等。它由Intel公司开发，现在被Unified EFI Forum管理。名称也变更为UEFI(Unified Extensible Firmware Interface)，但UEFI和EFI可以理解为具有相同含义的词汇。
 
     从UEFI引导OS时，按照设定再NVRAM中先后顺序，启动存储在磁盘中的EFI分区（EFI System Partition）中的引导加载程序。这一点与启动MBR内的引导加载程序的BIOS的方式不同。
 
@@ -49,7 +49,7 @@ BIOS中启动器的先后顺序，或是UEFI中引导加载器的先后顺序，
 
 在近年来几乎在所有Linux发行版中，都采用GURB2作为引导加载器。GRUB2在UEFI和BIOS中都可以使用。
 
-如上方启动界面中下方的信息所提示的那样，通过输入[e](Edit)键，可以编辑在内存中的grub.cfg文件，通过输入[c](command)键可以执行GRUB命令。
+如下方启动界面中的信息所提示的那样，通过输入[e](Edit)键，可以编辑在内存中的grub.cfg文件，通过输入[c](command)键可以执行GRUB命令。
 
 .. image:: /_images/Chapter_2/2-1/2-1-2.GRUB2启动界面.png
     :align: center

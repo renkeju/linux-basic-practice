@@ -36,8 +36,8 @@
 <p>FHS（Filesystem Hierarchy Sttandard）是规定目录结构标准的规范。在多数Linux发行版中，都以FHS为基础进行目录和文件的配置。</p>
 <p>在FHS中，除了定义目录名称之外，还规定了各目录的作用、包含的文件的种类、文件的配置等。因此，通过理解FHS中提倡的规范目录结构，可以掌握Linux中常用的必要的文件所在位置，新建的配置文件的放置位置。</p>
 <p>此外，在FHS中，可以通过“可共享”(Shareable)、“不可共享”(Unshareable)、“静态”(Static)或“可变更”（Variable）来分配要放置文件的目录。</p>
-<table class="colwidths-given docutils align-default" id="id3">
-<caption><span class="caption-text">文件的分类</span><a class="headerlink" href="#id3" title="永久链接至表格">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id5">
+<caption><span class="caption-text">文件的分类</span><a class="headerlink" href="#id5" title="永久链接至表格">¶</a></caption>
 <colgroup>
 <col style="width: 30%" />
 <col style="width: 70%" />
@@ -62,8 +62,8 @@
 </tr>
 </tbody>
 </table>
-<table class="colwidths-given docutils align-default" id="id4">
-<caption><span class="caption-text">目录示例</span><a class="headerlink" href="#id4" title="永久链接至表格">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id6">
+<caption><span class="caption-text">目录示例</span><a class="headerlink" href="#id6" title="永久链接至表格">¶</a></caption>
 <colgroup>
 <col style="width: 27%" />
 <col style="width: 36%" />
@@ -90,8 +90,8 @@
 <p>FHS是以根(/)为起点的单一的树状结构目录，“/”下配置了与目录相对应的目录层级。</p>
 <img alt="../_images/文件的树状结构.png" class="align-center" src="../_images/文件的树状结构.png" />
 <p>主要的目录和租用如下表所示：</p>
-<table class="colwidths-given docutils align-default" id="id5">
-<caption><span class="caption-text">目录和作用</span><a class="headerlink" href="#id5" title="永久链接至表格">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id7">
+<caption><span class="caption-text">目录和作用</span><a class="headerlink" href="#id7" title="永久链接至表格">¶</a></caption>
 <colgroup>
 <col style="width: 30%" />
 <col style="width: 70%" />
@@ -212,6 +212,183 @@ DESCRIPTION
 </div>
 <p>在“&#64;”符号前是当前用户名，“&#64;”符号后是当前的主机名称，一般主机名称后都会有“~”符号表示当前路径位于当前用户的主目录。</p>
 <p>主目录是分配给各用户的作业空间。虽然用户可以在自己的主目录可以随意的读写文件，但是在其他用户的主目录中，只要没有被其他用户赋予权限，就不能进行读写文件。但是，由于root用户具有管理员权限，只有它可以在所有用户的主目录进行读写。</p>
+<p>如果要执行任何操作，请在显示的命令提示符下输入需要执行的命令。以下是以root用户身份登录到主机“centos”并运行 pwd 命令的执行过程。pwd命令显示用户当前所在的路径。请注意，root用户的提示符为“#”。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[root@centos ~]# pwd ← root用户执行
+/root ← 当前所在目录位置，为/root目录。
+</pre></div>
+</div>
+<p>下面是普通用户“centos”登录并运行pwd命令的示例。注意，一般用户的提示符为“$”。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[centos@centos ~]$ pwd ← centos用户执行
+/home/centos ← 当前所在目录位置，一般为 /home 目录下加上用户名组成的路径。
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>在本书中，许多命令执行时都会省略命令提示符的部分内容，仅以“#”或“$”显示。不过这也能表示您使用的是 root 用户或普通用户。</p>
+</div>
+<p>在 linux 上使用的命令可由普通用户执行，即也可以由无管理员权限的用户执行。</p>
+<p>root用户具有管理员权限，但普通用户可以根据需要添加权限。本书尽可能让普通用户执行不需要管理员权限的操作。此外，如果您需要管理员权限，则使用root用户执行命令。</p>
+<p>请注意，如果要在登录状态下切换到其他用户或管理员（root），请使用su命令。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>su [可选选项] [-] [用户名称]
+</pre></div>
+</div>
+<p>如果省略用户名，则默认为root。如果不再用户名前使用“-”，则只切换用户，并且登录环境所在目录仍为上一个用户所在目录位置且bash环境也不变。使用“-”可切换用户并使用新用户的环境。</p>
+<p>可以使用id命令查看当前用户的所在的有效用户ID与有效组ID。在以下示例中，运行时环境保持为用户zhangsan，并切换为用户lisi。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[zhangsan@centos ~]$ id
+uid=1000(zhangsan) gid=1000(zhangsan) groups=1000(zhangsan),100(users)
+... 省略 ...
+[zhangsan@centos ~]$ su - lisi
+密码：
+上一次登录：Mon Jan 13 17:28:33 CST 2020从 58.246.147.26pts/0 上
+[lisi@centos ~]$ id
+uid=1001(lisi) gid=1001(lisi) groups=1001(lisi),100(users)
+... 省略 ...
+[lisi@centos ~]$ pwd
+/home/lisi
+</pre></div>
+</div>
+<p>另外，对于 Ubuntu，普通用户可以通过“sudo su -” 切换root用户。</p>
+<div class="section" id="id3">
+<h3>自定义命令提示符<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>在bash中，shell变量PS1定义为命令提示符，如第二章中所述。PS2还可以定义为辅助提示符。辅助提示符表示命令尚未完成，并且是连续输入命令时。</p>
+<p>以下示例使用辅助提示符：键盘输入 <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-la</span> <span class="pre">/etc/passwd</span></code> 后，请在行尾输入“”以转义换行符。然后可以继续输入，PS2的默认值为“&gt;”。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ls -la /etc/passwd \
+&gt; /etc/shadow
+-rw-r--r-- 1 root root 1198 Dec 18 19:14 /etc/passwd
+---------- 1 root root  822 Dec 18 19:14 /etc/shadow
+</pre></div>
+</div>
+<p>此外，以下示例还显示了如何编辑PS1并自定义命令提示符：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ PS1=&#39;\s-\v\$&#39;
+-bash-4.2$ PS1=&#39;[\u@\h \w]\$&#39;
+[centos@centos ~]$
+</pre></div>
+</div>
+<p>设置bash命令提示符的默认值，其中“s”是shell的名称，“-”是连字符，“v”是版本，“$”是美元符号。</p>
+<p>修改后的命令提示符为“-bash-4.2 $”。之后我们再修改命令提示符显示为“[当前用户名&#64;当前主机名 目录]$”，其中相对应的参数的值，“[”是起始方括号，“u”是当前用户名，“h”是当前主机名，“&#64;”是一个at符号，“w”是当前所在的目录，“]”是结束方括号。</p>
+<p>最终我们看到的命令提示符为“[<a class="reference external" href="mailto:centos&#37;&#52;&#48;centos">centos<span>&#64;</span>centos</a> ~]$”</p>
+<p>因为这是在当前运行的bash中设置的，所以退出此用户环境后此配置将会消失。需要在下次启动bash时或注销再登录bash时也能生效，请参考第四章内容，通过在“~/.bashrc”或“~/.bash_profile”中添加来实现。</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>离线文档<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>在linux上，有多种命令可供用户使用。离线文档可帮助您了解如何使用命令。离线文档可以打印出命令和文件相关的说明。</p>
+<p>要查看离线文档，可以使用man命令。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>man [选项] [章节编号] 命令名称|文件名称等
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default" id="id8">
+<caption><span class="caption-text">man 命令选项</span><a class="headerlink" href="#id8" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>选项</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-f</p></td>
+<td><p>显示在所有手册中的章节中找到的与指定关键字相匹配的内容</p></td>
+</tr>
+<tr class="row-odd"><td><p>-k</p></td>
+<td><p>显示包含指定关键字的文档的章节</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>在man命令格式中带有“|”参数表示您必须指定其中一个参数，例如“命令名称”或“文件名称”。</p>
+</div>
+<p>如果手册页太长而无法完整的打印在屏幕上，则man命令在打印一个屏幕后会停止打印。因此，要在滚动屏幕打印，请按下列键：</p>
+<table class="colwidths-given docutils align-default" id="id9">
+<caption><span class="caption-text">man 命令键盘控制</span><a class="headerlink" href="#id9" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 78%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>键盘操作</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>space</p></td>
+<td><p>显示下一页</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enter</p></td>
+<td><p>显示下一行</p></td>
+</tr>
+<tr class="row-even"><td><p>b</p></td>
+<td><p>显示上一页</p></td>
+</tr>
+<tr class="row-odd"><td><p>h</p></td>
+<td><p>显示帮助</p></td>
+</tr>
+<tr class="row-even"><td><p>q</p></td>
+<td><p>退出man命令</p></td>
+</tr>
+<tr class="row-odd"><td><p>/字符串</p></td>
+<td><p>查找字符串（使用“n”键查找下一个）</p></td>
+</tr>
+</tbody>
+</table>
+<p>另外，由于离线文档中有很多项目，因此可能会分为章节或部分。</p>
+<table class="colwidths-given docutils align-default" id="id10">
+<caption><span class="caption-text">离线文档章节（部分）</span><a class="headerlink" href="#id10" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>部分</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>使用说明</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>系统调用</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>程序库</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>设备文件</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>文件格式</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>解决方法</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>其他</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>系统管理命令</p></td>
+</tr>
+</tbody>
+</table>
+<p>在联机文档中，具有相同名称的文档可能位于不同的章节（部分）中。例如：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ man passwd   ← ①
+... 省略打印内容 ...
+
+$ man -f passwd ← ②
+passwd (5)           - 密码文件
+passwd (1)           - 更改用户密码
+passwd (1ssl)        - compute password hashes
+</pre></div>
+</div>
+<p>①在运行man命令时，指定要查看passwd命令。在这种情况下，将显示passwd命令的离线文档，因为它是在不添加任何选项的情况下选定的。</p>
+<p>②指定了“-f”选项。因此，查找并显示所有包含关键字“passwd”的章节（部分）。请注意，passwd命令位于第一章节，而记录用户账户内容信息的passwd文件位于第五章节。如果要查看第五章节passwd文件的离线文档，请执行以下操作：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ man 5 passwd
+... 省略打印内容 ...
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -238,6 +415,7 @@ DESCRIPTION
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_1/1.Linux_overview.html">第一章 Linux 概述</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_2/2.start_and_stop_linux.html">第二章 Linux的启动和停止</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3.opration_and_use_of_files.html">第三章 文件的操作与使用</a></li>
 </ul>
 
 <div class="relations">
