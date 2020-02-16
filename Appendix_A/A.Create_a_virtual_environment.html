@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>附录A 创建虚拟环境 &#8212; 《Linux 基础实践入门》 alpha 文档</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="prev" title="第三章 文件的操作与使用" href="../Chapter_3/3.opration_and_use_of_files.html" />
+<link rel="stylesheet" type="text/css" href="../_static/handsontable.full.min.css">
+<script src="../_static/handsontable.full.min.js"></script>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="a">
+<h1>附录A 创建虚拟环境<a class="headerlink" href="#a" title="永久链接至标题">¶</a></h1>
+<div class="section" id="a-1">
+<h2>A-1 虚拟化概要<a class="headerlink" href="#a-1" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id1">
+<h3>什么是虚拟化<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h3>
+<p>虚拟化（Virtualization）是一种虚拟配置技术，它可以结构计算机系统（如硬件、服务器、存储和网络）的具有原始配置的独立资源，并以分割或合并的方式来实现。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 12%" />
+<col style="width: 68%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>结构</p></th>
+<th class="head"><p>状态</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td rowspan="2"><p>服务器</p></td>
+<td><p>分割</p></td>
+<td><p>拆分一台服务器以配置多台服务器</p></td>
+</tr>
+<tr class="row-odd"><td><p>合并</p></td>
+<td><p>将多台服务器配置为一台服务器</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>存储设备</p></td>
+<td><p>分割</p></td>
+<td><p>将一个磁盘拆分为多个独立的磁盘</p></td>
+</tr>
+<tr class="row-odd"><td><p>合并</p></td>
+<td><p>将多个磁盘多为一个磁盘</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>网络</p></td>
+<td><p>分割</p></td>
+<td><p>将一个LAN拆分为多个LAN</p></td>
+</tr>
+<tr class="row-odd"><td><p>合并</p></td>
+<td><p>将多个网络设备整合为一个网络设备</p></td>
+</tr>
+</tbody>
+</table>
+<img alt="../_images/A-1-1.拆分和合并的场景.png" class="align-center" src="../_images/A-1-1.拆分和合并的场景.png" />
+<ul>
+<li><p>结构❶</p>
+<blockquote>
+<div><p>数据库服务和网站服务在运行在不同的裸金属物理服务器上。CPU和内存等资源的利用率较低会导致资源浪费，它们的处理能力也是如此。另外，还需要确保服务器的数量、物理空间位置、电源等等。</p>
+</div></blockquote>
+</li>
+<li><p>结构❷</p>
+<blockquote>
+<div><p>数据库服务和网站服务软件可以安装在同一裸金属物理服务器中运行。但是，如果由于硬件故障而导致服务器宕机，则在该服务器中运行的所有服务（如本例中的数据库服务和网站服务）都将停止运行。解决此问题需要硬件冗余。另外，如果主机被恶意的第三方入侵，并夺取了root权限，则可能会对所有服务进行篡改等不正当行为。因此，与结构❶和结构❸等服务的分散结构相比，安全性较弱。</p>
+</div></blockquote>
+</li>
+<li><p>结构❸</p>
+<blockquote>
+<div><p>在一个裸金属服务器中，每台服务器都使用虚拟化技术独立运行。运行操作系统的硬件平台在虚拟化管理程序（Hypervisor）上构建虚拟主机（Virtual Machine），并在其上运行 Guest OS。Guest OS可以为每台虚拟机提供不同的操作系统，并且可以在Guest OS上安装和使用服务软件，如数据库和网站。</p>
+</div></blockquote>
+</li>
+</ul>
+<p>基于Linux内核的虚拟化环境包括KVM和Xen。两者都在CentOS和Ubuntu标准网络存储库中提供。VirtualBox和VMware Workstation还可以用于Microsoft Windows、MacOS和Linux的虚拟环境。</p>
+</div>
+<div class="section" id="id2">
+<h3>管理程序<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>虚拟机管理程序是在其上运行虚拟机的软件。有两种典型类型的虚拟机管理程序：</p>
+<table class="colwidths-given docutils align-default" id="id6">
+<caption><span class="caption-text">虚拟机管理程序类型</span><a class="headerlink" href="#id6" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 81%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>类型</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>裸金属主机</p></td>
+<td><p>即虚拟机管理程序直接在硬件上运行，所有的OS都在该虚拟机管理程序上运行的方式。Xen就是这样。</p></td>
+</tr>
+<tr class="row-odd"><td><p>主机类型</p></td>
+<td><p>OS（主机操作系统）在硬件上运行，虚拟机管理程序在OS上运行。VMware Workstation 和 VirtualBox 采用这种类型。</p></td>
+</tr>
+</tbody>
+</table>
+<img alt="../_images/A-1-2.虚拟机管理程序概要.png" class="align-center" src="../_images/A-1-2.虚拟机管理程序概要.png" />
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>KVM是主机操作系统的一个内置虚拟机管理程序功能，但由于Guest OS运行在主机操作系统中的仿真器（QEMU）上，因此是裸金属主机类型和主机类型的中间方法。</p>
+</div>
+<div class="section" id="id3">
+<h4>云虚拟化<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h4>
+<p>云的虚拟机管理程序可以在多台物理服务器的虚拟环境中运行多个虚拟机（VM）实例。虚拟机实例可以运行用户的应用程序。</p>
+<p>云上的VM易于创建和删除，可通过根据工作负载情况手动或自动增加或减少VM数量来均衡多台物理服务器之间的处理能力。</p>
+<img alt="../_images/A-1-3.运行在云管理程序上的虚拟机实例.png" class="align-center" src="../_images/A-1-3.运行在云管理程序上的虚拟机实例.png" />
+<p>Amazon 提供的AWS云（Amazon Web Services）早期使用Xen作为虚拟机管理程序，从2017年开始引入KVM。</p>
+<p>Google 提供的云GCP（Google Cloud Platform）使用KVM作为虚拟机管理程序。</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>容器式虚拟化<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>容器虚拟化与主机操作系统共享相同的内核，在操作系统被隔离的容器的区域中有自己的地址空间，并且它还有自己的存储空间和网络名称空间。</p>
+<p>它的特点是，与主机或虚拟机管理程序相比，他的体积更小，没有独立的内核的启动与停止，没有额外的服务启动与停止，并且容器启动与停止的速度更快。</p>
+<p>在Google的Gmail到Youtube的视频检索，所有服务都是在容器中运行。</p>
+<img alt="../_images/A-1-3.运行在云管理程序上的虚拟机实例.png" class="align-center" src="../_images/A-1-3.运行在云管理程序上的虚拟机实例.png" />
+<p>VM在虚拟机管理程序提供的虚拟环境中运行，而容器可以在主机操作系统中运行。</p>
+<img alt="../_images/A-1-5.在云中的虚拟化环境中运行容器.png" class="align-center" src="../_images/A-1-5.在云中的虚拟化环境中运行容器.png" />
+<p>Docker公司开发的Docker容器被广泛用于容器的实现。</p>
+<p>另外，将多个Docker容器部署到操作系统中，并使每个容器协同工作的名为Kubernetes的软件也在不断的普及开来，Kubernetes由Google开发并于2014年发布，现在由Cloud Native Computing Foundation(CNCF)管理。</p>
+</div>
+<div class="section" id="id5">
+<h3>虚拟化软件提供的功能<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>如上所述，虚拟化涉及多种资源，包括存储和网络。有两种方法可以利用虚拟化功能：</p>
+<ol class="arabic simple">
+<li><p>利用虚拟化软件提供的功能</p></li>
+<li><p>利用虚拟化服务器提供的功能</p></li>
+</ol>
+<p>以下是VMware Workstation提供的一些虚拟化功能的参考：以下是使用VMware Workstation创建的虚拟机的“设置”屏幕。</p>
+<p>接下来，在“A-2 使用 KVM 构建虚拟环境”与“A-3 使用 VirtualBox 构建虚拟环境”章节中，我们将讨论如何使用虚拟化软件提供的功能来构建虚拟环境。</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/linux.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="../index.html">《Linux 基础实践入门》</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_1/1.Linux_overview.html">第一章 Linux 概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_2/2.start_and_stop_linux.html">第二章 Linux的启动和停止</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_3/3.opration_and_use_of_files.html">第三章 文件的操作与使用</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">附录A 创建虚拟环境</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#a-1">A-1 虚拟化概要</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">什么是虚拟化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">管理程序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">容器式虚拟化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">虚拟化软件提供的功能</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../Chapter_3/3.opration_and_use_of_files.html" title="上一章">第三章 文件的操作与使用</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, renkeju.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

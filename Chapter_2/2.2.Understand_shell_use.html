@@ -108,28 +108,28 @@
 </table>
 <p>通过使用 <code class="docutils literal notranslate"><span class="pre">shell_name=value</span></code> 可以定义shell变量的值。使用 <code class="docutils literal notranslate"><span class="pre">$shell_name</span></code> 或 <code class="docutils literal notranslate"><span class="pre">${shell_name}</span></code> 查看有关值的设定。使用“unset”命令可以删除shell变量。</p>
 <p>以下是通过LANG的环境变量来切换语言环境（简体中文/英文）的示例：</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># echo $LANG ←打印出shell变量LANG的值
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># echo $LANG ➜ 打印出shell变量LANG的值
 zh_CN.UTF-8
-# date ←现在的语言是zh_CN.UTF-8，显示的时间是中文字体
+# date ➜ 现在的语言是zh_CN.UTF-8，显示的时间是中文字体
 2019年 11月 26日 星期二 17:16:29 CST
-# unset LANG ←取消LANG变量的值
-# echo $LANG ←打印出shell变量LANG的值
-            ←没有打印出变量LANG的值
-# date ←再次查看系统时间，这次打印出的时间是英文字体
+# unset LANG ➜ 取消LANG变量的值
+# echo $LANG ➜ 打印出shell变量LANG的值
+            ➜ 没有打印出变量LANG的值
+# date ➜ 再次查看系统时间，这次打印出的时间是英文字体
 Tue Nov 26 17:16:50 CST 2019
-# LANG=zh_CN.UTF-8 ←指定变量LANG的值为zh_CN.UTF-8，也就是中文字体
-# echo $LANG ←打印出shell变量的LANG的值
+# LANG=zh_CN.UTF-8 ➜ 指定变量LANG的值为zh_CN.UTF-8，也就是中文字体
+# echo $LANG ➜ 打印出shell变量的LANG的值
 zh_CN.UTF-8
-# date ←刚才设定的变量LANG已经生效
+# date ➜ 刚才设定的变量LANG已经生效
 2019年 11月 26日 星期二 17:16:29 CST
 </pre></div>
 </div>
 <p>如果要打印在现在的shell中定义的shell变量的列表，可以使用不加任何指定参数的“set”命令。如果要显示环境变量，则使用“env”命令或是“printenv”命令。</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># export LINUX=&quot;CentOS8&quot;  ←指定环境变量
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># export LINUX=&quot;CentOS8&quot;  ➜ 指定环境变量
 # env
 ...忽略...
 HOSTNAME=centos.localdomain
-LINUX=CentOS8  ←显示指定的环境变量
+LINUX=CentOS8  ➜ 显示指定的环境变量
 USER=root
 PWD=/root
 HOME=/root
@@ -197,6 +197,7 @@ HOME=/root
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_1/1.Linux_overview.html">第一章 Linux 概述</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2.start_and_stop_linux.html">第二章 Linux的启动和停止</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_3/3.opration_and_use_of_files.html">第三章 文件的操作与使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix_A/A.Create_a_virtual_environment.html">附录A 创建虚拟环境</a></li>
 </ul>
 
 <div class="relations">

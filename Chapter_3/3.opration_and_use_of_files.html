@@ -16,6 +16,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="附录A 创建虚拟环境" href="../Appendix_A/A.Create_a_virtual_environment.html" />
     <link rel="prev" title="第二章 Linux的启动和停止" href="../Chapter_2/2.start_and_stop_linux.html" />
 <link rel="stylesheet" type="text/css" href="../_static/handsontable.full.min.css">
 <script src="../_static/handsontable.full.min.js"></script>
@@ -39,8 +40,8 @@
 <p>FHS（Filesystem Hierarchy Sttandard）是规定目录结构标准的规范。在多数Linux发行版中，都以FHS为基础进行目录和文件的配置。</p>
 <p>在FHS中，除了定义目录名称之外，还规定了各目录的作用、包含的文件的种类、文件的配置等。因此，通过理解FHS中提倡的规范目录结构，可以掌握Linux中常用的必要的文件所在位置，新建的配置文件的放置位置。</p>
 <p>此外，在FHS中，可以通过“可共享”(Shareable)、“不可共享”(Unshareable)、“静态”(Static)或“可变更”（Variable）来分配要放置文件的目录。</p>
-<table class="colwidths-given docutils align-default" id="id6">
-<caption><span class="caption-text">文件的分类</span><a class="headerlink" href="#id6" title="永久链接至表格">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id14">
+<caption><span class="caption-text">文件的分类</span><a class="headerlink" href="#id14" title="永久链接至表格">¶</a></caption>
 <colgroup>
 <col style="width: 30%" />
 <col style="width: 70%" />
@@ -65,8 +66,8 @@
 </tr>
 </tbody>
 </table>
-<table class="colwidths-given docutils align-default" id="id7">
-<caption><span class="caption-text">目录示例</span><a class="headerlink" href="#id7" title="永久链接至表格">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id15">
+<caption><span class="caption-text">目录示例</span><a class="headerlink" href="#id15" title="永久链接至表格">¶</a></caption>
 <colgroup>
 <col style="width: 27%" />
 <col style="width: 36%" />
@@ -93,8 +94,8 @@
 <p>FHS是以根(/)为起点的单一的树状结构目录，“/”下配置了与目录相对应的目录层级。</p>
 <img alt="../_images/文件的树状结构.png" class="align-center" src="../_images/文件的树状结构.png" />
 <p>主要的目录和租用如下表所示：</p>
-<table class="colwidths-given docutils align-default" id="id8">
-<caption><span class="caption-text">目录和作用</span><a class="headerlink" href="#id8" title="永久链接至表格">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id16">
+<caption><span class="caption-text">目录和作用</span><a class="headerlink" href="#id16" title="永久链接至表格">¶</a></caption>
 <colgroup>
 <col style="width: 30%" />
 <col style="width: 70%" />
@@ -216,13 +217,13 @@ DESCRIPTION
 <p>在“&#64;”符号前是当前用户名，“&#64;”符号后是当前的主机名称，一般主机名称后都会有“~”符号表示当前路径位于当前用户的主目录。</p>
 <p>主目录是分配给各用户的作业空间。虽然用户可以在自己的主目录可以随意的读写文件，但是在其他用户的主目录中，只要没有被其他用户赋予权限，就不能进行读写文件。但是，由于root用户具有管理员权限，只有它可以在所有用户的主目录进行读写。</p>
 <p>如果要执行任何操作，请在显示的命令提示符下输入需要执行的命令。以下是以root用户身份登录到主机“centos”并运行 pwd 命令的执行过程。pwd命令显示用户当前所在的路径。请注意，root用户的提示符为“#”。</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[root@centos ~]# pwd ← root用户执行
-/root ← 当前所在目录位置，为/root目录。
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[root@centos ~]# pwd ➜  root用户执行
+/root ➜  当前所在目录位置，为/root目录。
 </pre></div>
 </div>
 <p>下面是普通用户“centos”登录并运行pwd命令的示例。注意，一般用户的提示符为“$”。</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[centos@centos ~]$ pwd ← centos用户执行
-/home/centos ← 当前所在目录位置，一般为 /home 目录下加上用户名组成的路径。
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[centos@centos ~]$ pwd ➜  centos用户执行
+/home/centos ➜  当前所在目录位置，一般为 /home 目录下加上用户名组成的路径。
 </pre></div>
 </div>
 <div class="admonition note">
@@ -280,8 +281,8 @@ uid=1001(lisi) gid=1001(lisi) groups=1001(lisi),100(users)
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>man [选项] [章节编号] 命令名称|文件名称等
 </pre></div>
 </div>
-<table class="colwidths-given docutils align-default" id="id9">
-<caption><span class="caption-text">man 命令选项</span><a class="headerlink" href="#id9" title="永久链接至表格">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id17">
+<caption><span class="caption-text">man 命令选项</span><a class="headerlink" href="#id17" title="永久链接至表格">¶</a></caption>
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -305,8 +306,8 @@ uid=1001(lisi) gid=1001(lisi) groups=1001(lisi),100(users)
 <p>在man命令格式中带有“|”参数表示您必须指定其中一个参数，例如“命令名称”或“文件名称”。</p>
 </div>
 <p>如果手册页太长而无法完整的打印在屏幕上，则man命令在打印一个屏幕后会停止打印。因此，要在滚动屏幕打印，请按下列键：</p>
-<table class="colwidths-given docutils align-default" id="id10">
-<caption><span class="caption-text">man 命令键盘控制</span><a class="headerlink" href="#id10" title="永久链接至表格">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id18">
+<caption><span class="caption-text">man 命令键盘控制</span><a class="headerlink" href="#id18" title="永久链接至表格">¶</a></caption>
 <colgroup>
 <col style="width: 22%" />
 <col style="width: 78%" />
@@ -338,8 +339,8 @@ uid=1001(lisi) gid=1001(lisi) groups=1001(lisi),100(users)
 </tbody>
 </table>
 <p>另外，由于离线文档中有很多项目，因此可能会分为章节或部分。</p>
-<table class="colwidths-given docutils align-default" id="id11">
-<caption><span class="caption-text">离线文档章节（部分）</span><a class="headerlink" href="#id11" title="永久链接至表格">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id19">
+<caption><span class="caption-text">离线文档章节（部分）</span><a class="headerlink" href="#id19" title="永久链接至表格">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -377,10 +378,10 @@ uid=1001(lisi) gid=1001(lisi) groups=1001(lisi),100(users)
 </tbody>
 </table>
 <p>在联机文档中，具有相同名称的文档可能位于不同的章节（部分）中。例如：</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ man passwd   ← ①
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ man passwd   ➜  ①
 ... 省略打印内容 ...
 
-$ man -f passwd ← ②
+$ man -f passwd ➜  ②
 passwd (5)           - 密码文件
 passwd (1)           - 更改用户密码
 passwd (1ssl)        - compute password hashes
@@ -391,6 +392,166 @@ passwd (1ssl)        - compute password hashes
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ man 5 passwd
 ... 省略打印内容 ...
 </pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>3.2 管理文件和目录<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id7">
+<h3>在命令行中处理文件和目录<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>在命令行中操作文件系统中的文件和目录时，需要了解如何管理这些文件和目录以及管理文件系统的常用命令。</p>
+<p>在 Linux 系统中执行操作时，用户必定在文件系统的某个目录位置中。我们一般将当前所处的目录称为当前目录。下图中“zhangsan”是用户zhangsan的初始目录，下面将其作为的那个前目录进行介绍。</p>
+<img alt="../_images/3-2-1.目录结构.png" class="align-center" src="../_images/3-2-1.目录结构.png" />
+<div class="section" id="id8">
+<h4>切换目录<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
+<p>cd命令用于在文件系统上切换目录。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd [目录]
+</pre></div>
+</div>
+<p>目录可以是绝对路径，也可以是相对路径。绝对路径从根目录（/）开始，并以斜杠（/）分隔所需目录的路径。此外，相对路径从当前目录，表示所需目录的路径。你可以使用以下目录符号：</p>
+<table class="colwidths-given docutils align-default" id="id20">
+<caption><span class="caption-text">目录符号</span><a class="headerlink" href="#id20" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>符号</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>~</p></td>
+<td><p>初始目录，表示当前执行用户的工作目录。</p></td>
+</tr>
+<tr class="row-odd"><td><p>.</p></td>
+<td><p>当前目录，表示当前执行用户的所处的目录。</p></td>
+</tr>
+<tr class="row-even"><td><p>..</p></td>
+<td><p>父目录，以当前目录为准，表示上一级目录。</p></td>
+</tr>
+</tbody>
+</table>
+<p>在图3-2-1中所示的当前所在路径为用户工作目录“/home/zhangsan”，①②③分别表示切换到不同的目录下。如何使用绝对路径或相对路径切换到相同的路径，参考下表。</p>
+<table class="colwidths-given docutils align-default" id="id21">
+<caption><span class="caption-text">指定cd命令的路径</span><a class="headerlink" href="#id21" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 45%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>编号</p></th>
+<th class="head"><p>绝对路径</p></th>
+<th class="head"><p>相对路径</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>①</p></td>
+<td><p>cd /home</p></td>
+<td><p>cd ..</p></td>
+</tr>
+<tr class="row-odd"><td><p>②</p></td>
+<td><p>cd /opt</p></td>
+<td><p>cd ../../opt</p></td>
+</tr>
+<tr class="row-even"><td><p>③</p></td>
+<td><p>cd /home/zhangsan/dir_b</p></td>
+<td><p>cd dir_b</p></td>
+</tr>
+</tbody>
+</table>
+<p>除此之外，如果登陆用户为 zhangsan，无论当前在哪个目录下，使用“cd”，“cd ~”，“cd ~zhangsan” 都将切换到用户工作目录“/home/zhangsan”。但是如果zhangsan用户使用命令“cd ~lisi”，也同样可以切换到用户lisi的工作目录下，但是必须拥有用户lisi工作目录的读写权限才可访问。</p>
+</div>
+<div class="section" id="id9">
+<h4>显示目录路径<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h4>
+<p>pwd命令以绝对路径显示当前用户所处的目录位置。</p>
+</div>
+<div class="section" id="id10">
+<h4>查看文件和目录信息<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h4>
+<p>ls 命令列出文件和目录信息。如果没有指定目录名称，则默认会列出当前目录的内容。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls [选项] [目录名...]
+ls [选项] [文件名...]
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default" id="id22">
+<caption><span class="caption-text">ls 命令选项</span><a class="headerlink" href="#id22" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 89%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>选项</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-F</p></td>
+<td><p>显示表示文件类型符号：“/”是目录，“*”是可执行文件，“&#64;”是链接符号</p></td>
+</tr>
+<tr class="row-odd"><td><p>-a</p></td>
+<td><p>显示隐藏文件（文件名以点“.”开头）</p></td>
+</tr>
+<tr class="row-even"><td><p>-l</p></td>
+<td><p>显示详细信息</p></td>
+</tr>
+<tr class="row-odd"><td><p>-d</p></td>
+<td><p>显示当前目录的信息，而不是当前目录下的内容</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>由于在使用ls命令时，我们可以指定多个文件或目录，因此上面的命令格式中我们使用“…”来表示多个文件或目录。在之后的内容中也会使用相同的表示方法。</p>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cd /usr ➜ 表示移动到目录/usr
+$ ls ➜ 表示查看目录/usr下的内容
+bin  etc  games  include  lib  lib64  libexec  local  sbin  share  src  tmp
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h4>打印文件内容<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h4>
+<p>more 命令打印指定文件的内容。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>more 文件名称
+</pre></div>
+</div>
+<p>按[Space]键可以显示下一页，并在浏览到文件的最后一页时退出。</p>
+</div>
+<div class="section" id="id12">
+<h4>逐页查看文件内容<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h4>
+<p>less命令一额每页为单位显示不能一次性打印在屏幕上的文件。如果不能完全适应屏幕，清按[↑↓]键滚动屏幕。按键操作与 man 命令相同。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>less 文件名称
+</pre></div>
+</div>
+</div>
+<div class="section" id="id13">
+<h4>查看文件内容<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h4>
+<p>cat命令可以显示指定名称的文件的内容。如果指定了多个文件，则会连续显示所有文件。此外，使用“-n”选项会在输出时添加行号。</p>
+<p>如果执行cat命令时没有指定任何参数，则cat命令将从标准输入（键盘）中读取数据。在键盘中输入一行内容后，按下[Enter]键就会在屏幕上打印出刚刚输入的内容，然后重复进行操作，直到按下[Ctrl+D]结束。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cat [选项] [文件名称...]
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default" id="id23">
+<caption><span class="caption-text">cat 命令选项</span><a class="headerlink" href="#id23" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>选项</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-n</p></td>
+<td><p>为所有行添加行号</p></td>
+</tr>
+<tr class="row-odd"><td><p>-T</p></td>
+<td><p>将制表符显示为“^”</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -426,8 +587,13 @@ passwd (1ssl)        - compute password hashes
 <li class="toctree-l3"><a class="reference internal" href="#id5">离线文档</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">3.2 管理文件和目录</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">在命令行中处理文件和目录</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix_A/A.Create_a_virtual_environment.html">附录A 创建虚拟环境</a></li>
 </ul>
 
 <div class="relations">
@@ -435,6 +601,7 @@ passwd (1ssl)        - compute password hashes
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="../Chapter_2/2.start_and_stop_linux.html" title="上一章">第二章 Linux的启动和停止</a></li>
+      <li>Next: <a href="../Appendix_A/A.Create_a_virtual_environment.html" title="下一章">附录A 创建虚拟环境</a></li>
   </ul></li>
 </ul>
 </div>
