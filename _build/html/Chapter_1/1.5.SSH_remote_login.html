@@ -98,14 +98,14 @@ tcp6       <span class="m">0</span>      <span class="m">0</span> :::111        
 <p>sshd被提供为openssh-server程序包。有关软件包的更多信息，请参考第六章内容。</p>
 </div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ dpkg -l | grep openssh-server
-$                                   ←确认OpenSSH未安装
-$ sudo apt install openssh-server   ←安装
+$                                   ➜ 确认OpenSSH未安装
+$ sudo apt install openssh-server   ➜ 安装
 [sudo] ubuntu 的密码：
 正在读取软件包列表... 完成
 正在分析软件包的依赖关系树
 正在读取状态信息... 完成
 ...省略...
-您希望继续执行吗？ [Y/n] y   ←输入【y】
+您希望继续执行吗？ [Y/n] y   ➜ 输入【y】
 </pre></div>
 </div>
 <p>安装完成后，请检查sshd的状态。在下面的执行结果中，您可以看到它是启动（Active）的。</p>
@@ -206,6 +206,7 @@ CGroup: /system.slice/ssh.service
 <li class="toctree-l1"><a class="reference internal" href="1.Linux_overview.html">第一章 Linux 概述</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_2/2.start_and_stop_linux.html">第二章 Linux的启动和停止</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_3/3.opration_and_use_of_files.html">第三章 文件的操作与使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix_A/A.Create_a_virtual_environment.html">附录A 创建虚拟环境</a></li>
 </ul>
 
 <div class="relations">

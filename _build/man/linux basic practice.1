@@ -693,7 +693,7 @@ CUI(Character User Interface)
 .sp
 不同的桌面环境有不同的GUI工具，但是指令在几乎所有的发行版中都是相同的（有时也会因为命令所采用的版本不同有细微的差异）。
 .sp
-下面是使用桌面环境GNOME工具中（GUI）进行的操作的示例，以及在模拟终端中gnome\-terminal中（GCI）执行等效操作的示例。
+下面是使用桌面环境GNOME工具中（GUI）进行的操作的示例，以及在模拟终端中gnome\-terminal中（CUI）执行等效操作的示例。
 [图片]
 [图片]
 [图片]
@@ -701,7 +701,7 @@ CUI(Character User Interface)
 [图片]
 [图片]
 .sp
-对于服务器（如DNS、Web或邮件），通常不需要安装桌面环境，或者安装了桌面环境也不使用。原因是当您通过网络管理设备时，您的桌面环境必定会增加网络传输的流量，而且也会消耗一定的性能。所以使用GCI来管理操作系统可以省去繁琐的操作流程与节省流量。
+对于服务器（如DNS、Web或邮件），通常不需要安装桌面环境，或者安装了桌面环境也不使用。原因是当您通过网络管理设备时，您的桌面环境必定会增加网络传输的流量，而且也会消耗一定的性能。所以使用CUI来管理操作系统可以省去繁琐的操作流程与节省流量。
 [图片]
 [图片]
 .SS 1.2 安装 CentOS
@@ -1332,9 +1332,9 @@ _
 .sp
 .nf
 .ft C
-# getenforce ←查看SELinux当前状态
-Enforcing    ←SELinux生效
-# sestatus   ←查看SELinux更详细的内容
+# getenforce ➜ 查看SELinux当前状态
+Enforcing    ➜ SELinux生效
+# sestatus   ➜ 查看SELinux更详细的内容
 SELinux status:                 enabled
 SELinuxfs mount:                /sys/fs/selinux
 SELinux root directory:         /etc/selinux
@@ -1362,11 +1362,11 @@ Max kernel policy version:      31
 .sp
 .nf
 .ft C
-# getenforce ←查看SELinux当前状态
-Enforcing    ←SELinux生效
-# setenforce 0  ←关闭SELinux
-# getenforce    ←查看SELinux当前状态
-Permissive   ←SELinux关闭
+# getenforce ➜ 查看SELinux当前状态
+Enforcing    ➜ SELinux生效
+# setenforce 0  ➜ 关闭SELinux
+# getenforce    ➜ 查看SELinux当前状态
+Permissive   ➜ SELinux关闭
 .ft P
 .fi
 .UNINDENT
@@ -1399,8 +1399,8 @@ Permissive   ←SELinux关闭
 #     enforcing \- SELinux security policy is enforced.
 #     permissive \- SELinux prints warnings instead of enforcing.
 #     disabled \- No SELinux policy is loaded.
-#SELINUX=enforcing ←注释此行，在行首添加#号
-SELINUX=disabled   ←添加此行
+#SELINUX=enforcing ➜ 注释此行，在行首添加#号
+SELINUX=disabled   ➜ 添加此行
 # SELINUXTYPE= can take one of these three values:
 #     targeted \- Targeted processes are protected,
 #     minimum \- Modification of targeted policy. Only selected processes are protected.
@@ -1449,7 +1449,7 @@ cockpit dhcpv6\-client ssh
 .nf
 .ft C
 # systemctl stop firewalld.service
-# firewall\-cmd \-\-list\-service \-\-zone=public ←检查防火墙
+# firewall\-cmd \-\-list\-service \-\-zone=public ➜ 检查防火墙
 FirewallD is not running
 .ft P
 .fi
@@ -1582,7 +1582,7 @@ $ sudo apt upgrade
 升级了 209 个软件包，新安装了 5 个软件包，要卸载 0 个软件包，有 0 个软件包未被升级。
 需要下载 225 MB/386 MB 的归档。
 解压缩后会消耗 332 MB 的额外空间。
-您希望继续执行吗？ [Y/n] y   ←输入【y】
+您希望继续执行吗？ [Y/n] y   ➜ 输入【y】
 \&...省略...
 .ft P
 .fi
@@ -1749,14 +1749,14 @@ sshd被提供为openssh\-server程序包。有关软件包的更多信息，请�
 .nf
 .ft C
 $ dpkg \-l | grep openssh\-server
-$                                   ←确认OpenSSH未安装
-$ sudo apt install openssh\-server   ←安装
+$                                   ➜ 确认OpenSSH未安装
+$ sudo apt install openssh\-server   ➜ 安装
 [sudo] ubuntu 的密码：
 正在读取软件包列表... 完成
 正在分析软件包的依赖关系树
 正在读取状态信息... 完成
 \&...省略...
-您希望继续执行吗？ [Y/n] y   ←输入【y】
+您希望继续执行吗？ [Y/n] y   ➜ 输入【y】
 .ft P
 .fi
 .UNINDENT
@@ -2279,7 +2279,7 @@ Ubuntu：\fBgrub\-mkconfig > grub.cfg\fP
 .nf
 .ft C
 # cd /boot/grub2/
-# cp grub.cfg grub.cfg.back ←为了慎重起见，先把当前文件做备份
+# cp grub.cfg grub.cfg.back ➜ 为了慎重起见，先把当前文件做备份
 # grub2\-mkconfig > grub.cfg
 Generating grub configuration file ...
 done
@@ -2293,7 +2293,7 @@ done
 .nf
 .ft C
 $ cd /boot/grub/
-$ sudo cp grub.cfg grub.cfg.back ←为了慎重起见，先把当前文件做备份
+$ sudo cp grub.cfg grub.cfg.back ➜ 为了慎重起见，先把当前文件做备份
 $ sudo grub\-mkconfig | sudo tee grub.cfg
 .ft P
 .fi
@@ -2510,12 +2510,12 @@ SysV init所使用的运行级别是定义运行时服务的状态（级别：ru
 .sp
 .nf
 .ft C
-# systemctl get\-default ←查看默认目标
+# systemctl get\-default ➜ 查看默认目标
 graphical.target
-# systemctl set\-default multi\-user.target ←更改默认目标为字符终端登录
+# systemctl set\-default multi\-user.target ➜ 更改默认目标为字符终端登录
 Removed /etc/systemd/system/default.target.
 Created symlink /etc/systemd/system/default.target → /usr/lib/systemd/system/multi\-user.target.
-# systemctl get\-default ←查看默认目标
+# systemctl get\-default ➜ 查看默认目标
 multi\-user.target
 .ft P
 .fi
@@ -2581,7 +2581,7 @@ _
 Welcome to rescue model Type "systemctl default" or ^D to enter default mode.
 the "journalctl \-xb" to view system logs. Type "systemctl reboot" to reboot.
 Give root password for maintenance
-(or type Control\-D to continue): ← 在这里输入root密码
+(or type Control\-D to continue): ➜  在这里输入root密码
 .ft P
 .fi
 .UNINDENT
@@ -2597,7 +2597,7 @@ You are in rescue mode. After logging in, type "journalctl \-xb" to view
 system logs. "systemctl reboot" to reboot, "systemctl default" ro "exit"
 to boot into default mode.
 Give root password for maintenance
-(or type Control\-D to continue): ← 在这里输入root密码
+(or type Control\-D to continue): ➜  在这里输入root密码
 .ft P
 .fi
 .UNINDENT
@@ -2616,7 +2616,7 @@ Kernel 4.18.0\-80.11.2.el8_0.x86_64 on an x86_64
 
 Activate the web console with: systemctl enable \-\-now cockpit.socket
 
-centos login: ←在此输入用户名登录
+centos login: ➜ 在此输入用户名登录
 .ft P
 .fi
 .UNINDENT
@@ -2630,7 +2630,7 @@ centos login: ←在此输入用户名登录
 .ft C
 Ubuntu 18.04.3 LTS ubuntu tty1
 
-ubuntu login: ←在此输入用户名登录
+ubuntu login: ➜ 在此输入用户名登录
 .ft P
 .fi
 .UNINDENT

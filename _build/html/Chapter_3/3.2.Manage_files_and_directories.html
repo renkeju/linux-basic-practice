@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>3.2 管理文件和目录 &#8212; 《Linux 基础实践入门》 alpha 文档</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+<link rel="stylesheet" type="text/css" href="../_static/handsontable.full.min.css">
+<script src="../_static/handsontable.full.min.js"></script>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>3.2 管理文件和目录<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>在命令行中处理文件和目录<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>在命令行中操作文件系统中的文件和目录时，需要了解如何管理这些文件和目录以及管理文件系统的常用命令。</p>
+<p>在 Linux 系统中执行操作时，用户必定在文件系统的某个目录位置中。我们一般将当前所处的目录称为当前目录。下图中“zhangsan”是用户zhangsan的初始目录，下面将其作为的那个前目录进行介绍。</p>
+<img alt="../_images/3-2-1.目录结构.png" class="align-center" src="../_images/3-2-1.目录结构.png" />
+<div class="section" id="id3">
+<h3>切换目录<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>cd命令用于在文件系统上切换目录。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd [目录]
+</pre></div>
+</div>
+<p>目录可以是绝对路径，也可以是相对路径。绝对路径从根目录（/）开始，并以斜杠（/）分隔所需目录的路径。此外，相对路径从当前目录，表示所需目录的路径。你可以使用以下目录符号：</p>
+<table class="colwidths-given docutils align-default" id="id9">
+<caption><span class="caption-text">目录符号</span><a class="headerlink" href="#id9" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>符号</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>~</p></td>
+<td><p>初始目录，表示当前执行用户的工作目录。</p></td>
+</tr>
+<tr class="row-odd"><td><p>.</p></td>
+<td><p>当前目录，表示当前执行用户的所处的目录。</p></td>
+</tr>
+<tr class="row-even"><td><p>..</p></td>
+<td><p>父目录，以当前目录为准，表示上一级目录。</p></td>
+</tr>
+</tbody>
+</table>
+<p>在图3-2-1中所示的当前所在路径为用户工作目录“/home/zhangsan”，①②③分别表示切换到不同的目录下。如何使用绝对路径或相对路径切换到相同的路径，参考下表。</p>
+<table class="colwidths-given docutils align-default" id="id10">
+<caption><span class="caption-text">指定cd命令的路径</span><a class="headerlink" href="#id10" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 45%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>编号</p></th>
+<th class="head"><p>绝对路径</p></th>
+<th class="head"><p>相对路径</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>①</p></td>
+<td><p>cd /home</p></td>
+<td><p>cd ..</p></td>
+</tr>
+<tr class="row-odd"><td><p>②</p></td>
+<td><p>cd /opt</p></td>
+<td><p>cd ../../opt</p></td>
+</tr>
+<tr class="row-even"><td><p>③</p></td>
+<td><p>cd /home/zhangsan/dir_b</p></td>
+<td><p>cd dir_b</p></td>
+</tr>
+</tbody>
+</table>
+<p>除此之外，如果登陆用户为 zhangsan，无论当前在哪个目录下，使用“cd”，“cd ~”，“cd ~zhangsan” 都将切换到用户工作目录“/home/zhangsan”。但是如果zhangsan用户使用命令“cd ~lisi”，也同样可以切换到用户lisi的工作目录下，但是必须拥有用户lisi工作目录的读写权限才可访问。</p>
+</div>
+<div class="section" id="id4">
+<h3>显示目录路径<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>pwd命令以绝对路径显示当前用户所处的目录位置。</p>
+</div>
+<div class="section" id="id5">
+<h3>查看文件和目录信息<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>ls 命令列出文件和目录信息。如果没有指定目录名称，则默认会列出当前目录的内容。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls [选项] [目录名...]
+ls [选项] [文件名...]
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default" id="id11">
+<caption><span class="caption-text">ls 命令选项</span><a class="headerlink" href="#id11" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 89%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>选项</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-F</p></td>
+<td><p>显示表示文件类型符号：“/”是目录，“*”是可执行文件，“&#64;”是链接符号</p></td>
+</tr>
+<tr class="row-odd"><td><p>-a</p></td>
+<td><p>显示隐藏文件（文件名以点“.”开头）</p></td>
+</tr>
+<tr class="row-even"><td><p>-l</p></td>
+<td><p>显示详细信息</p></td>
+</tr>
+<tr class="row-odd"><td><p>-d</p></td>
+<td><p>显示当前目录的信息，而不是当前目录下的内容</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>由于在使用ls命令时，我们可以指定多个文件或目录，因此上面的命令格式中我们使用“…”来表示多个文件或目录。在之后的内容中也会使用相同的表示方法。</p>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cd /usr ➜ 表示移动到目录/usr
+$ ls ➜ 表示查看目录/usr下的内容
+bin  etc  games  include  lib  lib64  libexec  local  sbin  share  src  tmp
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>打印文件内容<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>more 命令打印指定文件的内容。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>more 文件名称
+</pre></div>
+</div>
+<p>按[Space]键可以显示下一页，并在浏览到文件的最后一页时退出。</p>
+</div>
+<div class="section" id="id7">
+<h3>逐页查看文件内容<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>less命令一额每页为单位显示不能一次性打印在屏幕上的文件。如果不能完全适应屏幕，清按[↑↓]键滚动屏幕。按键操作与 man 命令相同。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>less 文件名称
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>查看文件内容<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<p>cat命令可以显示指定名称的文件的内容。如果指定了多个文件，则会连续显示所有文件。此外，使用“-n”选项会在输出时添加行号。</p>
+<p>如果执行cat命令时没有指定任何参数，则cat命令将从标准输入（键盘）中读取数据。在键盘中输入一行内容后，按下[Enter]键就会在屏幕上打印出刚刚输入的内容，然后重复进行操作，直到按下[Ctrl+D]结束。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cat [选项] [文件名称...]
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default" id="id12">
+<caption><span class="caption-text">cat 命令选项</span><a class="headerlink" href="#id12" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>选项</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-n</p></td>
+<td><p>为所有行添加行号</p></td>
+</tr>
+<tr class="row-odd"><td><p>-T</p></td>
+<td><p>将制表符显示为“^”</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/linux.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="../index.html">《Linux 基础实践入门》</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_1/1.Linux_overview.html">第一章 Linux 概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_2/2.start_and_stop_linux.html">第二章 Linux的启动和停止</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3.opration_and_use_of_files.html">第三章 文件的操作与使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix_A/A.Create_a_virtual_environment.html">附录A 创建虚拟环境</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, renkeju.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

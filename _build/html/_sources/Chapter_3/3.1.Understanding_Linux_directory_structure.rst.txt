@@ -125,15 +125,15 @@ FHS是以根(/)为起点的单一的树状结构目录，“/”下配置了与�
 
 .. code-block:: none
 
-    [root@centos ~]# pwd ← root用户执行
-    /root ← 当前所在目录位置，为/root目录。
+    [root@centos ~]# pwd ➜  root用户执行
+    /root ➜  当前所在目录位置，为/root目录。
 
 下面是普通用户“centos”登录并运行pwd命令的示例。注意，一般用户的提示符为“$”。
 
 .. code-block:: none
 
-    [centos@centos ~]$ pwd ← centos用户执行
-    /home/centos ← 当前所在目录位置，一般为 /home 目录下加上用户名组成的路径。
+    [centos@centos ~]$ pwd ➜  centos用户执行
+    /home/centos ➜  当前所在目录位置，一般为 /home 目录下加上用户名组成的路径。
 
 .. note:: 在本书中，许多命令执行时都会省略命令提示符的部分内容，仅以“#”或“$”显示。不过这也能表示您使用的是 root 用户或普通用户。
 
@@ -249,10 +249,10 @@ root用户具有管理员权限，但普通用户可以根据需要添加权限�
 
 .. code-block:: none
 
-    $ man passwd   ← ①
+    $ man passwd   ➜  ①
     ... 省略打印内容 ...
 
-    $ man -f passwd ← ②
+    $ man -f passwd ➜  ②
     passwd (5)           - 密码文件
     passwd (1)           - 更改用户密码
     passwd (1ssl)        - compute password hashes

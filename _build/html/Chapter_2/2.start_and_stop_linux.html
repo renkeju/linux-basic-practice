@@ -298,14 +298,14 @@ menuentry <span class="s1">&#39;Memory test (memtest86+)&#39;</span> <span class
 <li><p>Ubuntu：<code class="docutils literal notranslate"><span class="pre">grub-mkconfig</span> <span class="pre">&gt;</span> <span class="pre">grub.cfg</span></code></p></li>
 </ul>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># cd /boot/grub2/
-# cp grub.cfg grub.cfg.back ←为了慎重起见，先把当前文件做备份
+# cp grub.cfg grub.cfg.back ➜ 为了慎重起见，先把当前文件做备份
 # grub2-mkconfig &gt; grub.cfg
 Generating grub configuration file ...
 done
 </pre></div>
 </div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cd /boot/grub/
-$ sudo cp grub.cfg grub.cfg.back ←为了慎重起见，先把当前文件做备份
+$ sudo cp grub.cfg grub.cfg.back ➜ 为了慎重起见，先把当前文件做备份
 $ sudo grub-mkconfig | sudo tee grub.cfg
 </pre></div>
 </div>
@@ -442,12 +442,12 @@ $ sudo grub-mkconfig | sudo tee grub.cfg
 <h4>查看和设置默认目标<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
 <p>通过systemd命令可以查看那些目标被设置在default.target上，或更改default.target的设置。</p>
 <p>下面是使用systemctl的子命令get-default显示默认目标或使用子命令set-default更改默认目标的示例：</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># systemctl get-default ←查看默认目标
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># systemctl get-default ➜ 查看默认目标
 graphical.target
-# systemctl set-default multi-user.target ←更改默认目标为字符终端登录
+# systemctl set-default multi-user.target ➜ 更改默认目标为字符终端登录
 Removed /etc/systemd/system/default.target.
 Created symlink /etc/systemd/system/default.target → /usr/lib/systemd/system/multi-user.target.
-# systemctl get-default ←查看默认目标
+# systemctl get-default ➜ 查看默认目标
 multi-user.target
 </pre></div>
 </div>
@@ -497,7 +497,7 @@ multi-user.target
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Welcome to rescue model Type &quot;systemctl default&quot; or ^D to enter default mode.
 the &quot;journalctl -xb&quot; to view system logs. Type &quot;systemctl reboot&quot; to reboot.
 Give root password for maintenance
-(or type Control-D to continue): ← 在这里输入root密码
+(or type Control-D to continue): ➜  在这里输入root密码
 </pre></div>
 </div>
 <p>以下是CentOS中的救援目标的登录界面。</p>
@@ -505,7 +505,7 @@ Give root password for maintenance
 system logs. &quot;systemctl reboot&quot; to reboot, &quot;systemctl default&quot; ro &quot;exit&quot;
 to boot into default mode.
 Give root password for maintenance
-(or type Control-D to continue): ← 在这里输入root密码
+(or type Control-D to continue): ➜  在这里输入root密码
 </pre></div>
 </div>
 <p>在上述的界面中，输入root的密码进行登录。</p>
@@ -515,13 +515,13 @@ Kernel 4.18.0-80.11.2.el8_0.x86_64 on an x86_64
 
 Activate the web console with: systemctl enable --now cockpit.socket
 
-centos login: ←在此输入用户名登录
+centos login: ➜ 在此输入用户名登录
 </pre></div>
 </div>
 <p>下面是再多用户目标（没有桌面环境）下启动Ubuntu时显示的界面的示例。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Ubuntu 18.04.3 LTS ubuntu tty1
 
-ubuntu login: ←在此输入用户名登录
+ubuntu login: ➜ 在此输入用户名登录
 </pre></div>
 </div>
 <p>以下是以图形界面目标启动CentOS或Ubuntu时默认情况下的示例（CentOS和Ubuntu中登录界面是相同的）。</p>
@@ -619,28 +619,28 @@ ubuntu login: ←在此输入用户名登录
 </table>
 <p>通过使用 <code class="docutils literal notranslate"><span class="pre">shell_name=value</span></code> 可以定义shell变量的值。使用 <code class="docutils literal notranslate"><span class="pre">$shell_name</span></code> 或 <code class="docutils literal notranslate"><span class="pre">${shell_name}</span></code> 查看有关值的设定。使用“unset”命令可以删除shell变量。</p>
 <p>以下是通过LANG的环境变量来切换语言环境（简体中文/英文）的示例：</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># echo $LANG ←打印出shell变量LANG的值
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># echo $LANG ➜ 打印出shell变量LANG的值
 zh_CN.UTF-8
-# date ←现在的语言是zh_CN.UTF-8，显示的时间是中文字体
+# date ➜ 现在的语言是zh_CN.UTF-8，显示的时间是中文字体
 2019年 11月 26日 星期二 17:16:29 CST
-# unset LANG ←取消LANG变量的值
-# echo $LANG ←打印出shell变量LANG的值
-            ←没有打印出变量LANG的值
-# date ←再次查看系统时间，这次打印出的时间是英文字体
+# unset LANG ➜ 取消LANG变量的值
+# echo $LANG ➜ 打印出shell变量LANG的值
+            ➜ 没有打印出变量LANG的值
+# date ➜ 再次查看系统时间，这次打印出的时间是英文字体
 Tue Nov 26 17:16:50 CST 2019
-# LANG=zh_CN.UTF-8 ←指定变量LANG的值为zh_CN.UTF-8，也就是中文字体
-# echo $LANG ←打印出shell变量的LANG的值
+# LANG=zh_CN.UTF-8 ➜ 指定变量LANG的值为zh_CN.UTF-8，也就是中文字体
+# echo $LANG ➜ 打印出shell变量的LANG的值
 zh_CN.UTF-8
-# date ←刚才设定的变量LANG已经生效
+# date ➜ 刚才设定的变量LANG已经生效
 2019年 11月 26日 星期二 17:16:29 CST
 </pre></div>
 </div>
 <p>如果要打印在现在的shell中定义的shell变量的列表，可以使用不加任何指定参数的“set”命令。如果要显示环境变量，则使用“env”命令或是“printenv”命令。</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># export LINUX=&quot;CentOS8&quot;  ←指定环境变量
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># export LINUX=&quot;CentOS8&quot;  ➜ 指定环境变量
 # env
 ...忽略...
 HOSTNAME=centos.localdomain
-LINUX=CentOS8  ←显示指定的环境变量
+LINUX=CentOS8  ➜ 显示指定的环境变量
 USER=root
 PWD=/root
 HOME=/root
@@ -847,16 +847,16 @@ To show all installed unit files use &#39;systemctl list-unit-files&#39;.
 </tbody>
 </table>
 <p>以下是一个管理启动、停止服务的示例。比如启动、停止httpd（Apache Web服务器）。对于其他服务，如NetworkManager、sshd、postfix也可以使用相同方式进行管理。</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># systemctl status httpd ←查看httpd服务状态
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># systemctl status httpd ➜ 查看httpd服务状态
 ● httpd.service - The Apache HTTP Server
-Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled) ←①
-Active: inactive (dead)         ←②
+Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled) ➜ ①
+Active: inactive (dead)         ➜ ②
     Docs: man:httpd.service(8)
-# systemctl start httpd ←启动httpd服务
-# systemctl status httpd ←查看httpd服务状态
+# systemctl start httpd ➜ 启动httpd服务
+# systemctl status httpd ➜ 查看httpd服务状态
 ● httpd.service - The Apache HTTP Server
-Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled) ←③
-Active: active (running) since Wed 2019-11-27 19:05:35 CST; 16s ago               ←④
+Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled) ➜ ③
+Active: active (running) since Wed 2019-11-27 19:05:35 CST; 16s ago               ➜ ④
     Docs: man:httpd.service(8)
 Main PID: 10818 (httpd)
 Status: &quot;Running, listening on: port 80&quot;
@@ -870,10 +870,10 @@ CGroup: /system.slice/httpd.service
         └─11134 /usr/sbin/httpd -DFOREGROUND
 ...忽略...
 # systemctl enable httpd
-Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /usr/lib/systemd/system/httpd.service. ←⑤
+Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /usr/lib/systemd/system/httpd.service. ➜ ⑤
 # systemctl status httpd
 ● httpd.service - The Apache HTTP Server
-Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled) ←⑥
+Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled) ➜ ⑥
 Active: active (running) since Wed 2019-11-27 19:05:35 CST; 35s ago
     Docs: man:httpd.service(8)
 Main PID: 10818 (httpd)
@@ -1074,8 +1074,8 @@ root      1009     1  0 11月26 ?      00:00:00 /usr/lib/systemd/systemd-logind
 <h4>init命令<a class="headerlink" href="#init" title="永久链接至标题">¶</a></h4>
 <p>init命令与以下介绍的其他停止/重启指令不同，是向systemd的同步链接。不通过D-Bus，直接执行systemd。</p>
 <p>命令名作为“init”被启动，并且PID不是“1”的情况，init的符号前面的systemd，systemctl命令作为“init自变量”执行。通过在参数中指定级别“0”，可以通过指定电源关闭“6”进行重新启动。</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># init 0  ←关闭电源
-# init 6  ←重启
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># init 0  ➜ 关闭电源
+# init 6  ➜ 重启
 </pre></div>
 </div>
 </div>
@@ -1307,6 +1307,7 @@ Powering off.
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_3/3.opration_and_use_of_files.html">第三章 文件的操作与使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix_A/A.Create_a_virtual_environment.html">附录A 创建虚拟环境</a></li>
 </ul>
 
 <div class="relations">

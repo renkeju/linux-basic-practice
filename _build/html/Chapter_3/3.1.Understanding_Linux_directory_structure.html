@@ -213,13 +213,13 @@ DESCRIPTION
 <p>在“&#64;”符号前是当前用户名，“&#64;”符号后是当前的主机名称，一般主机名称后都会有“~”符号表示当前路径位于当前用户的主目录。</p>
 <p>主目录是分配给各用户的作业空间。虽然用户可以在自己的主目录可以随意的读写文件，但是在其他用户的主目录中，只要没有被其他用户赋予权限，就不能进行读写文件。但是，由于root用户具有管理员权限，只有它可以在所有用户的主目录进行读写。</p>
 <p>如果要执行任何操作，请在显示的命令提示符下输入需要执行的命令。以下是以root用户身份登录到主机“centos”并运行 pwd 命令的执行过程。pwd命令显示用户当前所在的路径。请注意，root用户的提示符为“#”。</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[root@centos ~]# pwd ← root用户执行
-/root ← 当前所在目录位置，为/root目录。
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[root@centos ~]# pwd ➜  root用户执行
+/root ➜  当前所在目录位置，为/root目录。
 </pre></div>
 </div>
 <p>下面是普通用户“centos”登录并运行pwd命令的示例。注意，一般用户的提示符为“$”。</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[centos@centos ~]$ pwd ← centos用户执行
-/home/centos ← 当前所在目录位置，一般为 /home 目录下加上用户名组成的路径。
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[centos@centos ~]$ pwd ➜  centos用户执行
+/home/centos ➜  当前所在目录位置，一般为 /home 目录下加上用户名组成的路径。
 </pre></div>
 </div>
 <div class="admonition note">
@@ -374,10 +374,10 @@ uid=1001(lisi) gid=1001(lisi) groups=1001(lisi),100(users)
 </tbody>
 </table>
 <p>在联机文档中，具有相同名称的文档可能位于不同的章节（部分）中。例如：</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ man passwd   ← ①
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ man passwd   ➜  ①
 ... 省略打印内容 ...
 
-$ man -f passwd ← ②
+$ man -f passwd ➜  ②
 passwd (5)           - 密码文件
 passwd (1)           - 更改用户密码
 passwd (1ssl)        - compute password hashes
@@ -416,6 +416,7 @@ passwd (1ssl)        - compute password hashes
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_1/1.Linux_overview.html">第一章 Linux 概述</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_2/2.start_and_stop_linux.html">第二章 Linux的启动和停止</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3.opration_and_use_of_files.html">第三章 文件的操作与使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix_A/A.Create_a_virtual_environment.html">附录A 创建虚拟环境</a></li>
 </ul>
 
 <div class="relations">

@@ -156,9 +156,9 @@ Upgrading:
 </tbody>
 </table>
 <p>要检查SELinux当前的状态，请执行`genenforce`命令。要确认更详细的信息，请执行`sestatus`命令。</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># getenforce ←查看SELinux当前状态
-Enforcing    ←SELinux生效
-# sestatus   ←查看SELinux更详细的内容
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># getenforce ➜ 查看SELinux当前状态
+Enforcing    ➜ SELinux生效
+# sestatus   ➜ 查看SELinux更详细的内容
 SELinux status:                 enabled
 SELinuxfs mount:                /sys/fs/selinux
 SELinux root directory:         /etc/selinux
@@ -176,11 +176,11 @@ Max kernel policy version:      31
 <li><p>临时禁用</p>
 <blockquote>
 <div><p>如果需要临时（在系统重启前生效）禁用SELinux，在`setenforce`命令后追加`0`。</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># getenforce ←查看SELinux当前状态
-Enforcing    ←SELinux生效
-# setenforce 0  ←关闭SELinux
-# getenforce    ←查看SELinux当前状态
-Permissive   ←SELinux关闭
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># getenforce ➜ 查看SELinux当前状态
+Enforcing    ➜ SELinux生效
+# setenforce 0  ➜ 关闭SELinux
+# getenforce    ➜ 查看SELinux当前状态
+Permissive   ➜ SELinux关闭
 </pre></div>
 </div>
 </div></blockquote>
@@ -200,8 +200,8 @@ Permissive   ←SELinux关闭
 #     enforcing - SELinux security policy is enforced.
 #     permissive - SELinux prints warnings instead of enforcing.
 #     disabled - No SELinux policy is loaded.
-#SELINUX=enforcing ←注释此行，在行首添加#号
-SELINUX=disabled   ←添加此行
+#SELINUX=enforcing ➜ 注释此行，在行首添加#号
+SELINUX=disabled   ➜ 添加此行
 # SELINUXTYPE= can take one of these three values:
 #     targeted - Targeted processes are protected,
 #     minimum - Modification of targeted policy. Only selected processes are protected.
@@ -229,7 +229,7 @@ cockpit dhcpv6-client ssh
 </div>
 <p>要停止防火墙，请运行systemctl命令。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># systemctl stop firewalld.service
-# firewall-cmd --list-service --zone=public ←检查防火墙
+# firewall-cmd --list-service --zone=public ➜ 检查防火墙
 FirewallD is not running
 </pre></div>
 </div>
@@ -316,7 +316,7 @@ ii  aisleriot                                  1:3.22.5-1                       
 升级了 209 个软件包，新安装了 5 个软件包，要卸载 0 个软件包，有 0 个软件包未被升级。
 需要下载 225 MB/386 MB 的归档。
 解压缩后会消耗 332 MB 的额外空间。
-您希望继续执行吗？ [Y/n] y   ←输入【y】
+您希望继续执行吗？ [Y/n] y   ➜ 输入【y】
 ...省略...
 </pre></div>
 </div>

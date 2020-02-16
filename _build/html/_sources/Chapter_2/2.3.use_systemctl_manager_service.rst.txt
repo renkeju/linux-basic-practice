@@ -132,16 +132,16 @@ systemd通过单元（unit）来管理系统。单元有12中类型，服务（s
 
 .. code-block:: none
 
-    # systemctl status httpd ←查看httpd服务状态
+    # systemctl status httpd ➜ 查看httpd服务状态
     ● httpd.service - The Apache HTTP Server
-    Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled) ←①
-    Active: inactive (dead)         ←②
+    Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled) ➜ ①
+    Active: inactive (dead)         ➜ ②
         Docs: man:httpd.service(8)
-    # systemctl start httpd ←启动httpd服务
-    # systemctl status httpd ←查看httpd服务状态
+    # systemctl start httpd ➜ 启动httpd服务
+    # systemctl status httpd ➜ 查看httpd服务状态
     ● httpd.service - The Apache HTTP Server
-    Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled) ←③
-    Active: active (running) since Wed 2019-11-27 19:05:35 CST; 16s ago               ←④
+    Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled) ➜ ③
+    Active: active (running) since Wed 2019-11-27 19:05:35 CST; 16s ago               ➜ ④
         Docs: man:httpd.service(8)
     Main PID: 10818 (httpd)
     Status: "Running, listening on: port 80"
@@ -155,10 +155,10 @@ systemd通过单元（unit）来管理系统。单元有12中类型，服务（s
             └─11134 /usr/sbin/httpd -DFOREGROUND
     ...忽略...
     # systemctl enable httpd
-    Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /usr/lib/systemd/system/httpd.service. ←⑤
+    Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /usr/lib/systemd/system/httpd.service. ➜ ⑤
     # systemctl status httpd
     ● httpd.service - The Apache HTTP Server
-    Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled) ←⑥
+    Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled) ➜ ⑥
     Active: active (running) since Wed 2019-11-27 19:05:35 CST; 35s ago
         Docs: man:httpd.service(8)
     Main PID: 10818 (httpd)

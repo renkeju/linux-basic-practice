@@ -216,7 +216,7 @@ grub2-mkconfig是用于生成CentOS配置文件grub.cfg的命令，grub-mkconfig
 .. code-block:: none
 
     # cd /boot/grub2/
-    # cp grub.cfg grub.cfg.back ←为了慎重起见，先把当前文件做备份
+    # cp grub.cfg grub.cfg.back ➜ 为了慎重起见，先把当前文件做备份
     # grub2-mkconfig > grub.cfg 
     Generating grub configuration file ...
     done
@@ -225,7 +225,7 @@ grub2-mkconfig是用于生成CentOS配置文件grub.cfg的命令，grub-mkconfig
 .. code-block:: none
 
     $ cd /boot/grub/
-    $ sudo cp grub.cfg grub.cfg.back ←为了慎重起见，先把当前文件做备份
+    $ sudo cp grub.cfg grub.cfg.back ➜ 为了慎重起见，先把当前文件做备份
     $ sudo grub-mkconfig | sudo tee grub.cfg
 
 或者您也可以通过参数“-o”指定并执行输出到文件。
@@ -359,12 +359,12 @@ systemd根据配置文件，开始按照启动顺序依次启动，建立系统�
 
 .. code-block:: none
 
-    # systemctl get-default ←查看默认目标
+    # systemctl get-default ➜ 查看默认目标
     graphical.target
-    # systemctl set-default multi-user.target ←更改默认目标为字符终端登录
+    # systemctl set-default multi-user.target ➜ 更改默认目标为字符终端登录
     Removed /etc/systemd/system/default.target.
     Created symlink /etc/systemd/system/default.target → /usr/lib/systemd/system/multi-user.target.
-    # systemctl get-default ←查看默认目标
+    # systemctl get-default ➜ 查看默认目标
     multi-user.target
 
 在引导加载程序GRUB2界面中指定目标
@@ -403,7 +403,7 @@ systemd根据配置文件，开始按照启动顺序依次启动，建立系统�
     Welcome to rescue model Type "systemctl default" or ^D to enter default mode.
     the "journalctl -xb" to view system logs. Type "systemctl reboot" to reboot.
     Give root password for maintenance
-    (or type Control-D to continue): ← 在这里输入root密码
+    (or type Control-D to continue): ➜  在这里输入root密码
 
 以下是CentOS中的救援目标的登录界面。
 
@@ -413,7 +413,7 @@ systemd根据配置文件，开始按照启动顺序依次启动，建立系统�
     system logs. "systemctl reboot" to reboot, "systemctl default" ro "exit" 
     to boot into default mode.
     Give root password for maintenance
-    (or type Control-D to continue): ← 在这里输入root密码
+    (or type Control-D to continue): ➜  在这里输入root密码
 
 在上述的界面中，输入root的密码进行登录。
 
@@ -426,7 +426,7 @@ systemd根据配置文件，开始按照启动顺序依次启动，建立系统�
 
     Activate the web console with: systemctl enable --now cockpit.socket
 
-    centos login: ←在此输入用户名登录
+    centos login: ➜ 在此输入用户名登录
 
 下面是再多用户目标（没有桌面环境）下启动Ubuntu时显示的界面的示例。
 
@@ -434,7 +434,7 @@ systemd根据配置文件，开始按照启动顺序依次启动，建立系统�
 
     Ubuntu 18.04.3 LTS ubuntu tty1
 
-    ubuntu login: ←在此输入用户名登录
+    ubuntu login: ➜ 在此输入用户名登录
 
 以下是以图形界面目标启动CentOS或Ubuntu时默认情况下的示例（CentOS和Ubuntu中登录界面是相同的）。
 

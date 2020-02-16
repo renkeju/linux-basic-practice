@@ -193,16 +193,16 @@ To show all installed unit files use &#39;systemctl list-unit-files&#39;.
 </tbody>
 </table>
 <p>以下是一个管理启动、停止服务的示例。比如启动、停止httpd（Apache Web服务器）。对于其他服务，如NetworkManager、sshd、postfix也可以使用相同方式进行管理。</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># systemctl status httpd ←查看httpd服务状态
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># systemctl status httpd ➜ 查看httpd服务状态
 ● httpd.service - The Apache HTTP Server
-Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled) ←①
-Active: inactive (dead)         ←②
+Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled) ➜ ①
+Active: inactive (dead)         ➜ ②
     Docs: man:httpd.service(8)
-# systemctl start httpd ←启动httpd服务
-# systemctl status httpd ←查看httpd服务状态
+# systemctl start httpd ➜ 启动httpd服务
+# systemctl status httpd ➜ 查看httpd服务状态
 ● httpd.service - The Apache HTTP Server
-Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled) ←③
-Active: active (running) since Wed 2019-11-27 19:05:35 CST; 16s ago               ←④
+Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled) ➜ ③
+Active: active (running) since Wed 2019-11-27 19:05:35 CST; 16s ago               ➜ ④
     Docs: man:httpd.service(8)
 Main PID: 10818 (httpd)
 Status: &quot;Running, listening on: port 80&quot;
@@ -216,10 +216,10 @@ CGroup: /system.slice/httpd.service
         └─11134 /usr/sbin/httpd -DFOREGROUND
 ...忽略...
 # systemctl enable httpd
-Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /usr/lib/systemd/system/httpd.service. ←⑤
+Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /usr/lib/systemd/system/httpd.service. ➜ ⑤
 # systemctl status httpd
 ● httpd.service - The Apache HTTP Server
-Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled) ←⑥
+Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled) ➜ ⑥
 Active: active (running) since Wed 2019-11-27 19:05:35 CST; 35s ago
     Docs: man:httpd.service(8)
 Main PID: 10818 (httpd)
@@ -363,6 +363,7 @@ root      1009     1  0 11月26 ?      00:00:00 /usr/lib/systemd/systemd-logind
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_1/1.Linux_overview.html">第一章 Linux 概述</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2.start_and_stop_linux.html">第二章 Linux的启动和停止</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_3/3.opration_and_use_of_files.html">第三章 文件的操作与使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix_A/A.Create_a_virtual_environment.html">附录A 创建虚拟环境</a></li>
 </ul>
 
 <div class="relations">

@@ -111,8 +111,8 @@
 <h3>init命令<a class="headerlink" href="#init" title="永久链接至标题">¶</a></h3>
 <p>init命令与以下介绍的其他停止/重启指令不同，是向systemd的同步链接。不通过D-Bus，直接执行systemd。</p>
 <p>命令名作为“init”被启动，并且PID不是“1”的情况，init的符号前面的systemd，systemctl命令作为“init自变量”执行。通过在参数中指定级别“0”，可以通过指定电源关闭“6”进行重新启动。</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># init 0  ←关闭电源
-# init 6  ←重启
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># init 0  ➜ 关闭电源
+# init 6  ➜ 重启
 </pre></div>
 </div>
 </div>
@@ -311,6 +311,7 @@ Powering off.
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_1/1.Linux_overview.html">第一章 Linux 概述</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2.start_and_stop_linux.html">第二章 Linux的启动和停止</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_3/3.opration_and_use_of_files.html">第三章 文件的操作与使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix_A/A.Create_a_virtual_environment.html">附录A 创建虚拟环境</a></li>
 </ul>
 
 <div class="relations">

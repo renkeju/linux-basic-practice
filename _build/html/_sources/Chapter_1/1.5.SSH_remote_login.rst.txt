@@ -73,14 +73,14 @@ ssh命令是免费安装的OpenSSH客户端命令，服务器是sshd。OpenSSH�
     .. code-block:: none
 
         $ dpkg -l | grep openssh-server
-        $                                   ←确认OpenSSH未安装
-        $ sudo apt install openssh-server   ←安装
+        $                                   ➜ 确认OpenSSH未安装
+        $ sudo apt install openssh-server   ➜ 安装
         [sudo] ubuntu 的密码： 
         正在读取软件包列表... 完成
         正在分析软件包的依赖关系树       
         正在读取状态信息... 完成
         ...省略...
-        您希望继续执行吗？ [Y/n] y   ←输入【y】
+        您希望继续执行吗？ [Y/n] y   ➜ 输入【y】
 
     安装完成后，请检查sshd的状态。在下面的执行结果中，您可以看到它是启动（Active）的。
 
