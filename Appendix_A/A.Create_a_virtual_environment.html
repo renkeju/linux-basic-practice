@@ -96,8 +96,8 @@
 <div class="section" id="id2">
 <h3>管理程序<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
 <p>虚拟机管理程序是在其上运行虚拟机的软件。有两种典型类型的虚拟机管理程序：</p>
-<table class="colwidths-given docutils align-default" id="id6">
-<caption><span class="caption-text">虚拟机管理程序类型</span><a class="headerlink" href="#id6" title="永久链接至表格">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id8">
+<caption><span class="caption-text">虚拟机管理程序类型</span><a class="headerlink" href="#id8" title="永久链接至表格">¶</a></caption>
 <colgroup>
 <col style="width: 19%" />
 <col style="width: 81%" />
@@ -149,7 +149,43 @@
 <li><p>利用虚拟化服务器提供的功能</p></li>
 </ol>
 <p>以下是VMware Workstation提供的一些虚拟化功能的参考：以下是使用VMware Workstation创建的虚拟机的“设置”屏幕。</p>
+<img alt="../_images/A-1-6.VirtualBox_Settings.png" class="align-center" src="../_images/A-1-6.VirtualBox_Settings.png" />
+<img alt="../_images/A-1-7.VirtualBox_Settings.png" class="align-center" src="../_images/A-1-7.VirtualBox_Settings.png" />
+<img alt="../_images/A-1-8.VirtualBox_Settings.png" class="align-center" src="../_images/A-1-8.VirtualBox_Settings.png" />
+<img alt="../_images/A-1-9.VirtualBox_Settings.png" class="align-center" src="../_images/A-1-9.VirtualBox_Settings.png" />
 <p>接下来，在“A-2 使用 KVM 构建虚拟环境”与“A-3 使用 VirtualBox 构建虚拟环境”章节中，我们将讨论如何使用虚拟化软件提供的功能来构建虚拟环境。</p>
+</div>
+</div>
+<div class="section" id="a-2-kvm">
+<h2>A-2 使用 KVM 构建虚拟环境<a class="headerlink" href="#a-2-kvm" title="永久链接至标题">¶</a></h2>
+<div class="section" id="kvm">
+<h3>什么是 KVM？<a class="headerlink" href="#kvm" title="永久链接至标题">¶</a></h3>
+<p>KVM(Kernel-based Virtual Machine)是一种开源虚拟化环境，嵌入在标准Linux内核（2.6.20或更高版本）中。由于KVM是完全虚拟化的，因此无论主机操作系统类型如何，虚拟机操作系统（Guest OS）都可以安装多种类型操作系统，如Microsoft Windows或Linux。</p>
+<p>在KVM上，硬件仿真器由“QEMU”（Queue Emu）完成，QEMU通过 <code class="docutils literal notranslate"><span class="pre">/dev/kvm</span></code> 文件利用硬件虚拟化辅助功能。</p>
+<p>硬件虚拟化辅助功能可通过硬件（处理器）代理软件执行的虚拟化操作，显著降低虚拟化开销。KVM完全虚拟化需要使用硬件虚拟化辅助功能。对于具有硬件虚拟化辅助功能的PC，通常可以在BIOS或EFI配置界面中启用或禁用硬件虚拟化辅助功能。</p>
+<img alt="../_images/A-2-1.KVM完全虚拟化.png" class="align-center" src="../_images/A-2-1.KVM完全虚拟化.png" />
+<div class="section" id="id6">
+<h4>完全虚拟化和半虚拟化<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h4>
+<p>有两种类型的硬件平台虚拟化：</p>
+<ul>
+<li><p>完全虚拟化（Full Virtualization）</p>
+<blockquote>
+<div><p>完全模拟硬件。无需更改硬件上运行的操作系统即可正常运行。</p>
+</div></blockquote>
+</li>
+<li><p>半虚拟化（Para Virtualization）</p>
+<blockquote>
+<div><p>模拟几乎与物理主机相同的硬件，但与完全模拟有所不同。提供对硬件仿真进行更改后的驱动，以缩短运行时间。您需要更改Guest OS的驱动程序以支持半虚拟化提供的仿真硬件。</p>
+</div></blockquote>
+</li>
+</ul>
+<p>KVM以经被开发为完全虚拟化，但现在可以通过采用半虚拟化驱动程序（VirtIO）等方式实现半虚拟化。</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>使用 KVM<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>使用KVM在一台物理主机上创建多个虚拟机。虚拟机（VM，Virtual Machine）是由虚拟化软件管理的虚拟计算机。在虚拟机上安装CentOS作为OS。此外，本附录还包括5台VM，因此PC的内存大小必须至少为8GB。</p>
+<p>本节介绍如何使用 Minimal ISO(CentOS-7-x86_64-Minimal-1804.iso)安装 CentOS。因此，CUI设置了较少的磁盘供安装使用。</p>
 </div>
 </div>
 </div>
@@ -184,6 +220,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#id2">管理程序</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id4">容器式虚拟化</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id5">虚拟化软件提供的功能</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#a-2-kvm">A-2 使用 KVM 构建虚拟环境</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#kvm">什么是 KVM？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">使用 KVM</a></li>
 </ul>
 </li>
 </ul>
