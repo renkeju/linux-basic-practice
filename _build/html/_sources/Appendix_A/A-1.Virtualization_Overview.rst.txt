@@ -102,4 +102,16 @@ Docker公司开发的Docker容器被广泛用于容器的实现。
 
 以下是VMware Workstation提供的一些虚拟化功能的参考：以下是使用VMware Workstation创建的虚拟机的“设置”屏幕。
 
-接下来，在“A-2 使用VMware workstation构建虚拟环境”与“A-3 使用 VirtualBox 构建虚拟环境”章节中，我们将讨论如何使用虚拟化软件提供的功能来构建虚拟环境。
+.. image:: /_images/Appendix_A/A-1-6.VirtualBox_Settings.png
+    :align: center
+
+.. image:: /_images/Appendix_A/A-1-7.VirtualBox_Settings.png
+    :align: center
+
+.. image:: /_images/Appendix_A/A-1-8.VirtualBox_Settings.png
+    :align: center
+
+.. image:: /_images/Appendix_A/A-1-9.VirtualBox_Settings.png
+    :align: center
+
+接下来，在“A-2 使用 KVM 构建虚拟环境”与“A-3 使用 VirtualBox 构建虚拟环境”章节中，我们将讨论如何使用虚拟化软件提供的功能来构建虚拟环境。
