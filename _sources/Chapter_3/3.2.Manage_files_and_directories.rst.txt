@@ -117,3 +117,210 @@ cat命令可以显示指定名称的文件的内容。如果指定了多个文�
     "-n", "为所有行添加行号"
     "-T", "将制表符显示为“^”"
 
+显示文件内容行首添加行号
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+nl 命令显示带有行号的文件内容。
+
+.. code-block:: none
+
+    nl [选项] [文件名]
+
+也可以使用带有“-n”选项的cat命令输出行号。但是，如果包含空行，则显示内容与nl命令有所不同。``cat -n`` 指定包括空行所有行的行号，而“nl”指定除空行以外的行的行号。
+
+.. code-block:: none
+
+    $ cat -n sample.txt ➜ 使用 cat 命令显示
+    1 CentOS
+    2 Ubuntu
+    3
+    4 Mint
+    $ nl sample.txt ➜ 使用 nl 命令显示
+    1 CentOS
+    2 Ubuntu
+
+    3 Mint
+
+创建目录
+^^^^^^^^^^^^^^^^
+
+mkdir 命令创建目录。通过在命令参数中指定多个目录名称，可以一次创建多个目录。还可以使用“-p”选项创建路径中包含的目录。
+
+.. code-block:: none
+
+    mkdir [选项] 目录名称...
+
+.. csv-table:: mkdir 命令选项
+    :header: "选项", "说明"
+    :widths: 10 20
+
+    "-m [访问权限]", "创建具有明确访问权限的目录"
+    "-p", "同时创建路径中包含的目录"
+
+.. code-block:: none
+
+    $ mkdir dir_x dir_y ← ❶
+    $ ls -l
+    总用量 0
+    drwxr-xr-x. 2 renkeju renkeju 6  2月 18 13:36 dir_x
+    drwxr-xr-x. 2 renkeju renkeju 6  2月 18 13:36 dir_y
+    $ mkdir dir_z/sub_z ← ❷
+    mkdir: 无法创建目录 “dir_z/sub_z”: 没有那个文件或目录
+    $ mkdir -p dir_z/sub_z ← ❸
+    $ ls -l
+    总用量 0
+    drwxr-xr-x. 2 renkeju renkeju  6  2月 18 13:36 dir_x
+    drwxr-xr-x. 2 renkeju renkeju  6  2月 18 13:36 dir_y
+    drwxr-xr-x. 3 renkeju renkeju 19  2月 18 13:37 dir_z ← ❹
+    $ cd dir_z/sub_z ← ❺
+    $ pwd
+    /home/renkeju/dir_z/sub_z
+
+❶ 一次创建多个目录
+
+❷ 与子目录一起创建，但由于未指定“-p”选项而出错
+
+❸ 使用“-p”选项重试
+
+❹ 已创建 ``dir_z/sub_z``
+
+❺ 切换到 ``dir_z/sub_z`` 目录下
+
+创建文件并更改时间戳
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+如果将 touch 命令的参数指定为现有文件名，则会将文件的访问和修改时间更改为 touch 命令的执行时间。此外，如果将参数指定为新文件的名称，则会创建一个新的空文件（大小为0）。
+
+.. code-block:: none
+
+    touch [选项] 文件名称...
+
+.. csv-table:: touch 命令选项
+    :header: "选项", "说明"
+    :widths: 10, 30
+
+    "-t 时间戳", "这里的时间戳并不是当前的时间格式，需要遵循 ``[[CC]YY]MMDDhhmm[.ss]`` 格式"
+    "-a", "仅变更访问日期和时间"
+    "-m", "仅变更更新时间"
+
+.. code-block:: none
+
+    $ touch fileA  ← 创建新文件
+    $ ls -l
+    总用量 0
+    -rw-r--r--. 1 renkeju renkeju 0  2月 18 13:48 fileA
+    $ more fileA  ← 文件内容为空
+    $ touch -t 05130900 fileA  ← 将时间戳变更为5月13日上午9点
+    $ ls -l
+    总用量 0
+    -rw-r--r--. 1 renkeju renkeju 0  5月 13  2020 fileA
+
+移动文件和目录
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+mv命令移动文件和目录，将源文件（或目录）移动到作为mv命令的最后一个参数指定的目录中，此外，如果mv命令的最后一个参数指定的目录不存在，请提前创建此目录。
+
+.. code-block:: none
+
+    mv [选项] 源文件名称... 目录目录名称
+    mv [选项] 源目录名称... 目标目录名称
+
+.. csv-table:: mv 命令选项
+    :header: "选项", "说明"
+    :widths: 5 25
+
+    "-i", "如果目标目录中存在同名文件，请确认覆盖"
+    "-f", "强制覆盖目标目录中的同名文件"
+
+复制文件和目录
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+要复制文件或目录，请使用cp命令，如果要复制同一个目录或另一个目录的文件，并且要复制到另一个目录中，则源文件和目标文件可以具有相同的名称。您也可以同时复制多个文件。
+
+使用cp命令复制目录时，需要使用“-R”（或“-r”）选项。
+
+.. code-block:: none
+
+    cp [选项] 源文件名称 目标文件名称
+    cp [选项] 源文件名称... 目标目录名称
+    cp [选项] 源目录名称 目标目录名称
+
+.. csv-table:: cp 命令选项
+    :header: "选项", "说明"
+    :widths: 5 30
+
+    "-i", "如果目标目录中或目标文件存在同名文件，请确认是否覆盖"
+    "-f", "强制覆盖目标目录中或目标文件的同名文件"
+    "-p", "复制信息，包括所有者、时间戳和访问权限"
+    "-R,-r", "原样复制源目录的层次结构"
+
+.. code-block:: none
+
+    $ cp fileA fileB ← ❶
+    $ cp dir_x dir_xx ← ❷
+    cp: 未指定 -r；略过目录'dir_x'
+    $ cp -r dir_x dir_xx ← ❸
+    $ ls -l
+    总用量 0
+    drwxr-xr-x. 2 renkeju renkeju  6  2月 18 13:36 dir_x
+    drwxr-xr-x. 2 renkeju renkeju  6  2月 18 14:15 dir_xx ← ❹
+    drwxr-xr-x. 2 renkeju renkeju  6  2月 18 13:36 dir_y
+    drwxr-xr-x. 3 renkeju renkeju 19  2月 18 13:37 dir_z
+    -rw-r--r--. 1 renkeju renkeju  0  5月 13  2020 fileA
+    -rw-r--r--. 1 renkeju renkeju  0  2月 18 14:15 fileB ← ❺
+
+❶ 复制文件
+
+❷ 尝试复制目录，但由于未指定“-r”选项而出错
+
+❸ 使用“-r”选项重试
+
+❹ 已创建目录“dir_xx”
+
+❺ 步骤❶中创建的“fileB”文件
+
+删除文件和目录
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+使用rm命令删除文件和目录。也可以通过指定多个文件名称一次性删除多个文件。也可以使用“-R”（或“-r”）选项删除目录和目录中的所有文件。还提供rmdir命令删除空目录的命令。
+
+.. code-block:: none
+
+    rm [选项] 文件名称...
+    rm [选项] 目录名称...
+
+.. csv-table:: rm 命令选项
+    :header: "选项", "说明"
+    :widths: 5 30
+
+    "-i", "删除文件前询问用户是否执行操作"
+    "-f", "不必询问直接强制删除"
+    "-R,-r", "删除指定目录中的所有文件和目录"
+
+.. code-block:: none
+
+    $ rm dir_xx ← ❶
+    rm: 无法删除 'dir_xx': 是一个目录
+    $ rm -r dir_xx ← ❷
+    $ rm fileB ← ❸
+    $ ls -l
+    总用量 0
+    drwxr-xr-x. 2 renkeju renkeju  6  2月 18 13:36 dir_x
+    drwxr-xr-x. 2 renkeju renkeju  6  2月 18 13:36 dir_y
+    drwxr-xr-x. 3 renkeju renkeju 19  2月 18 13:37 dir_z
+    -rw-r--r--. 1 renkeju renkeju  0  5月 13  2020 fileA
+
+❶ 不带“-r”选项的命令无法删除目录
+
+❷ 可以使用“-r”选项删除目录
+
+❸ 不需要指定选项就可以删除文件
+
+确认文件类型
+^^^^^^^^^^^^^^^^^^^^^^^
+
+使用file命令可以确定文件类型。
+
+.. code-block:: none
+
+    a
