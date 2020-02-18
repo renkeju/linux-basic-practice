@@ -1,0 +1,7 @@
+要安装的软件包,说明,主要组件,说明
+Virtualization Host,基本环境组,libvirtd,管理Guest OS的启动与停止，网络和存储等。
+,,virsh,基于CUI对Guest OS的管理工具
+virt-install,GUI工具,virt-install,Guest OS安装程序
+virt-manager,,virt-manager,基于GUI对Guest OS的管理工具
+virt-viewer,,virt-viewer,Guest OS图形控制台
+qemu-kvm,仿真器,qemu-kvm,Guest OS硬件仿真器
