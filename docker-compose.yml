@@ -2,9 +2,9 @@ version: "3"
 
 services:
   nginx:
-    image: sphinx-linux-docs:latest
-    build: .
+    image: nginx
     hostname: nginx
     restart: always
-    ports:
-      - 8888:80
+    network_mode: host
+    volumes:
+      - ${PWD}/_build/html:/usr/share/nginx/html:ro
