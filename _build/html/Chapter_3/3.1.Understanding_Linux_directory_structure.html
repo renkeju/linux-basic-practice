@@ -211,7 +211,7 @@ DESCRIPTION
 </pre></div>
 </div>
 <p>在“&#64;”符号前是当前用户名，“&#64;”符号后是当前的主机名称，一般主机名称后都会有“~”符号表示当前路径位于当前用户的主目录。</p>
-<p>主目录是分配给各用户的作业空间。虽然用户可以在自己的主目录可以随意的读写文件，但是在其他用户的主目录中，只要没有被其他用户赋予权限，就不能进行读写文件。但是，由于root用户具有管理员权限，只有它可以在所有用户的主目录进行读写。</p>
+<p>主目录是分配给各用户的作业空间。虽然用户在自己的主目录中可以随意的读写文件，但是在其他用户的主目录中，只要没有被其他用户赋予权限，就不能进行读写文件。但是由于root用户具有管理员权限，所以也只有它可以在所有用户的主目录进行读写文件。</p>
 <p>如果要执行任何操作，请在显示的命令提示符下输入需要执行的命令。以下是以root用户身份登录到主机“centos”并运行 pwd 命令的执行过程。pwd命令显示用户当前所在的路径。请注意，root用户的提示符为“#”。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[root@centos ~]# pwd ➜  root用户执行
 /root ➜  当前所在目录位置，为/root目录。
@@ -251,7 +251,7 @@ uid=1001(lisi) gid=1001(lisi) groups=1001(lisi),100(users)
 <div class="section" id="id3">
 <h3>自定义命令提示符<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
 <p>在bash中，shell变量PS1定义为命令提示符，如第二章中所述。PS2还可以定义为辅助提示符。辅助提示符表示命令尚未完成，并且是连续输入命令时。</p>
-<p>以下示例使用辅助提示符：键盘输入 <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-la</span> <span class="pre">/etc/passwd</span></code> 后，请在行尾输入“”以转义换行符。然后可以继续输入，PS2的默认值为“&gt;”。</p>
+<p>以下示例使用辅助提示符：键盘输入 <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-la</span> <span class="pre">/etc/passwd</span></code> 后，请在行尾输入“\”以转义换行符。然后可以继续输入，PS2的默认值为“&gt;”。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ls -la /etc/passwd \
 &gt; /etc/shadow
 -rw-r--r-- 1 root root 1198 Dec 18 19:14 /etc/passwd
