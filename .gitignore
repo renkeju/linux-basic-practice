@@ -1,6 +1,6 @@
 # sphinx build
 .vscode
 .DS_Store
-build/
+_build/
 docx.log
 ~$*.xls*
