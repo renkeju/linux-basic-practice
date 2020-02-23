@@ -191,7 +191,7 @@ systemd通过单元（unit）来管理系统。单元有12中类型，服务（s
 
 .. code-block:: none
 
-    # cat /lib/systemd/system/httpd.server
+    # cat /lib/systemd/system/httpd.service
     ...省略...
     [Unit]
     Description=The Apache HTTP Server
@@ -213,7 +213,7 @@ systemd通过单元（unit）来管理系统。单元有12中类型，服务（s
     [Install]
     WantedBy=multi-user.target
 
-``WantedBy=multi-user.target``指定的含义是，当使用systemctl命令的enable子命令将httpd.service服务设为开机启动时，httpd.service配置文件将会软连接到 ``/etc/systemd/systemd/multi-user.target.wants`` 目录下。执行子命令disable软连接将会被删除。
+``WantedBy=multi-user.target`` 指定的含义是，当使用systemctl命令的enable子命令将httpd.service服务设为开机启动时，httpd.service配置文件将会软连接到 ``/etc/systemd/systemd/multi-user.target.wants`` 目录下。执行子命令disable软连接将会被删除。
 
 systemctl命令中无法更改配置的重要服务
 ---------------------------------------------------
@@ -238,7 +238,7 @@ systemd-udevd.service服务是一个用于动态创建和删除/dev目录下的�
 
 内核在系统启动时或运行时，将检测到的链接或阻断的设备反映再/sys目录下的设备信息文件中，并将uevent的信息发送给system-udevd服务。
 
-systemd-udevd守护进程在收到uevent时获取/sys目录下的设备信息，删除/etc/udev/rules.d和/lib/udev/rules.d目录下的。rules文件中描述设备创建规则在/dev目录下创建设备文件。
+systemd-udevd守护进程在收到uevent时获取/sys目录下的设备信息，删除/etc/udev/rules.d和/lib/udev/rules.d目录下的.rules文件中描述设备创建规则在/dev目录下创建设备文件。
 
 此机制不要求管理员手动创建或删除设备文件。
 
