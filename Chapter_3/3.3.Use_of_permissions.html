@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>权限使用 &#8212; 《Linux 基础实践入门》 alpha 文档</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+<link rel="stylesheet" type="text/css" href="../_static/handsontable.full.min.css">
+<script src="../_static/handsontable.full.min.js"></script>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>权限使用<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>管理文件所有者<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>控制对Linux文件和目录的访问。首先，检查适当的权限或当前所有者的权限。</p>
+<div class="section" id="id3">
+<h3>用户和用户组<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>用户必须至少属于一个组。有两种类型的组：主组和辅助组。用户必须分配一个主组，而辅助组是可选的。</p>
+<table class="colwidths-given docutils align-default" id="id4">
+<caption><span class="caption-text">组类型</span><a class="headerlink" href="#id4" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>组</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>主组（必须的）</p></td>
+<td><p>用户刚登陆时的工作组，在创建文件或目录时作为其所属的主组</p></td>
+</tr>
+<tr class="row-odd"><td><p>辅助组（可选）</p></td>
+<td><p>如有必要，可以指定一个辅助组，可选多个</p></td>
+</tr>
+</tbody>
+</table>
+<p>要查看您所属的组，请使用 groups 命令。groups 命令没有选项。如果没有指定用户名，则显示执行命令的用用户的所属组。</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/linux.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="../index.html">《Linux 基础实践入门》</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_1/1.Linux_overview.html">第一章 Linux 概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_2/2.start_and_stop_linux.html">第二章 Linux的启动和停止</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3.opration_and_use_of_files.html">第三章 文件的操作与使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix_A/A.Create_a_virtual_environment.html">附录A 创建虚拟环境</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, renkeju.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

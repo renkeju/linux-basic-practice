@@ -4,3 +4,4 @@
 
 .. include:: /Chapter_3/3.1.Understanding_Linux_directory_structure.rst
 .. include:: /Chapter_3/3.2.Manage_files_and_directories.rst
+.. include:: /Chapter_3/3.3.Use_of_permissions.rst
