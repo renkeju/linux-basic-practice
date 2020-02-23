@@ -623,9 +623,9 @@ ubuntu login: ➜ 在此输入用户名登录
 zh_CN.UTF-8
 # date ➜ 现在的语言是zh_CN.UTF-8，显示的时间是中文字体
 2019年 11月 26日 星期二 17:16:29 CST
-# unset LANG ➜ 取消LANG变量的值
+# LANG=en_US.UTF-8 ➜ 指定环境变量的值为en_US.UTF-8,也是就是中文字体
 # echo $LANG ➜ 打印出shell变量LANG的值
-            ➜ 没有打印出变量LANG的值
+en_US.UTF-8
 # date ➜ 再次查看系统时间，这次打印出的时间是英文字体
 Tue Nov 26 17:16:50 CST 2019
 # LANG=zh_CN.UTF-8 ➜ 指定变量LANG的值为zh_CN.UTF-8，也就是中文字体
@@ -915,7 +915,7 @@ Status: &quot;Running, listening on: port 80&quot;
 </tr>
 </tbody>
 </table>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># cat /lib/systemd/system/httpd.server
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># cat /lib/systemd/system/httpd.service
 ...省略...
 [Unit]
 Description=The Apache HTTP Server
@@ -938,7 +938,7 @@ PrivateTmp=true
 WantedBy=multi-user.target
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">WantedBy=multi-user.target``指定的含义是，当使用systemctl命令的enable子命令将httpd.service服务设为开机启动时，httpd.service配置文件将会软连接到</span> <span class="pre">``/etc/systemd/systemd/multi-user.target.wants</span></code> 目录下。执行子命令disable软连接将会被删除。</p>
+<p><code class="docutils literal notranslate"><span class="pre">WantedBy=multi-user.target</span></code> 指定的含义是，当使用systemctl命令的enable子命令将httpd.service服务设为开机启动时，httpd.service配置文件将会软连接到 <code class="docutils literal notranslate"><span class="pre">/etc/systemd/systemd/multi-user.target.wants</span></code> 目录下。执行子命令disable软连接将会被删除。</p>
 </div>
 <div class="section" id="id17">
 <h3>systemctl命令中无法更改配置的重要服务<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
@@ -961,7 +961,7 @@ root      1009     1  0 11月26 ?      00:00:00 /usr/lib/systemd/systemd-logind
 <h4>systemd-udevd服务<a class="headerlink" href="#systemd-udevd" title="永久链接至标题">¶</a></h4>
 <p>systemd-udevd.service服务是一个用于动态创建和删除/dev目录下的用于访问设备的链接文件的服务。</p>
 <p>内核在系统启动时或运行时，将检测到的链接或阻断的设备反映再/sys目录下的设备信息文件中，并将uevent的信息发送给system-udevd服务。</p>
-<p>systemd-udevd守护进程在收到uevent时获取/sys目录下的设备信息，删除/etc/udev/rules.d和/lib/udev/rules.d目录下的。rules文件中描述设备创建规则在/dev目录下创建设备文件。</p>
+<p>systemd-udevd守护进程在收到uevent时获取/sys目录下的设备信息，删除/etc/udev/rules.d和/lib/udev/rules.d目录下的.rules文件中描述设备创建规则在/dev目录下创建设备文件。</p>
 <p>此机制不要求管理员手动创建或删除设备文件。</p>
 <div class="admonition note">
 <p class="admonition-title">注解</p>

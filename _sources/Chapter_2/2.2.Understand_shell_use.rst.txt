@@ -87,9 +87,9 @@ shell涉及到的变量有两种：shell变量和环境变量。
     zh_CN.UTF-8
     # date ➜ 现在的语言是zh_CN.UTF-8，显示的时间是中文字体
     2019年 11月 26日 星期二 17:16:29 CST
-    # unset LANG ➜ 取消LANG变量的值
+    # LANG=en_US.UTF-8 ➜ 指定环境变量的值为en_US.UTF-8,也是就是中文字体
     # echo $LANG ➜ 打印出shell变量LANG的值
-                ➜ 没有打印出变量LANG的值
+    en_US.UTF-8
     # date ➜ 再次查看系统时间，这次打印出的时间是英文字体
     Tue Nov 26 17:16:50 CST 2019
     # LANG=zh_CN.UTF-8 ➜ 指定变量LANG的值为zh_CN.UTF-8，也就是中文字体
