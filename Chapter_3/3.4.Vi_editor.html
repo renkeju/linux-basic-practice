@@ -1,0 +1,511 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>使用vi编辑其编辑文件 &#8212; 《Linux 基础实践入门》 alpha 文档</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+<link rel="stylesheet" type="text/css" href="../_static/handsontable.full.min.css">
+<script src="../_static/handsontable.full.min.js"></script>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="vi">
+<h1>使用vi编辑其编辑文件<a class="headerlink" href="#vi" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>什么是vi编辑器？<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>vi是Bill Joy开发的UNIX标准文本编辑器。您可以使用vi编辑器创建和编辑文件。Linux也提供了与vi兼容的增强功能vim(Vi IMproved)。在最近的RedHat 发行版中，vi是作为vim的基础配置软件包命令或vim的alias（别名）提供的。vim提供多种有用的功能，如语法高亮和屏幕截图等。</p>
+<p>vi编辑器启动方式如下图所示：</p>
+<img alt="../_images/3-4-1.启动vi编辑器.png" class="align-center" src="../_images/3-4-1.启动vi编辑器.png" />
+<p>如果启动vi编辑器时没有指定文件名，请在编辑后使用文件名称保存新文件。此外，如果指定了文件名称，如示例②所示，将打开该文件。如果不存在具体指定名称的文件，则使用该名称创建一个新文件。</p>
+<p>vi编辑器在三种模式之间切换：</p>
+<table class="colwidths-given docutils align-default" id="id9">
+<caption><span class="caption-text">vi 编辑器模式</span><a class="headerlink" href="#id9" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>操作方式</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>命令方式</p></td>
+<td><p>输入关键字时，将其视为vi命令。可以移动光标，删除，复制和黏贴文件的行。命令方式时vi的默认方式，在启动后和按下[Esc]键之后进入该模式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入模式（插入模式）</p></td>
+<td><p>键入键盘将字符输入到编辑的文本文件中。</p></td>
+</tr>
+<tr class="row-even"><td><p>末尾行模式</p></td>
+<td><p>保存文档，退出vi编辑器，查找和替换字符串。</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id2">
+<h3>滚动屏幕（命令模式）<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>启动 vi 编辑器后立即处于命令模式。如果在vi编辑器中打开文件时无法在一个屏幕上查看到所有信息，则按[Ctrl]+[f]可将屏幕向前移动到文件末尾。此外，如果要将屏幕向前移动到文件的开头，请按[Ctrl]+[b]。</p>
+<img alt="../_images/3-4-2.在vi编辑器中滚动屏幕.png" class="align-center" src="../_images/3-4-2.在vi编辑器中滚动屏幕.png" />
+<p>用于滚动和移动光标的主要命令包括：</p>
+<table class="colwidths-given docutils align-default" id="id10">
+<caption><span class="caption-text">用于在 vi 编辑器中移动光标和滚动屏幕的命令</span><a class="headerlink" href="#id10" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>命令</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>h 或 ←</p></td>
+<td><p>将光标向左移动一个字符</p></td>
+</tr>
+<tr class="row-odd"><td><p>j 或 ↓</p></td>
+<td><p>将光标向下移动一个字符</p></td>
+</tr>
+<tr class="row-even"><td><p>k 或 ↑</p></td>
+<td><p>将光标向上移动一个字符</p></td>
+</tr>
+<tr class="row-odd"><td><p>l 或 →</p></td>
+<td><p>将光标向右移动一个字符</p></td>
+</tr>
+<tr class="row-even"><td><p>0(数字零)</p></td>
+<td><p>移动到当前行的开头。注意，“^”符号可以移至除空格之外的第一个字符</p></td>
+</tr>
+<tr class="row-odd"><td><p>$</p></td>
+<td><p>移动到当前行的行尾</p></td>
+</tr>
+<tr class="row-even"><td><p>G</p></td>
+<td><p>转到最后一行</p></td>
+</tr>
+<tr class="row-odd"><td><p>1G</p></td>
+<td><p>转到第一行</p></td>
+</tr>
+<tr class="row-even"><td><p>nG</p></td>
+<td><p>转到第n行</p></td>
+</tr>
+<tr class="row-odd"><td><p>[Ctrl]+[b]</p></td>
+<td><p>向文件开头滚动一次屏幕</p></td>
+</tr>
+<tr class="row-even"><td><p>[Ctrl]+[f]</p></td>
+<td><p>向文件结尾滚动一次屏幕</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h3>保存文档，退出vi编辑器（末尾行模式）<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>保存文档，退出vi编辑器，搜索并替换字符串。首先，介绍保存文档并退出vi编辑器。</p>
+<p>按[Esc]键:</p>
+<img alt="../_images/vi编辑器末尾行模式-01.png" class="align-center" src="../_images/vi编辑器末尾行模式-01.png" />
+<p>在末尾行中输入冒号 <code class="docutils literal notranslate"><span class="pre">:</span></code> ：</p>
+<img alt="../_images/vi编辑器末尾行模式-02.png" class="align-center" src="../_images/vi编辑器末尾行模式-02.png" />
+<p>输入“:q!”将强制退出，不保存变更内容：</p>
+<img alt="../_images/vi编辑器末尾行模式-03.png" class="align-center" src="../_images/vi编辑器末尾行模式-03.png" />
+<p>退出命令为“q”。如上图所示中为“q!”，表示不保存正在编辑的内容，直接放弃并退出。</p>
+<p>与保存和退出文件相关的主要命令包括：</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 37%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>目的</p></th>
+<th class="head"><p>命令</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td rowspan="3"><p>保存</p></td>
+<td><p>:w</p></td>
+<td><p>保留文件名称不变</p></td>
+</tr>
+<tr class="row-odd"><td><p>:w!</p></td>
+<td><p>强制保存而不变更文件名称</p></td>
+</tr>
+<tr class="row-even"><td><p>:w 文件名称</p></td>
+<td><p>重命名并保存（或另存为新文件）</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>退出</p></td>
+<td><p>:q</p></td>
+<td><p>退出且不保存文件</p></td>
+</tr>
+<tr class="row-even"><td><p>:q!</p></td>
+<td><p>强制退出且不保存文件已经更改的内容</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><p>保存并退出</p></td>
+<td><p>:wq</p></td>
+<td><p>同时保存和退出</p></td>
+</tr>
+<tr class="row-even"><td><p>:wq!</p></td>
+<td><p>强制保存和退出</p></td>
+</tr>
+<tr class="row-odd"><td><p>:wq 文件名称</p></td>
+<td><p>修改后并保存（另存为）文件，然后退出</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>其他</p></td>
+<td><p>:! ls -l 正在编辑的文件名称</p></td>
+<td><p>在不退出vi的情况下运行命令</p></td>
+</tr>
+<tr class="row-odd"><td><p>:e!</p></td>
+<td><p>放弃编辑并重新加载文件</p></td>
+</tr>
+</tbody>
+</table>
+<p>上表的“其他”中的“:! ls -l 正在编辑的文件名称”可以修改“:!”后所述相应的命令与参数。运行vi编辑器时，您可以在不退出vi的情乱下运行linux命令。在本例中，我们将运行ls命令。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># ls -l .bashrc
+-rw-r--r--. 1 root root 176 Dec 29  2013 .bashrc
+</pre></div>
+</div>
+<p>首先，在命令行中运行ls命令，以检查“.bashrc”的权限。</p>
+<p>然后启动 vi 编辑器。因为在 vi 运行期间需要运行“ls -l”命令，所以请从命令模式中选择“:!”后修改相应参数的值。然后可以继续键入Linux命令（本例中为“ls -l .bashrc”）并按[Enter]键。</p>
+<img alt="../_images/vi编辑器末尾行模式其他方式-01.png" class="align-center" src="../_images/vi编辑器末尾行模式其他方式-01.png" />
+<img alt="../_images/vi编辑器末尾行模式其他方式-02.png" class="align-center" src="../_images/vi编辑器末尾行模式其他方式-02.png" />
+</div>
+<div class="section" id="id4">
+<h3>使用文字输入模式（插入模式）<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>从命令模式输入A可切换到输入模式（插入模式），其允许您在文本中输入字符。有几个命令可以进入输入模式（插入模式），比如“A”命令从当前光标所在行的末尾开始输入。我们可以根据相对于光标位置来区分使用不同的命令。</p>
+<table class="colwidths-given docutils align-default" id="id11">
+<caption><span class="caption-text">用于进入输入模式（插入模式）的命令</span><a class="headerlink" href="#id11" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>命令</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>i</p></td>
+<td><p>在光标前插入字符</p></td>
+</tr>
+<tr class="row-odd"><td><p>a</p></td>
+<td><p>在光标后插入字符</p></td>
+</tr>
+<tr class="row-even"><td><p>o</p></td>
+<td><p>在光标行的下方创建一行新行，并从其开头开始插入</p></td>
+</tr>
+<tr class="row-odd"><td><p>I</p></td>
+<td><p>在光标行的开头插入字符</p></td>
+</tr>
+<tr class="row-even"><td><p>A</p></td>
+<td><p>在光标行的末尾插入字符</p></td>
+</tr>
+<tr class="row-odd"><td><p>O</p></td>
+<td><p>在光标行的上方创建一行新行，并从其开头开始插入</p></td>
+</tr>
+</tbody>
+</table>
+<p>以下示例使用“i”命令将User user更改为User Webuser。</p>
+<img alt="../_images/3-4-6.使用“i”命令更改字符.png" class="align-center" src="../_images/3-4-6.使用“i”命令更改字符.png" />
+</div>
+<div class="section" id="id5">
+<h3>删除字符、单词或行（在命令模式下）<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>提供了几种用于删除字符、单词或行的命令。比如使用“dd”命令删除行，也可以使通过指定行数（例如“3dd”）从当前光标位置删除指定的行。</p>
+<table class="colwidths-given docutils align-default" id="id12">
+<caption><span class="caption-text">用于删除字符、单词或行的命令</span><a class="headerlink" href="#id12" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>命令</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>x</p></td>
+<td><p>删除光标前的一个字符</p></td>
+</tr>
+<tr class="row-odd"><td><p>dw</p></td>
+<td><p>从光标处删除下一个单词</p></td>
+</tr>
+<tr class="row-even"><td><p>dd</p></td>
+<td><p>删除光标行</p></td>
+</tr>
+<tr class="row-odd"><td><p>nx</p></td>
+<td><p>从光标右侧删除n个字符</p></td>
+</tr>
+<tr class="row-even"><td><p>D</p></td>
+<td><p>从光标移至行尾</p></td>
+</tr>
+<tr class="row-odd"><td><p>ndd</p></td>
+<td><p>从光标行向下删除n行</p></td>
+</tr>
+<tr class="row-even"><td><p>dG</p></td>
+<td><p>从光标行删除到最后一行</p></td>
+</tr>
+<tr class="row-odd"><td><p>dH</p></td>
+<td><p>从第一行删除到光标行</p></td>
+</tr>
+</tbody>
+</table>
+<img alt="../_images/3-4-7.使用“x”命令删除字符.png" class="align-center" src="../_images/3-4-7.使用“x”命令删除字符.png" />
+</div>
+<div class="section" id="id6">
+<h3>复制和黏贴字符、单词或行（在命令模式下）<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>提供了几种用于复制和黏贴字符、单词和行的命令。比如使用“yy”可以逐行复制，也可以通过指定行数（例如“3yy”）从当前光标位置复制指定行内容。还可以使用“p”命令进行黏贴，这会将其黏贴到光标行下方的行中。</p>
+<table class="colwidths-given docutils align-default" id="id13">
+<caption><span class="caption-text">用于复制和黏贴的命令</span><a class="headerlink" href="#id13" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>命令</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>yl</p></td>
+<td><p>复制单个字符</p></td>
+</tr>
+<tr class="row-odd"><td><p>yw</p></td>
+<td><p>复制单词</p></td>
+</tr>
+<tr class="row-even"><td><p>yy</p></td>
+<td><p>复制光标行</p></td>
+</tr>
+<tr class="row-odd"><td><p>nyy</p></td>
+<td><p>从光标行复制n行</p></td>
+</tr>
+<tr class="row-even"><td><p>y0</p></td>
+<td><p>从行首复制到光标之前</p></td>
+</tr>
+<tr class="row-odd"><td><p>y$</p></td>
+<td><p>从光标位置复制到行尾</p></td>
+</tr>
+<tr class="row-even"><td><p>P（大写）</p></td>
+<td><p>如果要复制行，则黏贴到光标行上方的行中；如果要复制字符、单词则黏贴到光标的左侧</p></td>
+</tr>
+<tr class="row-odd"><td><p>p（小写）</p></td>
+<td><p>如果要复制行，则黏贴到光标行下方的行中；如果要复制字符、单词则黏贴到光标的右侧</p></td>
+</tr>
+</tbody>
+</table>
+<img alt="../_images/3-4-8.使用yy命令复制.png" class="align-center" src="../_images/3-4-8.使用yy命令复制.png" />
+</div>
+<div class="section" id="id7">
+<h3>在vi编辑器中搜索字符串<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>如果要在“vi”编辑器中打开文件并指定字符串搜索，请输入“/字符串”。在命令模式下输入“/”会将光标移至末尾行，然后输入要查找的字符串。</p>
+<p>下面的示例在文本文件中找字符串“alias”。</p>
+<img alt="../_images/vi搜索字符串-01.png" class="align-center" src="../_images/vi搜索字符串-01.png" />
+<img alt="../_images/vi搜索字符串-02.png" class="align-center" src="../_images/vi搜索字符串-02.png" />
+<p>下表时用于搜索的主要命令：</p>
+<table class="colwidths-given docutils align-default" id="id14">
+<caption><span class="caption-text">用于搜索的命令</span><a class="headerlink" href="#id14" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>命令</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>/字符</p></td>
+<td><p>从当前光标位置向文件末尾搜索</p></td>
+</tr>
+<tr class="row-odd"><td><p>?字符</p></td>
+<td><p>从当前光标位置向文件开头搜索</p></td>
+</tr>
+<tr class="row-even"><td><p>n</p></td>
+<td><p>查找下一个</p></td>
+</tr>
+<tr class="row-odd"><td><p>N</p></td>
+<td><p>查找上一个</p></td>
+</tr>
+</tbody>
+</table>
+<p>此外，还提供了一些可用于编辑的命令。</p>
+<table class="colwidths-given docutils align-default" id="id15">
+<caption><span class="caption-text">可用于编辑的命令</span><a class="headerlink" href="#id15" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>命令</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u</p></td>
+<td><p>撤销上次编辑</p></td>
+</tr>
+<tr class="row-odd"><td><p>.</p></td>
+<td><p>重复上次编辑</p></td>
+</tr>
+<tr class="row-even"><td><p>~（波浪号）</p></td>
+<td><p>将光标上的字符从大写转换为小写，反之亦然</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>vi编辑器的设定<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p>vi编辑器提供了一些启动时未启用的可用可选功能。您可以设置可选功能或更改默认设置。使用“:set”命令更改可选功能。下面的示例为显示行号：</p>
+<img alt="../_images/vi编辑器显示行号-01.png" class="align-center" src="../_images/vi编辑器显示行号-01.png" />
+<img alt="../_images/vi编辑器显示行号-02.png" class="align-center" src="../_images/vi编辑器显示行号-02.png" />
+<table class="colwidths-given docutils align-default" id="id16">
+<caption><span class="caption-text">设置或取消设置可选功能</span><a class="headerlink" href="#id16" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>选项</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>:set 选项</p></td>
+<td><p>设置可选功能</p></td>
+</tr>
+<tr class="row-odd"><td><p>:set no选项</p></td>
+<td><p>取消激活可选功能</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id17">
+<caption><span class="caption-text">可选功能</span><a class="headerlink" href="#id17" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>选项</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>number</p></td>
+<td><p>显示行号</p></td>
+</tr>
+<tr class="row-odd"><td><p>ignorecase</p></td>
+<td><p>不区分大小写</p></td>
+</tr>
+<tr class="row-even"><td><p>list</p></td>
+<td><p>显示通常不可见的字符符号，如制表符和行尾符号</p></td>
+</tr>
+<tr class="row-odd"><td><p>all</p></td>
+<td><p>显示所有选项</p></td>
+</tr>
+</tbody>
+</table>
+<p>如果在启动vi编辑器时使用上述选项，则此设置为临时设置。要确保vi编辑器启动时的设置始终相同，请在当前用户的主目录下创建配置文件“.vimrc”并写入配置信息。</p>
+<p>以下示例假定renkeju用户的起始目录还没有“.vimrc”，创建配置文件后并配置了显示行号的设置。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ vi file1
+...下面为文件内容...
+My name is Keju.
+How are you? ⬅ 没有显示行号
+...使用“:qw”保存并退出...
+$ vi .vimrc ⬅ 创建并编辑“.vimrc”
+...下面为文件内容...
+set num
+...使用“:qw”保存并退出...
+$ vi file1
+...下面为文件内容...
+1 My name is Keju.
+2 How are you? ⬅ 显示行号
+...使用“:qw”保存并退出...
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/linux.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="../index.html">《Linux 基础实践入门》</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_1/1.Linux_overview.html">第一章 Linux 概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_2/2.start_and_stop_linux.html">第二章 Linux的启动和停止</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3.opration_and_use_of_files.html">第三章 文件的操作与使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix_A/A.Create_a_virtual_environment.html">附录A 创建虚拟环境</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, renkeju.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
