@@ -37,8 +37,8 @@
 <div class="section" id="id3">
 <h3>用户和用户组<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
 <p>用户必须至少属于一个组。有两种类型的组：主组和辅助组。用户必须分配一个主组，而辅助组是可选的。</p>
-<table class="colwidths-given docutils align-default" id="id9">
-<caption><span class="caption-text">组类型</span><a class="headerlink" href="#id9" title="永久链接至表格">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id17">
+<caption><span class="caption-text">组类型</span><a class="headerlink" href="#id17" title="永久链接至表格">¶</a></caption>
 <colgroup>
 <col style="width: 14%" />
 <col style="width: 86%" />
@@ -98,8 +98,8 @@ uid=1000(renkeju) gid=1000(renkeju) groups=1000(renkeju),10(wheel),995(docker)
 <p>② 对用户（所有者）的权限</p>
 <p>③ 所有组的权限</p>
 <p>④ 其他用户的权限</p>
-<table class="colwidths-given docutils align-default" id="id10">
-<caption><span class="caption-text">主要文件类型</span><a class="headerlink" href="#id10" title="永久链接至表格">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id18">
+<caption><span class="caption-text">主要文件类型</span><a class="headerlink" href="#id18" title="永久链接至表格">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -128,8 +128,8 @@ uid=1000(renkeju) gid=1000(renkeju) groups=1000(renkeju),10(wheel),995(docker)
 <p>下图显示了文件“Foo”的访问权限。“-rw-rw-r–”允许用户yuko读写普通文件。由于所有组是users，因此属于users的其他用户可以读写。也就是说，用户ryo可以读写。请注意，不属于 users 组的其他用户（在本例中的mana）只能读取。</p>
 <img alt="../_images/3-3-3.文件Foo的访问权限.png" class="align-center" src="../_images/3-3-3.文件Foo的访问权限.png" />
 <p>此外，“r”、“w”、“x”的含义因文件或目录而异。</p>
-<table class="colwidths-given docutils align-default" id="id11">
-<caption><span class="caption-text">文件和目录之间的差异</span><a class="headerlink" href="#id11" title="永久链接至表格">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id19">
+<caption><span class="caption-text">文件和目录之间的差异</span><a class="headerlink" href="#id19" title="永久链接至表格">¶</a></caption>
 <colgroup>
 <col style="width: 14%" />
 <col style="width: 43%" />
@@ -201,18 +201,18 @@ $ ls -l mypg
 </pre></div>
 </div>
 <p>以下结果时以用户renkeju和root的身份运行umask命令的示例。</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[renkeju@workstation ~]$ umask
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ umask
 0002
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[root@workstation ~]# umask
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># umask
 0022
 </pre></div>
 </div>
 <p>上面的示例以四位数字格式显示。本手册介绍了可实际用作umask值的后三位数。</p>
 <p>所创建文件的权限是由创建文件的应用程序所指定的权限与每个进程在内核中保留的umask的值进行取反之和。umask值是指不希望为应用程序指定的权限按照“用户”、“组”、“其他”的方式分配权限。通常，应用程序创建时具有权限，允许您根据所创建的文件类型执行所有从操作。因此，如果umask值为002，则创建的文件和目录的缺省权限如下表所示。此外，umask值可以从父进程传递到子进程。</p>
-<table class="colwidths-given docutils align-default" id="id12">
-<caption><span class="caption-text">文件和目录的缺省权限</span><a class="headerlink" href="#id12" title="永久链接至表格">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id20">
+<caption><span class="caption-text">文件和目录的缺省权限</span><a class="headerlink" href="#id20" title="永久链接至表格">¶</a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -290,8 +290,307 @@ $ ls -l fileC
 <p>② 将文件“fileB”的所有者从renkeju更改为ryo，将组从renkeju更改为users</p>
 <p>此外，还有一个 chgrp 命令，用于仅修改用户组。与 chown 不同，即使不是 root 用户，属于该组的用户也可以执行此操作。请注意以下事项：</p>
 <ul class="simple">
-<li><p>root 可以修改组，包括</p></li>
+<li><p>root 可以修改组，包括所有者不是自己的文件也可以修改。另外，变更对象的组名，即使时自己不属于的组也可以指定。</p></li>
+<li><p>一般用户只能由所有者更改自己的所属组。另外，变更对象的组名只能指定自己所属的组。</p></li>
 </ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>chgrp [选项] 组名称 文件名称|目录名称
+</pre></div>
+</div>
+<p>如果在目录中指定了“-R”选项指定目录，则权限会以递归的方式变更，包括子目录。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ls -l fileA
+-rw-rw-r--. 1 renkeju renkeju 0 Feb 23 23:56 fileA
+$ chgrp docker fileA
+$ ls -l fileA
+-rw-rw-r--. 1 renkeju docker 0 Feb 23 23:56 fileA
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>创建链接<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<p>链接类似于Microsoft Windows 中的快捷方式，允许同一个文件具有两个不同的名称。因此，它指向的不是数据的拷贝，而是相同的数据。由两种类型的链接：硬链接和符号链接。在这两种情况下，都使用ln命令创建链接。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ln 原始文件名称 链接名称
+ln -s 原始文件名称 链接名称
+</pre></div>
+</div>
+<div class="section" id="id10">
+<h3>创建硬链接<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<p>以下示例将fileY创建为文件fileX的硬链接。这相当于使用cat命令显示每个内容，它们还使用相同的inode编号。要查看inode，请将ls命令与i选项一起使用。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ls fileX
+fileX
+$ ln fileX fileY ⬅ 创建硬链接
+$ cat fileY ⬅ 查看“fileY”文件的内容
+hello
+$ cat fileX ⬅ 查看“fileX”文件的内容
+hello
+$ ls -li file* ⬅ 检查 inode
+1241225 -rw-rw-r--. 2 renkeju renkeju 6 Feb 24 09:43 fileX
+1241225 -rw-rw-r--. 2 renkeju renkeju 6 Feb 24 09:43 fileY
+</pre></div>
+</div>
+<img alt="../_images/3-3-7.硬链接.png" class="align-center" src="../_images/3-3-7.硬链接.png" />
+<p>此外，以下示例还使用rm命令删除了文件“fileX”。但是，由于inode未被删除，因此您仍然还可以访问到链接“fileY”文件中的数据。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ rm fileX
+$ cat fileY
+hello
+</pre></div>
+</div>
+<p>您不能为目录创建硬链接。以下示例验证在尝试创建目录的硬链接时是否会出现错误。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ls -ld mydir
+drwxrwxr-x. 2 renkeju renkeju 6 Feb 24 09:54 mydir
+$ ln mydir mydir_link
+ln: ‘mydir’: hard link not allowed for directory
+</pre></div>
+</div>
+<p>硬链接具有以下特性：</p>
+<ul class="simple">
+<li><p>链接使用与原始文件相同的inode编号</p></li>
+<li><p>无法基于目录创建链接</p></li>
+<li><p>由于inode编号在同一文件系统中是唯一编号，因此无法为不同的分区创建硬链接</p></li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h3>创建符号链接<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<p>以下示例创建了符号链接，但请确保使用了不同的inode编号，并且在运行 <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> 时，符号链接文件显示为“链接名称 -&gt; 原始文件名称”，并且权限的开头显示符号链接文件的文件类型为“l”。</p>
+<img alt="../_images/3-3-8.符号链接.png" class="align-center" src="../_images/3-3-8.符号链接.png" />
+<p>此外，请注意，如果删除原始文件（fileX），则会导致错误，因为链接本身没有引用（原始文件的位置）。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ rm fileX
+$ cat fileY
+cat: fileY: No such file or directory
+</pre></div>
+</div>
+<p>您也可以创建指向目录的符号链接。下面的示例创建目录的符号链接：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ls -ld mydir
+drwxrwxr-x. 2 renkeju renkeju 6 Feb 24 09:54 mydir
+$ ln -s mydir mydir_link
+$ ls -ld mydir*
+drwxrwxr-x. 2 renkeju renkeju 6 Feb 24 09:54 mydir
+lrwxrwxrwx. 1 renkeju renkeju 5 Feb 24 10:07 mydir_link -&gt; mydir
+</pre></div>
+</div>
+<p>符号链接的特点如下：</p>
+<ul class="simple">
+<li><p>链接使用的inode与原始文件具体的编号不同</p></li>
+<li><p>可以基于目录创建链接</p></li>
+<li><p>可以链接到原始文件和其他分区</p></li>
+<li><p>权限以文件类型“l”开头，表示符号链接</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id12">
+<h2>查找命令和文件<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<p>Linux提供了许多用于搜索的命令，根据搜索的用途使用不同命令。</p>
+<div class="section" id="id13">
+<h3>查找文件<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<p>find命令在指定目录下查找符合指定搜索条件的文件。find可以利用表达式来指定各种条件。表达式由选项、条件表达式和操作组成。如果省略路径和表达式，则显示当前目录下的所有文件/目录。以下时一些使用案例：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>find [路径] [公式]
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default" id="id21">
+<caption><span class="caption-text">find命令的常用表达式</span><a class="headerlink" href="#id21" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>公式</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-name</p></td>
+<td><p>按指定的文件名搜索</p></td>
+</tr>
+<tr class="row-odd"><td><p>-type</p></td>
+<td><p>按文件类型搜索。主要类型如下：d（目录）、f（常规文件）、l（符号链接）</p></td>
+</tr>
+<tr class="row-even"><td><p>-size</p></td>
+<td><p>按指定块大小搜索</p></td>
+</tr>
+<tr class="row-odd"><td><p>-atime</p></td>
+<td><p>根据指定的日期和时间搜索上次访问的文件</p></td>
+</tr>
+<tr class="row-even"><td><p>-mtime</p></td>
+<td><p>根据指定的日期和时间搜索上次更新的文件</p></td>
+</tr>
+<tr class="row-odd"><td><p>-print</p></td>
+<td><p>标准输出搜索结果</p></td>
+</tr>
+<tr class="row-even"><td><p>-exec command ;</p></td>
+<td><p>搜索后执行命令（command）</p></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">find</span> <span class="pre">.</span> <span class="pre">-name</span> <span class="pre">core</span></code></p>
+<blockquote>
+<div><p>在当前目录下搜索名为“core”的文件</p>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">find</span> <span class="pre">/</span> <span class="pre">-mtime</span> <span class="pre">7</span></code></p>
+<blockquote>
+<div><p>在“/”目录下，查找7天前上次更新的文件</p>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">find</span> <span class="pre">/</span> <span class="pre">-mtime</span> <span class="pre">+7</span></code></p>
+<blockquote>
+<div><p>在“/”目录下，查找7天以上上次更新的文件</p>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">find</span> <span class="pre">/</span> <span class="pre">-atime</span> <span class="pre">-7</span></code></p>
+<blockquote>
+<div><p>在“/”目录下，查找最近7天以内访问的文件</p>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">find</span> <span class="pre">.</span> <span class="pre">-type</span> <span class="pre">l</span></code></p>
+<blockquote>
+<div><p>在当前目录搜索符号链接</p>
+</div></blockquote>
+</li>
+</ul>
+<p>在第二个和第三个示例中，使用“-mtime”可以基于上次更新的日期和时间进行查找，使用“-atime”可以基于上次访问的日期和时间进行查找。另外，在指定日期和时间时，数字前可以有“什么都不加”、“+”和“-”三种方式。</p>
+<img alt="../_images/3-3-9.指定日期.png" class="align-center" src="../_images/3-3-9.指定日期.png" />
+<p>以下示例演示了如何在CentOS中结合使用find和xargs命令。当前目录中有一个目录和两个常规文件。尝试使用find和xargs命令搜索此目录并删除文件，但出现错误，因为“file B”文件名称中包含空格。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ls
+dirA  fileA  file B
+$ find . -type f | xargs rm
+rm: cannot remove ‘./file’: No such file or directory
+rm: cannot remove ‘B’: No such file or directory
+$ ls
+dirA  file B
+</pre></div>
+</div>
+<p>xargs 命令读取由空格或换行符分隔的字符串。因此，在上面的示例中，“fileB”被拆分为“file”和“B”，作为xargs的标准输入读取，并显示一条错误信息，只是rm命令无法找到要删除的文件。以下示例说明如何查找包含空格的文件名并将其传递给xargs：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ find . -type f -print0 | xargs -0 rm
+$ ls
+dirA
+</pre></div>
+</div>
+<p>find命令在运行时提供“-print0”作为表达式。使用“-print0”可以在文件分隔符中嵌入空字符，而不是空格或换行符。此外，xargs命令中的“-0”选项从标准输入中读取字符串，并将空字符作为分隔符，而不是空格。因此，也可以删除上述包含空格的文件。因此，“-print0”与xargs命令的“-0”选项相对应。</p>
+</div>
+<div class="section" id="id14">
+<h3>文件索引搜索<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+<p>locate 命令搜索文件的方式与find命令相同。在命令参数指定的模式中也可以像shell中使用元字符。此外，如果该字符串是不包含元字符的常规字符串，则必须显示包含该字符串的所有文件名和目录名。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>locate [选项] [路径]文件名称|目录名称
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ locate dirA
+/home/renkeju/test/dirA
+</pre></div>
+</div>
+<p>locate命令使用包含文件名称和目录名称的列表的数据库的索引实现快速搜索。但是，如果不更新数据库，每天更新的文件和目录就会排除在搜索范围之外。使用updatedb命令可以更新数据库。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>anacron每天运行一次 <code class="docutils literal notranslate"><span class="pre">/etc/cron.daily/mlocate</span></code> 脚本，并在其中执行updatedb命令。</p>
+</div>
+<table class="colwidths-given docutils align-default" id="id22">
+<caption><span class="caption-text">updatedb 命令选项</span><a class="headerlink" href="#id22" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>选项</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-e</p></td>
+<td><p>指定不包含在数据库文件列表中的目录路径</p></td>
+</tr>
+<tr class="row-odd"><td><p>-o</p></td>
+<td><p>指定要更新的数据库名称，用于指定自己创建的数据库</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>CentOS 和 Ubuntu 的默认值均为 <code class="docutils literal notranslate"><span class="pre">/var/lib/mlocate/mlocate.db</span></code></p>
+</div>
+<p>如果要使用updatedb命令从创建的数据库中删除某个目录的索引，则可以使用 <code class="docutils literal notranslate"><span class="pre">updatedb</span> <span class="pre">-e</span> <span class="pre">目录名称</span></code> 命令进行该操作，并在 updatedb 命令的配置文件 “/etc/updatedb.conf” 中配置与该目录相关的配置信息。如果以不带参数的形式运行 updatedb 命令，则为默认使用 <code class="docutils literal notranslate"><span class="pre">/etc/updatedb.conf</span></code> 配置文件进行更新数据库。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cat /etc/updatedb.conf
+PRUNE_BIND_MOUNTS = &quot;yes&quot;
+PRUNEFS = &quot;9p afs anon_inodefs auto autofs bdev binfmt_misc cgroup cifs coda configfs cpuset debugfs devpts ecryptfs exofs fuse fuse.sshfs fusectl gfs gfs2 gpfs hugetlbfs inotifyfs iso9660 jffs2 lustre mqueue ncpfs nfs nfs4 nfsd pipefs proc ramfs rootfs rpc_pipefs securityfs selinuxfs sfs sockfs sysfs tmpfs ubifs udf usbfs fuse.glusterfs ceph fuse.ceph&quot;     PRUNENAMES = &quot;.git .hg .svn&quot;
+PRUNEPATHS = &quot;/afs /media /mnt /net /sfs /tmp /udev /var/cache/ccache /var/lib/yum/yumdb /var/spool/cups /var/spool/squid /var/tmp /var/lib/ceph&quot;
+</pre></div>
+</div>
+<p>“PRUNEFS”列出了构建数据库时不想更新包含的文件系统类型。“PRUNEPATHS”列出了构建数据库时不想更新包含的目录路径。</p>
+</div>
+<div class="section" id="id15">
+<h3>查找命令<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
+<p>which 命令根据环境变量PATH指定的目录查找指定目录的存储目录。环境变量PATH是一个变量，用于保存要使用的程序（命令）的路径。命令将查找在PATH中注册的位置，并在找到相应的文件时执行。也就是说，即使安装了所需的命令，如果PATH中没有该命令的位置，也无法执行该命令（但是，您也可以使用绝对路径指定命令）。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>which [选项] 命令名称
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default" id="id23">
+<caption><span class="caption-text">which 命令选项</span><a class="headerlink" href="#id23" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>选项</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-a</p></td>
+<td><p>不仅表示最初发现的，还表示与环境变量PATH一致的所有内容</p></td>
+</tr>
+<tr class="row-odd"><td><p>-i</p></td>
+<td><p>从标准输入中读取别名并显示匹配项</p></td>
+</tr>
+</tbody>
+</table>
+<p>以下示例①显示了如何使用which命令搜索只有root用户可以使用的usermod命令。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># echo $PATH
+/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
+# which usermod
+/sbin/usermod
+</pre></div>
+</div>
+<p>在示例②中，搜索一般用户renkeju的$PATH中的usermod命令所在的位置，将会显示一条报错信息：找不到usermod命令。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ echo $PATH
+/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/renkeju/.local/bin:/home/renkeju/bin
+$ which usermod
+/usr/bin/which: no usermod in (/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/renkeju/.local/bin:/home/renkeju/bin)
+</pre></div>
+</div>
+</div>
+<div class="section" id="id16">
+<h3>查找二进制文件，源文件和手册的位置<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h3>
+<p>whereis 命令显示指定命令的二进制文件，源代码文件和手册所在位置。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>whereis [选项] 命令名称
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default" id="id24">
+<caption><span class="caption-text">none</span><a class="headerlink" href="#id24" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>选项</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-b</p></td>
+<td><p>显示二进制（可执行文件）位置</p></td>
+</tr>
+<tr class="row-odd"><td><p>-m</p></td>
+<td><p>显示文档位置</p></td>
+</tr>
+<tr class="row-even"><td><p>-s</p></td>
+<td><p>显示源文件位置</p></td>
+</tr>
+</tbody>
+</table>
+<p>以下示例使用whereis命令显示which命令的二进制文件和手册所在位置。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ whereis which
+which: /usr/bin/which /usr/share/man/man1/which.1.gz
+</pre></div>
+</div>
 </div>
 </div>
 </div>
