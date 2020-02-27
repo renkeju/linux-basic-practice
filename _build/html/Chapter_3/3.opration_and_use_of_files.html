@@ -16,7 +16,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="附录A 创建虚拟环境" href="../Appendix_A/A.Create_a_virtual_environment.html" />
+    <link rel="next" title="第四章 管理用户" href="../Chapter_4/4.Register_modify_delete_user.html" />
     <link rel="prev" title="第二章 Linux的启动和停止" href="../Chapter_2/2.start_and_stop_linux.html" />
 <link rel="stylesheet" type="text/css" href="../_static/handsontable.full.min.css">
 <script src="../_static/handsontable.full.min.js"></script>
@@ -520,7 +520,7 @@ bin  etc  games  include  lib  lib64  libexec  local  sbin  share  src  tmp
 </div>
 <div class="section" id="id12">
 <h4>逐页查看文件内容<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h4>
-<p>less命令一额每页为单位显示不能一次性打印在屏幕上的文件。如果不能完全适应屏幕，清按[↑↓]键滚动屏幕。按键操作与 man 命令相同。</p>
+<p>less命令一额每页为单位显示不能一次性打印在屏幕上的文件。如果不能完全适应屏幕，请按[↑↓]键滚动屏幕。按键操作与 man 命令相同。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>less 文件名称
 </pre></div>
 </div>
@@ -667,7 +667,7 @@ $ ls -l
 <div class="section" id="id17">
 <h4>移动文件和目录<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h4>
 <p>mv命令移动文件和目录，将源文件（或目录）移动到作为mv命令的最后一个参数指定的目录中，此外，如果mv命令的最后一个参数指定的目录不存在，请提前创建此目录。</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mv [选项] 源文件名称... 目录目录名称
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mv [选项] 源文件名称... 目标目录名称
 mv [选项] 源目录名称... 目标目录名称
 </pre></div>
 </div>
@@ -1594,7 +1594,7 @@ android.
 </div>
 </div>
 <div class="section" id="id37">
-<h2>权限使用<a class="headerlink" href="#id37" title="永久链接至标题">¶</a></h2>
+<h2>3.3 权限使用<a class="headerlink" href="#id37" title="永久链接至标题">¶</a></h2>
 <div class="section" id="id38">
 <h3>管理文件所有者<a class="headerlink" href="#id38" title="永久链接至标题">¶</a></h3>
 <p>控制对Linux文件和目录的访问。首先，检查适当的权限或当前所有者的权限。</p>
@@ -2159,7 +2159,7 @@ which: /usr/bin/which /usr/share/man/man1/which.1.gz
 </div>
 </div>
 <div class="section" id="vi">
-<h2>使用vi编辑其编辑文件<a class="headerlink" href="#vi" title="永久链接至标题">¶</a></h2>
+<h2>3.4 使用vi编辑其编辑文件<a class="headerlink" href="#vi" title="永久链接至标题">¶</a></h2>
 <div class="section" id="id53">
 <h3>什么是vi编辑器？<a class="headerlink" href="#id53" title="永久链接至标题">¶</a></h3>
 <p>vi是Bill Joy开发的UNIX标准文本编辑器。您可以使用vi编辑器创建和编辑文件。Linux也提供了与vi兼容的增强功能vim(Vi IMproved)。在最近的RedHat 发行版中，vi是作为vim的基础配置软件包命令或vim的alias（别名）提供的。vim提供多种有用的功能，如语法高亮和屏幕截图等。</p>
@@ -2606,19 +2606,20 @@ $ vi file1
 <li class="toctree-l3"><a class="reference internal" href="#id35">搜索字符串</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id37">权限使用</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id37">3.3 权限使用</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id38">管理文件所有者</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id45">创建链接</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id48">查找命令和文件</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#vi">使用vi编辑其编辑文件</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#vi">3.4 使用vi编辑其编辑文件</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id53">什么是vi编辑器？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id60">vi编辑器的设定</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_4/4.Register_modify_delete_user.html">第四章 管理用户</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Appendix_A/A.Create_a_virtual_environment.html">附录A 创建虚拟环境</a></li>
 </ul>
 
@@ -2627,7 +2628,7 @@ $ vi file1
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="../Chapter_2/2.start_and_stop_linux.html" title="上一章">第二章 Linux的启动和停止</a></li>
-      <li>Next: <a href="../Appendix_A/A.Create_a_virtual_environment.html" title="下一章">附录A 创建虚拟环境</a></li>
+      <li>Next: <a href="../Chapter_4/4.Register_modify_delete_user.html" title="下一章">第四章 管理用户</a></li>
   </ul></li>
 </ul>
 </div>
