@@ -1,4 +1,6 @@
 language: python
+os:
+  - "linux"
 python:
   - "3.6"
 
@@ -21,9 +23,9 @@ script:
 # your GitHub repository.
 deploy:
   provider: pages
-  skip_cleanup: true
-  github_token: $TOKEN  # Set in travis-ci.org dashboard, marked secure
-  keep-history: true
+  skip_cleanup: false
+  token: $TOKEN  # Set in travis-ci.org dashboard, marked secure
+  keep_history: true
   on:
     branch: master
   local_dir: build/html/
