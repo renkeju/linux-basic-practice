@@ -29,7 +29,6 @@ deploy:
   on:
     branch: master
   local_dir: _build/html/
-  github_url: linux.renkeju.com
   name: Deployment Bot
   email: renkeju@gmail.com
   allow_empty_commit: false
