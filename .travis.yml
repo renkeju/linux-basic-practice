@@ -17,7 +17,7 @@ install:
 script:
   - sphinx-build -nW -b html -d build/doctrees . build/html
   - touch build/html/.nojekyll 
-  - echo "linux.renkeju.com" > build/html/CNAME
+  - echo "linux.renkeju.com" > _build/html/CNAME
 
 # Tell Travis CI to copy the documentation to the gh-pages branch of
 # your GitHub repository.
