@@ -1,0 +1,200 @@
+==============================
+4.1 注册、修改和删除用户
+==============================
+
+
+什么是用户
+-----------------------
+
+Linux 允许多个用户使用同一台主机。如前面的运行示例所示，本文档中的用户都是登录到同一主机并进行操作。登录可以是直接登录到主机的本地登录，也可以是通过网络的远程登录。但是，这两种登录都必须先创建一个可以登录到此主机的用户。
+
+.. image:: /_images/Chapter_4/4-1-1.本地和远程登录.png
+    :align: center
+
+另外，如果登录的用户能够执行所有操作，则有可能会破坏系统。因此，第三章所述的权限限制对文件和目录的访问权限进行了限制，同时也限制了可执行程序的执行权限。
+
+用户类型
+^^^^^^^^^^^^^^^^^^^
+
+有两种类型的Linux用户：管理员和普通用户。此外，还有不允许进行登录但可以为特定应用程序分配用户的系统用户。
+
+.. csv-table:: 用户类型
+    :header: "类型", "说明"
+    :widths: 5 30
+
+    "管理者（root）", "具有在Linux系统中执行所有操作的管理权限。一般是由普通用户的身份进行登录，只有在必要时再切换为“root”用户进行操作。"
+    "普通用户", "只能执行有限的操作。普通用户可以在Linux安装时或安装后创建。"
+    "系统用户", "系统用户是用于运行特定应用程序（例如，apache、smb）的特殊用户账户。因此，不能作为登录用的用户使用。"
+
+首先，需要学习注册、修改和删除普通用户。
+
+用户注册
+-------------
+
+要注册新用户，请使用 useradd 命令。此命令对普通用户不可用，必须以 root 用户身份运行。
+
+可以在 ``/etc/passwd`` 和 ``/etc/shadow`` 文件中创建条目（用户信息）和起始目录。此外，由于用户必须属于一个或多个组，因此组信息将会写入 ``/etc/group`` 和 ``/etc/shadow`` 文件。稍后将做更详细的介绍。
+
+.. image:: /_images/Chapter_4/4-1-2.用户注册时更新文件.png
+    :align: center
+
+.. code-block:: none
+
+    useradd [选项] 用户名
+
+.. csv-table:: useradd 命令选项
+    :header: "选项", "说明"
+    :widths: 5 30
+
+    "-c 注释", "指定注释"
+    "-d 起始目录", "指定起始目录"
+    "-e 失效日期", "指定账户到期日期。失效日期以 YYYY-MM-DD（年-月-日）格式指定，例如：2019-12-03"
+    "-f 天数", "账户密码过期指定天数后将其设置为无效状态"
+    "-g gid（组ID）", "指定主组"
+    "-G gid（组ID）", "指定辅助组"
+    "-k skel目录路径", "指定skel目录路径"
+    "-m", "创建起始目录（如果在 ``/etc/login.defs`` 中设置了“CREATE_HOME yes”，则不需要-m选项）"
+    "-M", "不创建起始目录"
+    "-s shell的路径", "指定登录shell"
+    "-u uid（用户ID）", "指定用户ID"
+    "-D", "显示或设置默认值"
+
+以下是一个CentOS示例：如果在不使用选项的情况下运行useradd命令，则会基于缺省值创建一个用户。缺省值使用 ``/etc/default/useradd`` 文件中的设置。
+
+.. code-block:: none
+
+    # cat /etc/default/useradd
+    # useradd defaults file
+    GROUP=100
+    HOME=/home
+    INACTIVE=-1
+    EXPIRE=
+    SHELL=/bin/bash
+    SKEL=/etc/skel
+    CREATE_MAIL_SPOOL=yes
+
+.. csv-table:: ``/etc/default/useradd`` 文件配置项说明
+    :header: "项目", "说明"
+    :widths: 5 30
+
+    "GROUP", "GROUP中指定的数字取决于 ``/etc/login.defs`` 中 USERGROUPS_ENAB 的值：1.在USERGROUPS_ENAB为“yes”时，组名与用户名使用相同的名称，组ID与用户ID的值相同。如果该组ID已被占用，则使用 ``/etc/login.defs`` 中的GID_MIN和GID_MAX范围内为当前ID的值+1。2.如果USERGROUPS_ENAB为“no”时，组ID与“GROUP”的组ID相同。"
+    "HOME", "在HOME值指定的目录下创建用户名称目录，并将其作为用户初始目录"
+    "INACTIVE", "密码到期后账户不在可用的天数。“-1”表示为无限期。"
+    "EXPIRE", "账户到期日期，没有则意味着无限期。"
+    "SHELL", "登录shell"
+    "SKEL", "新用户起始目录模板。在新用户的起始目录中复制 ``/etc/skel`` 的副本。"
+    "CREATE_MAIL_SPOOL", "在 ``/var/spool/mail/`` 中为新用户创建邮件存储目录。"
+
+一下是创建普通用户 “sam” 的示例：
+
+.. code-block:: none
+
+    # useradd sam
+    # ls -d /home/sam
+    /home/sam ⬅ 在 /home 目录下创建了 sam 目录
+
+如上面的示例结果所示，在执行 useradd 命令时未指定“-m”选项，但会创建初始目录。因为在 ``/etc/login.defs`` 文件中设置了 “CREATE_HOME yes”。因此，使用 useradd 命令创建用户时， ``/etc/skel`` 目录下的文件和目录会自动分发到用户的起始目录。
+
+例如，系统管理员可以使用 bash 配置文件“.bash_profile”或“.bashrc”向用户分发配置文件。用户可以自定义这些文件。
+
+.. image:: /_images/Chapter_4/4-1-3.自动发布初始化文件.png
+    :align: center
+
+.. note:: 
+    
+    除了 useradd 命令外，还提供了 adduser 命令来创建用户。注意，CentOS 和 Ubuntu 的行为不同。
+
+    CentOS：链接到 useradd
+    Ubuntu：使用与 useradd 命令不同的交互方式添加用户
+
+useradd 命令将用户 sam 信息添加到 ``/etc/passwd`` 和 ``/etc/shadow`` 文件中。以下示例使用 tail 命令检车每个文件末尾的附加信息。
+
+.. code-block:: none
+
+    # tail -1 /etc/passwd
+    sam:x:1001:1001::/home/sam:/bin/bash
+    # tail -1 /etc/shadow
+    sam:!!:17725:0:99999:7:::
+
+``/etc/passwd`` 中添加了一个由七个字段组成的行，这些字段有六个“:”分割。如果在创建新用户后未设置口令，则 ``/etc/shadow`` 中的第二个字段为“!!”，反之则此字段设置为加密后的口令相应的值。
+
+.. note:: 有关 ``/etc/shadow`` 文件中字段的详细信息，请参见本章节“4-3 锁定账户并管理到期日期”。
+
+.. image:: /_images/Chapter_4/4-1-4._etc_passwd文件中的字段.png
+    :align: center
+
+设置密码
+----------------
+
+使用 passwd 命令设置密码。root用户可以在 passwd 命令的参数中设置和更改任何指定的用户的登录口令。普通用户只能使用 passwd 命令更改自己的口令。因此，普通用户使用 passwd 命令时不必指定用户。
+
+.. code-block:: none
+
+    passwd [选项] [用户名称]
+
+.. csv-table:: passwd 命令选项
+    :header: "选项", "说明"
+    :widths: 5 30
+
+    "-d", "密码过期：为过期的用户设置需要在下次登录前设置密码"
+    "-e", "删除密码。仅限root用户"
+    "-i 天数", "指定密码到期和失效之间的天数。仅限root用户"
+    "-l", "锁定用户账户。仅限root用户"
+    "-n 天数", "设置密码之前的最少天数。仅限root用户"
+    "-u", "解锁用户账户。仅限root用户"
+    "-w 天数", "指定密码到期前的警告天数。仅限root用户"
+    "-x 天数", "指定密码更改的最大天数。仅限root用户"
+
+如果没有指定选项，则以交互方式进行设置密码：
+
+.. code-block:: none 
+
+    $ passwd sam
+    Changing password for sam.
+    Enter new UNIX password:
+    Retype new UNIX password:
+    # tail -1 /etc/passwd
+    sam:x:1001:1001:,,,:/home/sam:/bin/bash
+    # tail -1 /etc/shadow
+    sam:$6$SVzR22hq$calpTTiki.EnylxwWH9TNjhHj8awJPx4nVWJ5lpwjws.akX/jT7.pJWxPXV3V0FwrB2woR4NgRCykDwGNSsyY.:18317:0:99999:7:::
+
+``/etc/passwd`` 中条目内容保持不变。但是，``/etc/shadow`` 中的第二个字段从“!!”无密码已变为加密密码。
+
+.. note:: 请注意，用户身份验证是由可加载身份认证模块（PAM）中的 pam_unix.so 模块执行的。
+
+.. note:: 有关PAM的详细信息，请参见第十章。
+
+删除用户账户
+------------------
+
+要删除用户账户，请使用 userdel 命令。
+
+.. code-block:: none 
+
+    userdel [选项] 用户名称
+
+您可以通过在userdel命令中指定“-r”或“--remove”选项来删除用户的起始目录（及目录下的文件）。如果未指定“-r”或“--remove”选项，则只删除 ``/etc/passwd`` 和 ``/etc/shadow`` 文件中的条目，而起始目录则会保存。
+
+更改用户信息
+----------------------
+
+要更改用户信息，请使用 usermod 命令。
+
+.. code-block:: none 
+
+    usermod [选项] 用户名称
+
+您也可以是使用“usermod -l 新登录用户名称 旧登录用户名称”来更改登录名称。请注意，在下面的组管理中，使用 usermod 命令同样也可以修改注册组。
+
+.. csv-table:: usermod 命令选项
+    :header: "选项", "说明"
+    :widths: 5 30
+
+    "-l 用户名称", "重命名登录"
+    "-d 起始目录路径", "更改起始目录"
+    "-g gid（组ID）", "修改主组"
+    "-G gid（组ID）", "修改辅助组"
+    "-s shell路径", "更改登录shell"
+
+.. note:: 有关 usermod 命令的示例，请参见下一节“4-2 注册、修改和删除组”。
+
