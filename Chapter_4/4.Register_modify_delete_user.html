@@ -43,8 +43,8 @@
 <div class="section" id="id4">
 <h4>用户类型<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h4>
 <p>有两种类型的Linux用户：管理员和普通用户。此外，还有不允许进行登录但可以为特定应用程序分配用户的系统用户。</p>
-<table class="colwidths-given docutils align-default" id="id14">
-<caption><span class="caption-text">用户类型</span><a class="headerlink" href="#id14" title="永久链接至表格">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id26">
+<caption><span class="caption-text">用户类型</span><a class="headerlink" href="#id26" title="永久链接至表格">¶</a></caption>
 <colgroup>
 <col style="width: 14%" />
 <col style="width: 86%" />
@@ -77,8 +77,8 @@
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>useradd [选项] 用户名
 </pre></div>
 </div>
-<table class="colwidths-given docutils align-default" id="id15">
-<caption><span class="caption-text">useradd 命令选项</span><a class="headerlink" href="#id15" title="永久链接至表格">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id27">
+<caption><span class="caption-text">useradd 命令选项</span><a class="headerlink" href="#id27" title="永久链接至表格">¶</a></caption>
 <colgroup>
 <col style="width: 14%" />
 <col style="width: 86%" />
@@ -139,8 +139,8 @@ SKEL=/etc/skel
 CREATE_MAIL_SPOOL=yes
 </pre></div>
 </div>
-<table class="colwidths-given docutils align-default" id="id16">
-<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">/etc/default/useradd</span></code> 文件配置项说明</span><a class="headerlink" href="#id16" title="永久链接至表格">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id28">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">/etc/default/useradd</span></code> 文件配置项说明</span><a class="headerlink" href="#id28" title="永久链接至表格">¶</a></caption>
 <colgroup>
 <col style="width: 14%" />
 <col style="width: 86%" />
@@ -196,7 +196,7 @@ sam:x:1001:1001::/home/sam:/bin/bash
 sam:!!:17725:0:99999:7:::
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> 中添加了一个由七个字段组成的行，这些字段有六个“:”分割。如果在创建新用户后未设置口令，则 <code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code> 中的第二个字段为“!!”，反之则此字段设置为加密后的口令相应的值。</p>
+<p><code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> 中添加了一个由七个字段组成的行，这些字段有六个“:”分割。如果在创建新用户后未设置密码，则 <code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code> 中的第二个字段为“!!”，反之则此字段设置为加密后的密码相应的值。</p>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
 <p>有关 <code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code> 文件中字段的详细信息，请参见本章节“4-3 锁定账户并管理到期日期”。</p>
@@ -205,12 +205,12 @@ sam:!!:17725:0:99999:7:::
 </div>
 <div class="section" id="id6">
 <h3>设置密码<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
-<p>使用 passwd 命令设置密码。root用户可以在 passwd 命令的参数中设置和更改任何指定的用户的登录口令。普通用户只能使用 passwd 命令更改自己的口令。因此，普通用户使用 passwd 命令时不必指定用户。</p>
+<p>使用 passwd 命令设置密码。root用户可以在 passwd 命令的参数中设置和更改任何指定的用户的登录密码。普通用户只能使用 passwd 命令更改自己的密码。因此，普通用户使用 passwd 命令时不必指定用户。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>passwd [选项] [用户名称]
 </pre></div>
 </div>
-<table class="colwidths-given docutils align-default" id="id17">
-<caption><span class="caption-text">passwd 命令选项</span><a class="headerlink" href="#id17" title="永久链接至表格">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id29">
+<caption><span class="caption-text">passwd 命令选项</span><a class="headerlink" href="#id29" title="永久链接至表格">¶</a></caption>
 <colgroup>
 <col style="width: 14%" />
 <col style="width: 86%" />
@@ -283,11 +283,11 @@ sam:$6$SVzR22hq$calpTTiki.EnylxwWH9TNjhHj8awJPx4nVWJ5lpwjws.akX/jT7.pJWxPXV3V0Fw
 </pre></div>
 </div>
 <p>您也可以是使用“usermod -l 新登录用户名称 旧登录用户名称”来更改登录名称。请注意，在下面的组管理中，使用 usermod 命令同样也可以修改注册组。</p>
-<table class="colwidths-given docutils align-default" id="id18">
-<caption><span class="caption-text">usermod 命令选项</span><a class="headerlink" href="#id18" title="永久链接至表格">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id30">
+<caption><span class="caption-text">usermod 命令选项</span><a class="headerlink" href="#id30" title="永久链接至表格">¶</a></caption>
 <colgroup>
-<col style="width: 14%" />
-<col style="width: 86%" />
+<col style="width: 33%" />
+<col style="width: 67%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>选项</p></th>
@@ -355,7 +355,7 @@ pg:x:1006:
 pg:!::
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">/etc/gshadow</span></code> 是一个文件，用于设置用户为加入其未注册的组而运行newgrp命令时的口令。</p>
+<p><code class="docutils literal notranslate"><span class="pre">/etc/gshadow</span></code> 是一个文件，用于设置用户为加入其未注册的组而运行newgrp命令时的密码。</p>
 </div>
 <div class="section" id="id12">
 <h3>删除组<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
@@ -394,13 +394,13 @@ users:x:100:yuko,ryo,sam ⬅ ⑧
 <p>⑧ 添加了用户 sam</p>
 <p>如果要更改组的用户已属于辅助组，则“-G”选项将替换为指定的组。如果要将多个组作为辅助组，请使用“-aG”选项。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># id sam ⬅ ①
-uid=1001(sam) gid=1001(sam) groups=1001(sam),100(users)
-# usermod -G wheel sam
+uid=1001(sam) gid=1001(sam) groups=1001(sam),100(users) ⬅ ②
+# usermod -G wheel sam ⬅ ③
 # id sam
-uid=1001(sam) gid=1001(sam) groups=1001(sam),10(wheel)
-# usermod -aG users sam
+uid=1001(sam) gid=1001(sam) groups=1001(sam),10(wheel) ⬅ ④
+# usermod -aG users sam ⬅ ⑤
 # id sam
-uid=1001(sam) gid=1001(sam) groups=1001(sam),10(wheel),100(users)
+uid=1001(sam) gid=1001(sam) groups=1001(sam),10(wheel),100(users) ⬅ ⑥
 </pre></div>
 </div>
 <p>① 显示用户 sam 信息</p>
@@ -409,6 +409,435 @@ uid=1001(sam) gid=1001(sam) groups=1001(sam),10(wheel),100(users)
 <p>④ 辅助组由users替换为wheel</p>
 <p>⑤ 使用“-aG”选项将users添加为辅助组</p>
 <p>⑥ 作为辅助组加入 wheel 和 users</p>
+</div>
+</div>
+<div class="section" id="id14">
+<h2>4.3 锁定账户并控制到期日期<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id15">
+<h3>失效日期<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
+<p>如果您要为特定用户发布一个仅在一段时间内可用的账户，可以通过设置明确到期日期来实现。</p>
+<div class="section" id="id16">
+<h4>设置默认到期日期<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h4>
+<p>如果要使用 useradd 命令设置或显示用户账户的默认值，请指定“-D”选项。使用“-f”选项作为参数指定密码到期与账户失效期间的天数。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>useradd -D -f 天数
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># grep INACTIVE /etc/default/useradd
+INACTIVE=-1
+# useradd -D -f 60
+# grep INACTIVE /etc/default/useradd
+INACTIVE=60
+</pre></div>
+</div>
+<p>上面示例中的“useradd -D -f 60”命令将更新 <code class="docutils literal notranslate"><span class="pre">/etc/default/useradd</span></code> 文件中 INACTIVE 的值。更新前默认值设置为“-1”（永不过期）。</p>
+<p>您还可以指定失效日期。默认情况下，EXPIRE 没有设置值，因此它是无限期的。“-e”(expire)选项使用 YYYY/MM/DD 格式作为参数设置过期日期的默认值。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>useradd -D -e 日期
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># grep EXPIRE /etc/default/useradd
+EXPIRE=
+# useradd -D -e 2020/12/31
+# grep EXPIRE /etc/default/useradd
+EXPIRE=2020/12/31
+</pre></div>
+</div>
+</div>
+<div class="section" id="id17">
+<h4>设置现有用户的到期日期<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h4>
+<p>使用chage命令设置过期日期和密码过期日期。</p>
+<p>要更改现有用户的过期日期，请使用“usermod -e”或使用chage命令运行“chage -E”。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>chage [选项[参数]] 用户名称
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default" id="id31">
+<caption><span class="caption-text">chage 命令选项</span><a class="headerlink" href="#id31" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 71%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>选项</p></th>
+<th class="head"><p>说明</p></th>
+<th class="head"><p>/etc/shadow（对应的字段编号）</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-l</p></td>
+<td><p>显示账户和密码到期信息，此选项对普通用户可用</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>-d</p></td>
+<td><p>已设置密码的上次更新日期。以YYYY/MM/DD格式或自1970年1月1日起的时间戳指定年月日的天数</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>-m</p></td>
+<td><p>设置密码更改时间间隔的最短天数</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>-M</p></td>
+<td><p>设置允许密码保持不变的最长天数</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>-W</p></td>
+<td><p>设置密码更改前警告的天数</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>-I</p></td>
+<td><p>密码更改过期后账户不再可用的宽限天数。此宽限期要求用户登录时更改密码</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td><p>-E</p></td>
+<td><p>设置账户的到期日期（自到期日期后的第二天起不再可用）。以YYYY/MM/DD格式或自1970年1月1日起的时间戳指定年月日的天数</p></td>
+<td><p>8</p></td>
+</tr>
+</tbody>
+</table>
+<p>现有用户的过期日期已在 <code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code> 文件中注册。</p>
+<table class="colwidths-given docutils align-default" id="id32">
+<caption><span class="caption-text">none</span><a class="headerlink" href="#id32" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>字段编号</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>用户名称</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>加密密码</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>从1970年1月1日到上次更改密码的天数</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>密码可更改前的天数</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>必须更改密码之前的天数</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>密码失效前警告用户的天数</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>密码到期后账户失效的天数</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>从1970年1月1日起到账户不可用的天数</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>保留字段</p></td>
+</tr>
+</tbody>
+</table>
+<p>下面的示例按日期设置到期日：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># grep yuko /etc/shadow
+yuko:$6$SVzR22hq$calpTTiki.EnylxwWH9TNjhHj8awJPx4nVWJ5lpwjws.akX/jT7.pJWxPXV3V0FwrB2woR4NgRCykDwGNSsyY.:18317:0:99999:7:::
+# date
+Fri Feb 28 13:14:29 CST 2020
+# chage -E 2020/12/31 yuko
+# grep yuko /etc/shadow
+yuko:$6$SVzR22hq$calpTTiki.EnylxwWH9TNjhHj8awJPx4nVWJ5lpwjws.akX/jT7.pJWxPXV3V0FwrB2woR4NgRCykDwGNSsyY.:18317:0:99999:7::18627:
+</pre></div>
+</div>
+<p>在上面的运行结果中，<code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code> 中的第八个字段已从空（从不过期）更改为18627。1970年1月1日的18627天后时2020年12月31日。在本例中，账户可使用到到期日期2020年12月31日。到了2021年1月1日，您将收到以下无法登录内容的消息：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># date
+Fri Jan 01 13:25:03 CST 2021
+# ssh yuko@192.168.1.111
+yuko@192.168.1.111&#39;s password:
+Your account has expired; please contact your system administrator
+Connection closed by 192.168.1.111 port 22
+</pre></div>
+</div>
+<p>① 验证是否已经过期</p>
+<p>② 用户 yuko 使用 ssh 尝试登录到 “192.168.1.111” 主机</p>
+<p>③ 提示了因过期而无法登录的消息</p>
+</div>
+<div class="section" id="id18">
+<h4>确认密码到期时间<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h4>
+<p>要检查密码到期日期，请以“chage -l 用户名”的形式运行chage命令。以下示例检查用户ryo的账户可密码的到期日期。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># date
+Fri Feb 28 13:31:11 CST 2020 ⬅ 确认当前日期
+# chage -l ryo
+Last password change                                    : Feb 28, 2020
+Password expires                                        : never
+Password inactive                                       : never
+Account expires                                         : never
+Minimum number of days between password change          : 0
+Maximum number of days between password change          : 99999
+Number of days of warning before password expires       : 7
+# chage -M 60 ryo ⬅ 设置允许密码保持不变的最长天数（60天）
+# chage -l ryo
+Last password change                                    : Feb 28, 2020
+Password expires                                        : Apr 28, 2020 ⬅ 60天后密码到期
+Password inactive                                       : never
+Account expires                                         : never
+Minimum number of days between password change          : 0
+Maximum number of days between password change          : 60
+Number of days of warning before password expires       : 7
+# chage -I 30 ryo ⬅ 设置超过密码更改期限和账户不可用前的宽限日期（30天）
+# chage -l ryo
+Last password change                                    : Feb 28, 2020
+Password expires                                        : Apr 28, 2020
+Password inactive                                       : May 28, 2020 ⬅ 30天后重置密码
+Account expires                                         : never
+Minimum number of days between password change          : 0
+Maximum number of days between password change          : 60
+Number of days of warning before password expires       : 7
+# chage -E 2020/12/31 ryo ⬅ 设置账户到期日期（2020/12/31）
+# chage -l ryo
+Last password change                                    : Feb 28, 2020 ①
+Password expires                                        : Apr 28, 2020 ②
+Password inactive                                       : May 28, 2020 ③
+Account expires                                         : Dec 31, 2020 ④ ⬅ 2020/12/31账户到期
+Minimum number of days between password change          : 0            ⑤
+Maximum number of days between password change          : 60           ⑥
+Number of days of warning before password expires       : 7            ⑦
+</pre></div>
+</div>
+<p>将上述内容在下图中做描述：</p>
+<img alt="../_images/4-3-1.账户和密码到期示例.png" class="align-center" src="../_images/4-3-1.账户和密码到期示例.png" />
+<p>如果您在上图中的②~③期间尝试登录，请确认系统提示您更改密码的要求。密码过期后，在账户到期宽限期内，登录时将提示您更改密码，如下所示：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># date
+Fri Feb 28 14:30:49 CST 2020
+# ssh ryo@192.168.1.219
+ryo@192.168.1.219&#39;s password:
+You are required to change your password immediately (password aged)
+Last login: Tue Apr 28 00:00:07 2020 from 192.168.1.184
+WARNING: Your password has expired.
+You must change your password now and login again!
+Changing password for user ryo.
+Changing password for ryo.
+(current) UNIX password:
+New password:
+Retype new password:
+passwd: all authentication tokens updated successfully.
+Connection to 192.168.1.219 closed.
+</pre></div>
+</div>
+<p>然后，您可以尝试使用新密码登录。</p>
+<p>另外，如果超过了可以更改密码的宽限期，将显示与以下相同账户到期的信息，则无法登录。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># ssh ryo@192.168.1.219
+ryo@192.168.1.219&#39;s password:
+Your account has expired; please contact your system administrator
+Connection closed by 192.168.1.219 port 22
+</pre></div>
+</div>
+</div>
+<div class="section" id="id19">
+<h4>更改密码到期日期<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h4>
+<p>除了chage命令外，passwd命令也允许您更改密码到期日期和密码到期宽限期限。usermod命令允许您更改密码失效前的宽限期。用于设置和更改密码和账户到期日期的命令和选项包括：</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 39%" />
+<col style="width: 29%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>命令</p></th>
+<th class="head"><p>maxdays（密码保持不变的最长有效天数）</p></th>
+<th class="head"><p>inactive（密码到期前的宽限天数）</p></th>
+<th class="head"><p>expiredate（账户到期日期）</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td rowspan="2"><p>useradd</p></td>
+<td rowspan="2"><p>（有关缺省值，请参见 <code class="docutils literal notranslate"><span class="pre">/etc/login.defs</span></code> )-</p></td>
+<td><p>useradd -D -f</p></td>
+<td><p>useradd -D -e</p></td>
+</tr>
+<tr class="row-odd"><td><p>useradd -f</p></td>
+<td><p>useradd -e</p></td>
+</tr>
+<tr class="row-even"><td><p>usermod</p></td>
+<td><p>-</p></td>
+<td><p>usermod -f</p></td>
+<td><p>usermod -e</p></td>
+</tr>
+<tr class="row-odd"><td><p>chage</p></td>
+<td><p>chage -M</p></td>
+<td><p>chage -l</p></td>
+<td><p>chage -E</p></td>
+</tr>
+<tr class="row-even"><td><p>passwd</p></td>
+<td><p>passwd -x</p></td>
+<td><p>passwd -i</p></td>
+<td><p>-</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id20">
+<h3>禁止登录<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h3>
+<p>每个用户的登录shell都在 <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> 文件中注册。</p>
+<p>通过将登录shell指定为 <code class="docutils literal notranslate"><span class="pre">/bin/false</span></code>，可以防止通过交互式登录。false只会返回返回值“1”（false:假）而不执行任何操作命令。 <code class="docutils literal notranslate"><span class="pre">/bin/false</span></code> 强制注销，因为用户登录时将执行false命令。</p>
+<p>还可以将登录shell设置为 <code class="docutils literal notranslate"><span class="pre">/sbin/nologin</span></code> 。nologin是一个命令，用于显示当前账户不可用的消息。当用户登录时，将执行nologin命令，显示消息“This account is currently not available.”，然后将其注销登录。</p>
+<p>您可以使用 usermod 命令或 chsh(change shell) 来更改登录shell。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>usermod -s shell路径 用户名称
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>chsh -s shell路径 用户名称
+</pre></div>
+</div>
+<p>在以下示例中，usermod 命令将用户mana的登录shell更改为 <code class="docutils literal notranslate"><span class="pre">/sbin/nologin</span></code>，chsh命令将用户 ryo 的登录shell更改为 <code class="docutils literal notranslate"><span class="pre">/bin/false</span></code>。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># grep mana /etc/passwd ⬅ ①
+mana:x:1002:1002::/home/mana:/bin/bash ⬅ ②
+# usermod -s /sbin/nologin mana ⬅ ③
+# grep mana /etc/passwd
+mana:x:1002:1002::/home/mana:/sbin/nologin ⬅ ④
+# grep ryo /etc/passwd
+ryo:x:1001:1001::/home/ryo:/bin/bash ⬅ ⑤
+# chsh -s /bin/false ryo ⬅ ⑥
+Changing shell for ryo.
+chsh: Warning: &quot;/bin/false&quot; is not listed in /etc/shells.
+Shell changed.
+# grep ryo /etc/passwd
+ryo:x:1001:1001::/home/ryo:/bin/false
+</pre></div>
+</div>
+<p>① 以mana为关键字搜索文件“/etc/passwd”</p>
+<p>② 用户mana的shell为“/bin/bash”</p>
+<p>③ 将登录shell更改为“/sbin/nologin”</p>
+<p>④ 验证是否已更改为“/sbin/nologin”</p>
+<p>⑤ 用户ryo的shell为“/bin/bash”</p>
+<p>⑥ 将登录shell更改为“/bin/false”</p>
+<p>⑦ 如果“/bin/false”没有在/etc/shells中注册，则会发出警告</p>
+<p>⑧ 验证是否已经更改为“/bin/false”</p>
+<p>在ssh中，mana和ryo尝试登录到192.168.1.219。输入密码后，您将看到强制断开链接。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ssh mana@192.168.1.219
+mana@192.168.1.219&#39;s password:
+This account is currently not available.
+Connection to 192.168.1.219 closed.
+$ ssh ryo@192.168.1.219
+ryo@192.168.1.219&#39;s password:
+Last failed login: Wed Jun 30 00:00:13 CST 2021 from 192.168.1.184 on ssh:notty
+There were 2 failed login attempts since the last successful login.
+Last login: Tue Jun 30 00:00:19 2020 from 192.168.1.184
+Connection to 192.168.1.219 closed.
+</pre></div>
+</div>
+<div class="section" id="id21">
+<h4>锁定用户<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h4>
+<p>要锁定特定用户的账户以防止其登录，请运行usermod或passwd命令。“usermod -L”是在 <code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code> 文件中加密密码的内容开头加入“!”的相应参数。“usermod -U”是消除 <code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code> 文件中加密密码的开头内容“!”的相应参数。“passwd -l”是在 <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> 文件中的加密密码的开头添加“!!”的相应参数，“passwd -u”是在 <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> 文件中的加密密码的开头删除“!!”的相应参数。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>usermod -L 用户名称
+passwd -l 用户名称
+usermod -U 用户名称
+passwd -u 用户名称
+</pre></div>
+</div>
+<p>以下是使用“usermod -L”锁定用户yuko的命令示例：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># grep yuko /etc/shadow
+yuko:$6$uHesPsWv$rZheN0ujVXaGd1lNVdrX816pvgKC2oIroXISa2AcEIxgBKf1PNHyGjzUu90fyi1gq2WgIJH/CRivyBbzs0xYv.:18320:0:99999:7:::
+# usermod -L yuko
+# grep yuko /etc/shadow
+yuko:!$6$uHesPsWv$rZheN0ujVXaGd1lNVdrX816pvgKC2oIroXISa2AcEIxgBKf1PNHyGjzUu90fyi1gq2WgIJH/CRivyBbzs0xYv.:18320:0:99999:7:::
+</pre></div>
+</div>
+<p>锁定后再登录时显示的消息与密码错误时显示的消息相同。</p>
+<p>以下是用户yuko在ssh中尝试登录并输入正确的密码，但系统会提示您重新输入密码，最终确保您无法登录。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ssh yuko@192.168.1.219
+yuko@192.168.1.219&#39;s password:
+Permission denied, please try again.
+yuko@192.168.1.219&#39;s password:
+Permission denied, please try again.
+yuko@192.168.1.219&#39;s password:
+yuko@192.168.1.219: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+</pre></div>
+</div>
+</div>
+<div class="section" id="id22">
+<h4>禁止普通用户登录<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h4>
+<p>此外，如果root创建 <code class="docutils literal notranslate"><span class="pre">/etc/nologin</span></code> 文件，则普通用户将无法再登录。如果将消息存储在/etc/nologin中，则登录时将显示该消息，并且用户将被拒绝登录。但是，root用户还可以登录。删除此文件后，它将恢复正常状态。</p>
+<p>以下是新的 <code class="docutils literal notranslate"><span class="pre">/etc/nologin</span></code> 文件。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># ll /etc/nologin
+ls: cannot access /etc/nologin: No such file or directory
+# touch /etc/nologin
+# vim /etc/nologin
+Disable current login!
+</pre></div>
+</div>
+<p>以下是用户yuko尝试登录时显示的消息，最终确认无法登录。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ssh yuko@192.168.1.219
+yuko@192.168.1.219&#39;s password:
+Disable current login!
+
+Connection closed by 192.168.1.219 port 22
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id23">
+<h2>4.4 检查登录例使记录<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id24">
+<h3>查看登录历史记录<a class="headerlink" href="#id24" title="永久链接至标题">¶</a></h3>
+<p>last 命令显示最近登录的用户的列表。此命令引用 <code class="docutils literal notranslate"><span class="pre">/var/log/wtmp</span></code> 文件。<code class="docutils literal notranslate"><span class="pre">/var/log/wtmp</span></code> 包含用户的登录历史记录。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># last
+root     pts/0        192.168.1.184    Fri Feb 28 16:23   still logged in
+root     pts/0        192.168.1.184    Fri Feb 28 16:11 - 16:12  (00:00)
+root     pts/0        192.168.1.184    Fri Feb 28 16:07 - 16:10  (00:03)
+root     pts/0        192.168.1.184    Fri Feb 28 15:56 - 16:01  (00:05)
+ryo      pts/0        192.168.1.184    Fri Feb 28 15:26 - 15:26  (00:00)
+ryo      pts/0        192.168.1.184    Fri Feb 28 15:26 - 15:26  (00:00)
+mana     pts/0        192.168.1.184    Fri Feb 28 15:26 - 15:26  (00:00)
+root     pts/0        192.168.1.184    Wed Jun 30 00:24 - 15:25 (-487+-8:-59
+root     pts/0        192.168.1.184    Tue Jun 30 00:00 - 00:00 (364+23:59)
+ryo      pts/0        192.168.1.184    Tue Jun 30 00:00 - 00:00  (00:00)
+root     pts/0        192.168.1.184    Thu Apr 30 00:02 - 00:00 (60+23:57)
+ryo      pts/0        192.168.1.184    Thu Apr 30 00:00 - 00:00  (00:00)
+root     pts/0        192.168.1.184    Tue Apr 28 00:00 - 00:00 (1+23:59)
+ryo      pts/0        192.168.1.184    Tue Apr 28 00:00 - 00:00  (00:00)
+root     pts/0        192.168.1.184    Sat Mar 28 00:00 - 00:00 (30+23:59)
+ryo      pts/0        192.168.1.184    Sat Mar 28 00:00 - 00:00  (00:00)
+ryo      pts/0        192.168.1.184    Fri Feb 28 14:31 - 00:00 (28+09:28)
+root     pts/0        192.168.1.184    Fri Feb 28 13:30 - 14:30  (00:59)
+root     tty1                          Fri Feb 28 13:30   still logged in
+reboot   system boot  3.10.0-1062.el7. Fri Feb 28 13:29 - 16:24  (02:54)
+root     tty1                          Wed Feb 26 15:41 - 15:43  (00:01)
+reboot   system boot  3.10.0-1062.el7. Wed Feb 26 15:41 - 15:43  (00:01)
+root     tty1                          Wed Feb 26 00:00 - 00:01  (00:01)
+root     pts/0        192.168.1.184    Tue Feb 25 23:49 - down   (00:11)
+reboot   system boot  3.10.0-1062.el7. Tue Feb 25 23:49 - 00:01  (00:11)
+root     pts/1        192.168.1.188    Tue Feb 25 23:29 - 23:47  (00:17)
+root     pts/1        192.168.1.188    Tue Feb 25 18:34 - 18:55  (00:21)
+root     pts/0        192.168.1.188    Tue Feb 25 18:29 - 23:47  (05:17)
+root     tty1                          Tue Feb 25 18:27 - 23:47  (05:19)
+reboot   system boot  3.10.0-1062.el7. Tue Feb 25 18:27 - 23:47  (05:19)
+root     pts/0        192.168.1.185    Tue Feb 25 17:26 - 17:27  (00:00)
+root     tty1                          Tue Feb 25 17:26 - 17:30  (00:04)
+reboot   system boot  3.10.0-1062.el7. Tue Feb 25 17:23 - 17:30  (00:06)
+root     tty1                          Tue Feb 25 17:22 - 17:23  (00:00)
+reboot   system boot  3.10.0-1062.el7. Tue Feb 25 17:16 - 17:23  (00:06)
+
+wtmp begins Tue Feb 25 17:16:28 2020
+</pre></div>
+</div>
+</div>
+<div class="section" id="id25">
+<h3>查看登录用户<a class="headerlink" href="#id25" title="永久链接至标题">¶</a></h3>
+<p>w命令，who命令显示当前登录用的列表。这些命令引用 <code class="docutils literal notranslate"><span class="pre">/var/run/utmp</span></code> 文件。这两个命令都显示登录用户名（USER），终端名称（TTY）和登录时间（LOGIN&#64;)。w命令还显示空闲时间（IDLE：用户未执行操作的时间）和当前进程（WHAT：用户当前正在执行的进程）。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># w
+ 16:39:31 up 0 min,  3 users,  load average: 0.39, 0.11, 0.04
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+root     tty1                      16:39   19.00s  0.01s  0.01s -bash
+root     pts/0    192.168.1.184    16:39    3.00s  0.03s  0.02s w
+mana     pts/1    192.168.1.184    16:39    5.00s  0.01s  0.01s -bash
+# who
+root     tty1         Feb 28 16:39
+root     pts/0        Feb 28 16:39 (192.168.1.184)
+mana     pts/1        Feb 28 16:39 (192.168.1.184)
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -451,6 +880,16 @@ uid=1001(sam) gid=1001(sam) groups=1001(sam),10(wheel),100(users)
 <li class="toctree-l3"><a class="reference internal" href="#id11">创建组</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id12">删除组</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id13">变更所属组</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">4.3 锁定账户并控制到期日期</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id15">失效日期</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">禁止登录</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id23">4.4 检查登录例使记录</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id24">查看登录历史记录</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">查看登录用户</a></li>
 </ul>
 </li>
 </ul>

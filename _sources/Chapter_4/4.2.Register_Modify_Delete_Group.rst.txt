@@ -44,7 +44,7 @@
     # tail -1 /etc/gshadow
     pg:!::
 
-``/etc/gshadow`` 是一个文件，用于设置用户为加入其未注册的组而运行newgrp命令时的口令。
+``/etc/gshadow`` 是一个文件，用于设置用户为加入其未注册的组而运行newgrp命令时的密码。
 
 删除组
 -----------------
@@ -101,13 +101,13 @@
 .. code-block:: none
 
     # id sam ⬅ ①
-    uid=1001(sam) gid=1001(sam) groups=1001(sam),100(users)
-    # usermod -G wheel sam
+    uid=1001(sam) gid=1001(sam) groups=1001(sam),100(users) ⬅ ②
+    # usermod -G wheel sam ⬅ ③
     # id sam
-    uid=1001(sam) gid=1001(sam) groups=1001(sam),10(wheel)
-    # usermod -aG users sam
+    uid=1001(sam) gid=1001(sam) groups=1001(sam),10(wheel) ⬅ ④
+    # usermod -aG users sam ⬅ ⑤
     # id sam
-    uid=1001(sam) gid=1001(sam) groups=1001(sam),10(wheel),100(users)
+    uid=1001(sam) gid=1001(sam) groups=1001(sam),10(wheel),100(users) ⬅ ⑥
 
 ① 显示用户 sam 信息
 

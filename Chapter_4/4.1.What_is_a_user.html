@@ -192,7 +192,7 @@ sam:x:1001:1001::/home/sam:/bin/bash
 sam:!!:17725:0:99999:7:::
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> 中添加了一个由七个字段组成的行，这些字段有六个“:”分割。如果在创建新用户后未设置口令，则 <code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code> 中的第二个字段为“!!”，反之则此字段设置为加密后的口令相应的值。</p>
+<p><code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> 中添加了一个由七个字段组成的行，这些字段有六个“:”分割。如果在创建新用户后未设置密码，则 <code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code> 中的第二个字段为“!!”，反之则此字段设置为加密后的密码相应的值。</p>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
 <p>有关 <code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code> 文件中字段的详细信息，请参见本章节“4-3 锁定账户并管理到期日期”。</p>
@@ -201,7 +201,7 @@ sam:!!:17725:0:99999:7:::
 </div>
 <div class="section" id="id5">
 <h2>设置密码<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
-<p>使用 passwd 命令设置密码。root用户可以在 passwd 命令的参数中设置和更改任何指定的用户的登录口令。普通用户只能使用 passwd 命令更改自己的口令。因此，普通用户使用 passwd 命令时不必指定用户。</p>
+<p>使用 passwd 命令设置密码。root用户可以在 passwd 命令的参数中设置和更改任何指定的用户的登录密码。普通用户只能使用 passwd 命令更改自己的密码。因此，普通用户使用 passwd 命令时不必指定用户。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>passwd [选项] [用户名称]
 </pre></div>
 </div>
@@ -282,8 +282,8 @@ sam:$6$SVzR22hq$calpTTiki.EnylxwWH9TNjhHj8awJPx4nVWJ5lpwjws.akX/jT7.pJWxPXV3V0Fw
 <table class="colwidths-given docutils align-default" id="id12">
 <caption><span class="caption-text">usermod 命令选项</span><a class="headerlink" href="#id12" title="永久链接至表格">¶</a></caption>
 <colgroup>
-<col style="width: 14%" />
-<col style="width: 86%" />
+<col style="width: 33%" />
+<col style="width: 67%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>选项</p></th>

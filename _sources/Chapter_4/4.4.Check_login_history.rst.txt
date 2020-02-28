@@ -1,0 +1,67 @@
+===========================
+4.4 检查登录例使记录
+===========================
+
+查看登录历史记录
+-----------------------
+
+last 命令显示最近登录的用户的列表。此命令引用 ``/var/log/wtmp`` 文件。``/var/log/wtmp`` 包含用户的登录历史记录。
+
+.. code-block:: none
+
+    # last
+    root     pts/0        192.168.1.184    Fri Feb 28 16:23   still logged in
+    root     pts/0        192.168.1.184    Fri Feb 28 16:11 - 16:12  (00:00)
+    root     pts/0        192.168.1.184    Fri Feb 28 16:07 - 16:10  (00:03)
+    root     pts/0        192.168.1.184    Fri Feb 28 15:56 - 16:01  (00:05)
+    ryo      pts/0        192.168.1.184    Fri Feb 28 15:26 - 15:26  (00:00)
+    ryo      pts/0        192.168.1.184    Fri Feb 28 15:26 - 15:26  (00:00)
+    mana     pts/0        192.168.1.184    Fri Feb 28 15:26 - 15:26  (00:00)
+    root     pts/0        192.168.1.184    Wed Jun 30 00:24 - 15:25 (-487+-8:-59
+    root     pts/0        192.168.1.184    Tue Jun 30 00:00 - 00:00 (364+23:59)
+    ryo      pts/0        192.168.1.184    Tue Jun 30 00:00 - 00:00  (00:00)
+    root     pts/0        192.168.1.184    Thu Apr 30 00:02 - 00:00 (60+23:57)
+    ryo      pts/0        192.168.1.184    Thu Apr 30 00:00 - 00:00  (00:00)
+    root     pts/0        192.168.1.184    Tue Apr 28 00:00 - 00:00 (1+23:59)
+    ryo      pts/0        192.168.1.184    Tue Apr 28 00:00 - 00:00  (00:00)
+    root     pts/0        192.168.1.184    Sat Mar 28 00:00 - 00:00 (30+23:59)
+    ryo      pts/0        192.168.1.184    Sat Mar 28 00:00 - 00:00  (00:00)
+    ryo      pts/0        192.168.1.184    Fri Feb 28 14:31 - 00:00 (28+09:28)
+    root     pts/0        192.168.1.184    Fri Feb 28 13:30 - 14:30  (00:59)
+    root     tty1                          Fri Feb 28 13:30   still logged in
+    reboot   system boot  3.10.0-1062.el7. Fri Feb 28 13:29 - 16:24  (02:54)
+    root     tty1                          Wed Feb 26 15:41 - 15:43  (00:01)
+    reboot   system boot  3.10.0-1062.el7. Wed Feb 26 15:41 - 15:43  (00:01)
+    root     tty1                          Wed Feb 26 00:00 - 00:01  (00:01)
+    root     pts/0        192.168.1.184    Tue Feb 25 23:49 - down   (00:11)
+    reboot   system boot  3.10.0-1062.el7. Tue Feb 25 23:49 - 00:01  (00:11)
+    root     pts/1        192.168.1.188    Tue Feb 25 23:29 - 23:47  (00:17)
+    root     pts/1        192.168.1.188    Tue Feb 25 18:34 - 18:55  (00:21)
+    root     pts/0        192.168.1.188    Tue Feb 25 18:29 - 23:47  (05:17)
+    root     tty1                          Tue Feb 25 18:27 - 23:47  (05:19)
+    reboot   system boot  3.10.0-1062.el7. Tue Feb 25 18:27 - 23:47  (05:19)
+    root     pts/0        192.168.1.185    Tue Feb 25 17:26 - 17:27  (00:00)
+    root     tty1                          Tue Feb 25 17:26 - 17:30  (00:04)
+    reboot   system boot  3.10.0-1062.el7. Tue Feb 25 17:23 - 17:30  (00:06)
+    root     tty1                          Tue Feb 25 17:22 - 17:23  (00:00)
+    reboot   system boot  3.10.0-1062.el7. Tue Feb 25 17:16 - 17:23  (00:06)
+
+    wtmp begins Tue Feb 25 17:16:28 2020
+
+查看登录用户
+-------------------
+
+w命令，who命令显示当前登录用的列表。这些命令引用 ``/var/run/utmp`` 文件。这两个命令都显示登录用户名（USER），终端名称（TTY）和登录时间（LOGIN@)。w命令还显示空闲时间（IDLE：用户未执行操作的时间）和当前进程（WHAT：用户当前正在执行的进程）。
+
+.. code-block:: none 
+
+    # w
+     16:39:31 up 0 min,  3 users,  load average: 0.39, 0.11, 0.04
+    USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+    root     tty1                      16:39   19.00s  0.01s  0.01s -bash
+    root     pts/0    192.168.1.184    16:39    3.00s  0.03s  0.02s w
+    mana     pts/1    192.168.1.184    16:39    5.00s  0.01s  0.01s -bash
+    # who
+    root     tty1         Feb 28 16:39
+    root     pts/0        Feb 28 16:39 (192.168.1.184)
+    mana     pts/1        Feb 28 16:39 (192.168.1.184)

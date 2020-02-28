@@ -4,3 +4,5 @@
 
 .. include:: /Chapter_4/4.1.What_is_a_user.rst
 .. include:: /Chapter_4/4.2.Register_Modify_Delete_Group.rst
+.. include:: /Chapter_4/4.3.Lock_accounts_and_control_expiration_dates.rst
+.. include:: /Chapter_4/4.4.Check_login_history.rst
