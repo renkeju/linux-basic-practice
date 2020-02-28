@@ -15,8 +15,8 @@ install:
   - pip install -r requirements.txt
 
 script:
-  - sphinx-build -nW -b html -d build/doctrees . build/html
-  - touch build/html/.nojekyll 
+  - sphinx-build -nW -b html -d _build/doctrees . _build/html
+  - touch _build/html/.nojekyll 
   - echo "linux.renkeju.com" > _build/html/CNAME
 
 # Tell Travis CI to copy the documentation to the gh-pages branch of
