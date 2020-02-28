@@ -157,7 +157,7 @@ ssh远程登录
             :align: center
             :width: 400px
 
-        最后点下面的 “Open” 按钮，输入正确的用户名和口令，就可以登录服务器了。首次登录一台主机时会看到这个安全告警的对话框：
+        最后点下面的 “Open” 按钮，输入正确的用户名和密码，就可以登录服务器了。首次登录一台主机时会看到这个安全告警的对话框：
 
         .. image:: /_images/Chapter_1/1-5/1-5-6.PuTTY_Security_Alert.png
             :align: center
