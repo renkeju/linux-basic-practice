@@ -1,0 +1,489 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>5.2 作业调度 &#8212; 《Linux 基础实践入门》 alpha 文档</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+<link rel="stylesheet" type="text/css" href="../_static/handsontable.full.min.css">
+<script src="../_static/handsontable.full.min.js"></script>
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>5.2 作业调度<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>什么是作业调度？<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>作业调度(cron)提供了在指定时间执行某些命令的功能。用户通过crontab命令设置要定期运行的命令和时间。到了指定时间，crond守护进程将执行指定的命令。</p>
+<p>cron功能也可用于系统维护。通过从cron启动的anacron，可以定期执行系统维护命令，如定期更新locate命令引用的文件搜索数据库或定期更换日志文件。at和batch只执行一次指定的命令。</p>
+<p>要启动、停止和检查crond守护进程的状态，请按如下所示运行 systemctl 命令：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># systemctl status crond ⬅ ①
+● crond.service - Command Scheduler
+Loaded: loaded (/usr/lib/systemd/system/crond.service; enabled; vendor preset: enabled)
+Active: inactive (dead) since Mon 2020-03-02 13:57:34 CST; 3s ago
+Process: 537 ExecStart=/usr/sbin/crond -n $CRONDARGS (code=exited, status=0/SUCCESS)
+Main PID: 537 (code=exited, status=0/SUCCESS)
+
+Mar 02 13:57:34 zabbix-server.bih.cn systemd[1]: Stopping Command Scheduler...
+Mar 02 13:57:34 zabbix-server.bih.cn systemd[1]: Stopped Command Scheduler.
+Warning: Journal has been rotated since unit was started. Log output is incomplete or unavailable.
+# systemctl start crond ⬅ ②
+# systemctl status crond ⬅ ③
+● crond.service - Command Scheduler
+Loaded: loaded (/usr/lib/systemd/system/crond.service; enabled; vendor preset: enabled)
+Active: active (running) since Mon 2020-03-02 13:57:47 CST; 1s ago
+Main PID: 26255 (crond)
+CGroup: /system.slice/crond.service
+        └─26255 /usr/sbin/crond -n
+
+Mar 02 13:57:47 zabbix-server.bih.cn systemd[1]: Started Command Scheduler.
+Mar 02 13:57:47 zabbix-server.bih.cn systemd[1]: Starting Command Scheduler...
+Mar 02 13:57:47 zabbix-server.bih.cn crond[26255]: (CRON) INFO (RANDOM_DELAY will be scaled with factor 40% if used.)
+Mar 02 13:57:47 zabbix-server.bih.cn crond[26255]: (CRON) INFO (running with inotify support)
+Mar 02 13:57:47 zabbix-server.bih.cn crond[26255]: (CRON) INFO (@reboot jobs will be run at computer&#39;s startup.)
+# systemctl stop crond ⬅ ④
+# systemctl is-enabled crond ⬅ ⑤
+enabled
+</pre></div>
+</div>
+<p>① 检查状态。在此示例中，crond守护进程当前状态已经停止，如 <code class="docutils literal notranslate"><span class="pre">Active:</span> <span class="pre">inactive</span> <span class="pre">(dead)</span></code> 所示。</p>
+<p>② 启动 crond 守护进程</p>
+<p>③ 检查状态。您将看到 crond 守护进程已经启动，显示为 <code class="docutils literal notranslate"><span class="pre">Active:</span> <span class="pre">active</span> <span class="pre">(running)</span></code></p>
+<p>④ 停止 crond 守护进程</p>
+<p>⑤ 使用 <code class="docutils literal notranslate"><span class="pre">is-enabled</span></code> 检验 crond 守护进程是否设置为自动启动</p>
+<p>如果设置了自动启动设置，则显示为“enabled’；如果没有设置自动启动设置，则显示为“disabled”。如果没有设置自动启动设置，则可以在 <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">crond</span></code> 中设置自动启动设置。</p>
+</div>
+<div class="section" id="crontab">
+<h2>crontab文件<a class="headerlink" href="#crontab" title="永久链接至标题">¶</a></h2>
+<p>cron设置需要在配置文件crontab中写入执行命令。在此文件中注册“何时”、“执行那些命令”。crontab文件由两种工作方式：</p>
+<ul>
+<li><p>用户crontab文件</p>
+<blockquote>
+<div><p>为用户提供的crontab文件。在 <code class="docutils literal notranslate"><span class="pre">/var/spool/cron</span></code> 目录下注册与每个用户的用户名称相同的文件，但是 <code class="docutils literal notranslate"><span class="pre">/var/spool/cron</span></code> 目录下的权限不允许创建普通用户权限的文件。因此，每个用户都需要使用 crontab 命令编辑自己的 crontab 文件。此外，用户的 crontab 文件由六个字段组成，这些字段以空格（空字符串）``分 时 天 月 周 命令`` 来定义。</p>
+</div></blockquote>
+</li>
+<li><p>系统 crontab 文件</p>
+<blockquote>
+<div><p>crontab 文件用于保存和管理系统所需的作业。它位于 <code class="docutils literal notranslate"><span class="pre">/etc/crontab</span></code>，除了与用户 crontab 相同的的六个字段之外，还加入了一个额外的用户名称的字段： <code class="docutils literal notranslate"><span class="pre">分</span> <span class="pre">时</span> <span class="pre">天</span> <span class="pre">月</span> <span class="pre">周</span> <span class="pre">用户名</span> <span class="pre">命令</span></code>，以指定要执行的用户名，并以空格作为分隔符。</p>
+</div></blockquote>
+</li>
+</ul>
+<p>系统的 crontab 文件与用户的 crontab 文件相同，但第六个字段的用户名称有所不同。</p>
+<p>格式详细信息将在后面介绍：</p>
+<p>以下是 <code class="docutils literal notranslate"><span class="pre">/etc/crontab</span></code> 文件的示例：在安装时， <code class="docutils literal notranslate"><span class="pre">/etc/crontab</span></code> 注释掉了变量设置。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># /etc/crontab: system-wide crontab
+# Unlike any other crontab you don&#39;t have to run the `crontab&#39;
+# command to install the new version when you edit this file
+# and files in /etc/cron.d. These files also have username fields,
+# that none of the other crontabs do.
+</pre></div>
+</div>
+<p>SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin</p>
+<p># m h dom mon dow user  command
+17 *    * * *   root    cd / &amp;&amp; run-parts –report /etc/cron.hourly
+25 6    * * *   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts –report /etc/cron.daily )
+47 6    * * 7   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts –report /etc/cron.weekly )
+52 6    1 * *   root    test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts –report /etc/cron.monthly )</p>
+</div>
+<div class="section" id="id3">
+<h2>设置crontab文件<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>要设置crontab文件，请使用带有“-e”选项的crontab命令。这将启动编辑器进行编辑。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>crontabe 选项
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default" id="id5">
+<caption><span class="caption-text">none</span><a class="headerlink" href="#id5" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>选项</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-e</p></td>
+<td><p>编辑crontab</p></td>
+</tr>
+<tr class="row-odd"><td><p>-l</p></td>
+<td><p>查看crontab</p></td>
+</tr>
+<tr class="row-even"><td><p>-r</p></td>
+<td><p>删除(所有)crontab</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>您还可以使用提供的 crontab 文件来运行 <code class="docutils literal notranslate"><span class="pre">crontab</span> <span class="pre">crontab文件</span></code> 命令，而不使用选项。如果不想指定文件，请在编辑时使用“另存为”选项。</p>
+</div>
+<p>默认编辑器为vi，但也可以使用VISUAL或EDITOR环境变量指定不同的编辑器。以下时使用gedit启动的示例：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ export EDITOR=gedit
+$ crontab -e
+</pre></div>
+</div>
+<p>由于 <code class="docutils literal notranslate"><span class="pre">/var/spool/cron</span></code> 目录只能由root访问，因此crontab命令具有SUID（即使一般用户执行该命令，也将以该可执行文件的的所有者权限执行）</p>
+<p>完成编辑并退出crontab命令之后，监视 <code class="docutils literal notranslate"><span class="pre">/var/spool/cron</span></code> 目录的crond的将检测到更改并重新装入新文件。</p>
+<p>用户的crontab条目由六个字段组成：</p>
+<table class="colwidths-given docutils align-default" id="id6">
+<caption><span class="caption-text">用户crontab文件格式</span><a class="headerlink" href="#id6" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>格式</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>分</p></td>
+<td><p>0-59</p></td>
+</tr>
+<tr class="row-odd"><td><p>时</p></td>
+<td><p>0-23</p></td>
+</tr>
+<tr class="row-even"><td><p>日</p></td>
+<td><p>1-31</p></td>
+</tr>
+<tr class="row-odd"><td><p>月</p></td>
+<td><p>1-12</p></td>
+</tr>
+<tr class="row-even"><td><p>周</p></td>
+<td><p>0-7（0或7表示周日）</p></td>
+</tr>
+<tr class="row-odd"><td><p>命令</p></td>
+<td><p>指定要执行的命令</p></td>
+</tr>
+</tbody>
+</table>
+<p>在第一个到第五个字段中指定“*”将匹配到所有数字。除了“*”，您还可以指定：</p>
+<table class="colwidths-given docutils align-default" id="id7">
+<caption><span class="caption-text">指定时间的各种方式</span><a class="headerlink" href="#id7" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>字段</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>*</p></td>
+<td><p>匹配所有数字</p></td>
+</tr>
+<tr class="row-odd"><td><p>-</p></td>
+<td><p>指定示例：1. 当“小时”为15-17，表示15点、16点、17点。2. 当“星期”为1-4，表示星期一、星期二、星期三、星期四。</p></td>
+</tr>
+<tr class="row-even"><td><p>,</p></td>
+<td><p>指定示例：当“分钟”为 <code class="docutils literal notranslate"><span class="pre">0,15,30,45</span></code> 表示0分钟、15分钟、30分钟、45分钟</p></td>
+</tr>
+<tr class="row-odd"><td><p>/</p></td>
+<td><p>数值间隔指定示例：1. 当“分钟”为10-20/2，表示10分钟到20分钟之间每间隔两分钟。2. 当前分钟为*/2，表示所有分钟内每间隔两分钟</p></td>
+</tr>
+</tbody>
+</table>
+<p>以下示例将cron设置为每两分钟运行一次，以便用户yuko将date命令结果追加到文件“/tmp/datefile”中。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[yuko@centos ~]$ crontab -e
+*/2 * * * * /bin/date &gt;&gt; /tmp/datefile
+[yuko@centos ~]$ crontab -l
+*/2 * * * * /bin/date &gt;&gt; /tmp/datefile
+</pre></div>
+</div>
+<p>使用root用户身份，验证 <code class="docutils literal notranslate"><span class="pre">/var/spool/cron</span></code> 目录下是否存在用户yuko配置的cron配置文件。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[root@centos ~]# ls -al /var/spool/cron/*
+-rw-------. 1 yuko yuko 15 Mar  3 20:11 renkeju
+</pre></div>
+</div>
+<p>在用户 yuko 中，确保cron工作正常。运行后。按 [ctrl+c] 键返回到提示符。</p>
+<div class="section" id="cron">
+<h3>使用cron限制用户<a class="headerlink" href="#cron" title="永久链接至标题">¶</a></h3>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">/etc/cron.allow</span></code> 和 <code class="docutils literal notranslate"><span class="pre">/etc/cron.deny</span></code> 文件为crontab命令设置对于普通用户的执行权限。</p>
+<ul class="simple">
+<li><p>如果存在“cron.allow”，则文件中的用户可以使用cron。</p></li>
+<li><p>如果没有“cron.allow”，并且存在“cron.deny”，则没有在“cron.deny”中列出的用户可以使用cron。</p></li>
+<li><p>“cron.allow”和“cron.deny”同时存在且都为空时，所有用户都可以使用cron。</p></li>
+</ul>
+<p>在以下示例中，用户yuko删除了crontab文件。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[yuko@centos ~]$ crontab -r
+[yuko@centos ~]$ crontab -l
+no crontab for yuko - using an empty one
+</pre></div>
+</div>
+<p>校验用户yuko设置的cron配置文件是否已经从 <code class="docutils literal notranslate"><span class="pre">/var/spool/cron</span></code> 目录中删除。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[root@centos ~]# ll -al /var/spool/cron/*
+ls: cannot access /var/spool/cron/*: No such file or directory
+</pre></div>
+</div>
+<p>使用root用户身份将用户yuko设置为禁止使用cron。使用vi编辑器将yuko添加到“cron.deny”。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[root@centos ~]# vi /etc/cron.deny
+yuko
+</pre></div>
+</div>
+<p>再次尝试使用yuko用户配置cron，然后确任它无法执行。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[yuko@centos ~]$ crontab -e
+You (yuko) are not allowed to use this program (crontab)
+See crontab(1) for more information
+</pre></div>
+</div>
+</div>
+<div class="section" id="anacron">
+<h3>使用anacron<a class="headerlink" href="#anacron" title="永久链接至标题">¶</a></h3>
+<p>anacron以每天的间隔定期执行命令。由系统管理员配置以进行系统维护。anacron由crond守护进程启动，而crond守护进程由 <code class="docutils literal notranslate"><span class="pre">/var/spool/cron</span></code> 、 <code class="docutils literal notranslate"><span class="pre">/etc/crontab</span></code> 和 <code class="docutils literal notranslate"><span class="pre">/etc/cron.d</span></code> 目录下的配置文件来设置如何运行。crond守护进程通过run-parts(/usr/bin/run-parts)脚本从 <code class="docutils literal notranslate"><span class="pre">/etc/cron.d</span></code> 下的配置文件启动 anacron。</p>
+<p>anacron按照 <code class="docutils literal notranslate"><span class="pre">/etc/anacrontab</span></code> 中的设置运行 <code class="docutils literal notranslate"><span class="pre">/etc/cron.daily</span></code> （每天）、 <code class="docutils literal notranslate"><span class="pre">/etc/cron.weekly</span></code> （每周）、 <code class="docutils literal notranslate"><span class="pre">/etc/cron.monthly</span></code> （每月）目录下的命令。anacron进程不是驻留的，它将在执行命令后终止。</p>
+</div>
+</div>
+<div class="section" id="at">
+<h2>at服务<a class="headerlink" href="#at" title="永久链接至标题">¶</a></h2>
+<p>使用at命令可以在指定的时间运行一次指定的命令。使用batch命令可以在系统负载较低时运行一次指定的命令。</p>
+<p>由at或batch命令排队的作业由atd（/usr/sbin/atd）守护进程运行。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>at [选项] 时间
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>batch [选项]
+</pre></div>
+</div>
+<p>对于使用两个命令保留的作业，at命令提供了以下的选项：</p>
+<table class="colwidths-given docutils align-default" id="id8">
+<caption><span class="caption-text">at命令选项</span><a class="headerlink" href="#id8" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>选项</p></th>
+<th class="head"><p>等同命令</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-l</p></td>
+<td><p>atq</p></td>
+<td><p>运行显示用户队列中的作业（未运行的作业）如果root运行，则显示所有用户的作业</p></td>
+</tr>
+<tr class="row-odd"><td><p>-d</p></td>
+<td><p>atrm</p></td>
+<td><p>删除作业</p></td>
+</tr>
+</tbody>
+</table>
+<p>您可以指定时间和日期，例如：</p>
+<table class="colwidths-given docutils align-default" id="id9">
+<caption><span class="caption-text">主要时间和日期说明</span><a class="headerlink" href="#id9" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>指定时间</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HH:MM</p></td>
+<td><p>10:15表示10点15分</p></td>
+</tr>
+<tr class="row-odd"><td><p>midnight</p></td>
+<td><p>表示深夜（深夜0点）</p></td>
+</tr>
+<tr class="row-even"><td><p>noon</p></td>
+<td><p>表示正午</p></td>
+</tr>
+<tr class="row-odd"><td><p>now</p></td>
+<td><p>表示当前时间</p></td>
+</tr>
+<tr class="row-even"><td><p>teatime</p></td>
+<td><p>表示下午四点的下午茶时间</p></td>
+</tr>
+<tr class="row-odd"><td><p>am、pm</p></td>
+<td><p>10am表示上午十点</p></td>
+</tr>
+<tr class="row-even"><td><p>MMDDYY、MM/DD/YY、MM.DD.YY</p></td>
+<td><p>121212表示2012年12月12日</p></td>
+</tr>
+<tr class="row-odd"><td><p>today</p></td>
+<td><p>表示今天</p></td>
+</tr>
+<tr class="row-even"><td><p>tomorrow</p></td>
+<td><p>表示明天</p></td>
+</tr>
+</tbody>
+</table>
+<p>此外，还可以为这些关键字指定相对时间长度。要指定相对时间，请参照下表：</p>
+<table class="colwidths-given docutils align-default" id="id10">
+<caption><span class="caption-text">指定相对时间</span><a class="headerlink" href="#id10" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>格式示例</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>now + 10 minutes</p></td>
+<td><p>在当前时间的10分钟后运行</p></td>
+</tr>
+<tr class="row-odd"><td><p>noon + 1 hour</p></td>
+<td><p>在13:00(中午的一小时后)运行</p></td>
+</tr>
+<tr class="row-even"><td><p>next week + 3 days</p></td>
+<td><p>10天后运行命令</p></td>
+</tr>
+</tbody>
+</table>
+<p>以下示例将at命令设置为在一分钟后将date名流那个的结果输出到文件“/tmp/atfile”。运行at命令后并在 <code class="docutils literal notranslate"><span class="pre">at&gt;</span></code> 提示符下输入命令，然后按 [ctrl+d] 退出。</p>
+<p>要查看队列中等待运行的作业，请运行“atq”和“at -l”命令。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># at now + 1 minutes
+at&gt; date &gt; /tmp/atfile
+at&gt; &lt;EOT&gt;
+job 2 at Tue Mar  3 21:02:00 2020
+# atq
+3   Tue Mar  3 21:02:00 2020
+# at -l
+3   Tue Mar  3 21:02:00 2020
+</pre></div>
+</div>
+<p>要删除排队等待运行的作业，请运行atrm或at -d命令。参数必须是作业的编号。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># atq
+4       Tue Mar  3 22:03:00 2020 a root
+# atrm 4
+# atq
+</pre></div>
+</div>
+<div class="section" id="id4">
+<h3>at命令用户使用限制<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>root始终允许执行at和batch命令。另一方面，可以使用 <code class="docutils literal notranslate"><span class="pre">/etc/at.allow</span></code> 和 <code class="docutils literal notranslate"><span class="pre">/etc/at.deny</span></code> 文件为普通用户设置执行权限限制。</p>
+<p>在 <code class="docutils literal notranslate"><span class="pre">/etc/at.allow</span></code> 中注册的用户可以于宁at命令和batch命令。在 /etc/at.deny 中注册的用户将被拒绝运行at命令和batch命令。</p>
+<table class="colwidths-given docutils align-default" id="id11">
+<caption><span class="caption-text">用户限制示例</span><a class="headerlink" href="#id11" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>at.deny</p></th>
+<th class="head"><p>at.allow</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>yuko</p></td>
+<td><p>无</p></td>
+<td><p>运行非yuko用户执行</p></td>
+</tr>
+<tr class="row-odd"><td><p>无</p></td>
+<td><p>yuko</p></td>
+<td><p>只能root和yuko执行，其他用户都不可以执行</p></td>
+</tr>
+<tr class="row-even"><td><p>yuko</p></td>
+<td><p>mana</p></td>
+<td><p>只能root和yuko执行，其他用户都不可以执行</p></td>
+</tr>
+<tr class="row-odd"><td><p>无</p></td>
+<td><p>无</p></td>
+<td><p>仅限root用户，其他用户无法执行</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/linux.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="../index.html">《Linux 基础实践入门》</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_1/1.Linux_overview.html">第一章 Linux 概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_2/2.start_and_stop_linux.html">第二章 Linux的启动和停止</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_3/3.opration_and_use_of_files.html">第三章 文件的操作与使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_4/4.Register_modify_delete_user.html">第四章 管理用户</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5.Execute_scripts_and_tasks.html">第五章 执行脚本和任务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix_A/A.Create_a_virtual_environment.html">附录A 创建虚拟环境</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, renkeju.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
