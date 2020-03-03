@@ -1,0 +1,235 @@
+=====================
+5.3 自动化管理任务
+=====================
+
+任务和程序
+-------------------
+
+您可以通过在shell脚本中编写多个命令来定义任务。此外，还可以使用cron和at命令在指定的日期自动运行脚本。
+
+在本节中，我们将在CentOS中创建一个可自动执行以下任务的脚本，并将其注册到cron中：
+
+① 检查主机上注册的所有用户的账户从当前日期到过期日期的天数。
+
+③ 在标准输出中显示①的运行结果
+
+③ 将②的结果发送给管理员
+
+脚本内容
+--------------------
+
+以下是要执行的shell脚本（check.sh）的简要说明。在本示例中，check.sh 文件保存在根目录下且在根目录下运行。
+
+.. code-block:: none
+    :linenos:
+
+    #!/bin/bash
+
+    if [ -e expire-check.tmp ]; then
+        rm -f expire-check.tmp
+    fi
+
+    today=`expr \`date +%s\` / 60 / 60 / 24`
+    IFS=:
+    n=0
+
+    while read {a..i}; do
+        if [ "$b" != '*' ] && [ "$b" != "!!" ] && [ -n "$h" ]; then
+            echo $a:$'\t'$'\t' `expr $h - $today` 天 >> expire-check.tmp
+            n=`expr $n + 1`
+        fi
+    done < /etc/shadow
+
+    echo 用户:$'\t'$'\t'剩余天数 > expire-check.list
+    sort -g -k 2 expire-check.tmp >> expire-check.list
+    echo "（属于过期账户的用户：${n}人，当前时间`date +%x`）" >> expire-check.list
+    cat expire-check.list
+
+    mail -s "`date`: expire-check" root@localhost.localdomain < expire-check.list
+
+* 第一行
+
+    定义Shebang
+
+* 第三行到第五行
+
+    检查临时文件 expire-check.tmp 是否存在于当前目录中，如果存在则使用rm命令删除expire-check.tmp。第三行中的“-e”是一个文件运算符，用于验证文件是否存在。
+
+* 第七行
+
+    在“date +%s”中，通过计算从1970年1月1日0点0分0秒开始到现在的秒数，然后除以60秒除以60秒除以24小时，计算天数并将其赋值给today变量。
+
+* 第八行
+
+    将代表分割符的环境变量IFS(Internal Filed Separator)设置为“:”。
+
+* 第九行
+
+    将计数器n的用户数初始化为“0”。
+
+* 第十一行到第十六行
+
+    以“:”分隔的方式读取 ``/etc/shadow`` 文件，其中$b字段（密码）不是“*”（未设置）或“!!”（锁定），且$h字段（到期前的天数）不是空字符串，然后从$h字段（到期前的天数）减去$today（现在的天数），并将其得数与用户名一起输出到expire-check.tmp中。$"\\t"表示插入制表符进行缩进。将计数器$n的用户数设置为+1。
+
+* 第十八行
+
+    将结果显示标题输出到expire-check.list中（如果文件已经存在，则将其覆盖）
+
+* 第十九行
+
+    使用sort命令的“-k 2”参数按照第二个字段（剩余天数）对expire-check.tmp进行升序排序。使用“-g”参数将第二个字段视为数字。之后将结果追加到expire-check.list中。
+
+* 第二十行
+
+    在expire-check.list中用括号括起来用户数量和执行日期。
+
+* 第二十一行
+
+    使用cat命令标准输出expire-check.list
+
+* 第二十三行
+
+    使用mail命令，向localhost.localdomain发送电子邮件。标题为“当前日期：expire-check”，正文内容为从expire-check.list中读取的内容。
+
+以下是root用户身份运行的脚本文件“check.sh”：
+
+.. code-block:: none
+
+    # bash check.sh
+    用户:           剩余天数
+    mana:            58 天
+    yuko:            119 天
+    ryo:             303 天
+    （属于过期账户的用户：3人，当前时间03/03/2020）
+    # ls -l expire-check.list
+    -rw-r--r--. 1 root root 134 Mar  3 22:24 expire-check.list
+
+显示用户ryo、mana和yuko的过期天数。此外，“check.sh”脚本还在当前目录下创建了“expire-check.list”文件。“check.sh”shell脚本使用mail命令将“expire-check.list”中的信息发送给“root@localhost.localdomain”。
+
+.. code-block:: none
+
+    # id
+    uid=0(root) gid=0(root) groups=0(root) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+    You have new mail in /var/spool/mail/root
+    # mail
+    Heirloom Mail version 12.5 7/5/10.  Type ? for help.
+    "/var/spool/mail/root": 2 messages 1 new
+        1 root                  Tue Mar  3 21:44  21/769   "Tue Mar  3 21:44:26 CST 2020: expire-check"
+    >N  2 root                  Tue Mar  3 22:24  22/789   "Tue Mar  3 22:24:34 CST 2020: expire-check"
+    & 2
+    Message  2:
+    From root@localhost.localdomain  Tue Mar  3 22:24:34 2020
+    Return-Path: <root@localhost.localdomain>
+    X-Original-To: root@localhost.localdomain
+    Delivered-To: root@localhost.localdomain
+    Date: Tue, 03 Mar 2020 22:24:34 +0800
+    To: root@localhost.localdomain
+    Subject: Tue Mar  3 22:24:34 CST 2020: expire-check
+    User-Agent: Heirloom mailx 12.5 7/5/10
+    Content-Type: text/plain; charset=utf-8
+    From: root@localhost.localdomain (root)
+    Status: R
+
+    用户:           剩余天数
+    mana:            58 天
+    yuko:            119 天
+    ryo:             303 天
+    （属于过期账户的用户：3人，当前时间03/03/2020）
+
+    & q
+    Held 2 messages in /var/spool/mail/root
+
+在本节中，我们不对mail命令做详细说明。在上面的示例中，mail命令将显示您收到的邮件，您可以输入要查看的邮件的编号，然后按Enter键查看邮件内容。要推出，请输入q。
+
+.. note:: 为了便于查看接受到的邮件，可以使用以下步骤隐藏mail命令中通常不需要查看的邮件的邮件标题字段：
+
+.. code-block:: none 
+
+    # cp /etc/mail.rc ~/.mailrc
+    # vi ~/.mailrc
+    # This is the configuration file for Heirloom mailx (formerly
+    # known under the name "nail".
+    # See mailx(1) for further options.
+    # This file is not overwritten when 'make install' is run in
+    # the mailx build process again.
+
+    # Sccsid @(#)nail.rc    2.11 (gritter) 8/2/08
+
+    # Do not forward to mbox by default since this is likely to be
+    # irritating for most users today.
+    set hold
+
+    # Append rather than prepend when writing to mbox automatically.
+    # This has no effect unless 'hold' is unset again.
+    set append
+
+    # Ask for a message subject.
+    set ask
+
+    # Assume a CRT-like terminal and invoke a pager.
+    set crt
+
+    # Messages may be terminated by a dot.
+    set dot
+
+    # Do not remove empty mail folders in the spool directory.
+    # This may be relevant for privacy since other users could
+    # otherwise create them with different permissions.
+    set keep
+
+    # Do not remove empty private mail folders.
+    set emptybox
+
+    # Quote the original message in replies by "> " as usual on the Internet.
+    set indentprefix="> "
+
+    # Automatically quote the text of the message that is responded to.
+    set quote
+
+    # Outgoing messages are sent in ISO-8859-1 if all their characters are
+    # representable in it, otherwise in UTF-8.
+    set sendcharsets=iso-8859-1,utf-8
+
+    # Display sender's real names in header summaries.
+    set showname
+
+    # Display the recipients of messages sent by the user himself in
+    # header summaries.
+    set showto
+
+    # Automatically check for new messages at each prompt, but avoid polling
+    # of IMAP servers or maildir folders.
+    set newmail=nopoll
+
+    # If threaded mode is activated, automatically collapse thread.
+    set autocollapse
+
+    # Mark messages that have been answered.
+    set markanswered
+
+    # Hide some header fields which are uninteresting for most human readers.
+    ignore received in-reply-to message-id references
+    ignore mime-version content-transfer-encoding
+
+    # Only include selected header fields when forwarding messages.
+    fwdretain subject date from to
+
+    # For Linux and BSD, this should be set.
+    set bsdcompat
+
+注册cron
+-------------------
+
+现在，我们将注册cron以定期运行check.sh。在本例中，我们将“check.sh”设置为在月末自动执行。
+
+.. code-block:: none 
+
+    # crontab -e
+    55 23 28-31 * * /usr/bin/test `date -d tomorrow +%d` -eq 1 && /bin/bash /root/check.sh
+    # crontab -l
+    55 23 28-31 * * /usr/bin/test `date -d tomorrow +%d` -eq 1 && /bin/bash /root/check.sh
+
+上述示例包括如下内容：
+
+* 在每月的28日到31日的23点55分启动
+* 另外，只有在明天为下月1号时才执行“check.sh”

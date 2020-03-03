@@ -1,0 +1,10 @@
+﻿No,启动类型,执行示例,补充说明
+①,\./shell脚本,``$ ./shellscript.sh``,读取Shebang并在子shell中启动解释器
+,,,脚本文件必须具有执行权限
+②,bash shell脚本,``$ bash shellscript.sh``,bash命令在子shell中作为解释器启动并运行脚本
+,,,因此，它不读取Shebang
+,,,脚本文件不需要执行权限
+③,\. shell脚本,``$ . shellscript.sh``,当前shell运行脚本
+,,,因此，它不读取Shebang
+,,,脚本文件不需要执行权限
+④,source shell脚本,``$ source shellscript.sh``,与“\. Shell脚本”方式等同

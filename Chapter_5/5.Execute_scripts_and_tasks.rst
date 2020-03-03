@@ -1,0 +1,7 @@
+*****************************
+第五章 执行脚本和任务
+*****************************
+
+.. include:: /Chapter_5/5.1.Learn_how_to_run_shell_scripts.rst
+.. include:: /Chapter_5/5.2.Job_scheduling.rst
+.. include:: /Chapter_5/5.3.Automate_management_tasks.rst

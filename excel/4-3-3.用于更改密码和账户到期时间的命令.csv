@@ -1,0 +1,6 @@
+﻿命令,maxdays（密码保持不变的最长有效天数）,inactive（密码到期前的宽限天数）,expiredate（账户到期日期）
+useradd,（有关缺省值，请参见 ``/etc/login.defs`` )-,useradd -D -f,useradd -D -e
+,,useradd -f,useradd -e
+usermod,\-,usermod -f,usermod -e
+chage,chage -M,chage -l,chage -E
+passwd,passwd -x,passwd -i,\-
