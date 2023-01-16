@@ -1,4 +1,3 @@
 jieba
 Sphinx
-docxbuilder
 sphinxcontrib-excel-table

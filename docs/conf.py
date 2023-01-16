@@ -39,7 +39,6 @@ release = 'alpha'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'docxbuilder',
     'sphinx.ext.autodoc',
     'sphinx.ext.graphviz',
     'sphinx.ext.mathjax',
@@ -167,21 +166,3 @@ texinfo_documents = [
      author, 'linux basic practice', 'One line description of project.',
      'Miscellaneous'),
 ]
-
-
-# -- Options for Office Docx output ----------------------------------------------
-docx_documents = [
-    (master_doc, 'linux basic practice.docx', {
-         'title': project,
-         'creator': author,
-         'subject': 'A document of Sphinx Docxbuilder extension',
-         'created': '2019-08-04',
-         'keywords': ['Sphinx', 'Docxbuilder', 'Office Word'],
-         'publishDate': datetime.date.today(),
-         'version': release,
-     }, True),
-]
-
-docx_pagebreak_before_file = 1
-docx_table_options = {'row_splittable': False}
-docx_coverpage = False
