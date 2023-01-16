@@ -1,4 +1,4 @@
-jieba==0.39
-Sphinx==2.2.1
-docxbuilder==1.1.5
-sphinxcontrib-excel-table==1.0.8
+jieba
+Sphinx
+docxbuilder
+sphinxcontrib-excel-table
