@@ -16,7 +16,7 @@ CentOS的初始化配置
 
 从CentOS上方导航栏左侧点击活动，进入启动器界面，在左侧启动栏中找到终端图标，然后单击启动虚拟终端。
 
-.. image:: /_images/Chapter_1/1-4/1-4-1.启动器界面.png
+.. image:: /images/Chapter_1/1-4/1-4-1.启动器界面.png
     :align: center
     :width: 400px
 
@@ -232,11 +232,11 @@ Ubuntu初始化设定
 
 在Ubuntu的桌面上，点击【显示应用程序】图标，滚动表所示的图标一览表，选择【终端】。
 
-.. image:: /_images/Chapter_1/1-4/1-4-2.显示应用程序.png
+.. image:: /images/Chapter_1/1-4/1-4-2.显示应用程序.png
     :align: center
     :width: 400px
 
-.. image:: /_images/Chapter_1/1-4/1-4-3.图标一览表.png
+.. image:: /images/Chapter_1/1-4/1-4-3.图标一览表.png
     :align: center
     :width: 400px
 

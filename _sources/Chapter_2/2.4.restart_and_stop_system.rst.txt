@@ -38,7 +38,7 @@
 
 运行上述systemctl命令时，systemctl通过D-Bus想systemd发送消息“halt”、“poweroff”、“reboot”。接收到信息的systemd并列进行各单位的停止处理，在其中依赖关系的单元按照与启动时相反的顺序停止。
 
-.. image:: /_images/Chapter_2/2-2/2-4-1.使用systemctl命令停止处理流程.png
+.. image:: /images/Chapter_2/2-2/2-4-1.使用systemctl命令停止处理流程.png
     :align: center
 
 .. code-block:: none

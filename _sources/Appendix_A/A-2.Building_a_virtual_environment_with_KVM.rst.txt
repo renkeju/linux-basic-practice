@@ -11,7 +11,7 @@ KVM(Kernel-based Virtual Machine)是一种开源虚拟化环境，嵌入在标�
 
 硬件虚拟化辅助功能可通过硬件（处理器）代理软件执行的虚拟化操作，显著降低虚拟化开销。KVM完全虚拟化需要使用硬件虚拟化辅助功能。对于具有硬件虚拟化辅助功能的PC，通常可以在BIOS或EFI配置界面中启用或禁用硬件虚拟化辅助功能。
 
-.. image:: /_images/Appendix_A/A-2-1.KVM完全虚拟化.png
+.. image:: /images/Appendix_A/A-2-1.KVM完全虚拟化.png
     :align: center
 
 完全虚拟化和半虚拟化
@@ -36,7 +36,7 @@ KVM以经被开发为完全虚拟化，但现在可以通过采用半虚拟化�
 
 本节介绍如何使用 Minimal ISO(CentOS-7-x86_64-Minimal-1804.iso)安装 CentOS。因此，CUI设置了较少的磁盘供安装使用。
 
-.. image:: /_images/Appendix_A/A-2-2.系统配置示例.png
+.. image:: /images/Appendix_A/A-2-2.系统配置示例.png
     :align: center
 
 .. note:: 虚线内为虚拟网络，所有VM中，路由器使用Vyatta OS作为Guest OS，host01、host02、host03和host04使用CentOS作为Guest OS。fedora作为本机操作系统。

@@ -15,7 +15,7 @@
 
 目前常见的OS代表有Linux、Microsoft Windows、macOS等。
 
-.. image:: /_images/Chapter_1/1-1/1-1-1.OS的构成.png
+.. image:: /images/Chapter_1/1-1/1-1-1.OS的构成.png
      :align: center
      :alt: "1-1-1 OS的构成"
      :width: 500px
@@ -32,7 +32,7 @@
 
   Linux操作系统由Linux内核、库和用户控制平台组成。
 
-.. image:: /_images/Chapter_1/1-1/1-1-2.Linux操作系统构成.png
+.. image:: /images/Chapter_1/1-1/1-1-2.Linux操作系统构成.png
      :align: center
      :alt: "1-1-2 Linux操作系统构成"
 
@@ -86,7 +86,7 @@ Linux发行版
 
   GPL的这一独特规定保证了软件可以再次分发，达到共享和发展软件目的。大多数Linux系统中的主要软件是在GPL下分发的免费软件。
 
-  .. image:: /_images/Chapter_1/1-1/1-1-3.自由软件.png
+  .. image:: /images/Chapter_1/1-1/1-1-3.自由软件.png
        :align: center
 
 - 开源软件
@@ -103,7 +103,7 @@ Linux发行版
 
   X.Org开发的X Window System软件为“MIT许可证”，Mozilla组织开发的Web浏览器Firefox为“MPL（Mozilla Public License）”，构成Linux系统的一部分软件也都以开放形式发布。
 
-  .. image:: /_images/Chapter_1/1-1/1-1-4.开源软件.png
+  .. image:: /images/Chapter_1/1-1/1-1-4.开源软件.png
        :align: center
 
 - 再造软件
@@ -112,14 +112,14 @@ Linux发行版
 
   在一部分Linux发行版中，有时会包含再造软件。如果擅自将原程序软件复制散布，恐怕会涉及到著作权，所以需要注意。
 
-  .. image:: /_images/Chapter_1/1-1/1-1-5.程序再造软件.png
+  .. image:: /images/Chapter_1/1-1/1-1-5.程序再造软件.png
        :align: center
 
 Linux中的软件多是通过自由软件和开源软件的许可证发布的，可以自由地进行再次发布和变更。因此，现在有RedHat Enterprise Linux(RHEL)、CentOS（RHEL下游发行版）、Ubuntu、Debian/GNU Linux等数百种发行版。
 
 用户可以考虑自己的喜好和使用目的，从中选择合适的版本。这也是Linux最大的特征之一。
 
-.. image:: /_images/Chapter_1/1-1/1-1-6.CentOS和Ubuntu的软件配置.png
+.. image:: /images/Chapter_1/1-1/1-1-6.CentOS和Ubuntu的软件配置.png
      :align: center
 
 内核、库、Shell和基本命令都是OS所必备的组件，在任何发行版中都是通用的（不同发行版所采用的软件版本可能会有所差异）。
@@ -152,7 +152,7 @@ Linux中的软件多是通过自由软件和开源软件的许可证发布的，
 
 Linux发行版可以根据其用途粗略分类为服务器和台式机，面向个人和面向企业。
 
-.. image:: /_images/Chapter_1/1-1/1-1-7.按用途分类的Linux发行版.png
+.. image:: /images/Chapter_1/1-1/1-1-7.按用途分类的Linux发行版.png
      :align: center
 
 发行版份额
@@ -164,7 +164,7 @@ Linux发行版可以根据其用途粗略分类为服务器和台式机，面向
 
   根据Q-Success公司运营的W3Techs.com调查，在运行Web服务器的Linux系统的市场占有率中，Ubuntu为第一位，Debian为第二位，CentOS（Redhat系）为第三位，接着是RedHat(Redhat Enterprise Linux:RHEL)，Gentoo等。
 
-  .. image:: /_images/Chapter_1/1-1/1-1-8.Web服务器市场占有率.png
+  .. image:: /images/Chapter_1/1-1/1-1-8.Web服务器市场占有率.png
        :align: center
        :width: 400px
 
@@ -176,7 +176,7 @@ Linux发行版可以根据其用途粗略分类为服务器和台式机，面向
 
   在OpenStack平台中运行的Linux发行版市场份额为：CentOS位居第一，Debian为第二位，Fedora Server为第三位，接着是RedHat Enterpricse Linux(RHEL)，SUSE Linux Enterprise Server(SLES)等。
 
-  .. image:: /_images/Chapter_1/1-1/1-1-9.OpenStack平台份额.png
+  .. image:: /images/Chapter_1/1-1/1-1-9.OpenStack平台份额.png
        :align: center
        :width: 400px
 
@@ -184,7 +184,7 @@ Linux发行版可以根据其用途粗略分类为服务器和台式机，面向
 
   根据The Cloud Market(https://thecloudmarket.com)的统计数据，除在Amazon Elastic Compute Cloud(EC2)实例中运行的Amazon Linux AMI镜像（云上运行的虚拟OS），在EC2中的Linux操作系统类别中，Ubuntu位于第一位，Debian为第二位，Microsoft Windows是第三位。接下来是RedHat（RHEL)和CentOS(RedHat系)等。
 
-  .. image:: /_images/Chapter_1/1-1/1-1-10.EC2实例市场占有率.png
+  .. image:: /images/Chapter_1/1-1/1-1-10.EC2实例市场占有率.png
        :align: center
        :width: 400px
 
@@ -193,7 +193,7 @@ Linux发行版可以根据其用途粗略分类为服务器和台式机，面向
 
 在记载了Linux发行版等开源操作系统信息的网站DistroWatch（https://distrowatch.com）中，可以看到为Linux发行版进行人气度排序的网页，面向个人配置的Linux Mint、elementary OS、Manjaro Linux等长久的排在了前几位。
 
-.. image:: /_images/Chapter_1/1-1/1-1-11.DistroWatch.com2019年11月各linux发行版本人气度.png
+.. image:: /images/Chapter_1/1-1/1-1-11.DistroWatch.com2019年11月各linux发行版本人气度.png
      :align: center
      :width: 400px
 
@@ -310,19 +310,19 @@ Linux发行版可以根据其用途粗略分类为服务器和台式机，面向
 
 以下是主要发行版中采用的桌面环境的示例（括号内是桌面环境）。
 
-.. image:: /_images/Chapter_1/1-1/1-1-12.elementaryos.jpg
+.. image:: /images/Chapter_1/1-1/1-1-12.elementaryos.jpg
      :align: center
      :width: 250px
 
-.. image:: /_images/Chapter_1/1-1/1-1-15.CentOS.png
+.. image:: /images/Chapter_1/1-1/1-1-15.CentOS.png
      :align: center
      :width: 250px
 
-.. image:: /_images/Chapter_1/1-1/1-1-13.linuxmate.png
+.. image:: /images/Chapter_1/1-1/1-1-13.linuxmate.png
      :align: center
      :width: 250px
 
-.. image:: /_images/Chapter_1/1-1/1-1-14.ubuntu.jpg    
+.. image:: /images/Chapter_1/1-1/1-1-14.ubuntu.jpg    
      :align: center
      :width: 250px
 
@@ -386,36 +386,36 @@ GUI和CUI操作
 
 下面是使用桌面环境GNOME工具中（GUI）进行的操作的示例，以及在模拟终端中gnome-terminal中（CUI）执行等效操作的示例。
 
-.. image:: /_images/Chapter_1/1-1/1-1-16.gnome-control-center_user-accounts.png
+.. image:: /images/Chapter_1/1-1/1-1-16.gnome-control-center_user-accounts.png
      :align: center
      :width: 250px
 
-.. image:: /_images/Chapter_1/1-1/1-1-19.terminal_show_user.png
+.. image:: /images/Chapter_1/1-1/1-1-19.terminal_show_user.png
      :align: center
      :width: 250px
 
-.. image:: /_images/Chapter_1/1-1/1-1-17.gnome-control-center_network.png
+.. image:: /images/Chapter_1/1-1/1-1-17.gnome-control-center_network.png
      :align: center
      :width: 250px
 
-.. image:: /_images/Chapter_1/1-1/1-1-20.terminal_show_network.png
+.. image:: /images/Chapter_1/1-1/1-1-20.terminal_show_network.png
      :align: center
      :width: 250px
 
-.. image:: /_images/Chapter_1/1-1/1-1-18.gnome-monitor.png
+.. image:: /images/Chapter_1/1-1/1-1-18.gnome-monitor.png
      :align: center
      :width: 250px
 
-.. image:: /_images/Chapter_1/1-1/1-1-21.terminal_show_top.png
+.. image:: /images/Chapter_1/1-1/1-1-21.terminal_show_top.png
      :align: center
      :width: 250px
 
 对于服务器（如DNS、Web或邮件），通常不需要安装桌面环境，或者安装了桌面环境也不使用。原因是当您通过网络管理设备时，您的桌面环境必定会增加网络传输的流量，而且也会消耗一定的性能。所以使用CUI来管理操作系统可以省去繁琐的操作流程与节省流量。
 
-.. image:: /_images/Chapter_1/1-1/1-1-22.terminal_shell_command.png
+.. image:: /images/Chapter_1/1-1/1-1-22.terminal_shell_command.png
      :align: center
      :width: 250px
 
-.. image:: /_images/Chapter_1/1-1/1-1-23.tty_windows.png
+.. image:: /images/Chapter_1/1-1/1-1-23.tty_windows.png
      :align: center
      :width: 250px

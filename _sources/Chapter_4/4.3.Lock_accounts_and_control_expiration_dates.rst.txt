@@ -155,7 +155,7 @@
 
 将上述内容在下图中做描述：
 
-.. image:: /_images/Chapter_4/4-3-1.账户和密码到期示例.png
+.. image:: /images/Chapter_4/4-3-1.账户和密码到期示例.png
     :align: center
 
 
