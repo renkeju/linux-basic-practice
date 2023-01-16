@@ -9,6 +9,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - uses: BSFishy/pip-action@v1
+      with:
+        packages: package
+        requirements: requirements.txt
+        constraints: constraints.txt
+        no-deps: true
+        pre: true
+        editable: editable
+        platform: ':all:'
+        upgrade: true
+        extra: extra options
     - uses: actions/checkout@v1
     # Standard drop-in approach that should work for most people.
     - uses: ammaraskar/sphinx-action@master
