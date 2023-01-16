@@ -2,3 +2,6 @@ jieba
 Sphinx
 docxbuilder
 sphinxcontrib-excel-table
+groundwork-sphinx-theme
+sphinx-rtd-theme
+insegel

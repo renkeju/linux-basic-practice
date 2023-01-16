@@ -39,6 +39,7 @@ release = 'alpha'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'docxbuilder',
     'sphinx.ext.autodoc',
     'sphinx.ext.graphviz',
     'sphinx.ext.mathjax',
@@ -79,8 +80,8 @@ pygments_style = 'sphinx'
 # a list of builtin themes.
 #
 # html_theme = 'sphinx_rtd_theme'
-html_theme = 'alabaster'
-html_show_sourcelink = False
+html_theme = 'sphinx_rtd_theme'
+html_show_sourcelink = True
 
 # (Optional) Logo. Should be small enough to fit the navbar (ideally 24x24).
 # Path should be relative to the ``_static`` files directory.
@@ -90,10 +91,10 @@ html_logo = "_static/linux.png"
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-html_theme_options = {
-    "page_width": "1400px",
-    "sidebar_width": "400px",
-}
+# html_theme_options = {
+#     "page_width": "1400px",
+#     "sidebar_width": "400px",
+# }
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
