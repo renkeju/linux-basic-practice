@@ -1,36 +1,170 @@
-
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
-  <head>
-    <meta charset="utf-8" />
-    <title>第三章 文件的操作与使用 &#8212; 《Linux 基础实践入门》 alpha 文档</title>
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>第三章 文件的操作与使用 &mdash; 《Linux 基础实践入门》 alpha 文档</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/translations.js"></script>
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="第四章 管理用户" href="../Chapter_4/4.Register_modify_delete_user.html" />
     <link rel="prev" title="第二章 Linux的启动和停止" href="../Chapter_2/2.start_and_stop_linux.html" />
 <link rel="stylesheet" type="text/css" href="../_static/handsontable.full.min.css">
+<link href="../_static/style.css" rel="stylesheet" type="text/css">
 <script src="../_static/handsontable.full.min.js"></script>
 
-  </head><body>
-  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> 《Linux 基础实践入门》<img src="../_static/linux.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_1/1.Linux_overview.html">第一章 Linux 概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_2/2.start_and_stop_linux.html">第二章 Linux的启动和停止</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">第三章 文件的操作与使用</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#linux">3.1 了解Linux目录结构</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">树状结构与各目录的作用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">命令提示符</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">自定义命令提示符</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">离线文档</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">3.2 管理文件和目录</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">在命令行中处理文件和目录</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">切换目录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">显示目录路径</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">查看文件和目录信息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">打印文件内容</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">逐页查看文件内容</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">查看文件内容</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">显示文件内容行首添加行号</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">创建目录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">创建文件并更改时间戳</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">移动文件和目录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">复制文件和目录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id19">删除文件和目录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id20">确认文件类型</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id21">标准输入输出控制</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id22">标准输出、标准错误输出重定向示例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id23">标准输入重定向示例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id24">文件输出</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">过滤</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id26">显示文本文件的第一部分</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id27">显示文本文件的末尾</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id28">格式转换</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id29">文件内容排序</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id30">合并行</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id31">删除重复行</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id32">转换或删除单词</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id33">检索行中的特定部分</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id34">将制表符转换为空格</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id35">搜索字符串</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id36">正则表达式</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id37">3.3 权限使用</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id38">管理文件所有者</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id39">用户和用户组</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id40">权限</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id41">变更权限</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#umask">umask值</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id44">更改文件所有者和组</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id45">创建链接</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id46">创建硬链接</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id47">创建符号链接</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id48">查找命令和文件</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id49">查找文件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id50">文件索引搜索</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id51">查找命令</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id52">查找二进制文件，源文件和手册的位置</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#vi">3.4 使用vi编辑其编辑文件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id53">什么是vi编辑器？</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id54">滚动屏幕（命令模式）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id55">保存文档，退出vi编辑器（末尾行模式）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id56">使用文字输入模式（插入模式）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id57">删除字符、单词或行（在命令模式下）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id58">复制和黏贴字符、单词或行（在命令模式下）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id59">在vi编辑器中搜索字符串</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id60">vi编辑器的设定</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_4/4.Register_modify_delete_user.html">第四章 管理用户</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_5/5.Execute_scripts_and_tasks.html">第五章 执行脚本和任务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix_A/A.Create_a_virtual_environment.html">附录A 创建虚拟环境</a></li>
+</ul>
 
-          <div class="body" role="main">
-            
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">《Linux 基础实践入门》</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">第三章 文件的操作与使用</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Chapter_3/3.opration_and_use_of_files.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <div class="section" id="id1">
 <h1>第三章 文件的操作与使用<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="section" id="linux">
@@ -2570,102 +2704,34 @@ $ vi file1
 </div>
 
 
+           </div>
           </div>
-          
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Chapter_2/2.start_and_stop_linux.html" class="btn btn-neutral float-left" title="第二章 Linux的启动和停止" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../Chapter_4/4.Register_modify_delete_user.html" class="btn btn-neutral float-right" title="第四章 管理用户" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2019, renkeju.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="../index.html">
-              <img class="logo" src="../_static/linux.png" alt="Logo"/>
-            </a></p>
-<h1 class="logo"><a href="../index.html">《Linux 基础实践入门》</a></h1>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-
-
-
-
-
-
-
-<h3>导航</h3>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_1/1.Linux_overview.html">第一章 Linux 概述</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_2/2.start_and_stop_linux.html">第二章 Linux的启动和停止</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">第三章 文件的操作与使用</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#linux">3.1 了解Linux目录结构</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">树状结构与各目录的作用</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">命令提示符</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">离线文档</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">3.2 管理文件和目录</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id7">在命令行中处理文件和目录</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id21">标准输入输出控制</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id25">过滤</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id35">搜索字符串</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#id37">3.3 权限使用</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id38">管理文件所有者</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id45">创建链接</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id48">查找命令和文件</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#vi">3.4 使用vi编辑其编辑文件</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id53">什么是vi编辑器？</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id60">vi编辑器的设定</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_4/4.Register_modify_delete_user.html">第四章 管理用户</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Chapter_5/5.Execute_scripts_and_tasks.html">第五章 执行脚本和任务</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Appendix_A/A.Create_a_virtual_environment.html">附录A 创建虚拟环境</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="../Chapter_2/2.start_and_stop_linux.html" title="上一章">第二章 Linux的启动和停止</a></li>
-      <li>Next: <a href="../Chapter_4/4.Register_modify_delete_user.html" title="下一章">第四章 管理用户</a></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">快速搜索</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="转向" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2019, renkeju.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-    </div>
-
-    
-
-    
-  </body>
+</body>
 </html>
