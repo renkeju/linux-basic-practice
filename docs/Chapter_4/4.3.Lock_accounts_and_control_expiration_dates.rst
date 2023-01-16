@@ -1,0 +1,341 @@
+===============================
+4.3 锁定账户并控制到期日期
+===============================
+
+失效日期
+--------------
+
+如果您要为特定用户发布一个仅在一段时间内可用的账户，可以通过设置明确到期日期来实现。
+
+设置默认到期日期
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+如果要使用 useradd 命令设置或显示用户账户的默认值，请指定“-D”选项。使用“-f”选项作为参数指定密码到期与账户失效期间的天数。
+
+.. code-block:: none
+
+    useradd -D -f 天数
+
+.. code-block:: none
+
+    # grep INACTIVE /etc/default/useradd
+    INACTIVE=-1
+    # useradd -D -f 60
+    # grep INACTIVE /etc/default/useradd
+    INACTIVE=60
+
+上面示例中的“useradd -D -f 60”命令将更新 ``/etc/default/useradd`` 文件中 INACTIVE 的值。更新前默认值设置为“-1”（永不过期）。
+
+您还可以指定失效日期。默认情况下，EXPIRE 没有设置值，因此它是无限期的。“-e”(expire)选项使用 YYYY/MM/DD 格式作为参数设置过期日期的默认值。
+
+.. code-block:: none 
+
+    useradd -D -e 日期
+
+.. code-block:: none 
+
+    # grep EXPIRE /etc/default/useradd
+    EXPIRE=
+    # useradd -D -e 2020/12/31
+    # grep EXPIRE /etc/default/useradd
+    EXPIRE=2020/12/31
+
+设置现有用户的到期日期
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+使用chage命令设置过期日期和密码过期日期。
+
+要更改现有用户的过期日期，请使用“usermod -e”或使用chage命令运行“chage -E”。
+
+.. code-block:: none 
+
+    chage [选项[参数]] 用户名称
+
+.. csv-table:: chage 命令选项
+    :header: "选项", "说明", "/etc/shadow（对应的字段编号）"
+    :widths: 5 25 5
+
+    "-l", "显示账户和密码到期信息，此选项对普通用户可用", "-"
+    "-d", "已设置密码的上次更新日期。以YYYY/MM/DD格式或自1970年1月1日起的时间戳指定年月日的天数", "3"
+    "-m", "设置密码更改时间间隔的最短天数", "4"
+    "-M", "设置允许密码保持不变的最长天数", "5"
+    "-W", "设置密码更改前警告的天数", "6"
+    "-I", "密码更改过期后账户不再可用的宽限天数。此宽限期要求用户登录时更改密码", "7"
+    "-E", "设置账户的到期日期（自到期日期后的第二天起不再可用）。以YYYY/MM/DD格式或自1970年1月1日起的时间戳指定年月日的天数", "8"
+
+现有用户的过期日期已在 ``/etc/shadow`` 文件中注册。
+
+.. csv-table:: none 
+    :header: "字段编号", "说明"
+    :widths: 5 20
+
+    "1", "用户名称"
+    "2", "加密密码"
+    "3", "从1970年1月1日到上次更改密码的天数"
+    "4", "密码可更改前的天数"
+    "5", "必须更改密码之前的天数"
+    "6", "密码失效前警告用户的天数"
+    "7", "密码到期后账户失效的天数"
+    "8", "从1970年1月1日起到账户不可用的天数"
+    "9", "保留字段"
+
+下面的示例按日期设置到期日：
+
+.. code-block:: none 
+
+    # grep yuko /etc/shadow
+    yuko:$6$SVzR22hq$calpTTiki.EnylxwWH9TNjhHj8awJPx4nVWJ5lpwjws.akX/jT7.pJWxPXV3V0FwrB2woR4NgRCykDwGNSsyY.:18317:0:99999:7:::
+    # date
+    Fri Feb 28 13:14:29 CST 2020
+    # chage -E 2020/12/31 yuko
+    # grep yuko /etc/shadow
+    yuko:$6$SVzR22hq$calpTTiki.EnylxwWH9TNjhHj8awJPx4nVWJ5lpwjws.akX/jT7.pJWxPXV3V0FwrB2woR4NgRCykDwGNSsyY.:18317:0:99999:7::18627:
+
+在上面的运行结果中，``/etc/shadow`` 中的第八个字段已从空（从不过期）更改为18627。1970年1月1日的18627天后时2020年12月31日。在本例中，账户可使用到到期日期2020年12月31日。到了2021年1月1日，您将收到以下无法登录内容的消息：
+
+.. code-block:: none
+
+    # date
+    Fri Jan 01 13:25:03 CST 2021
+    # ssh yuko@192.168.1.111
+    yuko@192.168.1.111's password:
+    Your account has expired; please contact your system administrator
+    Connection closed by 192.168.1.111 port 22
+
+① 验证是否已经过期
+
+② 用户 yuko 使用 ssh 尝试登录到 “192.168.1.111” 主机
+
+③ 提示了因过期而无法登录的消息
+
+确认密码到期时间
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+要检查密码到期日期，请以“chage -l 用户名”的形式运行chage命令。以下示例检查用户ryo的账户可密码的到期日期。
+
+.. code-block:: none
+
+    # date
+    Fri Feb 28 13:31:11 CST 2020 ⬅ 确认当前日期
+    # chage -l ryo
+    Last password change                                    : Feb 28, 2020
+    Password expires                                        : never
+    Password inactive                                       : never
+    Account expires                                         : never
+    Minimum number of days between password change          : 0
+    Maximum number of days between password change          : 99999
+    Number of days of warning before password expires       : 7
+    # chage -M 60 ryo ⬅ 设置允许密码保持不变的最长天数（60天）
+    # chage -l ryo
+    Last password change                                    : Feb 28, 2020
+    Password expires                                        : Apr 28, 2020 ⬅ 60天后密码到期
+    Password inactive                                       : never
+    Account expires                                         : never
+    Minimum number of days between password change          : 0
+    Maximum number of days between password change          : 60
+    Number of days of warning before password expires       : 7
+    # chage -I 30 ryo ⬅ 设置超过密码更改期限和账户不可用前的宽限日期（30天）
+    # chage -l ryo
+    Last password change                                    : Feb 28, 2020
+    Password expires                                        : Apr 28, 2020
+    Password inactive                                       : May 28, 2020 ⬅ 30天后重置密码
+    Account expires                                         : never
+    Minimum number of days between password change          : 0
+    Maximum number of days between password change          : 60
+    Number of days of warning before password expires       : 7
+    # chage -E 2020/12/31 ryo ⬅ 设置账户到期日期（2020/12/31）
+    # chage -l ryo
+    Last password change                                    : Feb 28, 2020 ①
+    Password expires                                        : Apr 28, 2020 ②
+    Password inactive                                       : May 28, 2020 ③
+    Account expires                                         : Dec 31, 2020 ④ ⬅ 2020/12/31账户到期
+    Minimum number of days between password change          : 0            ⑤
+    Maximum number of days between password change          : 60           ⑥
+    Number of days of warning before password expires       : 7            ⑦
+
+将上述内容在下图中做描述：
+
+.. image:: /images/Chapter_4/4-3-1.账户和密码到期示例.png
+    :align: center
+
+
+如果您在上图中的②~③期间尝试登录，请确认系统提示您更改密码的要求。密码过期后，在账户到期宽限期内，登录时将提示您更改密码，如下所示：
+
+.. code-block:: none
+
+    # date
+    Fri Feb 28 14:30:49 CST 2020
+    # ssh ryo@192.168.1.219
+    ryo@192.168.1.219's password:
+    You are required to change your password immediately (password aged)
+    Last login: Tue Apr 28 00:00:07 2020 from 192.168.1.184
+    WARNING: Your password has expired.
+    You must change your password now and login again!
+    Changing password for user ryo.
+    Changing password for ryo.
+    (current) UNIX password:
+    New password:
+    Retype new password:
+    passwd: all authentication tokens updated successfully.
+    Connection to 192.168.1.219 closed. 
+
+然后，您可以尝试使用新密码登录。
+
+另外，如果超过了可以更改密码的宽限期，将显示与以下相同账户到期的信息，则无法登录。
+
+.. code-block:: none
+
+    # ssh ryo@192.168.1.219
+    ryo@192.168.1.219's password:
+    Your account has expired; please contact your system administrator
+    Connection closed by 192.168.1.219 port 22
+
+更改密码到期日期
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+除了chage命令外，passwd命令也允许您更改密码到期日期和密码到期宽限期限。usermod命令允许您更改密码失效前的宽限期。用于设置和更改密码和账户到期日期的命令和选项包括：
+
++---------+---------------------------------------------+----------------------------------+----------------------------+
+| 命令    | maxdays（密码保持不变的最长有效天数）       | inactive（密码到期前的宽限天数） | expiredate（账户到期日期） |
++=========+=============================================+==================================+============================+
+| useradd | （有关缺省值，请参见 ``/etc/login.defs`` )- | useradd -D -f                    | useradd -D -e              |
+|         |                                             +----------------------------------+----------------------------+
+|         |                                             | useradd -f                       | useradd -e                 |
++---------+---------------------------------------------+----------------------------------+----------------------------+
+| usermod | \-                                          | usermod -f                       | usermod -e                 |
++---------+---------------------------------------------+----------------------------------+----------------------------+
+| chage   | chage -M                                    | chage -l                         | chage -E                   |
++---------+---------------------------------------------+----------------------------------+----------------------------+
+| passwd  | passwd -x                                   | passwd -i                        | \-                         |
++---------+---------------------------------------------+----------------------------------+----------------------------+
+
+禁止登录
+--------------
+
+每个用户的登录shell都在 ``/etc/passwd`` 文件中注册。
+
+通过将登录shell指定为 ``/bin/false``，可以防止通过交互式登录。false只会返回返回值“1”（false:假）而不执行任何操作命令。 ``/bin/false`` 强制注销，因为用户登录时将执行false命令。
+
+还可以将登录shell设置为 ``/sbin/nologin`` 。nologin是一个命令，用于显示当前账户不可用的消息。当用户登录时，将执行nologin命令，显示消息“This account is currently not available.”，然后将其注销登录。
+
+您可以使用 usermod 命令或 chsh(change shell) 来更改登录shell。
+
+.. code-block:: none 
+
+    usermod -s shell路径 用户名称
+
+.. code-block:: none
+
+    chsh -s shell路径 用户名称
+
+在以下示例中，usermod 命令将用户mana的登录shell更改为 ``/sbin/nologin``，chsh命令将用户 ryo 的登录shell更改为 ``/bin/false``。
+
+.. code-block:: none 
+
+    # grep mana /etc/passwd ⬅ ①
+    mana:x:1002:1002::/home/mana:/bin/bash ⬅ ②
+    # usermod -s /sbin/nologin mana ⬅ ③
+    # grep mana /etc/passwd
+    mana:x:1002:1002::/home/mana:/sbin/nologin ⬅ ④
+    # grep ryo /etc/passwd
+    ryo:x:1001:1001::/home/ryo:/bin/bash ⬅ ⑤
+    # chsh -s /bin/false ryo ⬅ ⑥
+    Changing shell for ryo.
+    chsh: Warning: "/bin/false" is not listed in /etc/shells.
+    Shell changed.
+    # grep ryo /etc/passwd
+    ryo:x:1001:1001::/home/ryo:/bin/false
+
+① 以mana为关键字搜索文件“/etc/passwd”
+
+② 用户mana的shell为“/bin/bash”
+
+③ 将登录shell更改为“/sbin/nologin”
+
+④ 验证是否已更改为“/sbin/nologin”
+
+⑤ 用户ryo的shell为“/bin/bash”
+
+⑥ 将登录shell更改为“/bin/false”
+
+⑦ 如果“/bin/false”没有在/etc/shells中注册，则会发出警告
+
+⑧ 验证是否已经更改为“/bin/false”
+
+
+在ssh中，mana和ryo尝试登录到192.168.1.219。输入密码后，您将看到强制断开链接。
+
+.. code-block:: none 
+
+    $ ssh mana@192.168.1.219
+    mana@192.168.1.219's password:
+    This account is currently not available.
+    Connection to 192.168.1.219 closed.
+    $ ssh ryo@192.168.1.219
+    ryo@192.168.1.219's password:
+    Last failed login: Wed Jun 30 00:00:13 CST 2021 from 192.168.1.184 on ssh:notty
+    There were 2 failed login attempts since the last successful login.
+    Last login: Tue Jun 30 00:00:19 2020 from 192.168.1.184
+    Connection to 192.168.1.219 closed.
+
+锁定用户
+^^^^^^^^^^^^^^^
+
+要锁定特定用户的账户以防止其登录，请运行usermod或passwd命令。“usermod -L”是在 ``/etc/shadow`` 文件中加密密码的内容开头加入“!”的相应参数。“usermod -U”是消除 ``/etc/shadow`` 文件中加密密码的开头内容“!”的相应参数。“passwd -l”是在 ``/etc/passwd`` 文件中的加密密码的开头添加“!!”的相应参数，“passwd -u”是在 ``/etc/passwd`` 文件中的加密密码的开头删除“!!”的相应参数。
+
+.. code-block:: none
+
+    usermod -L 用户名称
+    passwd -l 用户名称
+    usermod -U 用户名称
+    passwd -u 用户名称
+
+以下是使用“usermod -L”锁定用户yuko的命令示例：
+
+.. code-block:: none 
+
+    # grep yuko /etc/shadow
+    yuko:$6$uHesPsWv$rZheN0ujVXaGd1lNVdrX816pvgKC2oIroXISa2AcEIxgBKf1PNHyGjzUu90fyi1gq2WgIJH/CRivyBbzs0xYv.:18320:0:99999:7:::
+    # usermod -L yuko
+    # grep yuko /etc/shadow
+    yuko:!$6$uHesPsWv$rZheN0ujVXaGd1lNVdrX816pvgKC2oIroXISa2AcEIxgBKf1PNHyGjzUu90fyi1gq2WgIJH/CRivyBbzs0xYv.:18320:0:99999:7:::
+
+锁定后再登录时显示的消息与密码错误时显示的消息相同。
+
+以下是用户yuko在ssh中尝试登录并输入正确的密码，但系统会提示您重新输入密码，最终确保您无法登录。
+
+.. code-block:: none
+
+    $ ssh yuko@192.168.1.219
+    yuko@192.168.1.219's password:
+    Permission denied, please try again.
+    yuko@192.168.1.219's password:
+    Permission denied, please try again.
+    yuko@192.168.1.219's password:
+    yuko@192.168.1.219: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+
+禁止普通用户登录
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+此外，如果root创建 ``/etc/nologin`` 文件，则普通用户将无法再登录。如果将消息存储在/etc/nologin中，则登录时将显示该消息，并且用户将被拒绝登录。但是，root用户还可以登录。删除此文件后，它将恢复正常状态。
+
+以下是新的 ``/etc/nologin`` 文件。
+
+.. code-block:: none
+
+    # ll /etc/nologin
+    ls: cannot access /etc/nologin: No such file or directory
+    # touch /etc/nologin
+    # vim /etc/nologin
+    Disable current login!
+
+以下是用户yuko尝试登录时显示的消息，最终确认无法登录。
+
+.. code-block:: none
+
+    $ ssh yuko@192.168.1.219
+    yuko@192.168.1.219's password:
+    Disable current login!
+
+    Connection closed by 192.168.1.219 port 22
+
