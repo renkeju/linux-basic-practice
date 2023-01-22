@@ -2,6 +2,7 @@ jieba
 Sphinx
 docxbuilder
 sphinxcontrib-excel-table
+sphinxcontrib-mermaid
 groundwork-sphinx-theme
 sphinx-rtd-theme
 insegel

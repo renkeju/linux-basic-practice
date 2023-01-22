@@ -43,7 +43,9 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.graphviz',
     'sphinx.ext.mathjax',
+    'sphinx.ext.todo',
     'sphinxcontrib.excel_table',
+    'sphinxcontrib.mermaid',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -72,6 +74,9 @@ exclude_patterns = []
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
+
+# Display todos by setting to True
+todo_include_todos = True
 
 
 # -- Options for HTML output -------------------------------------------------
