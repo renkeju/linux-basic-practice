@@ -18,7 +18,7 @@ CentOS的初始化配置
 
 .. image:: /images/Chapter_1/1-4/1-4-1.启动器界面.png
     :align: center
-    :width: 400px
+    
 
 * 查看已安装包信息
 
@@ -234,11 +234,11 @@ Ubuntu初始化设定
 
 .. image:: /images/Chapter_1/1-4/1-4-2.显示应用程序.png
     :align: center
-    :width: 400px
+    
 
 .. image:: /images/Chapter_1/1-4/1-4-3.图标一览表.png
     :align: center
-    :width: 400px
+    
 
 * 确认已安装包的信息
 
