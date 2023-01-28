@@ -63,4 +63,9 @@
    Chapter_3/3.opration_and_use_of_files
    Chapter_4/4.Register_modify_delete_user
    Chapter_5/5.Execute_scripts_and_tasks
+   Chapter_6/6.Manage_systems_and_applications
+   Chapter_7/7.Adding_and_using_a_disk
+   Chapter_8/8.Manage_your_network
+   Chapter_9/9.System_maintenance
+   Chapter_10/10.Security_measures
    Appendix_A/A.Create_a_virtual_environment

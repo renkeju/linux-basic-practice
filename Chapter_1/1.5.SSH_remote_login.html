@@ -64,6 +64,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_3/3.opration_and_use_of_files.html">第三章 文件的操作与使用</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_4/4.Register_modify_delete_user.html">第四章 管理用户</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_5/5.Execute_scripts_and_tasks.html">第五章 执行脚本和任务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_6/6.Manage_systems_and_applications.html">第六章 包管理系统和应用程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_7/7.Adding_and_using_a_disk.html">第七章 添加和使用磁盘</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_8/8.Manage_your_network.html">第八章 管理网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_9/9.System_maintenance.html">第九章 系统维护</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_10/10.Security_measures.html">第十章 安全措施</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Appendix_A/A.Create_a_virtual_environment.html">附录A 创建虚拟环境</a></li>
 </ul>
 
@@ -96,7 +101,7 @@
 <div class="section" id="id1">
 <h2>远程登录<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>从本地主机（用户直接登录的主机）登录到网络上的其他主机（远程主机），将其称为远程登录。</p>
-<img alt="../_images/1-5-1.远程登录.png" class="align-center" src="../_images/1-5-1.远程登录.png" />
+<img alt="../_images/1-5-1.远程登录.drawio.png" class="align-center" src="../_images/1-5-1.远程登录.drawio.png" />
 <p>远程登录的指令有很多。</p>
 <ul>
 <li><p>telnet</p>
@@ -199,7 +204,7 @@ CGroup: /system.slice/ssh.service
 <li><p>客户端主机以“centos”的身份登录</p></li>
 <li><p>作为“centos”远程登录到服务器主机</p></li>
 </ul>
-<img alt="../_images/1-5-2.ssh远程登录.png" class="align-center" src="../_images/1-5-2.ssh远程登录.png" />
+<img alt="../_images/1-5-2.ssh远程登录.drawio.png" class="align-center" src="../_images/1-5-2.ssh远程登录.drawio.png" />
 <p>首先，请先看示例一。ssh命令后，指定主机名。由于省略了用户名，因此使用客户端的当前用户名（在此为“centos”）。此外，首次连接到主机时，OpenSSH将显示一条警告信息，如果出现警告，请输入“yes”。</p>
 <p>如上述示例所示，登录成功，操作结束后注销登录。要注销，请运行`exit`命令。</p>
 <p>接下来，请看示例二。也可以指定IP地址而不是主机名。另外，登录时指定用户名时，指定为“-l 用户名”。</p>

@@ -7,7 +7,7 @@
 
 从本地主机（用户直接登录的主机）登录到网络上的其他主机（远程主机），将其称为远程登录。
 
-.. image:: /images/Chapter_1/1-5/1-5-1.远程登录.png
+.. image:: /images/Chapter_1/1-5/1-5-1.远程登录.drawio.png
     :align: center
     
 
@@ -110,7 +110,7 @@ ssh远程登录
     * 客户端主机以“centos”的身份登录
     * 作为“centos”远程登录到服务器主机
 
-    .. image:: /images/Chapter_1/1-5/1-5-2.ssh远程登录.png
+    .. image:: /images/Chapter_1/1-5/1-5-2.ssh远程登录.drawio.png
         :align: center
         
 

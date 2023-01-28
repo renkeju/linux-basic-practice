@@ -8,7 +8,7 @@
 
 Linux 允许多个用户使用同一台主机。如前面的运行示例所示，本文档中的用户都是登录到同一主机并进行操作。登录可以是直接登录到主机的本地登录，也可以是通过网络的远程登录。但是，这两种登录都必须先创建一个可以登录到此主机的用户。
 
-.. image:: /images/Chapter_4/4-1-1.本地和远程登录.png
+.. image:: /images/Chapter_4/4-1-1.本地和远程登录.drawio.png
     :align: center
 
 另外，如果登录的用户能够执行所有操作，则有可能会破坏系统。因此，第三章所述的权限限制对文件和目录的访问权限进行了限制，同时也限制了可执行程序的执行权限。
@@ -35,7 +35,7 @@ Linux 允许多个用户使用同一台主机。如前面的运行示例所示�
 
 可以在 ``/etc/passwd`` 和 ``/etc/shadow`` 文件中创建条目（用户信息）和起始目录。此外，由于用户必须属于一个或多个组，因此组信息将会写入 ``/etc/group`` 和 ``/etc/shadow`` 文件。稍后将做更详细的介绍。
 
-.. image:: /images/Chapter_4/4-1-2.用户注册时更新文件.png
+.. image:: /images/Chapter_4/4-1-2.用户注册时更新文件.drawio.png
     :align: center
 
 .. code-block:: none
@@ -97,7 +97,7 @@ Linux 允许多个用户使用同一台主机。如前面的运行示例所示�
 
 例如，系统管理员可以使用 bash 配置文件“.bash_profile”或“.bashrc”向用户分发配置文件。用户可以自定义这些文件。
 
-.. image:: /images/Chapter_4/4-1-3.自动发布初始化文件.png
+.. image:: /images/Chapter_4/4-1-3.自动发布初始化文件.drawio.png
     :align: center
 
 .. note:: 
@@ -120,7 +120,7 @@ useradd 命令将用户 sam 信息添加到 ``/etc/passwd`` 和 ``/etc/shadow`` 
 
 .. note:: 有关 ``/etc/shadow`` 文件中字段的详细信息，请参见本章节“4-3 锁定账户并管理到期日期”。
 
-.. image:: /images/Chapter_4/4-1-4._etc_passwd文件中的字段.png
+.. image:: /images/Chapter_4/4-1-4._etc_passwd文件中的字段.drawio.png
     :align: center
 
 设置密码

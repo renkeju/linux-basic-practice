@@ -49,6 +49,18 @@
         <script >mermaid.initialize({startOnLoad:true});</script>
         <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
         <script >mermaid.initialize({startOnLoad:true});</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script >mermaid.initialize({startOnLoad:true});</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script >mermaid.initialize({startOnLoad:true});</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script >mermaid.initialize({startOnLoad:true});</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script >mermaid.initialize({startOnLoad:true});</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script >mermaid.initialize({startOnLoad:true});</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script >mermaid.initialize({startOnLoad:true});</script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
@@ -82,6 +94,11 @@
 <li class="toctree-l1"><a class="reference internal" href="3.opration_and_use_of_files.html">第三章 文件的操作与使用</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_4/4.Register_modify_delete_user.html">第四章 管理用户</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_5/5.Execute_scripts_and_tasks.html">第五章 执行脚本和任务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_6/6.Manage_systems_and_applications.html">第六章 包管理系统和应用程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_7/7.Adding_and_using_a_disk.html">第七章 添加和使用磁盘</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_8/8.Manage_your_network.html">第八章 管理网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_9/9.System_maintenance.html">第九章 系统维护</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_10/10.Security_measures.html">第十章 安全措施</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Appendix_A/A.Create_a_virtual_environment.html">附录A 创建虚拟环境</a></li>
 </ul>
 
@@ -171,9 +188,9 @@ uid=1000(renkeju) gid=1000(renkeju) groups=1000(renkeju),10(wheel),995(docker)
 <div class="section" id="id4">
 <h3>权限<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
 <p>您可以分别为每个文件或目录设置“允许谁”和“执行什么操作”。这可以称为权限。可以使用 <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> 命令检查设置的权限。</p>
-<img alt="../_images/3-3-1.确认权限.png" class="align-center" src="../_images/3-3-1.确认权限.png" />
+<img alt="../_images/3-3-1.确认权限.drawio.png" class="align-center" src="../_images/3-3-1.确认权限.drawio.png" />
 <p>权限显示的内容分为以下几类：</p>
-<img alt="../_images/3-3-2.权限.png" class="align-center" src="../_images/3-3-2.权限.png" />
+<img alt="../_images/3-3-2.权限.drawio.png" class="align-center" src="../_images/3-3-2.权限.drawio.png" />
 <p>① 文件类型（这表示文件类型，而不是权限本身，主要类型如下表所示）</p>
 <p>② 对用户（所有者）的权限</p>
 <p>③ 所有组的权限</p>
@@ -206,7 +223,7 @@ uid=1000(renkeju) gid=1000(renkeju) groups=1000(renkeju),10(wheel),995(docker)
 </table>
 <p>此外，“rw-”表示允许执行哪些操作。在“r”,“w”,“x”这些操作类型中，标识为“-”表示此操作不被允许。</p>
 <p>下图显示了文件“Foo”的访问权限。“-rw-rw-r–”允许用户yuko读写普通文件。由于所有组是users，因此属于users的其他用户可以读写。也就是说，用户ryo可以读写。请注意，不属于 users 组的其他用户（在本例中的mana）只能读取。</p>
-<img alt="../_images/3-3-3.文件Foo的访问权限.png" class="align-center" src="../_images/3-3-3.文件Foo的访问权限.png" />
+<img alt="../_images/3-3-3.文件Foo的访问权限.drawio.png" class="align-center" src="../_images/3-3-3.文件Foo的访问权限.drawio.png" />
 <p>此外，“r”、“w”、“x”的含义因文件或目录而异。</p>
 <table class="colwidths-given docutils align-default" id="id19">
 <caption><span class="caption-text">文件和目录之间的差异</span><a class="headerlink" href="#id19" title="永久链接至表格">¶</a></caption>
@@ -248,7 +265,7 @@ uid=1000(renkeju) gid=1000(renkeju) groups=1000(renkeju),10(wheel),995(docker)
 <div class="section" id="id6">
 <h4>符号方式<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h4>
 <p>使用字符或符号变更权限。使用以下符号或字符：</p>
-<img alt="../_images/3-3-4.符号方式.png" class="align-center" src="../_images/3-3-4.符号方式.png" />
+<img alt="../_images/3-3-4.符号方式.drawio.png" class="align-center" src="../_images/3-3-4.符号方式.drawio.png" />
 <p>请参考下方示例：文件“mypg”的当前权限为“rw-rw-r–”。将其更改为“所有用户都可以读取和执行，只有所有者可以写入”的权限。文件的所有者为用户renkeju。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ls -l ⬅ 检查权限
 -rw-rw-r--. 1 renkeju renkeju 0 Feb 23 23:03 mypg
@@ -261,7 +278,7 @@ $ chmod a+x,g-w mypg ⬅ 在符号模式下更改权限
 <div class="section" id="id7">
 <h4>八进制方式<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
 <p>使用八进制数字更改所需的权限。每个权限都有自己的编号。</p>
-<img alt="../_images/3-3-5.八进制方式.png" class="align-center" src="../_images/3-3-5.八进制方式.png" />
+<img alt="../_images/3-3-5.八进制方式.drawio.png" class="align-center" src="../_images/3-3-5.八进制方式.drawio.png" />
 <p>也就是说，如果“rwx”全部被赋予权限，则为“7”，如果仅为“r”,则为“4”。在八进制模式下，通过组合此数字来指定权限。</p>
 <p>如果将之前的符号模式的示例换成使用八进制模式操作：</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ls -l mypg
@@ -408,7 +425,7 @@ $ ls -li file* ⬅ 检查 inode
 1241225 -rw-rw-r--. 2 renkeju renkeju 6 Feb 24 09:43 fileY
 </pre></div>
 </div>
-<img alt="../_images/3-3-7.硬链接.png" class="align-center" src="../_images/3-3-7.硬链接.png" />
+<img alt="../_images/3-3-7.硬链接.drawio.png" class="align-center" src="../_images/3-3-7.硬链接.drawio.png" />
 <p>此外，以下示例还使用rm命令删除了文件“fileX”。但是，由于inode未被删除，因此您仍然还可以访问到链接“fileY”文件中的数据。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ rm fileX
 $ cat fileY
@@ -432,7 +449,7 @@ ln: ‘mydir’: hard link not allowed for directory
 <div class="section" id="id11">
 <h3>创建符号链接<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
 <p>以下示例创建了符号链接，但请确保使用了不同的inode编号，并且在运行 <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> 时，符号链接文件显示为“链接名称 -&gt; 原始文件名称”，并且权限的开头显示符号链接文件的文件类型为“l”。</p>
-<img alt="../_images/3-3-8.符号链接.png" class="align-center" src="../_images/3-3-8.符号链接.png" />
+<img alt="../_images/3-3-8.符号链接.drawio.png" class="align-center" src="../_images/3-3-8.符号链接.drawio.png" />
 <p>此外，请注意，如果删除原始文件（fileX），则会导致错误，因为链接本身没有引用（原始文件的位置）。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ rm fileX
 $ cat fileY
@@ -529,7 +546,7 @@ lrwxrwxrwx. 1 renkeju renkeju 5 Feb 24 10:07 mydir_link -&gt; mydir
 </li>
 </ul>
 <p>在第二个和第三个示例中，使用“-mtime”可以基于上次更新的日期和时间进行查找，使用“-atime”可以基于上次访问的日期和时间进行查找。另外，在指定日期和时间时，数字前可以有“什么都不加”、“+”和“-”三种方式。</p>
-<img alt="../_images/3-3-9.指定日期.png" class="align-center" src="../_images/3-3-9.指定日期.png" />
+<img alt="../_images/3-3-9.指定日期.drawio.png" class="align-center" src="../_images/3-3-9.指定日期.drawio.png" />
 <p>以下示例演示了如何在CentOS中结合使用find和xargs命令。当前目录中有一个目录和两个常规文件。尝试使用find和xargs命令搜索此目录并删除文件，但出现错误，因为“file B”文件名称中包含空格。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ls
 dirA  fileA  file B

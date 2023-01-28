@@ -47,6 +47,18 @@
         <script >mermaid.initialize({startOnLoad:true});</script>
         <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
         <script >mermaid.initialize({startOnLoad:true});</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script >mermaid.initialize({startOnLoad:true});</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script >mermaid.initialize({startOnLoad:true});</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script >mermaid.initialize({startOnLoad:true});</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script >mermaid.initialize({startOnLoad:true});</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script >mermaid.initialize({startOnLoad:true});</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script >mermaid.initialize({startOnLoad:true});</script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
@@ -80,6 +92,11 @@
 <li class="toctree-l1"><a class="reference internal" href="3.opration_and_use_of_files.html">第三章 文件的操作与使用</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_4/4.Register_modify_delete_user.html">第四章 管理用户</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_5/5.Execute_scripts_and_tasks.html">第五章 执行脚本和任务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_6/6.Manage_systems_and_applications.html">第六章 包管理系统和应用程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_7/7.Adding_and_using_a_disk.html">第七章 添加和使用磁盘</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_8/8.Manage_your_network.html">第八章 管理网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_9/9.System_maintenance.html">第九章 系统维护</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_10/10.Security_measures.html">第十章 安全措施</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Appendix_A/A.Create_a_virtual_environment.html">附录A 创建虚拟环境</a></li>
 </ul>
 
@@ -113,7 +130,7 @@
 <h2>在命令行中处理文件和目录<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>在命令行中操作文件系统中的文件和目录时，需要了解如何管理这些文件和目录以及管理文件系统的常用命令。</p>
 <p>在 Linux 系统中执行操作时，用户必定在文件系统的某个目录位置中。我们一般将当前所处的目录称为当前目录。下图中“zhangsan”是用户zhangsan的初始目录，下面将其作为的那个前目录进行介绍。</p>
-<img alt="../_images/3-2-1.目录结构.png" class="align-center" src="../_images/3-2-1.目录结构.png" />
+<img alt="../_images/3-2-1.目录结构.drawio.png" class="align-center" src="../_images/3-2-1.目录结构.drawio.png" />
 <div class="section" id="id3">
 <h3>切换目录<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
 <p>cd命令用于在文件系统上切换目录。</p>
@@ -538,7 +555,7 @@ fileA ⬅ 标准输出
 </div>
 <p>上述结果打印在同一终端上，标准输出和标准错误输出均显示在同一个屏幕上。如果要将标准输出切换为“显示”，将标准错误输出切换为输出到“文件”，请使用重定向或文件描述符。</p>
 <p>重定向可以使用符号“&lt;”或“&gt;”在目标之间进行切换。文件描述符0表示标准输入，1表示标准输出，2表示标准错误输出，此处0、1和2是在程序执行过程中产生的。如果进程打开其他文件，则文件描述符的使用顺序为：3、4、5……</p>
-<img alt="../_images/3-2-2.文件描述符.png" class="align-center" src="../_images/3-2-2.文件描述符.png" />
+<img alt="../_images/3-2-2.文件描述符.drawio.png" class="align-center" src="../_images/3-2-2.文件描述符.drawio.png" />
 <p>以下示例使用重定向和文件描述符来控制error文件中仅包含标准错误输出（文件“fileA”为存在文件，文件“fileX”为不存在文件）。</p>
 <div class="section" id="id17">
 <h3>标准输出、标准错误输出重定向示例<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
@@ -595,7 +612,7 @@ fileA ⬅ 标准输出
 </li>
 </ul>
 <p>在第二个示例中，可以使用管道 <code class="docutils literal notranslate"><span class="pre">|</span></code> 将命令的结果（标准输出）传递给下一个命令的标准输入，以进一步加工数据。</p>
-<img alt="../_images/3-2-3.管道动作.png" class="align-center" src="../_images/3-2-3.管道动作.png" />
+<img alt="../_images/3-2-3.管道动作.drawio.png" class="align-center" src="../_images/3-2-3.管道动作.drawio.png" />
 <p>在以下使用管道的示例中，cat命令将文件 <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> 的内容作为标准输出进行输出，并将其传递给 head 命令以显示前三行（有关 head 命令，请参见下文）。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cat /etc/passwd | head -3
 root:x:0:0:root:/root:/bin/bash
@@ -611,7 +628,7 @@ daemon:x:2:2:daemon:/sbin:/sbin/nologin
 </pre></div>
 </div>
 <p>通过执行“-a”选项，可在不覆盖文件的情况下进行追加内容到文件。</p>
-<img alt="../_images/3-2-4.tee命令行文.png" class="align-center" src="../_images/3-2-4.tee命令行文.png" />
+<img alt="../_images/3-2-4.tee命令行文.drawio.png" class="align-center" src="../_images/3-2-4.tee命令行文.drawio.png" />
 <p>在以下示例中，n1命令对 <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> 文件的内容进行行编号，并通过管道将结果传递给tee命令。tee命令将其存储在文件myfile.txt中，并通过管道传递给head命令。head命令仅将标准输出输出前三行。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ nl /etc/passwd | tee myfile.txt | head -3
     1  root:x:0:0:root:/root:/bin/bash
@@ -1124,7 +1141,7 @@ $ od -a data3 ⬅ ⑤
 <div class="section" id="id30">
 <h2>搜索字符串<a class="headerlink" href="#id30" title="永久链接至标题">¶</a></h2>
 <p>使用 grep 命令在文本数据中搜索字符串。显示与指定字符串匹配的行。</p>
-<img alt="../_images/3-2-5.grep命令行为.png" class="align-center" src="../_images/3-2-5.grep命令行为.png" />
+<img alt="../_images/3-2-5.grep命令行为.drawio.png" class="align-center" src="../_images/3-2-5.grep命令行为.drawio.png" />
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>grep [选项] 要搜索的字符串模式 [文件名称...]
 </pre></div>
 </div>
@@ -1185,7 +1202,7 @@ foo hello
 <h3>正则表达式<a class="headerlink" href="#id31" title="永久链接至标题">¶</a></h3>
 <p>grep 命令中指定的搜索字符串可以是完整的字符串，如 foo，也可以是正则表达式，正则表达式是将符号和字符串组合起来，制作并检测找到的目标关键词的模式的手段。</p>
 <p>下图和示例使用“a”和“^”等符号创建模式。符号称为元字符，每个符号都有其自己的含义。</p>
-<img alt="../_images/3-2-6.使用正则表达式的示例.png" class="align-center" src="../_images/3-2-6.使用正则表达式的示例.png" />
+<img alt="../_images/3-2-6.使用正则表达式的示例.drawio.png" class="align-center" src="../_images/3-2-6.使用正则表达式的示例.drawio.png" />
 <p>以下是上图的示例</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cat fileB
 linux01

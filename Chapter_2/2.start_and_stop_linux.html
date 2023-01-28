@@ -43,6 +43,18 @@
         <script >mermaid.initialize({startOnLoad:true});</script>
         <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
         <script >mermaid.initialize({startOnLoad:true});</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script >mermaid.initialize({startOnLoad:true});</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script >mermaid.initialize({startOnLoad:true});</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script >mermaid.initialize({startOnLoad:true});</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script >mermaid.initialize({startOnLoad:true});</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script >mermaid.initialize({startOnLoad:true});</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script >mermaid.initialize({startOnLoad:true});</script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
@@ -133,6 +145,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_3/3.opration_and_use_of_files.html">第三章 文件的操作与使用</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_4/4.Register_modify_delete_user.html">第四章 管理用户</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_5/5.Execute_scripts_and_tasks.html">第五章 执行脚本和任务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_6/6.Manage_systems_and_applications.html">第六章 包管理系统和应用程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_7/7.Adding_and_using_a_disk.html">第七章 添加和使用磁盘</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_8/8.Manage_your_network.html">第八章 管理网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_9/9.System_maintenance.html">第九章 系统维护</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_10/10.Security_measures.html">第十章 安全措施</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Appendix_A/A.Create_a_virtual_environment.html">附录A 创建虚拟环境</a></li>
 </ul>
 
@@ -169,7 +186,7 @@
 <p>启动系统的运行过程称为引导（Boot）。</p>
 <p>而引导顺序是指，从接通电源到显示登录画面或登录命令界面为止，内核的初期设定、文件系统的安装、系统的各种管理程序（守护进程）的启动、网络的配置等。它是OS运行所需的所有设定的一系列流程。</p>
 <p>因此，理解引导顺序也可以更深入的理解OS，而且在系统发生故障时对特定原因进行处理也是非常有帮助的。</p>
-<img alt="../_images/2-1-1.启动顺序.png" class="align-center" src="../_images/2-1-1.启动顺序.png" />
+<img alt="../_images/2-1-1.启动顺序.drawio.png" class="align-center" src="../_images/2-1-1.启动顺序.drawio.png" />
 </div>
 <div class="section" id="bios-uefi">
 <h3>BIOS/UEFI<a class="headerlink" href="#bios-uefi" title="永久链接至标题">¶</a></h3>
@@ -469,14 +486,14 @@ $ sudo grub-mkconfig | sudo tee grub.cfg
 <li><p>编译时静态链接到硬件的内核模块</p></li>
 <li><p>编译时不链接到硬件，在系统启动时或启动后，在必要时读取并动态态链接到被硬件需要的内核模块</p></li>
 </ul>
-<img alt="../_images/2-1-4.内核构成.png" class="align-center" src="../_images/2-1-4.内核构成.png" />
+<img alt="../_images/2-1-4.内核构成.drawio.png" class="align-center" src="../_images/2-1-4.内核构成.drawio.png" />
 <p>可加载内核模块(Loadable Kernel Module)，可动态加载（loadable）从这个词义上来说，它的名字是这样的，其缩写为LKM。内核加载模块（Kernel Loadable Module）其缩写为KLM，或者被称为内核模块。</p>
 <p>内核在/boot目录下存放，文件名称为“vmlinux-version”，此文件为gzip压缩文件。</p>
 <p>不同类型的可加载内核模块存放在/lib/modules/version/kernel目录下的子目录。</p>
 <div class="section" id="id6">
 <h4>引导顺序中内核的处理过程<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h4>
 <p>存储器中的内核在自动解压缩后由引导加载器GRUB2加载并执行内核中的初始化操作，其后内核解压缩并展开initramfs使其在内存中加载并运行，最后再运行systemd。</p>
-<img alt="../_images/2-1-5.引导顺序中的内核处理过程.png" class="align-center" src="../_images/2-1-5.引导顺序中的内核处理过程.png" />
+<img alt="../_images/2-1-5.引导顺序中的内核处理过程.drawio.png" class="align-center" src="../_images/2-1-5.引导顺序中的内核处理过程.drawio.png" />
 <ul>
 <li><p>内核中的初始化操作</p>
 <blockquote>
@@ -522,7 +539,7 @@ $ sudo grub-mkconfig | sudo tee grub.cfg
 <p>在多用户目标（multi-user.target）的场景下，将会显示登录命令行界面，登录到没有桌面环境的CUI环境中。</p>
 <p>目标(target)定义系统的状态，比如提供什么样的服务。systemd与早前Linux系统中使用的 SysV init功能相同。</p>
 <p>除了graphical.target和multi-user.target之外，还有用于维护系统的rescue目标（rescue.target）等其他多种目标。另外也有停止和重启系统的目标，于此我们在后面的章节再进行讲解。</p>
-<img alt="../_images/2-1-6.systemd的启动顺序.png" class="align-center" src="../_images/2-1-6.systemd的启动顺序.png" />
+<img alt="../_images/2-1-6.systemd的启动顺序.drawio.png" class="align-center" src="../_images/2-1-6.systemd的启动顺序.drawio.png" />
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 15%" />

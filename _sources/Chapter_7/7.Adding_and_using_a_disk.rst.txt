@@ -1,0 +1,8 @@
+*****************************
+第七章 添加和使用磁盘
+*****************************
+
+.. include:: /Chapter_7/7.1.Add_new_disk.rst
+.. include:: /Chapter_7/7.2.Split_the_disk.rst
+.. include:: /Chapter_7/7.3.Create_a_filesystem.rst
+.. include:: /Chapter_7/7.4.Use_iSCSI.rst

@@ -56,6 +56,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_3/3.opration_and_use_of_files.html">第三章 文件的操作与使用</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_4/4.Register_modify_delete_user.html">第四章 管理用户</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_5/5.Execute_scripts_and_tasks.html">第五章 执行脚本和任务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_6/6.Manage_systems_and_applications.html">第六章 包管理系统和应用程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_7/7.Adding_and_using_a_disk.html">第七章 添加和使用磁盘</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_8/8.Manage_your_network.html">第八章 管理网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_9/9.System_maintenance.html">第九章 系统维护</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_10/10.Security_measures.html">第十章 安全措施</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Appendix_A/A.Create_a_virtual_environment.html">附录A 创建虚拟环境</a></li>
 </ul>
 
@@ -92,7 +97,7 @@
 <p>操作系统（以下简称“OS”）主要作用就是有效的利用各种硬件的功能与性能，使开发者或计算机操作者更容易开发应用程序或使用软件。但OS只提供运行硬件的基础功能，软件开发者可以在OS之上开发出各种功能丰富且易于使用的软件，让普通用户能够轻松的使用计算机来工作。</p>
 <p>优秀的OS提高了开发人员的开发效率，同样也使得用户能够花费更少的精力学习使用所需的功能。</p>
 <p>目前常见的OS代表有Linux、Microsoft Windows、macOS等。</p>
-<img alt="&quot;1-1-1 OS的构成&quot;" class="align-center" src="../_images/1-1-1.OS的构成.png" />
+<img alt="&quot;1-1-1 OS的构成&quot;" class="align-center" src="../_images/1-1-1.OS的构成.drawio.png" />
 <ul>
 <li><p>OS的作用</p>
 <p>OS由内核提供最基础的操作系统的功能，再加以一些具有各种功能的程序组成。内核可以管理所有硬件方面的资源调用，其包括利用CPU、管理内存、管理外部设备、管理机箱和中断硬件等。内核提供了各种各样的接口和库为开发者使用，所以开发者可以通过程序操作内核，而普通用户可以通过程序提供的服务来调用硬件资源。</p>
@@ -104,7 +109,7 @@
 <p>Linux操作系统由Linux内核、库和用户控制平台组成。</p>
 </li>
 </ul>
-<img alt="&quot;1-1-2 Linux操作系统构成&quot;" class="align-center" src="../_images/1-1-2.Linux操作系统构成.png" />
+<img alt="&quot;1-1-2 Linux操作系统构成&quot;" class="align-center" src="../_images/1-1-2.Linux操作系统构成.drawio.png" />
 </div>
 <div class="section" id="id2">
 <h2>Linux系统<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
@@ -145,7 +150,7 @@
 <li><p>使用GPL发布的软件为基础，再次进行开发和变更的软件也必须基于GPL发布</p></li>
 </ul>
 <p>GPL的这一独特规定保证了软件可以再次分发，达到共享和发展软件目的。大多数Linux系统中的主要软件是在GPL下分发的免费软件。</p>
-<img alt="../_images/1-1-3.自由软件.png" class="align-center" src="../_images/1-1-3.自由软件.png" />
+<img alt="../_images/1-1-3.自由软件.drawio.png" class="align-center" src="../_images/1-1-3.自由软件.drawio.png" />
 </li>
 <li><p>开源软件</p>
 <p>源代码要求公开，但再次分发自由的软件一般被称为“开源软件”。在开源倡议（Open Source Initiative:OSI）中，根据“开发源代码定义”（The Open Source Definition:OSD），规定了开源软件的主要条件内容如下：</p>
@@ -157,17 +162,17 @@
 <p>开源软件的规定变更了GPL中“以GPL为基础发布的软件、再次发布的变更软件必须同样使用GPL”这样的要求。</p>
 <p>如果您修改了使用开源许可证进行分发的软件，您也可以通过其他许可证再次分发。在某些情况下，对于想要隐藏源代码的公司来说，这是一个易于采用的协议。</p>
 <p>X.Org开发的X Window System软件为“MIT许可证”，Mozilla组织开发的Web浏览器Firefox为“MPL（Mozilla Public License）”，构成Linux系统的一部分软件也都以开放形式发布。</p>
-<img alt="../_images/1-1-4.开源软件.png" class="align-center" src="../_images/1-1-4.开源软件.png" />
+<img alt="../_images/1-1-4.开源软件.drawio.png" class="align-center" src="../_images/1-1-4.开源软件.drawio.png" />
 </li>
 <li><p>再造软件</p>
 <p>再造软件在分发的情况下是不允许修改或复制的软件。发布者只提供二进制文件（可执行程序），不公开源代码。一般情况下，获取再造软件是收费的。Microsoft Windows和在其系统上运行的收费软件都是再造软件。</p>
 <p>在一部分Linux发行版中，有时会包含再造软件。如果擅自将原程序软件复制散布，恐怕会涉及到著作权，所以需要注意。</p>
-<img alt="../_images/1-1-5.程序再造软件.png" class="align-center" src="../_images/1-1-5.程序再造软件.png" />
+<img alt="../_images/1-1-5.程序再造软件.drawio.png" class="align-center" src="../_images/1-1-5.程序再造软件.drawio.png" />
 </li>
 </ul>
 <p>Linux中的软件多是通过自由软件和开源软件的许可证发布的，可以自由地进行再次发布和变更。因此，现在有RedHat Enterprise Linux(RHEL)、CentOS（RHEL下游发行版）、Ubuntu、Debian/GNU Linux等数百种发行版。</p>
 <p>用户可以考虑自己的喜好和使用目的，从中选择合适的版本。这也是Linux最大的特征之一。</p>
-<img alt="../_images/1-1-6.CentOS和Ubuntu的软件配置.png" class="align-center" src="../_images/1-1-6.CentOS和Ubuntu的软件配置.png" />
+<img alt="../_images/1-1-6.CentOS和Ubuntu的软件配置.drawio.png" class="align-center" src="../_images/1-1-6.CentOS和Ubuntu的软件配置.drawio.png" />
 <p>内核、库、Shell和基本命令都是OS所必备的组件，在任何发行版中都是通用的（不同发行版所采用的软件版本可能会有所差异）。</p>
 <p>各种Linux发行版最大的区别在于软件包的管理方式和桌面环境。</p>
 <div class="section" id="id4">
@@ -209,7 +214,7 @@
 <p>桌面环境提供了一套统一风格的易用性设计，其中包括菜单、文件管理器、Web浏览器、邮件工具和应用托管程序，以及系统管理程序。</p>
 <p>现在，使用最为广泛的桌面环境是GNOME，但是还有很多其他独具特色的桌面环境。</p>
 <p>Linux发行版可以根据其用途粗略分类为服务器和台式机，面向个人和面向企业。</p>
-<img alt="../_images/1-1-7.按用途分类的Linux发行版.png" class="align-center" src="../_images/1-1-7.按用途分类的Linux发行版.png" />
+<img alt="../_images/1-1-7.按用途分类的Linux发行版.drawio.png" class="align-center" src="../_images/1-1-7.按用途分类的Linux发行版.drawio.png" />
 </div>
 <div class="section" id="id6">
 <h3>发行版份额<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
@@ -217,7 +222,7 @@
 <ul>
 <li><p>Web服务器</p>
 <p>根据Q-Success公司运营的W3Techs.com调查，在运行Web服务器的Linux系统的市场占有率中，Ubuntu为第一位，Debian为第二位，CentOS（Redhat系）为第三位，接着是RedHat(Redhat Enterprise Linux:RHEL)，Gentoo等。</p>
-<img alt="../_images/1-1-8.Web服务器市场占有率.png" class="align-center" src="../_images/1-1-8.Web服务器市场占有率.png" />
+<img alt="../_images/1-1-8.Web服务器市场占有率.drawio.png" class="align-center" src="../_images/1-1-8.Web服务器市场占有率.drawio.png" />
 <div class="admonition note">
 <p class="admonition-title">注解</p>
 <p>W3Techs.com的调查是根据亚马逊的子公司Alexa Internet公司的Web流量的统计信息为基础进行分析。</p>

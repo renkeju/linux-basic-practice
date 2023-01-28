@@ -9,7 +9,7 @@
 
 在 Linux 系统中执行操作时，用户必定在文件系统的某个目录位置中。我们一般将当前所处的目录称为当前目录。下图中“zhangsan”是用户zhangsan的初始目录，下面将其作为的那个前目录进行介绍。
 
-.. image:: /images/Chapter_3/3-2/3-2-1.目录结构.png
+.. image:: /images/Chapter_3/3-2/3-2-1.目录结构.drawio.png
    :align: center
 
 切换目录
@@ -359,7 +359,7 @@ mv命令移动文件和目录，将源文件（或目录）移动到作为mv命�
 
 重定向可以使用符号“<”或“>”在目标之间进行切换。文件描述符0表示标准输入，1表示标准输出，2表示标准错误输出，此处0、1和2是在程序执行过程中产生的。如果进程打开其他文件，则文件描述符的使用顺序为：3、4、5……
 
-.. image:: /images/Chapter_3/3-2/3-2-2.文件描述符.png
+.. image:: /images/Chapter_3/3-2/3-2-2.文件描述符.drawio.png
     :align: center
 
 以下示例使用重定向和文件描述符来控制error文件中仅包含标准错误输出（文件“fileA”为存在文件，文件“fileX”为不存在文件）。
@@ -414,7 +414,7 @@ mv命令移动文件和目录，将源文件（或目录）移动到作为mv命�
 
 在第二个示例中，可以使用管道 ``|`` 将命令的结果（标准输出）传递给下一个命令的标准输入，以进一步加工数据。
 
-.. image:: /images/Chapter_3/3-2/3-2-3.管道动作.png
+.. image:: /images/Chapter_3/3-2/3-2-3.管道动作.drawio.png
     :align: center
 
 在以下使用管道的示例中，cat命令将文件 ``/etc/passwd`` 的内容作为标准输出进行输出，并将其传递给 head 命令以显示前三行（有关 head 命令，请参见下文）。
@@ -437,7 +437,7 @@ tee 命令将从标准输入读取的数据输出到标准输出和文件中。
 
 通过执行“-a”选项，可在不覆盖文件的情况下进行追加内容到文件。
 
-.. image:: /images/Chapter_3/3-2/3-2-4.tee命令行文.png
+.. image:: /images/Chapter_3/3-2/3-2-4.tee命令行文.drawio.png
     :align: center
 
 在以下示例中，n1命令对 ``/etc/passwd`` 文件的内容进行行编号，并通过管道将结果传递给tee命令。tee命令将其存储在文件myfile.txt中，并通过管道传递给head命令。head命令仅将标准输出输出前三行。
@@ -854,7 +854,7 @@ expand 命令将参数指定的文件中的制表符转换为空格。如果未�
 
 使用 grep 命令在文本数据中搜索字符串。显示与指定字符串匹配的行。
 
-.. image:: /images/Chapter_3/3-2/3-2-5.grep命令行为.png
+.. image:: /images/Chapter_3/3-2/3-2-5.grep命令行为.drawio.png
     :align: center
 
 .. code-block:: none 
@@ -910,7 +910,7 @@ grep 命令中指定的搜索字符串可以是完整的字符串，如 foo，�
 
 下图和示例使用“a”和“^”等符号创建模式。符号称为元字符，每个符号都有其自己的含义。
 
-.. image:: /images/Chapter_3/3-2/3-2-6.使用正则表达式的示例.png
+.. image:: /images/Chapter_3/3-2/3-2-6.使用正则表达式的示例.drawio.png
     :align: center
 
 以下是上图的示例

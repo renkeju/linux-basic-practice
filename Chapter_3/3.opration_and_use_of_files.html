@@ -53,6 +53,18 @@
         <script >mermaid.initialize({startOnLoad:true});</script>
         <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
         <script >mermaid.initialize({startOnLoad:true});</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script >mermaid.initialize({startOnLoad:true});</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script >mermaid.initialize({startOnLoad:true});</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script >mermaid.initialize({startOnLoad:true});</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script >mermaid.initialize({startOnLoad:true});</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script >mermaid.initialize({startOnLoad:true});</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script >mermaid.initialize({startOnLoad:true});</script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
@@ -176,6 +188,11 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_4/4.Register_modify_delete_user.html">第四章 管理用户</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_5/5.Execute_scripts_and_tasks.html">第五章 执行脚本和任务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_6/6.Manage_systems_and_applications.html">第六章 包管理系统和应用程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_7/7.Adding_and_using_a_disk.html">第七章 添加和使用磁盘</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_8/8.Manage_your_network.html">第八章 管理网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_9/9.System_maintenance.html">第九章 系统维护</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chapter_10/10.Security_measures.html">第十章 安全措施</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Appendix_A/A.Create_a_virtual_environment.html">附录A 创建虚拟环境</a></li>
 </ul>
 
@@ -264,7 +281,7 @@
 </table>
 <p>例如，/var作为系统运行中的文件可被更新、追加、删除的目录。在/var/mail目录下，每个用户都相对应有一个文件。另外，/var/lock 是为了在文件的读写等过程中进行排他控制而指定使用的目录。</p>
 <p>FHS是以根(/)为起点的单一的树状结构目录，“/”下配置了与目录相对应的目录层级。</p>
-<img alt="../_images/文件的树状结构.png" class="align-center" src="../_images/文件的树状结构.png" />
+<img alt="../_images/文件的树状结构.drawio.png" class="align-center" src="../_images/文件的树状结构.drawio.png" />
 <p>主要的目录和作用如下表所示：</p>
 <table class="colwidths-given docutils align-default" id="id63">
 <caption><span class="caption-text">目录和作用</span><a class="headerlink" href="#id63" title="永久链接至表格">¶</a></caption>
@@ -573,7 +590,7 @@ passwd (1ssl)        - compute password hashes
 <h3>在命令行中处理文件和目录<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
 <p>在命令行中操作文件系统中的文件和目录时，需要了解如何管理这些文件和目录以及管理文件系统的常用命令。</p>
 <p>在 Linux 系统中执行操作时，用户必定在文件系统的某个目录位置中。我们一般将当前所处的目录称为当前目录。下图中“zhangsan”是用户zhangsan的初始目录，下面将其作为的那个前目录进行介绍。</p>
-<img alt="../_images/3-2-1.目录结构.png" class="align-center" src="../_images/3-2-1.目录结构.png" />
+<img alt="../_images/3-2-1.目录结构.drawio.png" class="align-center" src="../_images/3-2-1.目录结构.drawio.png" />
 <div class="section" id="id8">
 <h4>切换目录<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
 <p>cd命令用于在文件系统上切换目录。</p>
@@ -998,7 +1015,7 @@ fileA ⬅ 标准输出
 </div>
 <p>上述结果打印在同一终端上，标准输出和标准错误输出均显示在同一个屏幕上。如果要将标准输出切换为“显示”，将标准错误输出切换为输出到“文件”，请使用重定向或文件描述符。</p>
 <p>重定向可以使用符号“&lt;”或“&gt;”在目标之间进行切换。文件描述符0表示标准输入，1表示标准输出，2表示标准错误输出，此处0、1和2是在程序执行过程中产生的。如果进程打开其他文件，则文件描述符的使用顺序为：3、4、5……</p>
-<img alt="../_images/3-2-2.文件描述符.png" class="align-center" src="../_images/3-2-2.文件描述符.png" />
+<img alt="../_images/3-2-2.文件描述符.drawio.png" class="align-center" src="../_images/3-2-2.文件描述符.drawio.png" />
 <p>以下示例使用重定向和文件描述符来控制error文件中仅包含标准错误输出（文件“fileA”为存在文件，文件“fileX”为不存在文件）。</p>
 <div class="section" id="id22">
 <h4>标准输出、标准错误输出重定向示例<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h4>
@@ -1055,7 +1072,7 @@ fileA ⬅ 标准输出
 </li>
 </ul>
 <p>在第二个示例中，可以使用管道 <code class="docutils literal notranslate"><span class="pre">|</span></code> 将命令的结果（标准输出）传递给下一个命令的标准输入，以进一步加工数据。</p>
-<img alt="../_images/3-2-3.管道动作.png" class="align-center" src="../_images/3-2-3.管道动作.png" />
+<img alt="../_images/3-2-3.管道动作.drawio.png" class="align-center" src="../_images/3-2-3.管道动作.drawio.png" />
 <p>在以下使用管道的示例中，cat命令将文件 <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> 的内容作为标准输出进行输出，并将其传递给 head 命令以显示前三行（有关 head 命令，请参见下文）。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cat /etc/passwd | head -3
 root:x:0:0:root:/root:/bin/bash
@@ -1071,7 +1088,7 @@ daemon:x:2:2:daemon:/sbin:/sbin/nologin
 </pre></div>
 </div>
 <p>通过执行“-a”选项，可在不覆盖文件的情况下进行追加内容到文件。</p>
-<img alt="../_images/3-2-4.tee命令行文.png" class="align-center" src="../_images/3-2-4.tee命令行文.png" />
+<img alt="../_images/3-2-4.tee命令行文.drawio.png" class="align-center" src="../_images/3-2-4.tee命令行文.drawio.png" />
 <p>在以下示例中，n1命令对 <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> 文件的内容进行行编号，并通过管道将结果传递给tee命令。tee命令将其存储在文件myfile.txt中，并通过管道传递给head命令。head命令仅将标准输出输出前三行。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ nl /etc/passwd | tee myfile.txt | head -3
     1  root:x:0:0:root:/root:/bin/bash
@@ -1584,7 +1601,7 @@ $ od -a data3 ⬅ ⑤
 <div class="section" id="id35">
 <h3>搜索字符串<a class="headerlink" href="#id35" title="永久链接至标题">¶</a></h3>
 <p>使用 grep 命令在文本数据中搜索字符串。显示与指定字符串匹配的行。</p>
-<img alt="../_images/3-2-5.grep命令行为.png" class="align-center" src="../_images/3-2-5.grep命令行为.png" />
+<img alt="../_images/3-2-5.grep命令行为.drawio.png" class="align-center" src="../_images/3-2-5.grep命令行为.drawio.png" />
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>grep [选项] 要搜索的字符串模式 [文件名称...]
 </pre></div>
 </div>
@@ -1645,7 +1662,7 @@ foo hello
 <h4>正则表达式<a class="headerlink" href="#id36" title="永久链接至标题">¶</a></h4>
 <p>grep 命令中指定的搜索字符串可以是完整的字符串，如 foo，也可以是正则表达式，正则表达式是将符号和字符串组合起来，制作并检测找到的目标关键词的模式的手段。</p>
 <p>下图和示例使用“a”和“^”等符号创建模式。符号称为元字符，每个符号都有其自己的含义。</p>
-<img alt="../_images/3-2-6.使用正则表达式的示例.png" class="align-center" src="../_images/3-2-6.使用正则表达式的示例.png" />
+<img alt="../_images/3-2-6.使用正则表达式的示例.drawio.png" class="align-center" src="../_images/3-2-6.使用正则表达式的示例.drawio.png" />
 <p>以下是上图的示例</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cat fileB
 linux01
@@ -1827,9 +1844,9 @@ uid=1000(renkeju) gid=1000(renkeju) groups=1000(renkeju),10(wheel),995(docker)
 <div class="section" id="id40">
 <h4>权限<a class="headerlink" href="#id40" title="永久链接至标题">¶</a></h4>
 <p>您可以分别为每个文件或目录设置“允许谁”和“执行什么操作”。这可以称为权限。可以使用 <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> 命令检查设置的权限。</p>
-<img alt="../_images/3-3-1.确认权限.png" class="align-center" src="../_images/3-3-1.确认权限.png" />
+<img alt="../_images/3-3-1.确认权限.drawio.png" class="align-center" src="../_images/3-3-1.确认权限.drawio.png" />
 <p>权限显示的内容分为以下几类：</p>
-<img alt="../_images/3-3-2.权限.png" class="align-center" src="../_images/3-3-2.权限.png" />
+<img alt="../_images/3-3-2.权限.drawio.png" class="align-center" src="../_images/3-3-2.权限.drawio.png" />
 <p>① 文件类型（这表示文件类型，而不是权限本身，主要类型如下表所示）</p>
 <p>② 对用户（所有者）的权限</p>
 <p>③ 所有组的权限</p>
@@ -1862,7 +1879,7 @@ uid=1000(renkeju) gid=1000(renkeju) groups=1000(renkeju),10(wheel),995(docker)
 </table>
 <p>此外，“rw-”表示允许执行哪些操作。在“r”,“w”,“x”这些操作类型中，标识为“-”表示此操作不被允许。</p>
 <p>下图显示了文件“Foo”的访问权限。“-rw-rw-r–”允许用户yuko读写普通文件。由于所有组是users，因此属于users的其他用户可以读写。也就是说，用户ryo可以读写。请注意，不属于 users 组的其他用户（在本例中的mana）只能读取。</p>
-<img alt="../_images/3-3-3.文件Foo的访问权限.png" class="align-center" src="../_images/3-3-3.文件Foo的访问权限.png" />
+<img alt="../_images/3-3-3.文件Foo的访问权限.drawio.png" class="align-center" src="../_images/3-3-3.文件Foo的访问权限.drawio.png" />
 <p>此外，“r”、“w”、“x”的含义因文件或目录而异。</p>
 <table class="colwidths-given docutils align-default" id="id91">
 <caption><span class="caption-text">文件和目录之间的差异</span><a class="headerlink" href="#id91" title="永久链接至表格">¶</a></caption>
@@ -1904,7 +1921,7 @@ uid=1000(renkeju) gid=1000(renkeju) groups=1000(renkeju),10(wheel),995(docker)
 <div class="section" id="id42">
 <h5>符号方式<a class="headerlink" href="#id42" title="永久链接至标题">¶</a></h5>
 <p>使用字符或符号变更权限。使用以下符号或字符：</p>
-<img alt="../_images/3-3-4.符号方式.png" class="align-center" src="../_images/3-3-4.符号方式.png" />
+<img alt="../_images/3-3-4.符号方式.drawio.png" class="align-center" src="../_images/3-3-4.符号方式.drawio.png" />
 <p>请参考下方示例：文件“mypg”的当前权限为“rw-rw-r–”。将其更改为“所有用户都可以读取和执行，只有所有者可以写入”的权限。文件的所有者为用户renkeju。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ls -l ⬅ 检查权限
 -rw-rw-r--. 1 renkeju renkeju 0 Feb 23 23:03 mypg
@@ -1917,7 +1934,7 @@ $ chmod a+x,g-w mypg ⬅ 在符号模式下更改权限
 <div class="section" id="id43">
 <h5>八进制方式<a class="headerlink" href="#id43" title="永久链接至标题">¶</a></h5>
 <p>使用八进制数字更改所需的权限。每个权限都有自己的编号。</p>
-<img alt="../_images/3-3-5.八进制方式.png" class="align-center" src="../_images/3-3-5.八进制方式.png" />
+<img alt="../_images/3-3-5.八进制方式.drawio.png" class="align-center" src="../_images/3-3-5.八进制方式.drawio.png" />
 <p>也就是说，如果“rwx”全部被赋予权限，则为“7”，如果仅为“r”,则为“4”。在八进制模式下，通过组合此数字来指定权限。</p>
 <p>如果将之前的符号模式的示例换成使用八进制模式操作：</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ls -l mypg
@@ -2064,7 +2081,7 @@ $ ls -li file* ⬅ 检查 inode
 1241225 -rw-rw-r--. 2 renkeju renkeju 6 Feb 24 09:43 fileY
 </pre></div>
 </div>
-<img alt="../_images/3-3-7.硬链接.png" class="align-center" src="../_images/3-3-7.硬链接.png" />
+<img alt="../_images/3-3-7.硬链接.drawio.png" class="align-center" src="../_images/3-3-7.硬链接.drawio.png" />
 <p>此外，以下示例还使用rm命令删除了文件“fileX”。但是，由于inode未被删除，因此您仍然还可以访问到链接“fileY”文件中的数据。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ rm fileX
 $ cat fileY
@@ -2088,7 +2105,7 @@ ln: ‘mydir’: hard link not allowed for directory
 <div class="section" id="id47">
 <h4>创建符号链接<a class="headerlink" href="#id47" title="永久链接至标题">¶</a></h4>
 <p>以下示例创建了符号链接，但请确保使用了不同的inode编号，并且在运行 <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> 时，符号链接文件显示为“链接名称 -&gt; 原始文件名称”，并且权限的开头显示符号链接文件的文件类型为“l”。</p>
-<img alt="../_images/3-3-8.符号链接.png" class="align-center" src="../_images/3-3-8.符号链接.png" />
+<img alt="../_images/3-3-8.符号链接.drawio.png" class="align-center" src="../_images/3-3-8.符号链接.drawio.png" />
 <p>此外，请注意，如果删除原始文件（fileX），则会导致错误，因为链接本身没有引用（原始文件的位置）。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ rm fileX
 $ cat fileY
@@ -2185,7 +2202,7 @@ lrwxrwxrwx. 1 renkeju renkeju 5 Feb 24 10:07 mydir_link -&gt; mydir
 </li>
 </ul>
 <p>在第二个和第三个示例中，使用“-mtime”可以基于上次更新的日期和时间进行查找，使用“-atime”可以基于上次访问的日期和时间进行查找。另外，在指定日期和时间时，数字前可以有“什么都不加”、“+”和“-”三种方式。</p>
-<img alt="../_images/3-3-9.指定日期.png" class="align-center" src="../_images/3-3-9.指定日期.png" />
+<img alt="../_images/3-3-9.指定日期.drawio.png" class="align-center" src="../_images/3-3-9.指定日期.drawio.png" />
 <p>以下示例演示了如何在CentOS中结合使用find和xargs命令。当前目录中有一个目录和两个常规文件。尝试使用find和xargs命令搜索此目录并删除文件，但出现错误，因为“file B”文件名称中包含空格。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ls
 dirA  fileA  file B
@@ -2336,7 +2353,7 @@ which: /usr/bin/which /usr/share/man/man1/which.1.gz
 <h3>什么是vi编辑器？<a class="headerlink" href="#id53" title="永久链接至标题">¶</a></h3>
 <p>vi是Bill Joy开发的UNIX标准文本编辑器。您可以使用vi编辑器创建和编辑文件。Linux也提供了与vi兼容的增强功能vim(Vi IMproved)。在最近的RedHat 发行版中，vi是作为vim的基础配置软件包命令或vim的alias（别名）提供的。vim提供多种有用的功能，如语法高亮和屏幕截图等。</p>
 <p>vi编辑器启动方式如下图所示：</p>
-<img alt="../_images/3-4-1.启动vi编辑器.png" class="align-center" src="../_images/3-4-1.启动vi编辑器.png" />
+<img alt="../_images/3-4-1.启动vi编辑器.drawio.png" class="align-center" src="../_images/3-4-1.启动vi编辑器.drawio.png" />
 <p>如果启动vi编辑器时没有指定文件名，请在编辑后使用文件名称保存新文件。此外，如果指定了文件名称，如示例②所示，将打开该文件。如果不存在具体指定名称的文件，则使用该名称创建一个新文件。</p>
 <p>vi编辑器在三种模式之间切换：</p>
 <table class="colwidths-given docutils align-default" id="id97">
@@ -2365,7 +2382,7 @@ which: /usr/bin/which /usr/share/man/man1/which.1.gz
 <div class="section" id="id54">
 <h4>滚动屏幕（命令模式）<a class="headerlink" href="#id54" title="永久链接至标题">¶</a></h4>
 <p>启动 vi 编辑器后立即处于命令模式。如果在vi编辑器中打开文件时无法在一个屏幕上查看到所有信息，则按[Ctrl]+[f]可将屏幕向前移动到文件末尾。此外，如果要将屏幕向前移动到文件的开头，请按[Ctrl]+[b]。</p>
-<img alt="../_images/3-4-2.在vi编辑器中滚动屏幕.png" class="align-center" src="../_images/3-4-2.在vi编辑器中滚动屏幕.png" />
+<img alt="../_images/3-4-2.在vi编辑器中滚动屏幕.drawio.png" class="align-center" src="../_images/3-4-2.在vi编辑器中滚动屏幕.drawio.png" />
 <p>用于滚动和移动光标的主要命令包括：</p>
 <table class="colwidths-given docutils align-default" id="id98">
 <caption><span class="caption-text">用于在 vi 编辑器中移动光标和滚动屏幕的命令</span><a class="headerlink" href="#id98" title="永久链接至表格">¶</a></caption>
@@ -2521,7 +2538,7 @@ which: /usr/bin/which /usr/share/man/man1/which.1.gz
 </tbody>
 </table>
 <p>以下示例使用“i”命令将User user更改为User Webuser。</p>
-<img alt="../_images/3-4-6.使用“i”命令更改字符.png" class="align-center" src="../_images/3-4-6.使用“i”命令更改字符.png" />
+<img alt="../_images/3-4-6.使用“i”命令更改字符.drawio.png" class="align-center" src="../_images/3-4-6.使用“i”命令更改字符.drawio.png" />
 </div>
 <div class="section" id="id57">
 <h4>删除字符、单词或行（在命令模式下）<a class="headerlink" href="#id57" title="永久链接至标题">¶</a></h4>
@@ -2564,7 +2581,7 @@ which: /usr/bin/which /usr/share/man/man1/which.1.gz
 </tr>
 </tbody>
 </table>
-<img alt="../_images/3-4-7.使用“x”命令删除字符.png" class="align-center" src="../_images/3-4-7.使用“x”命令删除字符.png" />
+<img alt="../_images/3-4-7.使用“x”命令删除字符.drawio.png" class="align-center" src="../_images/3-4-7.使用“x”命令删除字符.drawio.png" />
 </div>
 <div class="section" id="id58">
 <h4>复制和黏贴字符、单词或行（在命令模式下）<a class="headerlink" href="#id58" title="永久链接至标题">¶</a></h4>
@@ -2607,7 +2624,7 @@ which: /usr/bin/which /usr/share/man/man1/which.1.gz
 </tr>
 </tbody>
 </table>
-<img alt="../_images/3-4-8.使用yy命令复制.png" class="align-center" src="../_images/3-4-8.使用yy命令复制.png" />
+<img alt="../_images/3-4-8.使用yy命令复制.drawio.png" class="align-center" src="../_images/3-4-8.使用yy命令复制.drawio.png" />
 </div>
 <div class="section" id="id59">
 <h4>在vi编辑器中搜索字符串<a class="headerlink" href="#id59" title="永久链接至标题">¶</a></h4>
