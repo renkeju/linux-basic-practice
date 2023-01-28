@@ -72,7 +72,7 @@ shell脚本由三种执行方式（四种表示方法）。运行结果保持不
 
 例如，如果编写了一个使用export命令设置环境变量的脚本，则上表的运行方式②会将环境变量设置为子shell环境的环境变量，并在子shell结束时（脚本结束时）将其删除。如果要将其设置为当前命令提示符下的环境变量，请使用③和④的方式。
 
-.. image:: /images/Chapter_5/5-1-1.shell运行时.png
+.. image:: /images/Chapter_5/5-1-1.shell运行时.drawio.png
     :align: center
 
 脚本文件权限

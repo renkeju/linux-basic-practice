@@ -1,0 +1,10 @@
+******************************
+第六章 包管理系统和应用程序
+******************************
+
+.. include:: /Chapter_6/6.1.CentOS_package_management.rst
+.. include:: /Chapter_6/6.2.Ubuntu_package_management.rst
+.. include:: /Chapter_6/6.3.Process_management.rst
+.. include:: /Chapter_6/6.4.Backup_and_restore.rst
+.. include:: /Chapter_6/6.5.Collect_and_investigate_logs.rst
+.. include:: /Chapter_6/6.6.Adjust_system_time.rst

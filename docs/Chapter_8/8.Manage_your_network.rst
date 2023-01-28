@@ -1,0 +1,9 @@
+********************************
+第八章 管理网络
+********************************
+
+.. include:: /Chapter_8/8.1.Understanding_network_configuration_files.rst
+.. include:: /Chapter_8/8.2.Using_NetworkManager.rst
+.. include:: /Chapter_8/8.3.Commands_for_grasping_and_investigating_network_status.rst
+.. include:: /Chapter_8/8.4.Perform_routing(route_control).rst
+.. include:: /Chapter_8/8.5.Do_ethernet_bridging_with_linux_bridge.rst

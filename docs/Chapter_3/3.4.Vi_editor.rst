@@ -9,7 +9,7 @@ vi是Bill Joy开发的UNIX标准文本编辑器。您可以使用vi编辑器创�
 
 vi编辑器启动方式如下图所示：
 
-.. image:: /images/Chapter_3/3-4/3-4-1.启动vi编辑器.png
+.. image:: /images/Chapter_3/3-4/3-4-1.启动vi编辑器.drawio.png
     :align: center
 
 如果启动vi编辑器时没有指定文件名，请在编辑后使用文件名称保存新文件。此外，如果指定了文件名称，如示例②所示，将打开该文件。如果不存在具体指定名称的文件，则使用该名称创建一个新文件。
@@ -29,7 +29,7 @@ vi编辑器在三种模式之间切换：
 
 启动 vi 编辑器后立即处于命令模式。如果在vi编辑器中打开文件时无法在一个屏幕上查看到所有信息，则按[Ctrl]+[f]可将屏幕向前移动到文件末尾。此外，如果要将屏幕向前移动到文件的开头，请按[Ctrl]+[b]。
 
-.. image:: /images/Chapter_3/3-4/3-4-2.在vi编辑器中滚动屏幕.png
+.. image:: /images/Chapter_3/3-4/3-4-2.在vi编辑器中滚动屏幕.drawio.png
     :align: center
 
 用于滚动和移动光标的主要命令包括：
@@ -133,7 +133,7 @@ vi编辑器在三种模式之间切换：
 
 以下示例使用“i”命令将User user更改为User Webuser。
 
-.. image:: /images/Chapter_3/3-4/3-4-6.使用“i”命令更改字符.png
+.. image:: /images/Chapter_3/3-4/3-4-6.使用“i”命令更改字符.drawio.png
     :align: center
 
 删除字符、单词或行（在命令模式下）
@@ -154,7 +154,7 @@ vi编辑器在三种模式之间切换：
     "dG", "从光标行删除到最后一行"
     "dH", "从第一行删除到光标行"
 
-.. image:: /images/Chapter_3/3-4/3-4-7.使用“x”命令删除字符.png
+.. image:: /images/Chapter_3/3-4/3-4-7.使用“x”命令删除字符.drawio.png
     :align: center
 
 复制和黏贴字符、单词或行（在命令模式下）
@@ -175,7 +175,7 @@ vi编辑器在三种模式之间切换：
     "P（大写）", "如果要复制行，则黏贴到光标行上方的行中；如果要复制字符、单词则黏贴到光标的左侧"
     "p（小写）", "如果要复制行，则黏贴到光标行下方的行中；如果要复制字符、单词则黏贴到光标的右侧"
 
-.. image:: /images/Chapter_3/3-4/3-4-8.使用yy命令复制.png
+.. image:: /images/Chapter_3/3-4/3-4-8.使用yy命令复制.drawio.png
     :align: center
 
 在vi编辑器中搜索字符串
