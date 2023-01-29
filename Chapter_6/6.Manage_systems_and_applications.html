@@ -133,12 +133,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_4/4.Register_modify_delete_user.html">第四章 管理用户</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_5/5.Execute_scripts_and_tasks.html">第五章 执行脚本和任务</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">第六章 包管理系统和应用程序</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#centos">6.1 CentOS 包管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#centos">6.1 CentOS 包管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">什么是包管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rpm">使用rpm命令</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">查看包信息</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#ubuntu">6.2 Ubuntu 包管理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">6.3 进程管理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">6.4 备份与还原</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">6.5 收集和调查日志</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">6.6 调整系统时间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">6.3 进程管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">6.4 备份与还原</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">6.5 收集和调查日志</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">6.6 调整系统时间</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Chapter_7/7.Adding_and_using_a_disk.html">第七章 添加和使用磁盘</a></li>
@@ -176,21 +183,136 @@
 <h1>第六章 包管理系统和应用程序<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="section" id="centos">
 <h2>6.1 CentOS 包管理<a class="headerlink" href="#centos" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id2">
+<h3>什么是包管理<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>许多软件都可以在不同的Linux发行版本中使用。
+一言以蔽之，软件除了提供软件程序本身的功能以外，还需要程序所依赖使用的库文件、软件文档等。
+因此，Linux各种发行版本将这些集合视作一个称为包的单元。</p>
+<img alt="../_images/6-1-1.包.drawio.png" class="align-center" src="../_images/6-1-1.包.drawio.png" />
+<p>安装（installing）和删除（uninstalling）uninstalling软件称为包的管理。
+通过使用包管理，您可以轻松地查看当前安装的软件的详细信息，检查软件之间的依赖关系，并避免软件之间的冲突。</p>
+<p>包依赖是一种关系，其意为必须先安装包B才能安装包A，才能使包A工作。
+如果您在尚未安装包B时尝试安装包A，您的包管理系统将因为依赖问题而报告错误。</p>
+<p>如第一章所述，Redhat（CentOS）和Ubuntu/Debian系有不同的包管理器。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 25%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>RadHat系</p></th>
+<th class="head"><p>Ubuntu/Debian系</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>包形式</p></td>
+<td><p>rpm</p></td>
+<td><p>deb</p></td>
+</tr>
+<tr class="row-odd"><td><p>包管理形式</p></td>
+<td><p>rpm 命令</p></td>
+<td><p>dpkg 命令</p></td>
+</tr>
+<tr class="row-even"><td><p>使用存储库的包管理命令</p></td>
+<td><p>yum(dnf)命令</p></td>
+<td><p>apt 命令</p></td>
+</tr>
+</tbody>
+</table>
+<p>首先对RedHat(CentOS)系进行说明。rpm和yum都是包管理的命令，它们的区别如下。</p>
+<ul>
+<li><p>rpm 命令</p>
+<blockquote>
+<div><p>单独管理每个软件包。依赖关系不会自动解析匹配，但会显示起所依赖包的信息。</p>
+</div></blockquote>
+</li>
+<li><p>yum 命令</p>
+<blockquote>
+<div><p>浏览存储库，管理当前安装包的依赖包。其依赖关系会自动解决。</p>
+</div></blockquote>
+</li>
+</ul>
+<p>如果您需要明确指定要使用并安装的包的版本，使用 rpm 命令更加合适。
+但是，您必须单独指定所需的包并注意它们的安装顺序。
+另一方面，yum命令会根据当前使用的操作系统版本安装相应的版本和依赖包。</p>
+</div>
+<div class="section" id="rpm">
+<h3>使用rpm命令<a class="headerlink" href="#rpm" title="永久链接至标题">¶</a></h3>
+<p>rpm命令用于管理rpm包。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rpm</span> <span class="p">[</span><span class="n">选项</span><span class="p">]</span> <span class="n">包名称</span>
+</pre></div>
+</div>
+<div class="section" id="id3">
+<h4>查看包信息<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h4>
+<p>要查看和打印有关 rpm 包的信息，请使用 rpm 命令的 “-q”(–query)选项。
+要显示更加详细的信息，可以使用以下选项组合。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>选项</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-q、–query</p></td>
+<td><p>如果已经安装了包，则显示软件包的版本</p></td>
+</tr>
+<tr class="row-odd"><td><p>-a、–all</p></td>
+<td><p>列出已安装的rpm包信息</p></td>
+</tr>
+<tr class="row-even"><td><p>-i、–info</p></td>
+<td><p>显示指定包的详细信息</p></td>
+</tr>
+<tr class="row-odd"><td><p>-f、–file</p></td>
+<td><p>显示包含指定文件的 rpm 包</p></td>
+</tr>
+<tr class="row-even"><td><p>-c、–configfiles</p></td>
+<td><p>仅显示指定包中的配置文件</p></td>
+</tr>
+<tr class="row-odd"><td><p>-d、–docfiles</p></td>
+<td><p>仅显示指定包中的文档</p></td>
+</tr>
+<tr class="row-even"><td><p>-l、–list</p></td>
+<td><p>显示指定包中包含的所有文件</p></td>
+</tr>
+<tr class="row-odd"><td><p>-K、–checksig</p></td>
+<td><p>检查指定包文件中包含的所有摘要值和签名，以验证包的完整性</p></td>
+</tr>
+<tr class="row-even"><td><p>-R、–requires</p></td>
+<td><p>显示指定包依赖的rpm包名</p></td>
+</tr>
+<tr class="row-odd"><td><p>-p、–packages</p></td>
+<td><p>显示指定 rpm 包文件的信息而不是已安装的 rpm 包</p></td>
+</tr>
+<tr class="row-even"><td><p>–changelog</p></td>
+<td><p>显示包更新信息</p></td>
+</tr>
+</tbody>
+</table>
+<p>下面是使用带有各种选项的 rpm 命令来显示包信息的实例：</p>
+<p>指定包名称以显示有关包的详细信息。</p>
+</div>
+</div>
 </div>
 <div class="section" id="ubuntu">
 <h2>6.2 Ubuntu 包管理<a class="headerlink" href="#ubuntu" title="永久链接至标题">¶</a></h2>
 </div>
-<div class="section" id="id2">
-<h2>6.3 进程管理<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-</div>
-<div class="section" id="id3">
-<h2>6.4 备份与还原<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-</div>
 <div class="section" id="id4">
-<h2>6.5 收集和调查日志<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<h2>6.3 进程管理<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 </div>
 <div class="section" id="id5">
-<h2>6.6 调整系统时间<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<h2>6.4 备份与还原<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="id6">
+<h2>6.5 收集和调查日志<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="id7">
+<h2>6.6 调整系统时间<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
 </div>
 </div>
 
